@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Order$OrderNumber</field>
+    </columns>
+    <columns>
+        <field>Order$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Order$Status</field>
+    </columns>
+    <columns>
+        <field>Order$Opportunity</field>
+    </columns>
+    <columns>
+        <field>Order$Account</field>
+    </columns>
+    <columns>
+        <field>Order$CreatedBy</field>
+    </columns>
+    <columns>
+        <field>Order$Project_Manager__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Order$RecordType</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Order.Managed_Installation</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Install Report - Order Received</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Orders_with_Managed_Install__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Order$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

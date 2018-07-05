@@ -1,0 +1,50 @@
+<aura:component controller="TASKRAY_LTNG.trComponentCtrl">
+  <aura:attribute name="suggestions" type="Object[]" access="private"/>
+  <aura:attribute name="selectedSuggestion" type="Object" />
+  <aura:dependency type="EVENT" resource="markup://TASKRAY_LTNG:trGenericAppEvent" />
+  <div class="slds-form-element slds-lookup" data-select="single" style="margin-left: 10px; float: left; width: 47%;" aura:id="task-typeahead-dropdown" onclick="{!c.toggleVisibility}">
+    <div class="slds-form-element__control">
+      <aura:if isTrue="{!v.selectedSuggestion.suggestionLabel == null}">
+        <input type="text" class="slds-input" placeholder="{!$Label.TASKRAY.TaskRay_Search_TasksPlaceholder}" onkeyup="{!c.onKeyUp}" />
+        <aura:set attribute="else">
+          <div class="slds-pill_container">
+            <span class="slds-pill slds-size--1-of-1">
+              <span class="slds-pill__label" title="{!v.selectedSuggestion.suggestionLabel}">{!v.selectedSuggestion.suggestionLabel}</span>
+              <button class="slds-button slds-button--icon slds-pill__remove" title="Remove" onclick="{!c.clearClick}">
+                <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#close" category="utility" size="x-small" name="closePill" fillOverride="#54698d" />
+              </button>
+            </span>
+          </div>
+        </aura:set>
+      </aura:if>
+    </div>
+    <span>
+      <aura:if isTrue="{!v.suggestions.length != 0}">
+        <div class="slds-lookup__menu">
+          <ul class="slds-lookup__list" role="listbox">
+            <aura:iteration items="{!v.suggestions}" var="suggestion">
+              <li role="presentation" key="{!suggestion.Id}">
+                <span class="slds-lookup__item-action slds-media">
+                  <span class="slds-media__body">
+                    <span class="slds-lookup__result-text" role="option" onclick="{!c.suggestionClick}" data-suggestionId="{!suggestion.Id}" data-suggestionValue="{!suggestion.Name}">
+                      <mark data-suggestionId="{!suggestion.Id}" data-suggestionValue="{!suggestion.Name}">
+                        {!suggestion.Name}
+                      </mark>
+                      <div className="slds-lookup__result-meta slds-text-body_small" data-suggestionId="{!suggestion.Id}" data-suggestionValue="{!suggestion.Name}">
+                        {!suggestion.TASKRAY__trTaskGroup__r.Name}
+                        <aura:if isTrue="{!and(suggestion.TASKRAY__trTaskGroup__r != null, suggestion.TASKRAY__Project__r != null)}">
+                         •
+                        </aura:if> 
+                        {!suggestion.TASKRAY__Project__r.Name}
+                      </div>
+                    </span>
+                  </span>
+                </span>
+              </li>
+            </aura:iteration>
+          </ul>
+        </div>
+      </aura:if>
+    </span>
+  </div>
+</aura:component>

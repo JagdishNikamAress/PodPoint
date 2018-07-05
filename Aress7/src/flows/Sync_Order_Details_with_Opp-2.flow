@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>Sync Order Details with Opp {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Sync Order Details with Opp</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Order</name>
+        <label>Update Order</label>
+        <locationX>227</locationX>
+        <locationY>162</locationY>
+        <filters>
+            <field>OrderNumber</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>strOrderNumber</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Confirm_Dispatch_Address__c</field>
+            <value>
+                <elementReference>blConfirmAddress</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <elementReference>strOrderStatus</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Order</object>
+    </recordUpdates>
+    <startElementReference>Update_Order</startElementReference>
+    <variables>
+        <name>blConfirmAddress</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>strOrderNumber</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <name>strOrderStatus</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

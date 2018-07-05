@@ -1,0 +1,11 @@
+Hello,
+
+Below quote has been prepared with a product where the sales price has been set lower than the list price.
+
+Quote : {!Quote.Id}
+Quote Name : {!Quote.Name}
+Quote Owner : {!Quote.LastModifiedBy}
+
+Please review this price and approve the Quote.
+Thanks & regards
+{!User.Name}

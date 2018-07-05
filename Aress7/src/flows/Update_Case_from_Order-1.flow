@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <decisions>
+        <name>Case_ID_is_not_Blank</name>
+        <label>Case ID is not Blank</label>
+        <locationX>328</locationX>
+        <locationY>108</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Not_Blank</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>strCaseID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Case</targetReference>
+            </connector>
+            <label>Not Blank</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Update Case from Order {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Case from Order</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Lookup_Order</name>
+        <label>Lookup Order</label>
+        <locationX>131</locationX>
+        <locationY>107</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Case_ID_is_not_Blank</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>strOrderID</elementReference>
+            </value>
+        </filters>
+        <object>Order</object>
+        <outputAssignments>
+            <assignToReference>strCaseID</assignToReference>
+            <field>Case_ID__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>strProjectManager</assignToReference>
+            <field>Project_Manager__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Case</name>
+        <label>Update Case</label>
+        <locationX>536</locationX>
+        <locationY>106</locationY>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>strCaseID</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Project_Manager__c</field>
+            <value>
+                <elementReference>strProjectManager</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <startElementReference>Lookup_Order</startElementReference>
+    <variables>
+        <name>strCaseID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>strNotes</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>strOrderID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>strProjectManager</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

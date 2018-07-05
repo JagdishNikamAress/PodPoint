@@ -1,0 +1,14 @@
+New Information Qualified Lead:
+
+Conversion Type: {!Lead.Lead_Type__c}
+
+Name: {!Lead.Name}
+Email : {!Lead.Email}
+Phone : {!Lead.Phone}
+Postcode: {!Lead.PostalCode}
+
+How many chargepoints are they thinking about: {!Lead.Number_of_chargepoints__c}
+
+Please click on the link to see the lead : {!Lead.Link}
+
+Thanks,

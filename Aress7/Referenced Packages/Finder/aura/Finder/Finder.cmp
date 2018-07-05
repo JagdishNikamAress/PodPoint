@@ -1,0 +1,13 @@
+<aura:component controller="lookup.FinderController" implements="flexipage:availableForAllPageTypes"  description="Quick Search Box">
+    
+    <aura:attribute name="label" type="String" default="Go to"/>
+    <aura:attribute name="placeholder" type="String" default="type a least 2 characters"/>
+	<aura:attribute name="types" type="String[]" default="Lead,Account,Contact,Opportunity,User"/>
+    
+    <aura:registerEvent name="finderEvent" type="lookup:finderEvt"/>
+    <aura:handler action="{!c.eventCalled}" event="lookup:finderEvt"/>
+    
+    <ltng:require afterScriptsLoaded="{!c.init}" scripts="/resource/lookup__securefilters,/resource/lookup__jquery,/resource/lookup__typeahead" />
+    <ui:inputText aura:id="typeahead" keyup="{!c.query}" label="{!v.label}" placeholder="{!v.placeholder}" class="typeahead" />  
+
+</aura:component>

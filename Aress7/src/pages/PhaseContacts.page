@@ -1,0 +1,30 @@
+<apex:page standardController="Phases__c" extensions="PhaseController">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageMessages />
+            <apex:pageBlockTable value="{!lstPhaseContacts}" var="a">            
+                <apex:column headerValue="Link" >
+                    <apex:outputLink value="/{!a.id}"  target="_blank">Go to Record</apex:outputLink>
+                </apex:column>
+                <apex:column headerValue="First Name" >
+                    <apex:outputField value="{!a.firstname}"/>
+                </apex:column>
+                <apex:column headerValue="Last Name">
+                    <apex:outputField value="{!a.lastname}"/>
+                </apex:column>
+                <apex:column headerValue="Email">
+                    <apex:outputField value="{!a.email}"/>
+                </apex:column>
+                <apex:column headerValue="Phone">
+                    <apex:outputField value="{!a.phone}"/>
+                </apex:column>
+                <apex:column headerValue="Account">
+                    <apex:outputField value="{!a.account.name}"/>
+                </apex:column>
+                <apex:column headerValue="Region">
+                    <apex:outputField value="{!a.Region__c}"/>
+                </apex:column>
+            </apex:pageBlockTable>        
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

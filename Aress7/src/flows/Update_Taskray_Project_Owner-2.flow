@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <constants>
+        <name>InstallTemplateID</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>a1G4E0000014zvN</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <name>Is_User_Exist</name>
+        <label>Is User Exist</label>
+        <locationX>217</locationX>
+        <locationY>256</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>User_Exist</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>UserID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Taskray_Project</targetReference>
+            </connector>
+            <label>User Exist</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Update Taskray Project Owner {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Taskray Project Owner</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Lookup_Project_Manager</name>
+        <label>Lookup Project Manager</label>
+        <locationX>220</locationX>
+        <locationY>74</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_User_Exist</targetReference>
+        </connector>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>UserName</elementReference>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputAssignments>
+            <assignToReference>UserID</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Taskray_Project</name>
+        <label>Update Taskray Project</label>
+        <locationX>223</locationX>
+        <locationY>454</locationY>
+        <filters>
+            <field>Survey_Case__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>CaseID</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>UserID</elementReference>
+            </value>
+        </inputAssignments>
+        <object>TASKRAY__Project__c</object>
+    </recordUpdates>
+    <startElementReference>Lookup_Project_Manager</startElementReference>
+    <variables>
+        <name>CaseID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>UserID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>UserName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

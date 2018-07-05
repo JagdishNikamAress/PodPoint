@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <description>Email to send when you can&apos;t reach a customer (2nd time)</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Contact Attempted 2 (old)</name>
+    <style>none</style>
+    <subject>POD Point - Missed a call from us</subject>
+    <textOnly>We tried to contact you
+
+We’d love to chat
+
+Hi {!Account.Name},
+
+Sorry I couldn’t get hold of you just now, but I hope that the information I sent through before has helped you on your way to finding the perfect home charging point for you.
+
+If you have any more questions, just let me know and I’ll walk you through anything that’s not clear. Ready to get charging? Simply click below to get set up.
+
+{!Opportunity.Ordering_Tool_Customer_URL__c}
+
+Kind Regards,
+
+{!Opportunity.OwnerFullName}
+020 7247 4114</textOnly>
+    <type>custom</type>
+</EmailTemplate>

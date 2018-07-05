@@ -1,0 +1,41 @@
+<apex:page standardController="Account" extensions="AccountController">
+    <apex:form >  
+        <apex:pageblock >
+            <apex:pageblocksection title="Project & Phase Details" rendered="{!(routeToMarket == 'Built Environment')}">
+                <apex:pageblocktable value="{!listProjects}" var="p">
+                    <apex:column headerValue="Project Name" >
+                        <apex:commandLink action="{!getPhases}" value="{!p.name}" reRender="phases">
+                            <apex:param name="sParam" value="{!p.id}" assignTo="{!projectID}"/>
+                        </apex:commandLink>
+                    </apex:column>                   
+                    <apex:column headerValue="Start Date">
+                        <apex:outputField value="{!p.Start_Date__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="End Date">
+                        <apex:outputField value="{!p.End_Date__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Record Link">
+                        <apex:outputLink value="/{!p.Id}"  target="_blank">Click here</apex:outputLink>
+                    </apex:column>
+                </apex:pageblocktable>
+                <apex:pageBlockTable var="r" value="{!listPhases}" id="phases">
+                    <apex:column headerValue="Phase Name" >
+                        <apex:commandLink action="{!getBids}" value="{!r.name}" reRender="Bids">
+                            <apex:param name="sParamPhase" value="{!r.id}" assignTo="{!phaseID}"/>
+                        </apex:commandLink>
+                    </apex:column> 
+                    <apex:column headerValue="Start Date" value="{!r.Start_Date__c}" />
+                    <apex:column headerValue="End Date" value="{!r.End_Date__c}" />
+                    <apex:column headerValue="Stage" value="{!r.Stage__c}" />
+                    <apex:column headerValue="Description" value="{!r.Phase_Description__c}" />
+                     <apex:column headerValue="Record Link">
+                        <apex:outputLink value="/{!r.Id}"  target="_blank">Click here</apex:outputLink>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageblocksection>
+            <apex:pageblocksection rendered="{!(routeToMarket != 'Built Environment')}">
+                This section is visible only when Route to Market is Built Environment.
+            </apex:pageblocksection>
+        </apex:pageblock>
+    </apex:form>  
+</apex:page>

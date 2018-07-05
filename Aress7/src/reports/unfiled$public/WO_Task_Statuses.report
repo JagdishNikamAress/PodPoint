@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Case.WorkOrders$Name</field>
+    </columns>
+    <columns>
+        <field>Case.WorkOrders.Work_Order_Tasks__r$Name</field>
+    </columns>
+    <columns>
+        <field>Case.WorkOrders$Status</field>
+    </columns>
+    <columns>
+        <field>Case.WorkOrders.Work_Order_Tasks__r$Id</field>
+    </columns>
+    <columns>
+        <field>Case.WorkOrders.Work_Order_Tasks__r$Status__c</field>
+    </columns>
+    <currency>GBP</currency>
+    <filter>
+        <criteriaItems>
+            <column>Case.WorkOrders.Work_Order_Tasks__r$Status__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Complete</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>WO Task Statuses</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Cases_WOs_WOTs__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Case.WorkOrders.Work_Order_Tasks__r$Id</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Case$X1st_Date_Offered__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,87 @@
+<aura:component >
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:attribute name="interviewObj" type="Object" />
+  <aura:attribute name="expanded" type="Boolean" />
+  <aura:attribute name="showDetailedInfo" type="Boolean" />
+  <aura:attribute name="isOverdue" type="Boolean"  />
+
+  <div class="todo-by-day-item">
+    <div class="{!v.interviewObj.TASKRAY__trProject__c ? 'todo-by-day-interview_header todo-by-bday-interview-project_header' : 'todo-by-day-interview_header todo-by-bday-interview-task_header' }">
+      <span class="expandable-chevron">
+        <aura:renderIf isTrue="{!!v.expanded}">
+          <button class="slds-button slds-button--icon" onclick="{!c.toggleExpanded}">
+            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronright" category="utility" size="x-small" name="left" class="slds-button__icon" isButton="true" />
+          </button>
+        </aura:renderIf>
+
+        <aura:renderIf isTrue="{!v.expanded}">
+          <button class="slds-button slds-button--icon" onclick="{!c.toggleExpanded}">
+            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevrondown" category="utility" size="x-small" name="left" class="slds-button__icon" isButton="true"/>
+          </button>
+        </aura:renderIf>
+      </span>
+      <div class="todo-by-day-interview_name">
+        <aura:if isTrue="{!v.interviewObj.TASKRAY__trProject__c}">
+          <div class="todo-by-day-interview-item-top_name">
+            {!$Label.taskray_ltng.trToDoByDay_PendingActionPrefix+' '}
+            {!v.interviewObj.TASKRAY__trFlowLabel__c+' '} 
+            {!$Label.taskray_ltng.trToDoByDay_PendingActionPrefix_2+' '}
+            <button class="slds-button record-name--button" onclick="{!c.navigateToProject}">
+              {!v.interviewObj.TASKRAY__trProject__r.Name}
+            </button>
+            {! ' '+$Label.TASKRAY.TaskRay_Generic_Project_singular}
+          </div>
+        </aura:if>
+        <aura:if isTrue="{!v.interviewObj.TASKRAY__trTask__c}">
+          <div class="todo-by-day-name-container todo-by-day-name-container slds-float--left">
+            <div class="todo-by-day-interview-item-top_name">
+              <button class="slds-button record-name--button" onclick="{!c.navigateToInterviewRecord}">
+                {! $Label.taskray_ltng.trToDoByDay_PendingActionPrefix+' '+v.interviewObj.TASKRAY__trFlowLabel__c}
+              </button>
+              {!' '+$Label.taskray_ltng.trToDoByDay_PendingActionPrefix_2} 
+              <button class="slds-button record-name--button" onclick="{!c.navigateToTask}">
+                {!v.interviewObj.TASKRAY__trTask__r.Name}
+              </button>
+              {! ' '+$Label.TASKRAY.TaskRay_Generic_Task_singular}
+            </div>
+            <!-- print the project name -->
+            <button class="slds-button" onclick="{!c.navigateToProject}">
+              <div class="projectName" id="{!v.interviewObj.TASKRAY__trTask__r.TASKRAY__Project__r.Id}">{!v.interviewObj.TASKRAY__trTask__r.TASKRAY__Project__r.Name}</div>
+            </button>
+            <aura:if isTrue="{!v.interviewObj.TASKRAY__trTask__r.TASKRAY__trTaskGroup__r != null}">
+              <span class="projectGroupNameDivider"> | </span>
+              <span class="taskGroupName">{!v.interviewObj.TASKRAY__trTask__r.TASKRAY__trTaskGroup__r.Name}</span>
+            </aura:if>
+          </div>
+
+        </aura:if>
+      </div>
+      <div class="slds-clearfix" />
+    </div>
+    <aura:if isTrue="{! v.showDetailedInfo}">
+      <div class="slds-grid slds-gutters detailedInfo">
+        <div class="slds-col slds-size_1-of-2">
+            {!$Label.taskray_ltng.trPendingInterviewItem_owner}{!' '}
+            <button class="slds-button owner-name--button" onclick="{!c.navigateToOwner}">
+              {!v.interviewObj.Owner.Name}
+            </button>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+          {!$Label.taskray_ltng.trPendingInterviewItem_interviewDate}{!' '}
+          <span class="{! v.isOverdue ? 'due_date overdue_text' : 'due_date'}">
+            <lightning:formattedDateTime value="{!v.interviewObj.TASKRAY__trInterviewDate__c}" year="numeric" month="numeric" day="numeric" />
+          </span>
+        </div>
+      </div>
+    </aura:if>
+    <aura:renderIf isTrue="{!v.expanded}">
+      <TASKRAY_LTNG:trFlowWrapper 
+        recordId="{!v.interviewObj.TASKRAY__trTask__c ? v.interviewObj.TASKRAY__trTask__c : v.interviewObj.TASKRAY__trProject__c}"
+        objectType="{!v.interviewObj.TASKRAY__trTask__c ? 'TASKRAY__Project_Task__c' : 'TASKRAY__Project__c'}"
+        flowName="{!v.interviewObj.TASKRAY__trFlowUniqueName__c}"
+        flowLabel="{!v.interviewObj.TASKRAY__trFlowLabel__c}"
+        pendingInterviewId="{!v.interviewObj.Id}" />
+    </aura:renderIf>
+  </div>
+
+</aura:component>

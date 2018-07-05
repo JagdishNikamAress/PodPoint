@@ -1,0 +1,73 @@
+<apex:page standardController="Event" extensions="AddAttendees" >
+    <apex:form >  
+        <apex:pageMessages />
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Calendar Details" columns="1" collapsible="false">
+                
+                <apex:inputField value="{!Event.Ownerid}" />
+                
+                <apex:inputField value="{!Event.Subject}"/>
+                
+                <apex:inputField value="{!Event.Location}"/>
+                
+                <apex:inputField value="{!Event.StartDateTime}" /> 
+                
+                <apex:inputField value="{!Event.EndDateTime}"/>
+                
+                <apex:inputField value="{!Event.type}"/> 
+                
+                <apex:inputField value="{!Event.description}"/>
+                
+                <apex:inputField value="{!Event.IsAllDayEvent}" />
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Related To" collapsible="false">  
+                
+                <apex:inputField value="{!Event.WhatId}">
+                    
+                    <!---   <apex:actionSupport action="{!getAccountDetails}" reRender="CustomList" event="onchange"/> --->
+                    
+                    
+                </apex:inputField>
+                
+                <apex:inputField value="{!Event.WhoId}"/> 
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Recurrence" collapsible="false"> 
+                
+                <apex:inputField value="{!Event.IsRecurrence}"/>
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Recurrence" collapsible="false" columns="1"> 
+                
+                <apex:inputField value="{!Event.IsReminderSet}"/>
+                <apex:inputField value="{!Event.ReminderDateTime}"/>
+                
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageblockButtons >
+                
+                <apex:commandButton value="Save" action="{!customsave}"/>
+                <apex:commandButton value="Cancel" action="{!backtoAccountDetail}"/>
+            </apex:pageblockButtons>         
+            
+        </apex:pageBlock>  
+        <apex:detail relatedList="true"></apex:detail>
+        
+        <apex:pageblock id="CustomList" title="Add Attendees" rendered="{!isRender}">  
+            <apex:commandButton action="{!AddAttendees}" value="Add"/>
+            <apex:pageBlockTable value="{!AssociatedContacts}" var="Attendees">
+                <apex:column ><apex:inputCheckbox value="{!Attendees.IsSelected}" /></apex:column>
+                <apex:column headerValue="Name" value="{!Attendees.con.Name}" />
+                <apex:column headerValue="Email" value="{!Attendees.con.Email}"/>
+                <apex:column headerValue="Message"><font color="red">{!Attendees.msg}</font></apex:column>
+            </apex:pageBlockTable>
+            
+        </apex:pageblock>
+    </apex:form>
+    
+</apex:page>

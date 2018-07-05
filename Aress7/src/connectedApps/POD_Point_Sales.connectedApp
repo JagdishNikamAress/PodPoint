@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>erik.fairbairn@pod-point.com</contactEmail>
+    <contactPhone>07714458553</contactPhone>
+    <description>POD Point&apos;s Main Sales Home</description>
+    <label>POD Point Sales</label>
+    <logoUrl>https://pod-point--c.eu5.content.force.com/servlet/servlet.ImageServer?id=015240000004Cyj&amp;oid=00D4E0000001797</logoUrl>
+</ConnectedApp>

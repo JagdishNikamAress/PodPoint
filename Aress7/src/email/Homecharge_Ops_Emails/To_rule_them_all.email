@@ -1,0 +1,8 @@
+Hi {!Contact.FirstName},
+
+I have a few questions about the installation before it occurs. I noticed you have said "No / Unsure " to our installation questions, so I just wanted some more information to ensure we can install on the day of arrival!
+
+You have mentioned that {!if(ISPICKVAL(Case.SIQ_1__c,"unsure")," the cable necessary may be over 15 meters from POD location to power source.","")}{!if(ISPICKVAL(Case.SIQ_1__c,"yes"),"the cable necessary may be over 15 meters from POD location to power source","")}{!if(ISPICKVAL(Case.SIQ_2__c,"yes"),"We may need to run the cable through a ceiling void or under floorboards","")}{!if(ISPICKVAL(Case.SIQ_2__c,"unsure"),"We may need to run the cable through a ceiling void or under floorboards","")}{!if(ISPICKVAL(Case.SIQ_3__c,"unsure"),"Your meter/power supply is a distance from the outside wall ","")}{!if(ISPICKVAL(Case.SIQ_3__c,"yes"),"Your meter/power supply is a distance from the outside wall","")}{!if(ISPICKVAL(Case.SIQ_4__c,"unsure"),"your off street parking may raise concerns","")}{!if(ISPICKVAL(Case.SIQ_4__c,"no"),"your off street parking may raise concerns","")}{!if(ISPICKVAL(Case.SIQ_5__c,"unsure"),"your installation may take place within a garage","")}{!if(ISPICKVAL(Case.SIQ_5__c,"yes"),"your installation may take place within a garage","")}{!if(ISPICKVAL(Case.SIQ_6__c,"unsure"),"you live in a block of flats or listed property","")}{!if(ISPICKVAL(Case.SIQ_6__c,"yes"),"you live in a block of flats or listed property","")}{!if(ISPICKVAL(Case.SIQ_7__c,"unsure"),"you do not have a wall to connect the pod to","")}{!if(ISPICKVAL(Case.SIQ_7__c,"no"),"you do not have a wall to connect the pod to","")}
+
+{!if(ISPICKVAL(Case.SIQ_8__c,"unsure"),"","")}
+{!if(ISPICKVAL(Case.SIQ_8__c,"no"),"","")}

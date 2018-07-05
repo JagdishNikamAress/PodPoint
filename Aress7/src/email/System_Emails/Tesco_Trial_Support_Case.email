@@ -1,0 +1,14 @@
+There's been a Support Case created related to the Tesco trial.
+
+Case Details below:
+
+- Link: {!Case.Link}
+- Account: {!Case.Account}
+- Contact: {!Case.Contact}
+- Email: {!Contact.Email} / {!Case.SuppliedEmail}
+- Case number: {!Case.CaseNumber}
+- Case Origin: {!Case.Origin}
+- Date Opened: {!Case.CreatedDate}
+- Case Owner: {!Case.OwnerFullName}
+- Case Subject: {!Case.Subject}
+- Case Description: {!Case.Description}

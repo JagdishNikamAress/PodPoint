@@ -1,0 +1,9 @@
+Hey {!Account.OwnerFirstName}, 
+
+A Maintenance Case has been Escalated. 
+
+Account: {!Account.Name} 
+Case Link: {!Case.Link} 
+
+Thanks, 
+Pod Point Support Team

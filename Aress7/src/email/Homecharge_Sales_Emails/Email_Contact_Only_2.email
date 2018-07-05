@@ -1,0 +1,12 @@
+Hi {!Account.FirstName},
+
+Hope you are well and the information previously sent was of help. 
+
+I was wondering if you were still interested in having a POD Point installed and if there was anything I could do to help the process along?
+
+Let me know either way as I’m happy to schedule a call in with you and answer any questions you may have. 
+
+Happy to continue from where you left off? Click the link below:
+
+{!Case.Ordering_Tool_Customer_URL__c}
+{!Opportunity.Ordering_Tool_Customer_URL__c}

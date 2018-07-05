@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <name>myVariable_waitStartTimeAssignment</name>
+        <label>myVariable_waitStartTimeAssignment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myVariable_waitStartTimeVariable</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myDecision</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision</name>
+        <label>myDecision</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_1</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_1_pmetdec</targetReference>
+            </connector>
+            <label>check for Scheduled start and Scheduled end</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>myRule_1_pmetdec</name>
+        <label>Previously Met Decision</label>
+        <locationX>100</locationX>
+        <locationY>100</locationY>
+        <defaultConnector>
+            <targetReference>myRule_1_A1</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Previously Met</defaultConnectorLabel>
+        <rules>
+            <name>myRule_1_pmetnullrule</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>myVariable_old</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_1_A1</targetReference>
+            </connector>
+            <label>Previously Met - Null</label>
+        </rules>
+        <rules>
+            <name>myRule_1_pmetrule</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_1_pmetrule</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Previously Met - Prev</label>
+        </rules>
+    </decisions>
+    <description>Process Builder - Update address fields from related case</description>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>IF((DATEVALUE([ServiceAppointment].SchedEndTime) = DATEVALUE([ServiceAppointment].SchedStartTime )), ((DATETIMEVALUE([ServiceAppointment].SchedEndTime) -DATETIMEVALUE([ServiceAppointment].SchedStartTime ) )*24), 
+((((DATETIMEVALUE([ServiceAppointment].SchedEndTime) -DATETIMEVALUE([ServiceAppointment].SchedStartTime ) )-
+ROUND((DATETIMEVALUE([ServiceAppointment].SchedEndTime) -DATETIMEVALUE([ServiceAppointment].SchedStartTime ) ),0) )*24)
+*((DATEVALUE([ServiceAppointment].SchedEndTime)-DATEVALUE([ServiceAppointment].SchedStartTime ))+1))) 
+
+
+
+</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_2_myRule_1_A1_9066339084</name>
+        <dataType>Number</dataType>
+        <expression>IF((DATEVALUE({!myVariable_current.SchedEndTime}) = DATEVALUE({!myVariable_current.SchedStartTime} )), ((DATETIMEVALUE({!myVariable_current.SchedEndTime}) -DATETIMEVALUE({!myVariable_current.SchedStartTime} ) )*24), 
+((((DATETIMEVALUE({!myVariable_current.SchedEndTime}) -DATETIMEVALUE({!myVariable_current.SchedStartTime} ) )-
+ROUND((DATETIMEVALUE({!myVariable_current.SchedEndTime}) -DATETIMEVALUE({!myVariable_current.SchedStartTime} ) ),0) )*24)
+*((DATEVALUE({!myVariable_current.SchedEndTime})-DATEVALUE({!myVariable_current.SchedStartTime} ))+1)))</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>(ISNEW() &amp;&amp;  NOT(ISNULL([ServiceAppointment].SchedStartTime)) &amp;&amp;  NOT(ISNULL([ServiceAppointment].SchedEndTime ))) || ( (ISCHANGED([ServiceAppointment].SchedStartTime)) &amp;&amp; NOT(ISNULL([ServiceAppointment].SchedStartTime))) || ( (ISCHANGED([ServiceAppointment].SchedEndTime)) &amp;&amp; NOT(ISNULL([ServiceAppointment].SchedEndTime )))</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_1</name>
+        <dataType>Boolean</dataType>
+        <expression>(ISNEW() &amp;&amp;  NOT(ISNULL({!myVariable_current.SchedStartTime})) &amp;&amp;  NOT(ISNULL({!myVariable_current.SchedEndTime} ))) || ( (ISCHANGED({!myVariable_current.SchedStartTime})) &amp;&amp; NOT(ISNULL({!myVariable_current.SchedStartTime}))) || ( (ISCHANGED({!myVariable_current.SchedEndTime})) &amp;&amp; NOT(ISNULL({!myVariable_current.SchedEndTime} )))</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>(ISNEW() &amp;&amp;  NOT(ISNULL([ServiceAppointment].SchedStartTime)) &amp;&amp;  NOT(ISNULL([ServiceAppointment].SchedEndTime ))) || ( (ISCHANGED([ServiceAppointment].SchedStartTime)) &amp;&amp; NOT(ISNULL([ServiceAppointment].SchedStartTime))) || ( (ISCHANGED([ServiceAppointment].SchedEndTime)) &amp;&amp; NOT(ISNULL([ServiceAppointment].SchedEndTime )))</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_1_pmetrule</name>
+        <dataType>Boolean</dataType>
+        <expression>(ISNEW() &amp;&amp;  NOT(ISNULL({!myVariable_old.SchedStartTime})) &amp;&amp;  NOT(ISNULL({!myVariable_old.SchedEndTime} ))) || ( (ISCHANGED({!myVariable_old.SchedStartTime})) &amp;&amp; NOT(ISNULL({!myVariable_old.SchedStartTime}))) || ( (ISCHANGED({!myVariable_old.SchedEndTime})) &amp;&amp; NOT(ISNULL({!myVariable_old.SchedEndTime} )))</expression>
+    </formulas>
+    <interviewLabel>Update_address_fields_from_related_case-7_InterviewLabel</interviewLabel>
+    <label>Update duration field on SA</label>
+    <processMetadataValues>
+        <name>ObjectType</name>
+        <value>
+            <stringValue>ServiceAppointment</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>ObjectVariable</name>
+        <value>
+            <elementReference>myVariable_current</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OldObjectVariable</name>
+        <value>
+            <elementReference>myVariable_old</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>TriggerType</name>
+        <value>
+            <stringValue>onAllChanges</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Workflow</processType>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[ServiceAppointment]</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_1_A1</name>
+        <label>update Duration on SA</label>
+        <locationX>100</locationX>
+        <locationY>200</locationY>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Number</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Duration</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>Duration</field>
+            <value>
+                <elementReference>formula_2_myRule_1_A1_9066339084</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <startElementReference>myVariable_waitStartTimeAssignment</startElementReference>
+    <variables>
+        <name>myVariable_current</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>ServiceAppointment</objectType>
+    </variables>
+    <variables>
+        <name>myVariable_old</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ServiceAppointment</objectType>
+    </variables>
+    <variables>
+        <name>myVariable_waitStartTimeVariable</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>$Flow.CurrentDateTime</elementReference>
+        </value>
+    </variables>
+</Flow>

@@ -1,0 +1,261 @@
+<apex:page controller="FSL.Ctrl032_GetCandidates" sidebar="false" showHeader="false">
+
+    <c:ChatterAction ></c:ChatterAction>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+
+    <!-- Styles -->
+    <apex:stylesheet value="{!$Resource.FSL__ANGetCandidatesStyles}" />
+
+    <!-- Scripts -->
+    <apex:includeScript value="{!$Resource.FSL__cometd}" />
+    <apex:includeScript value="{!$Resource.FSL__cometdReplayExtension}" />
+    <apex:includeScript value="{!$Resource.FSL__jQuery}" />
+    <apex:includeScript value="{!$Resource.FSL__jqueryCometd}" />
+    <apex:includeScript value="{!$Resource.FSL__MstClientResolver}" />
+    <apex:includeScript value="{!$Resource.FSL__ANGetCandidatesBundleJs}" />
+
+        <html ng-app="GetCandidates" ng-controller="MainCtrl" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+            <service-form show-back-button="state != 'results'"
+                          show-assign-to-me="true"
+                          title-without-object="{!JSENCODE($Label.Schedule_get_candidates)}"
+                          title-with-object="{!JSENCODE($Label.Schedule_get_candidates)}"
+                          action-button-text="{!JSENCODE($Label.Get_candidates_action_button)}"
+                          apex-class-name="'{!ClassName}'"
+                          handle-slr="true"
+                          on-first-stage-completed="onFirstStageCompleted(result)"
+                          chatter-action-form-class-object="formClass"
+                          control="controlServiceForm">
+
+                <main-content>
+                    <div id="ActionContainer" class="ng-cloak">
+
+                        <div id="ActionBody">
+
+                            <!-- Show slots -->
+                            <div id="CandidatesContainer" ng-show="state === 'candidates'">
+
+                                <div id="AN-PartialResults" ng-show="partialResults.length > 0">
+                                    <div>{!JSENCODE($Label.particalCouldntProcessAll)} <u ng-show="userHasAdminPermissions" ng-click="showPartialData = !showPartialData">{!JSENCODE($Label.ShowDetails)}</u></div>
+
+                                    <div ng-show="showPartialData">
+                                        <ul>
+                                            <li ng-repeat="partial in partialResults">
+                                                {{ generatePartialResult(partial) }}
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div id="AN-CurrentSchedule">
+                                    <div id="AN-CurrentText">
+                                        {!$Label.Current_Schedule}
+                                    </div>
+
+                                    <span ng-show="currentResourceName">
+                                        <label-element current-resource-name="currentResourceName" format="formatDate(currentStart)"> </label-element>
+                                    </span>
+
+                                    <span ng-show="!currentResourceName">
+                                        {!$Label.Service_Is_Not_Scheduled}
+                                    </span>
+
+                                </div>
+
+
+
+
+
+
+                                <div ng-repeat="candidate in candidates" ng-if="candidate.SchedulingOptions.length > 0" ng-click="candidate.show = !candidate.show">
+                                    <div class="AN-candidate" ng-class="{'AN-selected-resource': selectedSlot.ResourceId === candidate.ResourceId || (ResourceId === candidate.ResourceId && !selectedSlot)}">
+                                        <img ng-hide="isServiceCrew(candidate)" ng-src="{{ getPictureLink(candidate) || '{!$Resource.DefaultResourcePhoto}' }}" title="{{ candidate.Resource.m_resource.Name }}" />
+                                        <div ng-show="isServiceCrew(candidate)" class="CrewPhotoIcon"></div>
+
+                                        <span class="AN-candidates-name">
+
+                                            <span ng-class="{'AN-selected-resource-name': selectedSlot.ResourceId === candidate.ResourceId || (ResourceId === candidate.ResourceId && !selectedSlot)}">
+                                                <span ng-bind="candidate.Resource.m_resource.Name"></span>
+                                            </span>
+
+                                            <svg aria-hidden="true"
+                                            class="AN-has-good-grades"
+                                            ng-if="getHighGrade(candidate.SchedulingOptions) > GRADES.STAR">
+                                             <use xlink:href="{!URLFOR($Resource.LightningDesignSystem, 'assets/icons/utility-sprite/svg/symbols.svg#favorite')}"></use>
+                                         </svg>
+                                        </span>
+                                        <span class="AN-candidates-next-date">
+                                            {{ candidate.SchedulingOptions.length }} {!$Label.Options},
+                                            <span class="AN-caps">{!$Label.starting}</span> {{ formatDate(candidate.SchedulingOptions[0].Interval.Start) }}
+                                        </span>
+                                    </div>
+
+                                    <div ng-show="candidate.show && resourceCandidateFieldSetIsNotEmpty" class="resourceMoreInfo">
+                                        <div class="resourcePair" ng-repeat="field in candidate.resourceData">
+                                            <div class="resourceFieldTitle truncate" title="{{GetCandidatesFieldsSet[field.key].Label}}">
+                                                {{GetCandidatesFieldsSet[field.key].Label}}
+                                            </div>
+                                            <div class="resourceFieldValue truncate" ng-show="GetCandidatesFieldsSet[field.key].Type != fieldsTypes.Reference && GetCandidatesFieldsSet[field.key].Type != fieldsTypes.Id && GetCandidatesFieldsSet[field.key].Type != fieldsTypes.Url" title="{{field.value}}">
+                                                {{field.value}}
+                                            </div>
+                                            <a class="resourceFieldValue truncate resourceFieldValueLink" draggable="false" ng-show="GetCandidatesFieldsSet[field.key].Type == fieldsTypes.Reference" target="_blank" ng-click="navigateToReference(field.value.Id)">
+                                                {{field.name}}
+                                            </a>
+                                            <a class="resourceFieldValue truncate resourceFieldValueLink" draggable="false" ng-show="GetCandidatesFieldsSet[field.key].Type == fieldsTypes.Id" target="_blank" ng-click="navigateToReference(field.value)">
+                                                {{field.value}}
+                                            </a>
+                                            <a class="resourceFieldValue truncate resourceFieldValueLink" draggable="false" ng-show="GetCandidatesFieldsSet[field.key].Type == fieldsTypes.Url" target="_blank" href="{{field.value}}">
+                                                {{field.value}}
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <label ng-repeat="slot in candidate.SchedulingOptions"
+                                            class="AN-candidates-slot"
+                                            ng-class="{'AN-current-slot-padding': slot.current}"
+                                            for="{{ candidate.ResourceId }}-{{$index}}"
+                                            ng-show="candidate.show"
+                                            ng-init="slot.ResourceName = candidate.Resource.m_resource.Name; slot.current = isCurrentSlot(slot)"
+                                            ng-click="setSelectedSlot(slot, $event)">
+
+                                            <input ng-show="!slot.current"
+                                                    type="radio"
+                                                    name="candidate" id="{{ candidate.ResourceId }}-{{$index}}"
+                                                    value="{{ candidate.ResourceId }}-{{$index}}" />
+
+                                            <svg class="AN-current-slot" aria-hidden="true" ng-show="slot.current">
+                                                 <use xlink:href="{!URLFOR($Resource.LightningDesignSystem, 'assets/icons/utility-sprite/svg/symbols.svg#check')}"></use>
+                                             </svg>
+
+                                            <span class="AN-candidates-date">{{ formatDate(slot.Interval.Start) }}</span>
+                                            <span class="AN-candidates-grade" ng-show="slot.Grade > -1"
+                                                ng-class='{
+                                                "AN-grade-excellent": slot.Grade >= GRADES.EXCELLENT,
+                                                "AN-grade-good": slot.Grade >= GRADES.GOOD && slot.Grade < GRADES.EXCELLENT,
+                                                "AN-grade-ok": slot.Grade < GRADES.GOOD}'>
+                                                {{ formatGrade(slot.Grade) }}/100
+                                            </span> 
+
+                                            <div class="AN-Candidate-MST-Option" ng-show="slot.MSTOptions" ng-repeat="(key, mstOption) in slot.MSTOptions">
+                                                {{formatMstScheduling(mstOption, key)}}
+                                            </div>
+                                    </label>
+                                </div>
+
+                    <div ng-show="selectedSlot" id="ScheduleButton" ng-click="scheduleService(selectedSlot)">{!$Label.ScheduleTo} {{selectedSlot.ResourceName}}</div>
+
+                </div>
+
+
+                <!-- Display results -->
+                <div id="AN-Results" ng-show="state === 'results'">
+
+                    <svg id="BigCheck" aria-hidden="true">
+                         <use xlink:href="{!URLFOR($Resource.LightningDesignSystem, 'assets/icons/utility-sprite/svg/symbols.svg#check')}"></use>
+                     </svg>
+
+                    <div class="AN-ResultText">
+                        <label-element current-resource-name="newResourceName" format="formatDate(service.Start)"> </label-element>
+                    </div>
+
+                    <div id="AN-UndoButton" ng-click="chatterActionUtils.openService(service.Id)">{!$Label.View_Service}</div>
+                        
+                </div>
+
+
+                <!-- No Candidates -->
+                <div id="AN-NoCandidates" ng-show="state === 'no-candidates'">
+
+                    <svg id="AN-NoCandidatesPeople" aria-hidden="true">
+                         <use xlink:href="{!URLFOR($Resource.LightningDesignSystem, 'assets/icons/utility-sprite/svg/symbols.svg#people')}"></use>
+                     </svg>
+
+                    <svg id="AN-NoCandidatesX" aria-hidden="true">
+                         <use xlink:href="{!URLFOR($Resource.LightningDesignSystem, 'assets/icons/utility-sprite/svg/symbols.svg#close')}"></use>
+                     </svg>
+
+                    <div class="AN-ResultText">
+                        {!$Label.NoCandidatesFound}
+                    </div>
+
+                    <div id="AN-PartialResults" ng-show="partialResults.length > 0">
+                        <div>{!JSENCODE($Label.particalCouldntProcessAll)} <u ng-show="userHasAdminPermissions" ng-click="showPartialData = !showPartialData">{!JSENCODE($Label.ShowDetails)}</u></div>
+
+                        <div ng-show="showPartialData">
+                            <ul>
+                                <li ng-repeat="partial in partialResults">
+                                    {{ generatePartialResult(partial) }}
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div id="AN-NoMst" ng-show="state === 'error'">
+
+                    <svg id="AN-NoCandidatesPeople" aria-hidden="true">
+                         <use xlink:href="{!URLFOR($Resource.LightningDesignSystem, 'assets/icons/utility-sprite/svg/symbols.svg#warning')}"></use>
+                         </svg>
+
+
+                    <div class="AN-ResultText" style="text-align:center">
+                        {!JSENCODE($Label.NoMstPushTopic)}
+                    </div>
+                </div>
+
+
+
+                </div>
+
+                </div>
+            </main-content>
+            </service-form>
+        </html>
+
+
+        <script type="text/javascript">
+
+
+            var currentResourceName = '',
+                sessionId = '{!$Api.Session_ID}',
+
+                RemoteActions = {
+                    getGetCandidatesData : '{!$RemoteAction.Ctrl032_GetCandidates.getGetCandidatesData}',
+                    getFslOperation: '{!$RemoteAction.Ctrl032_GetCandidates.getFslOperation}',
+                },
+
+                Labels = {
+                    Scheduled_to_scheduled_str: '{!JSENCODE($Label.Scheduled_to_scheduled_str)}',
+                    mstGetCandidateLabel: '{!JSENCODE($Label.mstGetCandidateLabel)}',
+
+                    partialResults: {
+                        IS_CANDIDATE: '{!JSENCODE($Label.PartialResult_IS_CANDIDATE)}',
+                        RAW_MATRIX: '{!JSENCODE($Label.PartialResult_RAW_MATRIX)}',
+                        ADVANCED_MATRIX: '{!JSENCODE($Label.PartialResult_ADVANCED_MATRIX)}',
+                        GRADES: '{!JSENCODE($Label.PartialResult_GRADES)}',
+                        AB_INTERVALS: '{!JSENCODE($Label.PartialResult_AB_INTERVALS)}',
+                    }
+
+                },
+
+                FslOperationFieldNames = {
+                    ResultText:     '{!$ObjectType.FSL_Operation__c.Fields.ResultText__c.Name}',
+                    Initiator:      '{!$ObjectType.FSL_Operation__c.Fields.Initiator__c.Name}',
+                    Request_Type:   '{!$ObjectType.FSL_Operation__c.Fields.Request_Type__c.Name}'
+                }
+            
+            bootstrap.UpdatePermissionSetsBootstrap('GetCandidates','GetCandidates');
+                
+        </script>
+
+
+
+    </apex:page>

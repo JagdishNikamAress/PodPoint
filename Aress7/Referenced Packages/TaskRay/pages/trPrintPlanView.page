@@ -1,0 +1,160 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false">
+  <html>
+    <body>
+      <div id="zoom-container">
+        <div id="print-container" class="slds">
+          <h4 id="print-header"></h4>
+          <div id="print-content-container"></div>
+        </div>
+      </div>
+    </body>
+    <link href="{!URLFOR($Resource.trplugins, 'sds/salesforce-lightning-design-system-vf.css')}" rel="stylesheet" type="text/css" />
+    <link href="{!URLFOR($Resource.trplugins, 'css/trtaskboard.css')}" rel="stylesheet" type="text/css" />
+    <style>
+      /*We need this rule so that the content containers stretch to filll the plan view content*/
+      #print-container, #print-content-container, #print-content-container >div{
+        display: inline-block;
+      }
+
+      #print-header{
+        display:block;
+      }
+      #plan-view-button-header_bar{
+        display: none;
+      }
+      @media print {
+        body {
+          -webkit-print-color-adjust: exact;
+        }
+        .sidebar-task-item,.sidebar-task-group-item,.sidebar-project-item{
+          page-break-inside: avoid;
+        }
+        #zoom-container.rotate{
+          transform: rotate(90deg) translate(0%,-100%);
+          transform-origin: top left;
+        }
+      }
+      #plan-board{
+        border-left: 1px solid #d8dde6;
+      }
+      .plan-view-center-board_row{
+        height: 32px !important;
+        border-bottom: 1px solid #e3e3e3 !important;
+        margin-bottom: 0 !important;
+      }
+      .plan-view-center-board-row-borders{
+        display: none !important;
+      }
+      .no-print, .no-print *{
+        display: none !important;
+      }
+    </style>
+    <style id="pageSizingStyle">
+
+    </style>
+    <script>
+      window.addEventListener("message", receiveMessage, false);
+
+      function receiveMessage(event)
+      {
+        if(event.origin === window.location.origin && event.data && event.data.configObj){
+          document.getElementById('print-content-container').innerHTML = event.data.planBoardHTML;
+          document.getElementById('print-header').innerHTML = event.data.header;
+          scalePlanBoard(event.data.configObj);
+          window.setTimeout(function(){ window.print();}, 1500);
+        }
+        return;
+      }
+      window.opener.postMessage('TASKRAY_PRINT_PLAN_VIEW_PAGE_READY',window.location.origin);
+      function convertToPx(dimension, unit){
+        var conversionMap = {in: 83, mm: 3.3, px: 1};
+        return dimension*conversionMap[unit];
+      }
+
+      function scalePlanBoard(configObj){
+        var pageHeight=configObj.pageHeight;
+        var pageWidth=configObj.pageWidth;
+        var pageDimUnit=configObj.pageSizeUnits;
+        var pageOrientation = configObj.layout;
+
+
+        if(configObj.hideSidebar){
+          var sidebarWidth = document.getElementById('plan-view-sidebar_header').getBoundingClientRect().width;
+          var planBoardWidth = document.getElementById('plan-board').getBoundingClientRect().width;
+          document.getElementById('plan-view-sidebar_header').style.display='none';
+          document.getElementById('sidebar-scroll-container').style.display='none';
+          document.getElementById('header-scroll-container').style.marginLeft = 0;
+          document.getElementById('header-scroll-container').style.width = '100%';
+          document.getElementById('center-scroll-container').style.marginLeft=0;
+          document.getElementById('plan-board').style.width = (planBoardWidth - sidebarWidth)+'px';
+        }
+
+        if(configObj.scalingType === 'height'){
+          pageOrientation = (pageOrientation === 'landscape') ? 'portrait' : 'landscape';
+        }
+
+        var pageHeightInPx; 
+        var pageWidthInPx;
+
+        if(pageOrientation === 'landscape'){
+          pageWidthInPx = convertToPx(pageHeight, pageDimUnit);
+          pageHeightInPx = convertToPx(pageWidth, pageDimUnit);
+        } else{
+          pageWidthInPx = convertToPx(pageWidth, pageDimUnit);
+          pageHeightInPx = convertToPx(pageHeight, pageDimUnit);
+        }
+
+        var printContainer = document.getElementById('print-container');
+        var printContainerBoundingRect = printContainer.getBoundingClientRect();
+        var boardWidth = printContainerBoundingRect.width;
+        //This will increase the width for the name fields to the right of the bars
+        /*var centerScrollWidth = document.querySelectorAll('.plan-view-center-board')[0].scrollWidth;
+        if(centerScrollWidth > boardWidth){
+          var sidebarWidth = document.getElementById('sidebar-scroll-container').getBoundingClientRect().width;
+          console.log(boardWidth, centerScrollWidth, sidebarWidth,centerScrollWidth-sidebarWidth);
+          document.querySelectorAll('.plan-view-center-board')[0].style.width=(centerScrollWidth)+'px';
+          console.log(document.querySelectorAll('.plan-view-center-board')[0].style.width);
+          document.getElementById('plan-board').style.width=(centerScrollWidth+sidebarWidth)+'px';
+          printContainerBoundingRect = printContainer.getBoundingClientRect();
+          boardWidth = printContainerBoundingRect.width;
+        }*/
+        var boardHeight = printContainerBoundingRect.height;
+        if(configObj.scalingType === 'onePage'){
+          var scaleX = pageWidthInPx / boardWidth;
+          var scaleY = pageHeightInPx / boardHeight;
+          var scaleFactor = scaleX < scaleY ? scaleX : scaleY;
+          printContainer.style.transformOrigin='top left';
+          printContainer.style.transform='scale('+scaleFactor+')';
+
+          document.getElementById('pageSizingStyle').innerHTML='@page{ size: '+pageHeight+pageDimUnit+' '+pageWidth+pageDimUnit+'; size: '+pageOrientation+'; }';
+          document.getElementById('zoom-container').style.height=(scaleFactor*boardHeight)+'px';
+          document.getElementById('zoom-container').style.width=(scaleFactor*boardWidth)+'px';
+          document.getElementById('zoom-container').style.overflow='hidden';
+        } else if(configObj.scalingType === 'height'){
+          var scaleY = pageWidthInPx / boardHeight;
+          var scaleFactor = scaleY;
+          printContainer.style.transformOrigin='top left';
+          printContainer.style.transform='scale('+scaleFactor+')';
+
+          document.getElementById('pageSizingStyle').innerHTML='@page{ size: '+pageHeight+pageDimUnit+' '+pageWidth+pageDimUnit+'; size: '+pageOrientation+'; }';
+          var zoomContainer = document.getElementById('zoom-container');
+          zoomContainer.style.height=(scaleFactor*boardHeight)+'px';
+          zoomContainer.style.width=(scaleFactor*boardWidth)+'px';
+          zoomContainer.style.overflow='hidden';
+          zoomContainer.classList.add('rotate');
+        } else if(configObj.scalingType === 'width'){
+          var scaleX = pageWidthInPx / boardWidth;
+          var scaleFactor = scaleX;
+          printContainer.style.transformOrigin='top left';
+          printContainer.style.transform='scale('+scaleFactor+')';
+
+          document.getElementById('pageSizingStyle').innerHTML='@page{ size: '+pageHeight+pageDimUnit+' '+pageWidth+pageDimUnit+'; size: '+pageOrientation+'; }';
+          document.getElementById('zoom-container').style.height=(scaleFactor*boardHeight)+'px';
+          document.getElementById('zoom-container').style.width=(scaleFactor*boardWidth)+'px';
+          document.getElementById('zoom-container').style.overflow='hidden';
+        }
+      }
+
+    </script>
+  </html>
+</apex:page>

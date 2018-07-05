@@ -1,0 +1,5 @@
+<apex:page standardController="Order" extensions="orderController" contentType="application/octet-stream#{!filename}.csv ; charset=UTF-8"  cache="true" showHeader="false" sidebar="false" standardStylesheets="false" action="{!getOrderProductsforExport}">Account Number,Contact Name,Ship To Name,Ship address line 3,Ship address line 4,Ship address line 5,Ship address line 6,Ship Post Code,Ship Country,NOT USED,Quantity,Item Code,NOT USED,NOT USED,NOT USED,NOT USED,NOT USED,NOT USED,Delivery Method,Unit Price,Order Batch      
+<apex:repeat value="{!ordItemsforExport}" var="a">
+{!a.order.Internal_Order__c},{!csvContact},{!a.order.account.name},{!a.Street_del__c},-,{!csvphone},{!a.City_del__c},{!a.Postal_Code_del__c},UK,-,{!a.Quantity},{!a.PricebookEntry.Product2.SKU__c},-,-,-,-,-,-,<apex:outputText value="{0,date,dd'/'MM'/'yyyy}"><apex:param value="{!a.Dispatch_Date__c}" /></apex:outputText>,{!a.PricebookEntry.Product2.Cost__c},-
+</apex:repeat>
+</apex:page>

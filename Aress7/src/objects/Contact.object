@@ -1,0 +1,1025 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>AddToCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CallHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EmailHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EnableCustomerPortal</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EnablePartnerPortalUser</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EnableSelfService</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ListClean</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Merge</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>NewContact</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>RequestUpdate</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SmsHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewCustomerPortal</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewPartnerPortalUser</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewSelfService</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>Contact_Compact_Lightning_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Contact_Compact_Lightning_Layout</fullName>
+        <fields>OwnerId</fields>
+        <fields>AccountId</fields>
+        <fields>Email</fields>
+        <fields>Phone</fields>
+        <fields>MobilePhone</fields>
+        <fields>Work_Phone__c</fields>
+        <label>Contact Compact Lightning Layout</label>
+    </compactLayouts>
+    <compactLayouts>
+        <fullName>QuickStartLayout</fullName>
+        <fields>Name</fields>
+        <fields>Title</fields>
+        <fields>AccountId</fields>
+        <fields>Phone</fields>
+        <fields>MobilePhone</fields>
+        <fields>Email</fields>
+        <fields>OwnerId</fields>
+        <label>Quick Start Layout</label>
+    </compactLayouts>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fieldSets>
+        <fullName>MC4SF__Contact_Filter_Fields</fullName>
+        <description>used on the MailChimp query builder</description>
+        <displayedFields>
+            <field>AssistantName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>AssistantPhone</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Birthdate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Phone</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CreatedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Department</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>DoNotCall</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>HasOptedOutOfFax</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>FirstName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>HomePhone</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastActivityDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastModifiedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastCURequestDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastCUUpdateDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LeadSource</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>MailingCity</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>MailingCountry</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>MailingState</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>MailingStreet</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>MailingPostalCode</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>MobilePhone</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>OtherCity</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>OtherCountry</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>OtherPhone</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>OtherState</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>OtherStreet</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>OtherPostalCode</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Salutation</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Title</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>OwnerId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Contact Filter Fields</label>
+    </fieldSets>
+    <fields>
+        <fullName>About__c</fullName>
+        <description>Information about the contact, articles, lnkedin details, images, websites etc</description>
+        <externalId>false</externalId>
+        <label>About</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>LongTextArea</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>AccountId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AssistantName</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>AssistantPhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Birthdate</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Capsule_Import_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Capsule Import ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Capsule_Import_Zen_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Capsule Import Zen_ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_Marketing_Focus__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This field defines what marketing a particular person will receive. By default it is set to inherit this from the account. -</inlineHelpText>
+        <label>Contact Marketing Focus</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Home</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Home Strategic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workplace</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workplace Strategic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Destination</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Destination Strategic</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>8</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CurrencyIsoCode</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Department</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>DoNotCall</fullName>
+        <inlineHelpText>Tick if this contact should not be contacted by POD Point.</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Email</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Fax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>FieldAware_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>FieldAware ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FieldAware_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>FieldAware URL</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>HasOptedOutOfEmail</fullName>
+        <inlineHelpText>Tick if the user has opted out of email marketing</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>HasOptedOutOfFax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Has_a_PP_Home__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Select this if the customer has a PP Home unit installed</inlineHelpText>
+        <label>Has a PP Home</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>HomePhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Home_Charge_Install_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the date the home charge was installed</inlineHelpText>
+        <label>Home Charge Install Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IndividualId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Jigsaw</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Job_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Job Title</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LastCURequestDate</fullName>
+    </fields>
+    <fields>
+        <fullName>LastCUUpdateDate</fullName>
+    </fields>
+    <fields>
+        <fullName>LeadSource</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Location_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Location ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MC4SF__MC_Subscriber__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>MC Subscriber</label>
+        <referenceTo>MC4SF__MC_Subscriber__c</referenceTo>
+        <relationshipLabel>Contacts</relationshipLabel>
+        <relationshipName>Contacts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>MailingAddress</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>MobilePhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>OtherAddress</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>OtherPhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Region__c</fullName>
+        <externalId>false</externalId>
+        <label>Region</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ReportsToId</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Title</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Work_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>Work Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>bt_stripe__Default_Payment_Gateway__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>This field is automatically set from the related Default Payment Method&apos;s Payment Gateway.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is automatically set from the related Default Payment Method&apos;s Payment Gateway.</inlineHelpText>
+        <label>Default Payment Gateway</label>
+        <referenceTo>bt_stripe__Payment_Gateway__c</referenceTo>
+        <relationshipLabel>Contacts</relationshipLabel>
+        <relationshipName>Contacts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>bt_stripe__Default_Payment_Method__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Latest payment method will be automatically populated, but can be updated.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Latest payment method will be automatically populated, but can be updated.</inlineHelpText>
+        <label>Default Payment Method</label>
+        <referenceTo>bt_stripe__Payment_Method__c</referenceTo>
+        <relationshipLabel>Contacts</relationshipLabel>
+        <relationshipName>Contacts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <listViews>
+        <fullName>AllContacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Contacts</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>MyContacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>Test_Mailout_View</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.EMAIL</field>
+            <operation>equals</operation>
+            <value>marketingteam@pod-point.com</value>
+        </filters>
+        <filters>
+            <field>ACCOUNT.NAME</field>
+            <operation>equals</operation>
+            <value>Marketing Test</value>
+        </filters>
+        <label>Test Mailout View</label>
+        <language>en_US</language>
+    </listViews>
+    <searchLayouts>
+        <customTabListAdditionalFields>FULL_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CONTACT.PHONE1</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>FULL_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.SITE</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>FULL_NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.SITE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE1</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE3</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE4</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE5</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE6</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Work_Phone__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>FULL_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.SITE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CONTACT.PHONE1</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CONTACT.EMAIL</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <webLinks>
+        <fullName>EasyUpload</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>EasyUpload</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/EasyUploadAttachment?parentId={!Contact.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleMaps</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Maps</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://maps.google.com/maps?f=q&amp;hl=en&amp;q={!Contact_MailingStreet}+{!Contact_MailingCity}+{!Contact_MailingState}&amp;om=1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleSearch</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Search</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.google.com/search?q={!Contact_FirstName} {!Contact_LastName}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LiveText__Opt_in_for_Text_Messages_list</fullName>
+        <availability>online</availability>
+        <description>This button is for List View</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Opt-in for Text Messages</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)} 
+			{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/apex.js&quot;)} 
+			{!REQUIRESCRIPT(&apos;/support/console/31.0/integration.js&apos;)}; 
+
+			var records = {!GETRECORDIDS($ObjectType.Contact)}; 
+			if (records[0] == null) 
+			{ 
+				alert(&quot;Please select at least one contact&quot;) 
+			} 
+			else{ 
+				var packagePrefix = &quot;LiveText__&quot;; 
+				var recordType = &quot;contact&quot;; 
+				var recordIds = &quot;&quot;; 
+				var optOutField = &apos;&apos;; 
+				var optOutDefaultValue = &apos;yes&apos;; 
+				var smsType = &apos;&apos;; 
+				var userId = &apos;{!$User.Id}&apos;; 
+				var elementIdVar = &apos;&apos;; 
+				var showUserDropDown = false; 
+				var dialogTitle = &apos;&apos;; 
+				var queryString = &apos;&apos;; 
+
+				for (var n in records) { 
+					if(n == &apos;remove&apos; || n == &apos;indexOf&apos;) continue; 
+					recordIds = recordIds + records[n]; 
+				
+					if (n != records.length-1) { 
+						recordIds = recordIds + &quot;,&quot;; 
+					} 
+				} 
+
+				var e = document.getElementsByName(&quot;fcf&quot;)[0]; 
+				var selectedView = e.options[e.selectedIndex].value; 
+				
+				var returnURL = &apos;/003?fcf=&apos;+ selectedView + &apos;&amp;rolodexIndex=-1&amp;page=1&apos;; 
+
+				var urlStart =  &apos;https://&apos;+window.location.hostname+&apos;/apex/LiveText__LiveTextOptinStatusPage?recordType=&apos;+recordType + 
+&apos;&amp;records=&apos;+recordIds+&apos;&amp;retURL=&apos;+returnURL;
+
+
+				if(sforce.console.isInConsole()) { 
+					sforce.console.openPrimaryTab(null, urlStart + &apos;&amp;inConsole=yes&amp;optType=1&apos;, true, &apos;Opt-in for Text Messages&apos;); 
+				}else{ 
+					window.top.location.href = urlStart + &apos;&amp;inConsole=no&amp;optType=1&apos;; 
+				} 
+			}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LiveText__Opt_out_for_Text_Messaging_List</fullName>
+        <availability>online</availability>
+        <description>This button is for List View</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Opt-out for Text Messages</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)}
+			{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/apex.js&quot;)}
+			{!REQUIRESCRIPT(&apos;/support/console/31.0/integration.js&apos;)};
+
+			var records = {!GETRECORDIDS($ObjectType.Contact)};
+			if (records[0] == null)
+			{
+				alert(&quot;Please select at least one contact&quot;);
+			}
+			else{
+				var packagePrefix = &quot;LiveText__&quot;;
+				var recordType = &quot;contact&quot;;
+				var recordIds = &quot;&quot;;
+				var optOutField = &apos;&apos;;
+				var optOutDefaultValue = &apos;yes&apos;;
+				var smsType = &apos;&apos;;
+				var userId = &apos;{!$User.Id}&apos;;
+				var elementIdVar = &apos;&apos;;
+				var showUserDropDown = false;
+				var dialogTitle = &apos;&apos;;
+				var queryString = &apos;&apos;; 				
+					
+				for (var n in records) {
+					if(n == &apos;remove&apos; || n == &apos;indexOf&apos;) continue;
+					recordIds = recordIds + records[n];
+					
+					if (n != records.length-1) {
+						recordIds = recordIds + &quot;,&quot;;
+					}
+				}
+			
+				var e = document.getElementsByName(&quot;fcf&quot;)[0];
+				var selectedView = e.options[e.selectedIndex].value;
+			
+				var returnURL = &apos;/003?fcf=&apos;+ selectedView + &apos;&amp;rolodexIndex=-1&amp;page=1&apos;;
+			
+				var urlStart =  &apos;https://&apos;+window.location.hostname+&apos;/apex/LiveText__LiveTextOptinStatusPage?recordType=&apos;+recordType + 
+&apos;&amp;records=&apos;+recordIds+&apos;&amp;retURL=&apos;+returnURL;
+
+				
+				if(sforce.console.isInConsole()) {
+					sforce.console.openPrimaryTab(null, urlStart+&apos;&amp;inConsole=yes&amp;optType=0&apos;, true, &apos;Opt-out for Text Messages&apos;);
+				}else{
+					window.top.location.href = urlStart + &apos;&amp;inConsole=no&amp;optType=0&apos;;
+				}
+			}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LiveText__Send_Bulk_SMS2</fullName>
+        <availability>online</availability>
+        <description>Sends text message to selected records</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send Text to List</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)} 
+            {!REQUIRESCRIPT(&quot;/soap/ajax/14.0/apex.js&quot;)} 
+            {!REQUIRESCRIPT(&apos;/support/console/31.0/integration.js&apos;)}; 
+
+            var records = {!GETRECORDIDS($ObjectType.Contact)}; 
+            var hasShortCodeNumber = sforce.apex.execute(&quot;LiveText.RetrievePreferredPhoneNumber&quot;,&quot;agentHasShortcodeNumberAssigned&quot;,{});
+            if (records[0] == null){ 
+                alert(&quot;Please select at least one contact&quot;);
+            }else if((records.length &gt; 25) &amp;&amp; hasShortCodeNumber==&quot;false&quot;){ 
+                alert(&quot;A maximum of 25 text messages may be sent at once. Please select fewer recipients and try again.&quot;); 
+            } 
+            else{ 
+                var packagePrefix = &quot;LiveText__&quot;; 
+                var recordType = &quot;contact&quot;; 
+                var recordIds = &quot;&quot;;
+
+                for (var n in records) { 
+                    if(n == &apos;remove&apos; || n == &apos;indexOf&apos;) continue; 
+                    recordIds = recordIds + records[n]; 
+                    
+                    if (n != records.length-1) { 
+                        recordIds = recordIds + &quot;,&quot;; 
+                    } 
+                }
+
+                var storageId = sforce.apex.execute(&quot;LiveText.RetrievePreferredPhoneNumber&quot;,&quot;saveToStorage&quot;,{stringToSave:recordIds});
+                var urlStart = &apos;https://&apos;+window.location.hostname+&apos;/apex/LiveText__LiveTextBulkSms?recordType=&apos;+recordType+&apos;&amp;storageId=&apos;+storageId; 
+                
+                if(sforce.console.isInConsole()) { 
+                    sforce.console.openPrimaryTab(null, urlStart, true);
+                } else { 
+                    window.top.location.href = urlStart; 
+                } 
+            }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__LOOP</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>800</height>
+        <linkType>url</linkType>
+        <masterLabel>Create PDF</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__loop?eid={!Contact.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__LOOP_Merge</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>1000</height>
+        <linkType>url</linkType>
+        <masterLabel>Deprecated LM</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__loopmerge?eid={!Contact.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__LOOPlus</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>1200</height>
+        <linkType>url</linkType>
+        <masterLabel>Generate Documents</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__looplus?eid={!Contact.Id}&amp;accountId={!Account.Id}&amp;sessionId={!$Api.Session_ID}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__Mass_LOOP_Merge</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Deprecated Mass LM</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/loop__loopmerge?eid={!Contact.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__Mass_LOOPlus</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Generate Documents</masterLabel>
+        <openType>sidebar</openType>
+        <page>Loop__massContactDdp</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>MC4SF__MailChimp_Subscriptions_detail</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>MailChimp Subscriptions</masterLabel>
+        <openType>noSidebar</openType>
+        <page>MC4SF__SubscriptionsContact</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>MC4SF__MailChimp_Subscriptions_list</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>page</linkType>
+        <masterLabel>MailChimp Subscriptions</masterLabel>
+        <openType>replace</openType>
+        <page>MC4SF__SubscriptionsContactList</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>activities__Create_Tasks_Contacts</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Create Tasks</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/38.0/connection.js&quot;)}
+var records = {!GETRECORDIDS( $ObjectType.Contact)};
+var returnURL = window.location.href;
+if(records != null &amp;&amp; records != &apos;&apos;){
+mywin = window.open(&apos;/apex/activities__createTasks?Ids=&apos;+records+&apos;&amp;retURL=&apos;+returnURL+&apos;&amp;type=whoid&apos;+&apos;&amp;SelectedObject=Contact&apos; , &apos;_top&apos;,
+&apos;height=400,width=600,status=yes,toolbar=no,menubar=no,location=no,center=yes,resizable=no&apos;);
+mywin.focus();
+}else{
+alert(&apos;Please select atleast one record.&apos;);
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>attachmentzip__Download_Attachments</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Download Attachments</masterLabel>
+        <openType>sidebar</openType>
+        <page>attachmentzip__ContactAttachmentList</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>bt_stripe__Blackthorn_Terminal</fullName>
+        <availability>online</availability>
+        <description>launch the blackthorn terminal</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Blackthorn | Terminal</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>window.open(&apos;/apex/bt_stripe__BlackthornTerminal?id={!Contact.Id}&apos;,&apos;Blackthorn Terminal&apos;,&apos;toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=450,height=690&apos;);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>bt_stripe__Virtual_Terminal</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Virtual Terminal</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>window.open(&apos;/apex/apex/bt_stripe__VirtualTerminal?id={!Contact.Id}&apos;,&apos;newWindow&apos;,&apos;toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=400,height=500&apos;);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>echosign_dev1__Send_to_EchoSign</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Send for Signature</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/echosign_dev1__AgreementTemplateProcess?masterId={!Contact.Id}</url>
+    </webLinks>
+</CustomObject>

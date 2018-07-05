@@ -1,0 +1,76 @@
+<apex:page standardController="Opportunity" extensions="NewOppExtensionController" action="{!requestSurvey}"  sidebar="false" showHeader="false" >
+<apex:pageMessages id="showmsg"></apex:pageMessages>
+<apex:form id="theform">
+<apex:actionFunction name="CallApexMethod" action="{!confirm}" status="counterStatus" oncomplete="CloseAndRefresh()"/>
+<apex:actionStatus id="counterStatus"/>
+<br/><br/><br/><br/>
+    <apex:pageblock title="Confirm Details" rendered="{!noError}" id="theblock">
+    The details below will be sent to FieldAware, please review and confirm.<br/><br/>
+        <apex:pageblocksection title="Customer Details" id="s1">
+            <apex:outputText value="{!custname}" label="Customer Name"  id="i0"></apex:outputText>          
+            <apex:outputText value="{!phone}" label="Phone"  id="i1"></apex:outputText>
+            <apex:outputText value="{!email}" label="Email"  id="i2"></apex:outputText>
+        </apex:pageblocksection>
+        <apex:pageblocksection title="Address Details" id="s2">
+            <apex:outputText value="{!MailingStreet}" label="Mailing Street" id="i3"></apex:outputText>
+            <apex:outputText value="{!MailingCity}" label="Mailing City" id="i4"></apex:outputText>            
+            <apex:outputText value="{!MailingPostalCode}" label="Mailing Postal Code" id="i5"></apex:outputText>
+            <apex:pageblockSectionItem id="si">
+            <apex:outputLabel value="Country" for="locale"/>
+            <apex:outputText value="{!MailingCountry}"  id="country"></apex:outputText>
+             <!--   <apex:selectList id="country" size="1" title="country" value="{!MailingCountry}" rendered="true">
+                <apex:selectOptions value="{!Countries}"></apex:selectOptions>
+            	</apex:selectList>
+			-->
+            </apex:pageblockSectionItem>    
+        </apex:pageblocksection>
+        <apex:pageblocksection title="Job Details" columns="0" id="s3">
+            <apex:inputtextarea value="{!jobdescription}" label="Job Description" rows="8" required="true" id="i7"></apex:inputtextarea>
+        </apex:pageblocksection>
+        
+        <apex:pageblockbuttons >
+            <!--<apex:commandButton value="Confirm" onclick="myJavascriptFunc();" reRender="None"/>
+            <apex:commandButton title="Close" value="Close"  oncomplete="CloseAndRefresh()"/>-->
+            <apex:commandButton value="Confirm" onclick="this.disabled=true; this.value='Saving...'; myJavascriptFunc(); return false;" rerender="None" status="status"/>
+            <apex:commandButton value="Close" action="{!cancel}" oncomplete="CloseAndRefresh()"/>
+        </apex:pageblockbuttons>
+    </apex:pageblock>
+</apex:form>
+<script language="JavaScript" type="text/javascript">
+    function myJavascriptFunc(){
+        var v = 1;
+        if(document.getElementById('{!$Component.theform.theblock.s1.i0}').value == ""){
+            alert('Customer Name Can Not Be Blank.') ;
+            v = 0;
+        } else if(document.getElementById('{!$Component.theform.theblock.s1.i1}').value == ""){
+            alert('Phone Can Not Be Blank.') ;
+            v = 0;
+        } else if(document.getElementById('{!$Component.theform.theblock.s1.i2}').value == ""){
+            alert('Email Can Not Be Blank.') ;
+            v = 0;
+        }else if(document.getElementById('{!$Component.theform.theblock.s2.i3}').value == ""){
+            alert('Mailing Street Can Not Be Blank.') ;
+            v = 0;
+        }else if(document.getElementById('{!$Component.theform.theblock.s2.i4}').value == ""){
+            alert('Mailing City Can Not Be Blank.') ;
+            v = 0;
+        }else if(document.getElementById('{!$Component.theform.theblock.s2.i5}').value == ""){
+            alert('Mailing Postal Code Can Not Be Blank.') ;
+            v = 0;
+        }else if(document.getElementById('{!$Component.theform.theblock.s2.si.country}').value == "Select One"){
+            alert('Country Can Not Be Blank.') ;
+            v = 0;
+        }else if(document.getElementById('{!$Component.theform.theblock.s3.i7}').value == ""){
+            alert('Job Description Can Not Be Blank.') ;
+            v = 0;
+        }
+        if(v == 1){
+           CallApexMethod() ;
+        }
+    }
+    function CloseAndRefresh(){
+       window.opener.location.href="/{!$CurrentPage.parameters.id}";
+       window.top.close();
+      }
+   </script>
+</apex:page>

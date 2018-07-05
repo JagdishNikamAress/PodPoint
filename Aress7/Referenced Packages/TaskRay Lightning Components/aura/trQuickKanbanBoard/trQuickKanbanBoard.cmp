@@ -1,0 +1,126 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,force:hasRecordId" controller="TASKRAY_LTNG.trComponentCtrl" access="global">
+    <!-- TODO Winter '16 implements="force:hasRecordId,flexipage:availableForRecordHome" -->
+    <aura:attribute name="records" type="Object"/>
+    <aura:attribute name="recordId" type="String" access="global"/>
+    <aura:attribute name="recordError" type="String"/>
+    <aura:attribute name="visibleProjectIndex" type="Integer"/>
+    <aura:attribute name="currentProjectObject" type="Object"/>
+    <aura:handler event="TASKRAY_LTNG:trExternalChange" action="{!c.handleExternalChange}"/>
+    <aura:handler event="TASKRAY_LTNG:trListChangeSuccess" action="{!c.successOnChange}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <TASKRAY_LTNG:trComponentContainer headerText="{!$Label.taskray_ltng.trTaskBoardComponent_Header + ' (' + v.records.length + ')'}">
+        <div>
+            <aura:if isTrue="{!v.recordError == 'true'}">
+                <div class="noRecordId">
+                    {!$Label.taskray_ltng.trComponents_RecordIdRequired}
+                </div>
+            </aura:if>
+                        <aura:if isTrue="{!v.recordError != 'true'}">
+            <aura:if isTrue="{!v.records.length == 0}">
+                <div class="noProjects" style="padding-bottom: 22px !important">
+                    {!$Label.taskray_ltng.trComponents_noProjectsToShow}
+                </div>
+            </aura:if>
+            </aura:if>
+            <aura:if isTrue="{!v.records.length != 0}">
+                <div class="projectCards" id="trQuickKanbanBoard">
+                        <aura:if isTrue="{!v.records.length == 0}">
+                            <!-- INLINE STYLE -->
+                            <style>                            
+                                #project_kanban {
+                                    width: 100% !important;
+                                }                                
+                                taskray-component--header TASKRAY_LTNGTrComponentHeader{
+                                    padding: 12px 0px 0px 0px;
+                                }
+                                .name_scroll_area {
+                                    padding: 0px 12px;
+                                }
+                                .TASKRAY_LTNG TASKRAY_LTNGTrComponentContainer .TASKRAY_LTNGTrQuickKanbanBoard {
+                                    padding: 10px !important;
+                                }
+                            </style>                            
+                        </aura:if>
+                        <div>
+                                <div class="scrolling-div" style="overflow-x: auto; padding: 12px;">
+                                    <!-- INLINE STYLE -->
+                                <style>
+                                    #project_kanban, .pHeader {
+                                        width: {!v.currentProjectObject.tasks.length*220}px;
+                                    }
+                                </style>
+                                    <div class="project_kanban" id="project_kanban" style="position: relative;"> 
+                                        <!-- project name, scroll right and left through the projects -->
+                                        <div class="name_scroll_area">
+                                            <button class="slds-button" onclick="{!c.goToProject}">
+                                                <div class="projectName" id="{!v.currentProjectObject.projectId}">
+                                                    {!v.currentProjectObject.projectName}
+                                                </div>
+                                            </button>
+                                            <aura:if isTrue="{!v.currentProjectObject.noTasks == true}">
+                                                <style>
+                                                    #trQuickKanbanBoard {
+                                                    margin-bottom: 0px !important;
+                                                    }
+                                                    .TASKRAY_LTNGTrQuickKanbanBoard {
+                                                    padding-bottom: 0px !important;
+                                                    }
+                                                    #project_kanban {
+                                                    margin-bottom: 0px;
+                                                    }
+                                                </style>
+                                                <div class="nothingToRender">
+                                                {!$Label.taskray_ltng.trComponents_NothingToRenderPart1}
+                                                <span class="addTask" onclick="{!c.makeTask}">
+                                                {!$Label.taskray_ltng.trComponents_NothingToRenderPart2}
+                                                </span>
+                                                {!$Label.taskray_ltng.trComponents_NothingToRenderPart3}
+                                                </div>
+                                            </aura:if> 
+                                            <aura:if isTrue="{!v.records.length > 1}">
+                                                <div class="arrows">
+                                                    <aura:if isTrue="{!v.visibleProjectIndex == 0}">
+                                                        <button id="scrollLeft" class="slds-button slds-button--icon inactive scrollLeft" onclick="{!c.goLeft}">
+                                                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronleft" category="utility" size="x-small" name="left" class="slds-button__icon left-arrow" isButton="true" />
+                                                        </button>
+                                                        <button id="scrollRight" class="slds-button slds-button--icon scrollRight" onclick="{!c.goRight}">
+                                                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronright" category="utility" size="x-small" name="left" class="slds-button__icon right-arrow" isButton="true" />
+                                                        </button>
+                                                    </aura:if>
+                                                    <aura:if isTrue="{!v.visibleProjectIndex  != 0}"> 
+                                                        <aura:if isTrue="{!v.visibleProjectIndex  != v.records.length-1}">
+                                                            <button id="scrollLeft" class="slds-button slds-button--icon scrollLeft" onclick="{!c.goLeft}">
+                                                                <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronleft" category="utility" size="x-small" name="left" class="slds-button__icon left-arrow" isButton="true" />
+                                                            </button>
+                                                            <button id="scrollRight" class="slds-button slds-button--icon scrollRight" onclick="{!c.goRight}">
+                                                                <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronright" category="utility" size="x-small" name="left" class="slds-button__icon right-arrow" isButton="true" />
+                                                            </button>                                                
+                                                        </aura:if>
+                                                    </aura:if>
+                                                    <aura:if isTrue="{!v.visibleProjectIndex  == v.records.length-1}">
+                                                            <button id="scrollLeft" class="slds-button slds-button--icon scrollLeft" onclick="{!c.goLeft}">
+                                                                <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronleft" category="utility" size="x-small" name="left" class="slds-button__icon left-arrow" isButton="true" />
+                                                            </button>
+                                                            <button id="scrollRight" class="slds-button slds-button--icon inactive scrollRight" onclick="{!c.goRight}">
+                                                                <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronright" category="utility" size="x-small" name="left" class="slds-button__icon right-arrow" isButton="true" />
+                                                            </button>                                                                                           
+                                                    </aura:if>
+                                                </div>
+                                            </aura:if>
+                                        </div>
+                                        <!-- the board -->
+                                        <span id="project_span">
+                                            <TASKRAY_LTNG:trQuickKanbanProject 
+                                                recordId="{!v.recordId}"
+                                                currentProjectObject="{!v.currentProjectObject}" />
+                                        </span>
+                                        <br />
+                                    </div>
+                                </div>
+                        </div>
+                </div>                
+            </aura:if>
+        </div>
+    </TASKRAY_LTNG:trComponentContainer>
+</aura:component>

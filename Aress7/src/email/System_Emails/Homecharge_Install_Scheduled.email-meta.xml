@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When Homecharge Install SA is &quot;Scheduled&quot;, email sent at 7pm.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Homecharge Scheduling Email (Automated)</name>
+    <style>none</style>
+    <subject>Your Pod Point Installation Date {!WorkOrder.Reference_Id__c}</subject>
+    <textOnly>Hi {!Contact.FirstName},
+
+You’re one click away from getting your Pod Point installed on our next available date.
+
+Your install is provisionally scheduled:
+
+{!WorkOrder.Scheduled_Start_Date__c}
+
+Your installer arrive between:
+
+{!WorkOrder.Arrival_Window_Start_Time__c} and {!WorkOrder.Arrival_Window_End_Time__c}
+
+(an installation typically takes around 2 hours to complete)
+
+To make it happen, click the button below to confirm:
+
+Confirm Installation Slot
+
+Want to change your date instead? Just reply to this email and let us know.
+
+Thanks,
+
+The Pod Point Team</textOnly>
+    <type>custom</type>
+</EmailTemplate>

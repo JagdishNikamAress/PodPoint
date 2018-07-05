@@ -1,0 +1,7 @@
+Hi,
+
+This case has been remained "Open" for more than 24 hours:
+
+{!Case.AccountId}
+{!Case.Origin}
+{!Case.Subject}

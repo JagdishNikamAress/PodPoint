@@ -1,0 +1,11 @@
+.THIS {
+  background-color: #ffffff !important;
+}
+
+.THIS > .slds-card__header{
+  display: none !important;
+}
+
+.THIS .slds-card__body{
+  margin-bottom: 0 !important;
+}

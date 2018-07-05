@@ -1,0 +1,116 @@
+<aura:component >
+  <aura:attribute name="projectObj" type="Object" />
+  <aura:attribute name="completionImgURL" type="String" />
+  <aura:attribute name="width" type="String" />
+  <aura:attribute name="expanded" type="Boolean" default="false" />
+  <aura:registerEvent name="genericEvent" type="TASKRAY_LTNG:trGenericEvent"/>
+  <aura:registerEvent name="navigateToTaskRay" type="TASKRAY_LTNG:trNavigateToTaskRayEvent"/>
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <div>
+    <div class="top-row slds-grid slds-grid_vertical-align-center">
+      <div class="slds-size--2-of-6 project-name--node">
+        <!--Add a caret-->
+        <div class="icon-block">
+          <aura:if isTrue="{!v.width == 'WIDE'}">
+            <span class="expandable-chevron">
+              <aura:renderIf isTrue="{!!v.expanded}">
+                <button class="slds-button slds-button--icon" onclick="{!c.toggleExpanded}">
+                  <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronright" category="utility" size="x-small" name="left" class="slds-button__icon" isButton="true" />
+                </button>
+              </aura:renderIf>
+
+              <aura:renderIf isTrue="{!v.expanded}">
+                <button class="slds-button slds-button--icon" onclick="{!c.toggleExpanded}">
+                  <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevrondown" category="utility" size="x-small" name="left" class="slds-button__icon" isButton="true"/>
+                </button>
+              </aura:renderIf>
+            </span>
+          </aura:if>
+        </div>
+        <!--format name with navigate to taskray link -->
+        <button class="slds-button project-name--button slds-float--left" onclick="{!c.navigateToProject}">{!v.projectObj.project.Name}</button>
+        <div class="slds-clearfix" />
+      </div>
+      <!--add completion donut with text -->
+      <div class="slds-size--2-of-6">
+        <div class="project-completion--block">
+          <img src="{!v.completionImgURL}" style="margin-top:-10px; margin-bottom:-10px;" />
+          {!v.projectObj.completionPercentage}
+          <aura:if isTrue="{!v.width == 'WIDE'}">
+            {!$Label.taskray_ltng.trMyProjectsComponent_PctCompleted}
+          </aura:if>
+          <aura:if isTrue="{!v.width != 'WIDE'}">
+            {!$Label.taskray_ltng.trMyProjectsComponent_PctCompleted_short}
+          </aura:if>
+          
+        </div>
+      </div>
+
+      <!-- add follow/unfollow button -->
+      <div class="{!(v.width == 'WIDE') ? 'slds-size--1-of-6' : 'slds-size--2-of-6'}">
+        <button class="{!v.projectObj.isAutoFollowing == true ? 'slds-button slds-button--neutral slds-is-selected project-autoFollow--button' : 'slds-button slds-button--neutral slds-not-selected project-autoFollow--button'}" aria-live="assertive" onclick="{!c.toggleAutoFollowForProject}">
+          <span class="slds-text-not-selected">
+            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#add" category="utility" name="add" class="slds-button__icon--stateful slds-button__icon--left" isButton="true"/>
+            {!$Label.taskray_ltng.trMyProjectsComponent_FollowProject}</span>
+          <span class="slds-text-selected">
+              <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#check" category="utility" name="check" class="slds-button__icon--stateful slds-button__icon--left" isButton="true"/>
+              {!$Label.taskray_ltng.trMyProjectsComponent_FollowingProject}
+          </span>
+          <span class="slds-text-selected-focus">
+            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#close" category="utility" name="close" class="slds-button__icon--stateful slds-button__icon--left" isButton="true"/>
+            {!$Label.taskray_ltng.trMyProjectsComponent_UnfollowProject}
+          </span>
+        </button>
+        
+      </div>
+        <aura:if isTrue="{!v.width == 'WIDE'}">
+          <div class="slds-size--1-of-6">
+            <!-- add project owner image, link -->
+            <div class="project-owner--block">
+              <div class="project-owner--image">
+                <span class="slds-avatar slds-avatar--circle">
+                  <aura:if isTrue="{!v.projectObj.owner.SmallPhotoUrl}">
+                    <img src="{!v.projectObj.owner.SmallPhotoUrl}" alt="{!v.projectObj.owner.Name}" />
+                  </aura:if>
+                </span>
+              </div>
+              <div class="project-owner--text slds-m-left--xx-small">
+                <button class="slds-button project-owner--button" style="line-height:1rem" onclick="{!c.navigateToOwner}">{!v.projectObj.owner.Name}</button>
+                <div class="slds-text-body--regular">{!$Label.taskray_ltng.trMyProjectsComponent_ProjectOwner}</div>
+              </div>
+            </div>
+          </div>
+        </aura:if>
+    </div>
+    <aura:if isTrue="{!v.expanded &amp;&amp; v.width == 'WIDE'}">
+      <div class="project-overview--wrapper">
+        <div class="project-overview--container">
+          <TASKRAY_LTNG:trProjectOverview_view
+            mountedInRow="true"
+            projectId="{!v.projectObj.project.Id}"
+            projectStartDate="{!v.projectObj.formattedStartDate}"
+            projectEndDate="{!v.projectObj.formattedEndDate}"
+            projectStartDateUnformatted="{!v.projectObj.project.TASKRAY__Project_Start__c}"
+            projectEndDateUnformatted="{!v.projectObj.project.TASKRAY__Project_End__c}"
+            projectCompletionPercentage="{!v.projectObj.completionPercentage}"
+            taskGroups="{!v.projectObj.taskGroupsArray}"  />
+        </div>
+        <div class="task-snapshot--container">
+          <TASKRAY_LTNG:trTaskSnapshot_view2 
+            projectName="{!v.projectObj.Name}" 
+            taskStatusCountsWithColor="{!v.projectObj.taskStatusCountsWithColor}" 
+            blockedCount="{!v.projectObj.blockedCount}" 
+            overdueCount="{!v.projectObj.overdueCount}" 
+            scheduleConflictCount="{!v.projectObj.scheduleConflictCount}" 
+            projectCompletionPercentage="{!v.projectObj.completionPercentage}"
+            progressArray="{!v.projectObj.progressArray}"
+            timeEnabled="{!v.projectObj.timeEnabled}"
+            projectEstimatedTime="{!v.projectObj.project.TASKRAY__trEstimatedHours__c}"
+            projectActualTime="{!v.projectObj.project.TASKRAY__trActualHours__c}" />
+        </div>
+
+      </div>
+    </aura:if>
+  </div>
+
+</aura:component>

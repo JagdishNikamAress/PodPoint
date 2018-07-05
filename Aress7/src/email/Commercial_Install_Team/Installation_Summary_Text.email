@@ -1,0 +1,32 @@
+Hi {!Contact.FirstName},
+
+Following our conversation, I’m happy to confirm the following installation details:
+
+{!Case.Scheduled_On__c}
+
+Your engineer will be {!Case.Installer__c} who will arrive as close as possible to the agreed time slot but please allow for up to an hour of fluctuation around the arrival time.
+
+Equipment for the installation will be shipped to the below address shortly before the installation date:
+
+{!Account.Name} FAO: POD Point Ltd.
+{!Case.Street__c}
+{!Case.City__c}
+{!Case.PostalCode__c}
+
+Contact: {!Case.Contact} - {!BLANKVALUE(Contact.Phone, Contact.MobilePhone)}
+
+To successfully carry out the installation we will need:
+
+- Access to the relevant plant room/distribution board, and all rooms and areas along the proposed cable route.
+- Permission to turn off the distribution board to be used for the supply of the new charge-points for approximately 30 minutes.
+- The relevant parking bays at the location of the new charge-points to be free of vehicles.
+- All permissions for works to be in place.
+- Barriers in place for area of works, if required.
+- Adequate spare supply capacity available at the distribution board to be used for the charge-points.
+- To be notified if RAMS are required prior to installation.
+- To be updated if the shipping address differs from the above.
+
+Please don’t hesitate to contact me if you have any questions.
+
+
+Kind Regards,

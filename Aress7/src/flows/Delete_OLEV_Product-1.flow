@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>Delete OLEV Product {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Delete OLEV Product</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordDeletes>
+        <name>Delete_Olev_Product</name>
+        <label>Delete Olev Product</label>
+        <locationX>284</locationX>
+        <locationY>126</locationY>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>strOppLineItemID</elementReference>
+            </value>
+        </filters>
+        <object>OpportunityLineItem</object>
+    </recordDeletes>
+    <startElementReference>Delete_Olev_Product</startElementReference>
+    <variables>
+        <name>strOppLineItemID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

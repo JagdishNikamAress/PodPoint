@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ORDER_CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>Product2.SKU__c</field>
+    </columns>
+    <columns>
+        <field>ORDER_ITEM_QUANTITY</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>ORDER_STATUS</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Draft,Partially Dispatched,Ready for Dispatch</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Order.Internal_Order__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Product2.SKU__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ORDER_STATUS</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Order.Internal_Order__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Helen Report Try 2</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>OrderItemList</reportType>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>ORDER_EFFECTIVE_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

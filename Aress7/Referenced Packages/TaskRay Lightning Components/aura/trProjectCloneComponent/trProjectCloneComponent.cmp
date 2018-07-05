@@ -1,0 +1,155 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,force:hasRecordId" controller="TASKRAY_LTNG.trComponentCtrl" access="global">
+	<aura:attribute name="recordId" type="String" access="global" />
+	<aura:attribute name="firstLastOrMilestoneOption" type="String"  />
+	<aura:attribute name="createLookupToCurrentRecordId" type="Boolean" default="true"/>
+	<aura:attribute name="showSpinner" type="Boolean" default="false" />
+	<aura:attribute name="createdProjectId" type="String" />
+	<aura:attribute name="createdProjectUrl" type="String" />
+	<aura:attribute name="showNewProjectLink" type="Boolean" default="false" />
+	<aura:attribute name="newName" type="String" />
+	<aura:attribute name="controllerThrewError" type="String" default="true" />
+	<aura:attribute name="errorMessage" type="Object" />
+	<aura:attribute name="selectedProjectId" type="Id" />
+	<aura:attribute name="selectedMilestoneId" type="Id" />
+	<aura:attribute name="projectDropdownOpen" type="Boolean" default="true"/>
+	<aura:attribute name="projects" type="Object"/>
+	<aura:attribute name="currentProjectMilestones" type="Object"/>
+	<aura:attribute name="errorMessageContainer" type="Object"/>
+	<aura:attribute name="projectHasNoMilestonesError" type="Boolean" default="false"/>
+	<aura:attribute name="showMilestoneDropdown" type="Boolean" default="false" />
+	<aura:attribute name="selectedMilestoneHasNoDates" type="Boolean" default="false" />
+	<aura:attribute name="cloneDefaultDate" type="String" />
+	<aura:attribute name="clonedWithNoMilestoneError" type="String" />
+	<aura:attribute name="showNoDateInputError" type="Boolean" default="false" />
+	<aura:attribute name="disableCloneButton" type="Boolean" default="true" />
+
+	<aura:registerEvent name="navigateToTaskRay" type="TASKRAY_LTNG:trNavigateToTaskRayEvent"/>
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+	<TASKRAY_LTNG:trComponentContainer headerText="{!$Label.taskray_ltng.trProjectCloneComponent_Title}">
+		<div class="mainCloneDiv">
+			<aura:if isTrue="{!v.projects.length == 0}">
+				<div class="noCloneProjects">
+					{!$Label.taskray_ltng.trProjectCloneComponent_NoTemplateProjects}
+                </div>
+			</aura:if>
+			<aura:if isTrue="{!v.projects.length != 0}">
+				<div style="margin-bottom: 18px; margin-left: 10px; margin-right: 10px;">
+					<div class="slds-badge" style="float: left; margin-top: 4px;">
+						{!$Label.taskray_ltng.trProjectCloneComponent_NumberOne}
+					</div>
+					<div style="float: left; padding-left: 14px; max-width: 91%;" id="projectInputDropdown">
+						<ui:inputSelect change="{!c.setProjectToClone}" class="dynamic" aura:id="InputSelectDynamic"/>
+					</div>	
+					<div style="clear: both;"></div>
+				</div>
+				<div style="margin-bottom: 18px; margin-left: 10px; margin-right: 10px;">
+					<div class="slds-badge" style="float: left;">
+						{!$Label.taskray_ltng.trProjectCloneComponent_NumberTwo}
+					</div>
+					<div style="margin-left: 15px; float: left; margin-top: 2px;">
+						{!$Label.taskray_ltng.trProjectCloneComponent_Schedule}
+					</div>
+					<div style="clear:both"></div>
+					<fieldset class="slds-form-element">
+					    <div class="slds-form-element__control" style="margin-left: 40px; margin-top: 2px;">
+					      <label class="slds-radio">
+					        <input type="radio" name="options" id='startDateRadioButton' data-option="startDate" onclick="{!c.setFirstTaskDate}" />
+					        <span class="slds-radio--faux"></span>
+					        <span class="slds-form-element__label">
+					        	{!$Label.taskray_ltng.trProjectCloneComponent_SetFirstDate}
+					       	</span>
+					      </label>
+					      <label class="slds-radio">
+					        <input type="radio" name="options" id='endDateRadioButton' data-option="endDate" onclick="{!c.setFirstTaskDate}"/>
+					        <span class="slds-radio--faux"></span>
+					        <span class="slds-form-element__label">
+						        {!$Label.taskray_ltng.trProjectCloneComponent_SetLastDate}
+						    </span>
+					      </label>
+					      <label class="slds-radio">
+					        <input type="radio" name="options" id='milestoneDateRadioButton' data-option="milestoneDate" onclick="{!c.setMilestoneTaskOption}"/>
+					        <span class="slds-radio--faux"></span>
+					        <span class="slds-form-element__label">
+						        {!$Label.TASKRAY.TaskRay_CloneModal_ScheduleInput_milestone}
+						    </span>
+					      </label>
+					    </div>
+					</fieldset>
+
+		        	<aura:renderIf isTrue="{!v.showMilestoneDropdown}">
+			        	<div id="milestoneSelectContainer" class="slds-form-element__control" style="margin-left: 40px; margin-top: 3px;">
+			        		<ui:inputSelect change="{!c.setMilestoneForCloneDate}" class="dynamic" aura:id="InputSelectMilestones"/>
+			        	</div>
+			        </aura:renderIf>
+                    <!-- projectHasNoMilestonesError or we have selected milestone option but there is no project chosen -->
+			        <aura:if  isTrue="{!v.projectHasNoMilestonesError}">
+			        	<div class="errorMsg">{!$Label.TASKRAY.TaskRay_CloneModal_MilestoneInput_noMilestones}</div>
+			        </aura:if>
+			        <aura:if  isTrue="{!v.selectedMilestoneHasNoDates}">
+			        	<div class="errorMsg">{!$Label.TASKRAY.TaskRay_Milestone_Driven_Clone_No_Dates_On_Task}</div>
+			        </aura:if>
+			        <aura:if  isTrue="{!v.showNoDateInputError}">
+			        	<div class="errorMsg">{!$Label.taskray_ltng.trProjectCloneComponent_NoDateSelected}</div>
+			        </aura:if>	
+			        <aura:if  isTrue="{!v.clonedWithNoMilestoneError}">
+			        	<div class="errorMsg">{!$Label.TASKRAY.TaskRay_CloneModal_MilestoneInput_required_error}</div>
+			        </aura:if>	
+		            <div id="calendarInputContainer" class="slds-form-element__control" style="width: 125px; margin-left: 40px; margin-top: 3px;">
+						<ui:inputDate aura:id="CloneDatePicker" 
+						   class="slds-input"
+						   format="yyyy-MM-dd"
+						   value="{!v.cloneDefaultDate}"
+						   labelClass="slds-form-element__label"
+						   displayDatePicker="true"
+						   disabled="{!v.selectedMilestoneHasNoDates}" />              
+		            </div>
+
+					</div>
+					<div style="margin-bottom: 18px; margin-left: 10px; margin-right: 10px;">
+						<div class="slds-badge" style="float: left;">
+							{!$Label.taskray_ltng.trProjectCloneComponent_NumberThree}
+						</div>
+						<div style="margin-left: 15px; float: left; margin-top: 2px;">
+							{!$Label.taskray_ltng.trProjectCloneComponent_Name}
+						</div>
+						<div style="clear: both;"></div>
+						<div>
+							<div style="margin-top: 5px; margin-left: 40px;">
+								<ui:inputText class="text" aura:id="InputText" keyup="{!c.onNameInputChange}" value="{!v.newName}" updateOn="keyup"/>
+							</div>
+						</div>	    
+					</div>
+					<div style="margin-bottom: 18px; margin-left: 10px; margin-right: 10px;">
+						<div class="slds-badge" style="float: left; margin-top: 6px;">
+							{!$Label.taskray_ltng.trProjectCloneComponent_NumberFour}
+						</div>
+						<div style="margin-left: 40px; margin-top: 5px;" >
+							<div style="float: left;">
+								<button class="slds-button slds-button--neutral" onclick="{!c.cloneProject}" disabled="{!v.disableCloneButton}">
+									{!$Label.taskray_ltng.trProjectCloneComponent_Create}
+								</button>
+							</div>
+						<div style="position: relative; height: 50px; width: 50px; left: 82px; bottom: 6px;">
+								<aura:if isTrue="{!v.showSpinner}">
+									<div class="slds-spinner_container">
+									    <div class="slds-spinner--brand slds-spinner slds-spinner--medium" aria-hidden="false" role="alert">
+									      <div class="slds-spinner__dot-a"></div>
+									      <div class="slds-spinner__dot-b"></div>
+									    </div>
+								  	</div>
+								</aura:if>
+							</div>
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+		    	{!v.errorMessage}
+				<aura:if isTrue="{!v.showNewProjectLink}">
+				    <div style="margin-left: 50px;">
+				    		<button class="slds-button project-name--button" onclick="{!c.navigateToProject}">{!$Label.taskray_ltng.trProjectCloneComponent_GoToProject}</button> 
+				    </div>
+				</aura:if>
+			</aura:if>
+		</div>
+	</TASKRAY_LTNG:trComponentContainer>
+</aura:component>

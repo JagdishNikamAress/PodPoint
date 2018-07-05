@@ -1,0 +1,22 @@
+<aura:component >
+  <aura:registerEvent name="navigateToTaskRay" type="TASKRAY_LTNG:trNavigateToTaskRayEvent"/>
+  <aura:attribute name="milestoneId" type="String" />
+  <aura:attribute name="isComplete" type="Boolean" />
+  <aura:attribute name="isOverdue" type="Boolean" />
+  <aura:attribute name="projectId" type="String" />
+  <aura:attribute name="name" type="String" />
+  <aura:attribute name="formattedEndDate" type="String" />
+  <aura:attribute name="listColor" type="String" default='#44a2b8' />
+
+  <div class="{!(v.isComplete == true) ? 'milestone-task--container milestone-task--completed' : 'milestone-task--container'}">
+    <div class="milestone-task-name--container">
+      <!-- svg icon -->
+      <TASKRAY_LTNG:svgIcon svgPath="/custom-sprite/svg/symbols.svg#custom8" category="custom" size="small" name="left" class="slds-button__icon milestone-task--diamond" isButton="true" fillOverride="{!v.listColor}" />
+      <button onclick="{!c.navigateToTask}" class="milestone-task--name slds-button">{!v.name}</button>
+    </div>
+    <div class="{!(v.isOverdue == true) ? 'milestone-task-date--container milestone-task-date--overdue' : 'milestone-task-date--container'}">
+      <!-- date format -->
+      <span class="milestone-task--date slds-text-heading--label">{!v.formattedEndDate}</span>
+    </div>
+  </div>
+</aura:component>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <decisions>
+        <name>Check_if_Outcode_is_not_null</name>
+        <label>Check if Outcode is not null</label>
+        <locationX>384</locationX>
+        <locationY>274</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Outcode_Check</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>outcodeId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Case_Outcode_Lookup</targetReference>
+            </connector>
+            <label>Outcode Check</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Case Outcode Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Case Outcode Update</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Look_for_Outcode</name>
+        <label>Look for Outcode</label>
+        <locationX>384</locationX>
+        <locationY>108</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_if_Outcode_is_not_null</targetReference>
+        </connector>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>OutcodeName</elementReference>
+            </value>
+        </filters>
+        <object>Outcode__c</object>
+        <outputAssignments>
+            <assignToReference>outcodeId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Case_Outcode_Lookup</name>
+        <label>Update Case Outcode Lookup</label>
+        <locationX>385</locationX>
+        <locationY>432</locationY>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>CaseID</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Outcode__c</field>
+            <value>
+                <elementReference>outcodeId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <startElementReference>Look_for_Outcode</startElementReference>
+    <variables>
+        <name>CaseID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>outcodeId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>OutcodeName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

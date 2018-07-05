@@ -1,0 +1,252 @@
+@keyframes confetti{
+  0% {top:-30px;}
+  100% {top:100%;}
+}
+@-webkit-keyframes confetti{
+  0% {top:-30px;}
+  100% {top:100%;}
+}
+
+@-webkit-keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.THIS .rotating {
+  -webkit-animation: rotating 7s linear infinite;
+  -moz-animation: rotating 7s linear infinite;
+  -ms-animation: rotating 7s linear infinite;
+  -o-animation: rotating 7s linear infinite;
+  animation: rotating 7s linear infinite;
+}
+
+.THIS{
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  overflow:hidden;
+}
+
+.THIS .confetti{
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: red;
+  position:absolute;
+  animation:confetti 2s;
+  animation-iteration-count: infinite;
+  top:-30px;
+}
+
+.THIS .confetti.confetti1{
+  left: 2.5%;
+  animation-delay: .06s;
+}
+
+.THIS .confetti.confetti2{
+  left: 12.5%;
+  animation-delay: .648s;
+}
+
+.THIS .confetti.confetti3{
+  left: 22.5%;
+  animation-delay: .75s;
+}
+
+.THIS .confetti.confetti4{
+  left: 32.5%;
+  animation-delay: 0s;
+}
+.THIS .confetti.confetti5{
+  left: 42.5%;
+  animation-delay: .72s;
+}
+.THIS .confetti.confetti6{
+  left: 52.5%;
+  animation-delay: .864s;
+}
+.THIS .confetti.confetti7{
+  left: 62.5%;
+  animation-delay: .624s;
+}
+.THIS .confetti.confetti8{
+  left: 72.5%;
+  animation-delay: .024s;
+}
+.THIS .confetti.confetti9{
+  left: 82.5%;
+  animation-delay: .504s;
+}
+.THIS .confetti.confetti10{
+  left: 92.5%;
+  animation-delay: 1.128s;
+}
+.THIS .confetti.confetti11{
+  left: 2.5%;
+  animation-delay: .24s;
+}
+
+.THIS .confetti.confetti12{
+  left: 12.5%;
+  animation-delay: .912s;
+}
+
+.THIS .confetti.confetti13{
+  left: 22.5%;
+  animation-delay: 1.768s;
+}
+
+.THIS .confetti.confetti14{
+  left: 32.5%;
+  animation-delay: .744s;
+}
+.THIS .confetti.confetti15{
+  left: 42.5%;
+  animation-delay: .408s;
+}
+.THIS .confetti.confetti16{
+  left: 52.5%;
+  animation-delay: 1.728s;
+}
+.THIS .confetti.confetti17{
+  left: 62.5%;
+  animation-delay: .744s;
+}
+.THIS .confetti.confetti18{
+  left: 72.5%;
+  animation-delay: .552s;
+}
+.THIS .confetti.confetti19{
+  left: 82.5%;
+  animation-delay: .576s;
+}
+.THIS .confetti.confetti20{
+  left: 92.5%;
+  animation-delay: 1.176s;
+}
+.THIS .confetti.confetti21{
+  left: 92.5%;
+  animation-delay: .888s;
+}
+
+.THIS .confetti.confetti22{
+  left: 2.5%;
+  animation-delay: 2.24s;
+}
+
+.THIS .confetti.confetti23{
+  left: 12.5%;
+  animation-delay: 1.912s;
+}
+
+.THIS .confetti.confetti24{
+  left: 22.5%;
+  animation-delay: 3.768s;
+}
+
+.THIS .confetti.confetti25{
+  left: 32.5%;
+  animation-delay: 1.2s;
+}
+.THIS .confetti.confetti26{
+  left: 42.5%;
+  animation-delay: 3.408s;
+}
+.THIS .confetti.confetti27{
+  left: 52.5%;
+  animation-delay: 2.728s;
+}
+.THIS .confetti.confetti28{
+  left: 62.5%;
+  animation-delay: 3.28s;
+}
+.THIS .confetti.confetti29{
+  left: 72.5%;
+  animation-delay: 1.552s;
+}
+.THIS .confetti.confetti30{
+  left: 82.5%;
+  animation-delay: 3.576s;
+}
+.THIS .confetti.confetti31{
+  left: 92.5%;
+  animation-delay: 1.176s;
+}
+.THIS .confetti.confetti32{
+  left: 92.5%;
+  animation-delay: 2.888s;
+}
+
+.THIS .confetti.confetti1, .THIS .confetti.confetti2{
+background-color: #a4b1a5;
+}
+.THIS .confetti.confetti19, .THIS .confetti.confetti5, .THIS .confetti.confetti6, .THIS .confetti.confetti17{
+background-color: #72c381;
+}
+.THIS .confetti.confetti26, .THIS .confetti.confetti10, .THIS .confetti.confetti13 {
+background-color: #e44301;
+}
+.THIS .confetti.confetti3,.THIS .confetti.confetti9,.THIS .confetti.confetti11,.THIS .confetti.confetti15{
+background-color: #44a2b8;
+}
+.THIS .confetti.confetti12, .THIS .confetti.confetti20 {
+background-color: #f5d44d;
+}
+.THIS .confetti.confetti16, .THIS .confetti.confetti7, .THIS .confetti.confetti18, .THIS .confetti.confetti14 {
+background-color: #ff9a60;
+}
+.THIS .confetti.confetti4, .THIS .confetti.confetti21 {
+background-color: #a9954d;
+}
+.THIS .confetti.confetti23, .THIS .confetti.confetti31 {
+background-color: #a4b1a5;
+}
+.THIS .confetti.confetti25, .THIS .confetti.confetti36, .THIS .confetti.confetti34, .THIS .confetti.confetti28{
+background-color: #72c381;
+}
+.THIS .confetti.confetti29, .THIS .confetti.confetti30 {
+background-color: #ff9a60;
+}
+.THIS .confetti.confetti24, .THIS .confetti.confetti32, .THIS .confetti.confetti37 {
+background-color: #f5d44d;
+}
+.THIS .confetti.confetti27, .THIS .confetti.confetti35, .THIS .confetti.confetti8, .THIS .confetti.confetti39 {
+background-color: #ff9a60;
+}
+.THIS .confetti.confetti33, .THIS .confetti.confetti38, .THIS .confetti.confetti22 {
+background-color: #a9954d;
+}
+
+.THIS .tr-confetti-icon{
+  padding:3px !important;
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <description>Email to send right after a call with a customer</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Call Follow Up</name>
+    <style>none</style>
+    <subject>POD Point - Let&apos;s Get Charging</subject>
+    <textOnly>Follow up from our call earlier
+
+Lovely chatting with you!
+
+Hi {!Account.Name},
+
+Thanks for getting in touch with the POD Point team and welcome to the world of electric driving! I hope we covered all your questions you had, but we’re always here to help.
+
+Ready to get charging? Our awesome tool guides you through the whole process of getting your perfect charging point installed at home by one of our expert installers. Just click the button below to get going.
+
+{!Opportunity.Ordering_Tool_Customer_URL__c}
+
+Or download our Open Charge app to see how many charging stations are already installed in your area.
+
+Kind Regards,
+
+{!Opportunity.OwnerFullName}
+020 7247 4114</textOnly>
+    <type>custom</type>
+</EmailTemplate>

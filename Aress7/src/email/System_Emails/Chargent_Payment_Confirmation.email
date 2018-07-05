@@ -1,0 +1,7 @@
+Hi {!Opportunity.OwnerFirstName},
+
+Payment Confirmation:
+- Account name: {!Opportunity.Account}
+- Online Payment Opportunity: {!Opportunity.Name}
+- Stage: {!Opportunity.StageName}
+- Amount: {!Opportunity.Amount}

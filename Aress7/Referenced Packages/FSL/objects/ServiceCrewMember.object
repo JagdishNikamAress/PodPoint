@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>GanttLabel__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Gantt Label</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <validationRules>
+        <fullName>Prevent_Crew_Allocation_For_Contractors</fullName>
+        <active>true</active>
+        <errorConditionFormula>ServiceResource.IsCapacityBased = true</errorConditionFormula>
+        <errorMessage>Capacity Based Service Resource Cannot Have Crew Member Allocations</errorMessage>
+    </validationRules>
+</CustomObject>

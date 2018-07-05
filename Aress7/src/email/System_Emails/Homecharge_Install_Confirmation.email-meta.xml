@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When Homecharge Install SA &quot;Customer Confirmation&quot; checkbox becomes True</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Homecharge Confirmation Email (Automated)</name>
+    <style>none</style>
+    <subject>Your Pod Point Installation Date is Confirmed {!WorkOrder.Reference_Id__c}</subject>
+    <textOnly>Hi {!Contact.FirstName},
+
+Your install is confirmed:
+
+{!WorkOrder.Scheduled_Start_Date__c}
+
+Your installer will arrive between:
+
+{!WorkOrder.Arrival_Window_Start_Time__c} and {!WorkOrder.Arrival_Window_End_Time__c}
+
+(an installation typically takes around 2 hours to complete)
+
+Want to change your date instead? Just reply to this email and let us know.
+
+
+Thanks,
+
+The Pod Point Team</textOnly>
+    <type>custom</type>
+</EmailTemplate>

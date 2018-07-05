@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>TaskRay Recent Task Chatter</aura:description>
+	<aura:example name="ExampleName" ref="exampleComponentName" label="TaskRay Recent Task Chatter">
+		Insert onto Home via App Builder
+	</aura:example>
+</aura:documentation>

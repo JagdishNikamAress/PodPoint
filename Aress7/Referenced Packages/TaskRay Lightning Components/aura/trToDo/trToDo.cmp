@@ -1,0 +1,469 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,force:hasRecordId" controller="TASKRAY_LTNG.trComponentCtrl" access="global">
+    <!-- TODO Winter '16 implements="force:hasRecordId,flexipage:availableForRecordHome" -->
+    <ltng:require styles="/resource/TASKRAY_LTNG__slds/assets/styles/salesforce-lightning-design-system-vf.css" />
+    <ltng:require styles="/resource/TASKRAY_LTNG__trltngresources/tr-ltng-icons.css" />
+    <aura:attribute name="viewToDisplay" type="String"/>
+    <aura:attribute name="visibleProjectIndex" type="Integer" default="0"/>
+    <aura:attribute name="currentProjectObject" type="Object"/>
+    <aura:attribute name="records" type="Array"/>
+    <aura:attribute name="recordId" type="String" access="global"/>
+    <aura:attribute name="recordError" type="String"/>
+    <aura:attribute name="menuOpen" type="Boolean" default="false"/>
+    <aura:registerEvent name="navigateToTaskRay" type="TASKRAY_LTNG:trNavigateToTaskRayEvent"/>
+    <aura:handler event="TASKRAY_LTNG:trExternalChange" action="{!c.handleExternalChange}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.recordId}" action="{!c.handleExternalChange}"/>
+
+    <TASKRAY_LTNG:trComponentContainer headerText="{!$Label.taskray_ltng.trToDoComponent_Header + ' (' + v.records.length + ')'}">
+        <div class="trToDo slds">
+            <aura:if isTrue="{!v.recordError == 'true'}">
+                <div class="noRecordId">
+                    {!$Label.taskray_ltng.trComponents_RecordIdRequired}
+                </div>
+            </aura:if>
+            <!--only show the buttons and dropdown if there are records -->
+            <aura:if isTrue="{!v.records.length != 0}">
+                <div class="{!v.menuOpen ? 'slds-dropdown-trigger slds-dropdown-trigger_click toggleButtons slds-is-open' : 'slds-dropdown-trigger slds-dropdown-trigger_click toggleButtons'}" aria-haspopup="true" onclick="{!c.toggleMenuOpen}">
+                    <button class="slds-button slds-button--icon-more" aria-haspopup="true">
+                        <aura:if isTrue="{!v.viewToDisplay == 'time'}">  
+                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#event" category="utility" name="event" class="slds-button__icon event-icon" fillOverride="#54698d" isButton="true" />
+                        </aura:if>
+                        <aura:if isTrue="{!v.viewToDisplay == 'list'}">  
+                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#list" category="utility" name="list" class="slds-button__icon list-icon" fillOverride="#54698d" isButton="true" />
+                        </aura:if>
+                        <aura:if isTrue="{!v.viewToDisplay == 'taskGroup'}">  
+                            <img src="/resource/TASKRAY_LTNG__trltngresources/trTaskGroupsIcon.png" style="height: 13px; width: 15px;" />
+                        </aura:if>
+                        <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#down" category="utility" name="list" class="slds-button__icon slds-button__icon--x-small down-icon" fillOverride="#54698d" isButton="true" />
+                        <span class="slds-assistive-text">
+                            {!$Label.taskray_ltng.trToDoComponent_DropDownGroupBy}
+                        </span>
+                    </button>
+                    <div class="slds-dropdown slds-dropdown--right slds-dropdown--small slds-dropdown--menu">
+                        <div class="slds-dropdown__header">
+                            <span class="slds-text-heading--label">{!$Label.taskray_ltng.trToDoComponent_DropDownGroupBy}</span>
+                        </div>
+                        <ul class="slds-dropdown__list" role="menu">
+                            <li id="menu-10-0" class="slds-dropdown__item slds-has-icon--left" href="#" aria-selected="true" role="menuitemcheckbox" tabindex="0">
+                                <a href="#" onclick="{!c.timeView}" role="menuitem" tabindex="0">
+                                    <span>
+                                        <aura:if isTrue="{!v.viewToDisplay == 'time'}">  
+                                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#check" category="utility" name="check" class="slds-icon--left" fillOverride="#54698d" />
+                                        </aura:if>
+                                    </span>
+                                    {!$Label.taskray_ltng.trToDoComponent_Date}
+                                    <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#event" category="utility" name="event" class="slds-icon--right" fillOverride="#54698d" />
+                                </a>
+                            </li>
+                            <li id="menu-11-1" class="slds-dropdown__item slds-has-icon--left" href="#" role="menuitemcheckbox" tabindex="-1">
+                                <a href="#" onclick="{!c.listView}" role="menuitem" tabindex="-1">
+                                    <span>
+                                        <aura:if isTrue="{!v.viewToDisplay == 'list'}">  
+                                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#check" category="utility" name="check" class="slds-icon--left" fillOverride="#54698d" />
+                                        </aura:if>
+                                    </span>
+                                    {!$Label.taskray_ltng.trToDoComponent_Status}
+                                    <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#list" category="utility" name="list" class="slds-icon--right" fillOverride="#54698d" />
+                                </a>
+                            </li>
+                            <li id="menu-12-1" class="slds-dropdown__item slds-has-icon--left" href="#" role="menuitemcheckbox" tabindex="-2">
+                                <a href="#" onclick="{!c.taskGroupView}" role="menuitem" tabindex="-2">
+                                    <span>
+                                        <aura:if isTrue="{!v.viewToDisplay == 'taskGroup'}">  
+                                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#check" category="utility" name="check" class="slds-icon--left" fillOverride="#54698d" />
+                                        </aura:if>
+                                    </span>
+                                    {!$Label.taskray_ltng.trToDoComponent_TaskGroup}
+                                    <img src="/resource/TASKRAY_LTNG__trltngresources/trTaskGroupsIcon.png" style="height: 13px; width: 15px; margin-top: 3px; float: right;" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- list view -->
+                <div aura:id="projectList">
+                    <aura:if isTrue="{!v.recordError != 'true'}">
+                        <aura:if isTrue="{!v.records.length != 0}">
+                            <aura:if isTrue="{!v.currentProjectObject.totalTasks != 0}">
+                                <!-- INLINE STYLE -->
+                                <style>
+                                    .trToDo {
+                                        min-height: 155px;
+                                    }
+                                </style>
+                            </aura:if>
+                        </aura:if>
+                    </aura:if>
+                    <span class="oneProject">
+                        <!-- project name, scroll right and left through the projects -->
+                        <p>
+                            <button class="slds-button project-name" onclick="{!c.goToProject}">
+                                <div class="projectName" id="{!v.currentProjectObject.projectId}">
+                                    {!v.currentProjectObject.projectName}
+                                </div>
+                            </button>
+                            <aura:if isTrue="{!v.records.length > 1}">
+                                <div class="arrows">
+                                    <aura:if isTrue="{!v.visibleProjectIndex == 0}">
+                                        <button class="slds-button--icon inactive scrollLeft" onclick="{!c.goLeft}">
+                                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronleft" category="utility" size="x-small" name="left" class="left-arrow slds-button__icon" isButton="true" />
+                                        </button>
+                                        <button class="slds-button--icon scrollRight" onclick="{!c.goRight}">
+                                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronright" category="utility" size="x-small" name="right" class="right-arrow slds-button__icon" isButton="true" />
+                                        </button>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.visibleProjectIndex != 0}">
+                                        <aura:if isTrue="{!v.visibleProjectIndex != v.records.length-1}">
+                                            <button class="slds-button--icon scrollLeft" onclick="{!c.goLeft}">
+                                                <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronleft" category="utility" size="x-small" name="right" class="left-arrow slds-button__icon" isButton="true" />
+                                            </button>
+                                            <button class="slds-button--icon scrollRight" onclick="{!c.goRight}">
+                                                <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronright" category="utility" size="x-small" name="right" class="right-arrow slds-button__icon" isButton="true" />
+                                            </button>
+                                        </aura:if>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.visibleProjectIndex == v.records.length-1}">
+                                        <button class="slds-button--icon scrollLeft" onclick="{!c.goLeft}">
+                                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronleft" category="utility" size="x-small" name="right" class="slds-button__icon left-arrow" isButton="true" />
+                                        </button>
+                                        <button class="slds-button--icon inactive scrollRight" onclick="{!c.goRight}">
+                                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronright" category="utility" size="x-small" name="right" class="slds-button__icon right-arrow" isButton="true" />
+                                        </button>                                                   
+                                    </aura:if>
+                                </div>
+                            </aura:if>
+                        </p>                            
+                        <aura:if isTrue="{!v.currentProjectObject.totalTasks == 0}">
+                            <style>
+                                div.slds-dropdown-trigger.toggleButtons {
+                                    display: none;
+                                }
+                            </style>
+                            <div class="nothingToRender">
+                                {!$Label.taskray_ltng.trComponents_NothingToRenderPart1}
+                                <span class="addTask" onclick="{!c.makeTask}">
+                                    {!$Label.taskray_ltng.trComponents_NothingToRenderPart2}
+                                </span>
+                                {!$Label.taskray_ltng.trComponents_NothingToRenderPart3}
+                            </div>
+                        </aura:if>
+                       <!-- list items - no tasks, or sorted by status and badge with how many, checkboxes to complete -->
+                        <aura:if isTrue="{!v.currentProjectObject.totalTasks != 0}">
+                            <div class="oneList" ontouchstart="{!c.handleColumnScrollStart}" onmousewheel="{!c.handleColumnScrollStart}" onscroll="{!c.handleColumnScrollStart}">                                    
+                                <aura:if isTrue="{!v.currentProjectObject.totalTasks != 0}">
+                                    <aura:if isTrue="{!v.currentProjectObject.completedTasks == v.currentProjectObject.totalTasks}">
+                                        <div class="nothingToRender">
+                                            {!$Label.taskray_ltng.trToDoComponent_AllTasksComplete}
+                                        </div>
+                                    </aura:if>
+                                </aura:if>
+                                <aura:if isTrue="{!v.currentProjectObject.listTasks.length != 0}">
+                                    <span>
+                                    <aura:iteration items="{!v.currentProjectObject.listTasks}" var="list" indexVar="index">
+                                        {!list.indexVar}
+                                        <article class="{!list.tasks.length==0 ? 'hide-article' : 'show-article'}">
+                                            <div class="{!list.statusName}">
+                                                <span>
+                                                <aura:if isTrue="{!list.tasks.length != 0}">
+                                                    <div class="slds-text-heading--label">
+                                                        <ui:outputText value="{!list.statusName}" class="statusName" />
+                                                    </div>
+                                                    <span class="slds-badge length" style="{!'color: white; background-color: ' + list.listColor}" >{!list.tasks.length}</span>
+                                                </aura:if>
+                                                </span>
+                                                <span>
+                                                <aura:iteration items="{!list.tasks}" var="task">
+                                                    <span>
+                                                    <aura:if isTrue="{!task.length != 0}">
+                                                        <br />
+                                                        <label class="slds-checkbox">
+                                                            <input type="checkbox" name="options" class="checkbox" id="{!task.taskId}" onclick="{!c.finished}"/>
+                                                            <span class="slds-checkbox--faux"></span>
+                                                            <span class="taskText" id="{!'taskText-'+task.taskId}">{!task.taskName}</span>
+                                                        </label>
+                                                        <!--Name and Deadline Badge -->
+                                                        <span class="{!task.timeGroup}">
+                                                            <div class="deadline slds-badge">
+                                                                <span>
+                                                                <aura:if isTrue="{!task.ownerFirstName != null}">
+                                                                    <ui:outputText value="{!task.ownerFirstName}" class="taskInfo" />
+                                                                </aura:if>
+                                                                </span>
+                                                                <span>
+                                                                <aura:if isTrue="{!task.ownerFirstName != null}">
+                                                                    <aura:if isTrue="{!task.deadline != null}">
+                                                                        <span class="dot">
+                                                                         · 
+                                                                        </span>
+                                                                    </aura:if>
+                                                                </aura:if>
+                                                                </span>
+                                                                <span>
+                                                                <aura:if isTrue="{!task.deadline != null}">
+                                                                    <ui:outputText value="{!task.deadlineFormatted}" class="date taskInfo" />
+                                                                </aura:if>
+                                                                </span>
+                                                            </div>
+                                                        </span>
+                                                    </aura:if>
+                                                    </span>
+                                                </aura:iteration>
+                                                </span>
+                                            </div>
+                                        </article>
+                                    </aura:iteration>
+                                    </span>
+                                </aura:if>
+                            </div>
+                        </aura:if>
+                    </span>
+                </div>
+                
+                <!-- time view -->
+                <div aura:id="projectTime">
+                    <div class="oneProject">
+                        <!-- project name, scroll right and left through the projects -->
+                        <p>
+                            <button class="slds-button project-name" onclick="{!c.goToProject}">                                
+                                <div class="projectName" id="{!v.currentProjectObject.projectId}">
+                                    {!v.currentProjectObject.projectName}
+                                </div>
+                            </button>
+                            <aura:if isTrue="{!v.records.length > 1}">
+                                <div class="arrows">
+                                    <aura:if isTrue="{!v.visibleProjectIndex == 0}">
+                                        <button id="scrollLeft" class="slds-button slds-button--icon inactive scrollLeft" onclick="{!c.goLeft}">
+                                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronleft" category="utility" size="x-small" name="left" class="slds-button__icon left-arrow" fillOverride="#54698d" isButton="true" />
+                                        </button>
+                                        <button id="scrollRight" class="slds-button slds-button--icon scrollRight" onclick="{!c.goRight}">
+                                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronright" category="utility" size="x-small" name="right" class="slds-button__icon right-arrow" fillOverride="#54698d" isButton="true" />
+                                        </button>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.visibleProjectIndex != 0}">
+                                        <span>
+                                        <aura:if isTrue="{!visibleProjectIndex != v.records.length-1 &amp;&amp;  v.visibleProjectIndex != v.records.length-1}">
+                                            <button id="scrollLeft" class="slds-button slds-button--icon scrollLeft" onclick="{!c.goLeft}">
+                                                <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronleft" category="utility" size="x-small" name="right" class="slds-button__icon left-arrow" fillOverride="#54698d" isButton="true" />
+                                            </button>
+                                            <button id="scrollRight" class="slds-button slds-button--icon scrollRight" onclick="{!c.goRight}">
+                                                <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronright" category="utility" size="x-small" name="right" class="slds-button__icon right-arrow" fillOverride="#54698d" isButton="true" />
+                                            </button>
+                                        </aura:if>
+                                        </span>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.visibleProjectIndex == v.records.length-1}">
+                                        <button id="scrollLeft" class="slds-button slds-button--icon scrollLeft" onclick="{!c.goLeft}">
+                                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronleft" category="utility" size="x-small" name="right" class="slds-button__icon left-arrow" fillOverride="#54698d" isButton="true" />
+                                        </button>
+                                        <button id="scrollRight" class="slds-button slds-button--icon inactive scrollRight" onclick="{!c.goRight}">
+                                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronright" category="utility" size="x-small" name="right" class="slds-button__icon right-arrow" fillOverride="#54698d" isButton="true" />
+                                        </button>                                                   
+                                    </aura:if>
+                                </div>
+                            </aura:if>
+                        </p>   
+
+                        <aura:if isTrue="{!v.currentProjectObject.timeTasks.length == 0}">
+                            <div class="nothingToRender">
+                                {!$Label.taskray_ltng.trComponents_NothingToRenderPart1}
+                                <span class="addTask" onclick="{!c.makeTask}">
+                                    {!$Label.taskray_ltng.trComponents_NothingToRenderPart2}
+                                </span>
+                                {!$Label.taskray_ltng.trComponents_NothingToRenderPart3}
+                            </div>
+                        </aura:if>
+
+                        <aura:if isTrue="{!v.currentProjectObject.timeTasks.length != 0}">
+                            <div class="oneTime" ontouchstart="{!c.handleColumnScrollStart}" onmousewheel="{!c.handleColumnScrollStart}" onscroll="{!c.handleColumnScrollStart}">         
+                                <aura:if isTrue="{!v.currentProjectObject.timeTasks.length != 0}">
+                                    <aura:iteration items="{!v.currentProjectObject.timeTasks}" var="time">
+                                        <span>
+                                        <aura:if isTrue="{!v.currentProjectObject.timeTasks.length == 1}">
+                                            <aura:if isTrue="{!time.timeName == 'Completed'}">
+                                                <div class="nothingToRender">
+                                                    {!$Label.taskray_ltng.trToDoComponent_AllTasksComplete}
+                                                </div>
+                                            </aura:if>
+                                        </aura:if>
+                                        </span>
+                                        <div class="{!time.timeName}">
+                                            <div class="slds-text-heading--label">
+                                                <ui:outputText value="{!time.timeName}"  class="timeName" />
+                                            </div>
+                                            <ui:outputText value="{!time.tasks.length}" class="slds-badge number" />
+                                            <span>
+                                            <aura:iteration items="{!time.tasks}" var="task"> 
+                                                <br />
+                                                <label class="slds-checkbox">
+                                                    <input type="checkbox" name="options" class="checkbox" id="{!task.taskId}" onclick="{!c.finished}"/>
+                                                    <span class="slds-checkbox--faux"></span>
+                                                    <span class="taskText" id="{!'taskText2-'+task.taskId}">
+                                                        {!task.taskName}
+                                                    </span>
+                                                </label>
+                                                <!--Name and Deadline Badge -->
+                                                <div class="deadline slds-badge">
+                                                    <span>
+                                                    <aura:if isTrue="{!task.ownerFirstName != null}">
+                                                        <ui:outputText value="{!task.ownerFirstName}" class="taskInfo" />
+                                                    </aura:if>
+                                                    </span>
+                                                    <span>
+                                                    <aura:if isTrue="{!task.ownerFirstName != null}">
+                                                        <aura:if isTrue="{!task.deadline != null}">
+                                                            <span class="dot">
+                                                             · 
+                                                            </span>
+                                                        </aura:if>
+                                                    </aura:if>
+                                                    </span>
+                                                    <span>
+                                                    <aura:if isTrue="{!task.deadline != null}">
+                                                        <ui:outputText value="{!task.deadlineFormatted}" class="date taskInfo" />
+                                                    </aura:if>
+                                                    </span>
+                                                </div>
+                                            </aura:iteration>
+                                            </span>
+                                        </div>
+                                    </aura:iteration>
+                                </aura:if>
+                            </div>
+                        </aura:if>
+                    </div>
+                </div> 
+
+                <!-- task group view -->
+                <div aura:id="projectTaskGroup">
+                    <aura:if isTrue="{!v.recordError != 'true'}">
+                        <aura:if isTrue="{!v.records.length != 0}">
+                            <aura:if isTrue="{!v.currentProjectObject.totalTasks != 0}">
+                                <!-- INLINE STYLE -->
+                                <style>
+                                    .trToDo {
+                                        min-height: 155px;
+                                    }
+                                </style>
+                            </aura:if>
+                        </aura:if>
+                    </aura:if>
+                    <span class="oneProject">
+                        <!-- project name, scroll right and left through the projects -->
+                        <p>
+                            <button class="slds-button project-name" onclick="{!c.goToProject}">
+                                <div class="projectName" id="{!v.currentProjectObject.projectId}">
+                                    {!v.currentProjectObject.projectName}
+                                </div>
+                            </button>
+                            <aura:if isTrue="{!v.records.length > 1}">
+                                <div class="arrows">
+                                    <aura:if isTrue="{!v.visibleProjectIndex == 0}">
+                                        <button class="slds-button--icon inactive scrollLeft" onclick="{!c.goLeft}">
+                                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronleft" category="utility" size="x-small" name="left" class="left-arrow slds-button__icon" isButton="true" />
+                                        </button>
+                                        <button class="slds-button--icon scrollRight" onclick="{!c.goRight}">
+                                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronright" category="utility" size="x-small" name="right" class="right-arrow slds-button__icon" isButton="true" />
+                                        </button>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.visibleProjectIndex != 0}">
+                                        <aura:if isTrue="{!v.visibleProjectIndex != v.records.length-1}">
+                                            <button class="slds-button--icon scrollLeft" onclick="{!c.goLeft}">
+                                                <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronleft" category="utility" size="x-small" name="right" class="left-arrow slds-button__icon" isButton="true" />
+                                            </button>
+                                            <button class="slds-button--icon scrollRight" onclick="{!c.goRight}">
+                                                <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronright" category="utility" size="x-small" name="right" class="right-arrow slds-button__icon" isButton="true" />
+                                            </button>
+                                        </aura:if>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.visibleProjectIndex == v.records.length-1}">
+                                        <button class="slds-button--icon scrollLeft" onclick="{!c.goLeft}">
+                                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronleft" category="utility" size="x-small" name="right" class="slds-button__icon left-arrow" isButton="true" />
+                                        </button>
+                                        <button class="slds-button--icon inactive scrollRight" onclick="{!c.goRight}">
+                                            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronright" category="utility" size="x-small" name="right" class="slds-button__icon right-arrow" isButton="true" />
+                                        </button>                                                   
+                                    </aura:if>
+                                </div>
+                            </aura:if>
+                        </p>                            
+                        <aura:if isTrue="{!v.currentProjectObject.totalTasks == 0}">
+                            <style>
+                                div.slds-dropdown-trigger.toggleButtons {
+                                    display: none;
+                                }
+                            </style>
+                            <div class="nothingToRender">
+                                {!$Label.taskray_ltng.trComponents_NothingToRenderPart1}
+                                <span class="addTask" onclick="{!c.makeTask}">
+                                    {!$Label.taskray_ltng.trComponents_NothingToRenderPart2}
+                                </span>
+                                {!$Label.taskray_ltng.trComponents_NothingToRenderPart3}
+                            </div>
+                        </aura:if>
+                            <div class="oneGroup" ontouchstart="{!c.handleColumnScrollStart}" onmousewheel="{!c.handleColumnScrollStart}" onscroll="{!c.handleColumnScrollStart}">         
+                                <span>
+                                    <aura:if isTrue="{!v.currentProjectObject.taskGroupTasks.length == 0}">
+                                        <div class="nothingToRender">
+                                            {!$Label.taskray_ltng.trToDoComponent_AllTasksComplete}
+                                        </div>
+                                    </aura:if>
+                                </span>
+                                <aura:if isTrue="{!v.currentProjectObject.taskGroupTasks.length != 0}">
+                                    <aura:iteration items="{!v.currentProjectObject.taskGroupTasks}" var="taskGroup">
+                                        <div class="one-task-group">
+                                            <div class="slds-text-heading--label">
+                                                <ui:outputText value="{!taskGroup.taskGroupName}" class="taskGroupName" />
+                                            </div>
+                                            <ui:outputText value="{!taskGroup.tasks.length}" class="task-group slds-badge number" />
+                                            <span>
+                                                <aura:iteration items="{!taskGroup.tasks}" var="task"> 
+                                                    <br />
+                                                    <label class="slds-checkbox">
+                                                        <input type="checkbox" name="options" class="checkbox" id="{!task.taskId}" onclick="{!c.finished}"/>
+                                                        <span class="slds-checkbox--faux"></span>
+                                                        <span class="taskText" id="{!'taskText2-'+task.taskId}">
+                                                            {!task.taskName}
+                                                        </span>
+                                                    </label>
+                                                    <div class="deadline slds-badge">
+                                                        <span>
+                                                        <aura:if isTrue="{!task.ownerFirstName != null}">
+                                                            <ui:outputText value="{!task.ownerFirstName}" class="taskInfo" />
+                                                        </aura:if>
+                                                        </span>
+                                                        <span>
+                                                        <aura:if isTrue="{!task.ownerFirstName != null}">
+                                                            <aura:if isTrue="{!task.deadline != null}">
+                                                                <span class="dot">
+                                                                 · 
+                                                                </span>
+                                                            </aura:if>
+                                                        </aura:if>
+                                                        </span>
+                                                        <span class="{!task.timeGroup}">
+                                                            <aura:if isTrue="{!task.deadline != null}">
+                                                                <ui:outputText value="{!task.deadlineFormatted}" class="date taskInfo" />
+                                                            </aura:if>
+                                                        </span>
+                                                    </div>
+                                                </aura:iteration>
+                                            </span>
+                                        </div>
+                                    </aura:iteration>
+                                </aura:if>
+                            </div>
+                    </span>
+                </div>
+
+            </aura:if>
+            <aura:if isTrue="{!v.recordError != 'true'}">
+                <aura:if isTrue="{!v.records.length == 0}">
+                    <div class="noProjects">
+                        {!$Label.taskray_ltng.trComponents_noProjectsToShow}
+                    </div>
+                </aura:if>
+            </aura:if>
+        </div>
+    </TASKRAY_LTNG:trComponentContainer>
+</aura:component>

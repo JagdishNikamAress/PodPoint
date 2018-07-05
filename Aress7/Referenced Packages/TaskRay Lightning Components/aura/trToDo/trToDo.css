@@ -1,0 +1,277 @@
+.THIS .slds-dropdown-trigger_click.slds-is-open .slds-dropdown, .THIS .slds-dropdown-trigger--click.slds-is-open .slds-dropdown {
+    display:block; visibility:visible; opacity:1
+}
+
+.THIS .trToDo {
+    background: transparent;
+}
+
+.THIS .toggleButtons {
+    float: right;
+    margin-top: 5px;
+}
+
+.THIS .toggleButtons .slds-button--icon-more .slds-icon, .THIS .toggleButtons .slds-button--icon-more .slds-button__icon {
+    fill: #54698d !important;
+}
+
+.THIS .projectName {
+    font-size: 14px;
+    color: #0070D2;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.THIS button.project-name {
+    max-width: calc(100% - 130px);
+}
+
+.THIS .cross {
+    text-decoration: line-through;
+}
+
+.THIS .fade {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+   -moz-transition: opacity 2s ease-in-out;
+   -webkit-transition: opacity 2s ease-in-out;
+}
+
+.THIS .inactive {
+   opacity: 0.25;
+}
+
+.THIS .invisible {
+    display: none;
+}
+
+.THIS p {
+    margin: 0px;
+    font-size: 13px;
+}
+
+.THIS .taskText {
+    position: relative;
+    top: 1px;
+    margin-left: 5px;
+    margin-right: 0px;
+    color: #16325c;
+}
+
+.THIS .checkmark {
+    margin: 0px;
+    margin-bottom: .5%;
+}
+
+.THIS .arrows {
+    display: inline;
+    position: relative;
+    bottom: 3px;
+}
+
+.THIS .scrollLeft, .THIS .scrollRight, .THIS .status, .THIS .time {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.THIS .left-arrow, .THIS .right-arrow {
+    position: relative;
+}    
+
+.THIS .status, .THIS .time {
+    padding: 1%;
+    float: right;
+}
+
+.THIS .oneTime, .THIS .oneList, .THIS .oneGroup {
+    max-height: 400px;
+    overflow-y: scroll; 
+    -webkit-overflow-scrolling: touch;
+    -webkit-transform: translateZ(0);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.THIS .dot {
+    font-size: 12px;
+}
+
+.THIS .taskInfo {
+    vertical-align: middle;
+}
+
+.THIS .slds-text-heading--label {
+    display: inline-block;
+}
+
+.THIS article {
+    margin-top: 2%;
+}
+
+.THIS .hide-article {
+    display: none;
+}
+
+.THIS .slds-badge.number {
+    color: white;
+    font-size: 10px;
+    vertical-align: top;
+    position: relative;
+    top: 3px;
+    padding: 3px 7px;
+}
+
+.THIS article:nth-of-type(1) .slds-badge {
+    background-color: #B0B0B0;
+}
+
+.THIS article:nth-of-type(2) .slds-badge {
+    background-color: #faa732;
+}
+
+.THIS article:nth-of-type(3) .slds-badge {
+    background-color: #49afcd;
+}
+
+.THIS article:nth-of-type(4) .slds-badge {
+    background-color: #5bb75b;
+}
+
+.THIS article:nth-of-type(5) .slds-badge {
+    background-color: #ffc40d;
+}
+
+.THIS article:nth-of-type(5) .slds-badge {
+    background-color: #9d261d;
+}
+
+.THIS article:nth-of-type(6) .slds-badge {
+    background-color: #216b81;
+}
+
+.THIS article:nth-of-type(7) .slds-badge {
+    background-color: #7a43b6;
+}
+
+.THIS article:nth-of-type(8) .slds-badge {
+    background-color: #c3325f;
+}
+
+.THIS article:nth-of-type(9) .slds-badge {
+    background-color: #B0B0B0;
+}
+
+.THIS article:nth-of-type(10) .slds-badge {
+    background-color: #faa732;
+}
+
+.THIS .deadline.slds-badge {
+    background-color: #E0E5EE !important;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 2px 8px;
+}
+
+.THIS .task-group.slds-badge.number {
+    background-color: #54698d;
+}
+
+.THIS article:last-of-type {
+    display: none;
+}
+
+.THIS .This {
+    order: 3;
+    margin-top: 2%;
+}
+
+.THIS .Overdue .date {
+    color: red;
+}
+
+.THIS .Overdue {
+    order: 1;
+    margin-top: 2%;
+}
+
+.THIS .Today {
+    order: 2;
+    margin-top: 2%;
+}
+
+.THIS .Later {
+    order: 4;
+    margin-top: 2%;
+}
+
+.THIS .Unscheduled {
+    order: 5;
+    margin-top: 2%;
+}
+
+.THIS .one-task-group {
+    margin-top: 2%;
+}
+
+.THIS .slds-badge {
+    margin-left: 1%;
+    margin-bottom: .5%;
+}
+
+.THIS .slds-badge.length {
+    position: relative;
+    bottom: 3px;
+}
+
+.THIS .Overdue .slds-badge {
+    background-color: #bc4234;
+}
+
+.THIS .Today .slds-badge {
+    background-color: #51ae51;
+}
+
+.THIS .This .slds-badge {
+    background-color: #d49f9e;
+}
+
+.THIS .Later .slds-badge {
+    background-color: #fa9d2c;
+}
+
+.THIS .Unscheduled .slds-badge {
+    background-color: #40a6c6;
+}
+
+.THIS .oneProject .oneTime .Completed, .THIS .Finished {
+    display: none;
+}
+
+.THIS .addTask {
+    color: #006eb3;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.THIS .nothingToRender, .THIS .noProjects, .THIS .noRecordId {
+    text-align: center;
+    color: #54698D;
+    padding: 10px 0px;
+}
+
+.THIS.disappear {
+    margin: 0px;
+    transition: margin 2s ease-in-out;
+    -moz-transition: margin 2s ease-in-out;
+    -webkit-transition: margin 2s ease-in-out;
+    padding: 0px;
+    transition: padding 2s ease-in-out;
+    -moz-transition: padding 2s ease-in-out;
+    -webkit-transition: padding 2s ease-in-out;
+    border: 0px;
+}

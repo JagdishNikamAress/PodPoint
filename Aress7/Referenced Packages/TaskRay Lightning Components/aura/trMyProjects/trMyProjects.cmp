@@ -1,0 +1,34 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,force:hasRecordId" controller="TASKRAY_LTNG.trComponentCtrl" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="width" type="String" access="global" />
+    <aura:attribute name="projects" type="Array" />
+    <aura:attribute name="expandedProjectId" type="String" access="public" />
+    <aura:attribute name="showMoreLimit" type="Integer" default="5" />
+    <aura:attribute name="showMoreBtnVisible" type="Boolean" default="false" />
+    <aura:attribute name="selectedFilterId" type="String" default="standard-project-my" />
+    <aura:attribute name="projectFilters" type="List" default="[
+        {'label': 'My Projects', 'value': 'standard-project-my'}]" />
+    <aura:handler name="genericEvent" event="TASKRAY_LTNG:trGenericEvent" action="{!c.handleComponentEvent}"/>
+    <aura:handler event="TASKRAY_LTNG:trExternalChange" action="{!c.handleExternalChange}"/>
+
+    <TASKRAY_LTNG:trComponentContainer headerText="{!$Label.taskray_ltng.trMyProjectsComponent_Header}">
+        <div style="max-width: 20rem">
+            <lightning:combobox name="projectFilter" label="{!$Label.taskray_ltng.trMyProjectsComponent_filterLabel}" value="{!v.selectedFilterId}" options="{!v.projectFilters}" onchange="{!c.handleFilterChange}"/>
+        </div>
+        <div class="my-projects--container">
+            <aura:iteration items="{!v.projects}" var="project" indexVar="indexVar">
+                <div aura:id="{!indexVar}">
+                    <aura:if isTrue="{!lessthanorequal(indexVar+1,v.showMoreLimit)}">
+                        <TASKRAY_LTNG:trMyProjects_projectRow projectObj="{!project}" width="{!v.width}" expanded="{!(v.expandedProjectId == project.project.Id) ? true : false }" />
+                    </aura:if>
+                </div>
+            </aura:iteration>
+            <aura:if isTrue="{!v.showMoreBtnVisible}">
+                <button class="slds-button slds-button--neutral slds-float--right" onclick="{!c.increaseShowMore}">
+                    {!$Label.taskray_ltng.trToDoByDay_ShowMore}
+                </button>
+                <div class="slds-clearfix" />
+            </aura:if>
+        </div>
+    </TASKRAY_LTNG:trComponentContainer>
+</aura:component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Photo request pre-install</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Z - Photos</name>
+    <style>none</style>
+    <subject>We need a few photos from you (Pod Point Homecharge)</subject>
+    <type>text</type>
+</EmailTemplate>

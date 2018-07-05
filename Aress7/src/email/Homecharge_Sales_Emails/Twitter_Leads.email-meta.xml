@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <description>Email template for Twitter Homecharge leads</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Twitter Leads</name>
+    <style>none</style>
+    <subject>POD Point Home Charger - Get Started (INCOMPLETE)</subject>
+    <textOnly>We tried to contact you
+
+POD Point Home Charger
+
+Hi {!Account.FirstName},
+
+Thanks for getting in touch with us through the POD Point website. I just gave you a ring to find out if you had any questions about charging electric cars at home, but I couldn’t get through.
+
+If you’d like to have a chat, please let us know when would be a convenient time for us to call back. Ready to get charging at home? Simply click below to find the perfect charging point for you.
+
+Get started!
+
+Kind Regards,
+
+{!Opportunity.OwnerFullName}
+
+Need some help?
+
+We’re here, if you need to talk</textOnly>
+    <type>custom</type>
+</EmailTemplate>

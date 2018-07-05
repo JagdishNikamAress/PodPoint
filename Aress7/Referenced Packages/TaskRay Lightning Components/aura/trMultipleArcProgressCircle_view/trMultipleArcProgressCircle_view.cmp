@@ -1,0 +1,10 @@
+<aura:component>
+  <!-- To match [{percentage: 10, color: '#446688'}, {percentage: 20, color:'pink'}] -->
+  <aura:attribute name="progressArray" type="Array" />
+  <aura:attribute name="mountedInProjectRow" type="Boolean" />
+  <aura:attribute name="containerClass" type="String" default="" />
+
+  <span aura:id="container" class="{!v.containerClass}">
+    
+  </span>
+</aura:component>

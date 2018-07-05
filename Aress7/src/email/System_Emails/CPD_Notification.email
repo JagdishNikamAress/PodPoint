@@ -1,0 +1,9 @@
+New CPD Request:
+
+Name: {!Lead.Name}
+Email : {!Lead.Email}
+Phone : {!Lead.Phone}
+
+Please click on the link to see the lead : {!Lead.Link}
+
+Thanks,

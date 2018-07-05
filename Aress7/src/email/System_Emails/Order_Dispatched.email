@@ -1,0 +1,11 @@
+Hey {!Opportunity.OwnerFirstName},
+
+Please note your order has been dispatched.
+
+Order Link : {!Order.Link}
+Account Name: {!Account.Name}
+Opportunity Name: {!Order.Opportunity}
+PP Order Number: {!Order.Internal_Order__c}
+
+Thanks,
+POD Point Operations Team

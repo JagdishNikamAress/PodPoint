@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Installation Follow Up - Supply Upgrade</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Installation Follow Up - Supply Upgrade</name>
+    <style>none</style>
+    <subject>Installation Follow Up - Supply Upgrade</subject>
+    <type>text</type>
+</EmailTemplate>

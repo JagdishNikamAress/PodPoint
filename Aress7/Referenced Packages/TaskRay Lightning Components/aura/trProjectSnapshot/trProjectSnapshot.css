@@ -1,0 +1,69 @@
+.THIS{
+  padding:8px;
+  background-color:#F1F3F7;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.THIS .slds-icon-clock-task-snapshot {
+ fill: red !important;
+}
+
+.THIS .slds-icon-warning-task-snapshot {
+ fill: orange !important;
+}
+
+.THIS .slds-clear-float {
+	clear: both;
+}
+
+.THIS .nothingToRender, .THIS .noProjects, .THIS .noRecordId {
+  text-align: center;
+  color: #54698D;
+  padding: 10px 0px;
+}
+
+.THIS .addTask {
+  color: #006eb3;
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.THIS .main-component {
+  width: 100%;
+}
+
+.THIS button.project-name {
+  max-width: calc(100% - 70px);
+}
+
+.THIS .projectName {
+  font-size: 14px;
+  float: left;
+  color: #0070D2;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.THIS .arrows {
+  display: inline;
+  vertical-align: top;
+  position: relative;
+  bottom: 12px;
+}
+
+.THIS #scrollLeft.inactive, .THIS #scrollRight.inactive {
+ opacity: 0.25;
+}
+
+.THIS .snapshot-task-group-picklist {
+  margin-bottom: 14px;
+}
+
+.THIS .snapshot-task-group-picklist .slds-combobox_container {
+  width: 170px;
+}

@@ -1,0 +1,4 @@
+<design:component>
+	<design:attribute name="type" label="Type" description="Type of button that would be rendered instead of checkbox" />
+    <design:attribute name="checkboxField" label="CheckboxField" description="Checkbox/boolean field that needs to be displayed as a button" />
+</design:component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>DRS for Docusign</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>1 NEW DRS</name>
+    <style>none</style>
+    <subject>Your New Homecharger (Pod Point)</subject>
+    <type>text</type>
+</EmailTemplate>

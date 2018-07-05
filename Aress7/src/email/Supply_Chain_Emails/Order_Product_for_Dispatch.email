@@ -1,0 +1,17 @@
+Hi iPro, 
+
+New Order has been added to the 'Orders Portal'.
+
+To update an Order that's been dispatched:
+1) Click into an Order
+2) Tick the products that have been shipped
+3) Add tracking # for each product
+4) Click "Save"
+
+http://pod-point.force.com/iProOrderPage/AllOrderPage_iPro
+
+Kind Regards, 
+
+Helen De Leo 
+Customer Ops Manager
+Ref. Order # {!Order.Id}

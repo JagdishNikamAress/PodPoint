@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Job Title</value>
+        </caseValues>
+        <name>title_contact</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <label><!-- About --></label>
+        <name>About__c</name>
+    </fields>
+    <fields>
+        <label><!-- Capsule Import ID --></label>
+        <name>Capsule_Import_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Capsule Import Zen_ID --></label>
+        <name>Capsule_Import_Zen_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field defines what marketing a particular person will receive. By default it is set to inherit this from the account. - --></help>
+        <label><!-- Contact Marketing Focus --></label>
+        <name>Contact_Marketing_Focus__c</name>
+        <picklistValues>
+            <masterLabel>Destination</masterLabel>
+            <translation><!-- Destination --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Destination Strategic</masterLabel>
+            <translation><!-- Destination Strategic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home</masterLabel>
+            <translation><!-- Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Strategic</masterLabel>
+            <translation><!-- Home Strategic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workplace</masterLabel>
+            <translation><!-- Workplace --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workplace Strategic</masterLabel>
+            <translation><!-- Workplace Strategic --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- FieldAware ID --></label>
+        <name>FieldAware_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- FieldAware URL --></label>
+        <name>FieldAware_URL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select this if the customer has a PP Home unit installed --></help>
+        <label><!-- Has a PP Home --></label>
+        <name>Has_a_PP_Home__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the date the home charge was installed --></help>
+        <label><!-- Home Charge Install Date --></label>
+        <name>Home_Charge_Install_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Title --></label>
+        <name>Job_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location ID --></label>
+        <name>Location_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- MC Subscriber --></label>
+        <name>MC4SF__MC_Subscriber__c</name>
+        <relationshipLabel><!-- Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Region --></label>
+        <name>Region__c</name>
+    </fields>
+    <fields>
+        <label><!-- Work Phone --></label>
+        <name>Work_Phone__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is automatically set from the related Default Payment Method&apos;s Payment Gateway. --></help>
+        <label><!-- Default Payment Gateway --></label>
+        <name>bt_stripe__Default_Payment_Gateway__c</name>
+        <relationshipLabel><!-- Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Latest payment method will be automatically populated, but can be updated. --></help>
+        <label><!-- Default Payment Method --></label>
+        <name>bt_stripe__Default_Payment_Method__c</name>
+        <relationshipLabel><!-- Contacts --></relationshipLabel>
+    </fields>
+    <quickActions>
+        <label><!-- Case --></label>
+        <name>Case</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Event --></label>
+        <name>Event</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Log a Call --></label>
+        <name>Log_a_Call</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Log A Note --></label>
+        <name>Note</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Task --></label>
+        <name>Task</name>
+    </quickActions>
+    <webLinks>
+        <label><!-- EasyUpload --></label>
+        <name>EasyUpload</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Opt_in_for_Text_Messages_list --></label>
+        <name>LiveText__Opt_in_for_Text_Messages_list</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Opt_out_for_Text_Messaging_List --></label>
+        <name>LiveText__Opt_out_for_Text_Messaging_List</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_Bulk_SMS2 --></label>
+        <name>LiveText__Send_Bulk_SMS2</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOP --></label>
+        <name>Loop__LOOP</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOP_Merge --></label>
+        <name>Loop__LOOP_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOPlus --></label>
+        <name>Loop__LOOPlus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOP_Merge --></label>
+        <name>Loop__Mass_LOOP_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOPlus --></label>
+        <name>Loop__Mass_LOOPlus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- MailChimp_Subscriptions_detail --></label>
+        <name>MC4SF__MailChimp_Subscriptions_detail</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- MailChimp_Subscriptions_list --></label>
+        <name>MC4SF__MailChimp_Subscriptions_list</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Create_Tasks_Contacts --></label>
+        <name>activities__Create_Tasks_Contacts</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Download_Attachments --></label>
+        <name>attachmentzip__Download_Attachments</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Blackthorn_Terminal --></label>
+        <name>bt_stripe__Blackthorn_Terminal</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Virtual_Terminal --></label>
+        <name>bt_stripe__Virtual_Terminal</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_to_EchoSign --></label>
+        <name>echosign_dev1__Send_to_EchoSign</name>
+    </webLinks>
+</CustomObjectTranslation>

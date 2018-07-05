@@ -1,0 +1,6 @@
+<aura:event type="APPLICATION" description="Navigate to TaskRay">
+  <aura:attribute name="projectId" type="String"/>
+  <aura:attribute name="taskId" type="String"/>
+  <aura:attribute name="showTimesheet" type="Boolean" default="false"/>
+  <aura:attribute name="openModal" type="Boolean" default="false"/>
+</aura:event>

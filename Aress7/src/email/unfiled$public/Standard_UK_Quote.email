@@ -1,0 +1,12 @@
+Hi {!Contact.FirstName},
+
+Following on from our discussion, please find attached your quote.
+
+If you wish to proceed, you will also need to complete our direct debit mandate for any data fees.
+
+If you have any queries, please don't hesitate to contact me.
+
+Regards,
+{!User.FirstName} {!User.LastName}
+{!User.Title}
+{!Organization.Name}

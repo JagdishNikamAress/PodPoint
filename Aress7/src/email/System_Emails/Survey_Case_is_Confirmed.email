@@ -1,0 +1,12 @@
+Hey {!Account.OwnerFullName}, 
+
+Your Survey for the Opportunity below has been confirmed with the customer.
+
+Account name: {!Case.Account}
+Opportunity name: {!Case.Opportunity_Name__c}
+Case Link : {!Case.Link}
+Case Number : {!Case.CaseNumber}
+FieldAware Job ID : {!Case.Job_ID__c} 
+
+Thanks, 
+POD Point Install Team

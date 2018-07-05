@@ -1,0 +1,10 @@
+Hi {!Account.FirstName},
+
+A quick email to confirm that we have received your enquiry for a home charger.
+
+I’d like to discuss the opportunity with you further, however if you’re happy to continue the process yourself please click the link below:
+
+{!Case.Ordering_Tool_Customer_URL__c}
+{!Opportunity.Ordering_Tool_Customer_URL__c}
+
+Alternatively, let me know the best time to contact you.

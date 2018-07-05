@@ -1,0 +1,122 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false" standardController="TASKRAY__Project_Task__c" extensions="TASKRAY.trChecklistController,TASKRAY.trChecklistActionController" applyHtmlTag="false" applyBodyTag="false" title="{!$Label.taskray__taskray_pagetitle}">
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no"/> 
+      <script type='text/javascript' src='/canvas/sdk/js/publisher.js'></script>
+      <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trplugins, 'jquery/jquery-1.10.2.min.js')}" />
+      <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trplugins, 'plugins/typeahead.bundle.js')}" />
+      <link href="{!URLFOR($Resource.trplugins, 'glyphicons/css/glyphicons.css')}" rel="stylesheet" type="text/css" />
+      <link href="{!URLFOR($Resource.trplugins, 'css/trtaskboard.css')}" rel="stylesheet" type="text/css" />
+      <link href="{!URLFOR($Resource.trplugins, 'sds/salesforce-lightning-design-system-vf.css')}" rel="stylesheet" type="text/css" />
+      <link href="{!URLFOR($Resource.trplugins, 'bootstrap3/css/bootstrap.css')}" rel="stylesheet" type="text/css" />
+
+      <script>
+        var taskId = '{!HTMLENCODE(Project_Task__c.Id)}';
+        var labels = JSON.parse("{!JSENCODE(customLabelJSON)}");
+        var currentUserInfo = JSON.parse("{!JSENCODE(currentUserInfo)}");
+        window.allowInsert=true;
+        window.TASKRAY.trTaskBoardController = window.TASKRAY.trChecklistActionController;
+
+        var sdsIconActionSprite = '{!URLFOR($Resource.trplugins, 'sds/icons/action-sprite.svg')}';
+        var sdsIconCustomSprite = '{!URLFOR($Resource.trplugins, 'sds/icons/custom-sprite.svg')}';
+        var sdsDoctypeCustomSprite = '{!URLFOR($Resource.trplugins, 'sds/icons/doctype-sprite.svg')}';
+        var sdsIconStandardSprite = '{!URLFOR($Resource.trplugins, 'sds/icons/standard-sprite.svg')}';
+        var sdsIconUtilitySprite = '{!URLFOR($Resource.trplugins, 'sds/icons/utility-sprite.svg')}';
+        var taskrayIconSprite = '{!URLFOR($Resource.trplugins, 'images/taskray-sprite.svg')}';
+
+        var $j = window.jQuery.noConflict();
+        window.jQuery=false;
+        $j(document).ready(function(){
+          var pageHeight=window.Sfdc.canvas.client.size().heights.pageHeight;
+          $j('body').height(pageHeight);
+        });
+      </script>
+      <style type="text/css" title="dynamic-doc-css">
+      
+        html,html body{
+          overflow: auto;
+          -webkit-overflow-scrolling:auto;
+        }
+        body{
+          position:absolute;left:0;right:0;top:0;bottom:0;
+          margin:0;
+        }
+
+      .tr-spinner-container {
+        opacity: 1;
+        left: -moz-calc(50% - 37px);
+        left: -webkit-calc(50% - 37px);
+        left: calc(50% - 37px);
+        top: -moz-calc(50% - 37px);
+        top: -webkit-calc(50% - 37px);
+        top: calc(50% - 37px);
+        position: absolute;
+        width: 75px;
+        height: 75px;
+        overflow:hidden;
+      }
+
+      .tr-spinner {
+        width: 300px;
+        height: 75px;
+        background: url({!URLFOR($Resource.trplugins, 'images/loader.sprite.png')}) left center;
+        -webkit-animation: play 2s steps(4) infinite;
+        -moz-animation: play 2s steps(4) infinite;
+        -ms-animation: play 2s steps(4) infinite;
+        -o-animation: play 2s steps(4) infinite;
+        animation: play 2s steps(4) infinite;
+        margin-left: -225px;
+      }
+
+      
+        @-webkit-keyframes play {
+           from { -webkit-transform: translateX(0) }
+             to { -webkit-transform: translateX(300px) }
+        }
+
+        @-moz-keyframes play {
+           from { -moz-transform: translateX(0) }
+             to { -moz-transform: translateX(300px) }
+        }
+
+        @-ms-keyframes play {
+           from { ms-transform: translateX(0) }
+             to { ms-transform: translateX(300px) }
+        }
+
+        @-o-keyframes play {
+           from { transform: translateX(0) }
+             to { transform: translateX(300px) }
+        }
+
+        @keyframes play {
+           from { transform: translateX(0) }
+             to { transform: translateX(300px) }
+        }
+
+        .tr-spinner-text{
+          opacity: 1;
+          width: 100%;
+          text-align: center;
+          top: -moz-calc(50% + 38px);
+          top: -webkit-calc(50% + 38px);
+          top: calc(50% + 38px);
+          position: absolute;
+          padding-top: 4px;
+          color: white;
+          font-size: 20px;
+        }
+        /* Kludge to match aloha font sizing and line height layout*/
+        #checklist-app-container{
+          font-size: 75%;
+        }
+    </style>
+    </head>
+    
+    <body>
+      <div id='checklist-app-container' style="height:100%"/>
+    </body>
+    
+  </html>
+  <script src="{!URLFOR($Resource.trplugins, 'customjs/checklistActionApp-bundle.js')}" />
+</apex:page>

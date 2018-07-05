@@ -1,0 +1,15 @@
+<aura:component>
+  <aura:attribute name="checklistItem" type="Object" />
+  <aura:registerEvent name="genericEvent" type="TASKRAY_LTNG:trGenericEvent"/>
+  <div class="todo-by-day-checklistitem-container">
+    <div class="slds-form-element slds-float--left">
+      <div class="slds-form-element__control">
+      <label class="slds-checkbox">
+        <input type="checkbox" id="{!v.checklistItem.Id}" onchange="{!c.completeChecklistItem}" aura:id="completed-checkbox" />
+        <span class="slds-checkbox--faux"></span>
+      </label>
+      </div>
+    </div>
+    <span id="{!v.checklistItem.Id+'-text'}" class="" aura:id="checklistItem-text">{!v.checklistItem.Name}</span>
+  </div>
+</aura:component>

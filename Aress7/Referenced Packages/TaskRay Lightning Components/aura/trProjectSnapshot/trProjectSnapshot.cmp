@@ -1,0 +1,125 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,force:hasRecordId" controller="TASKRAY_LTNG.trComponentCtrl" access="global" >
+  <aura:dependency type="COMPONENT" resource="markup://TASKRAY_LTNG:trTaskSnapshot_view2" />
+  <aura:attribute name="accessLevel" type="String" default="full" />
+  <aura:attribute name="visibleProjectIndex" type="Integer" />
+  <aura:attribute name="currentProjectObject" type="Object" />
+  <aura:attribute name="currentProjectProgressArray" type="Object" />
+  <aura:attribute name="recordId" type="String" access="global"/>
+  <aura:attribute name="progressArray" type="Array" />
+  <aura:attribute name="records" type="Object"/>
+  <aura:attribute name="recordError" type="String"/>
+  <aura:attribute name="selectedGroupName" type="String" default="{!$Label.taskray_ltng.trSnapshotComponent_ShowAll}"/>
+  <aura:attribute name="selectedGroupId" type="String" default="{!$Label.taskray_ltng.trSnapshotComponent_ShowAll}"/>
+  <aura:registerEvent name="navigateToTaskRay" type="TASKRAY_LTNG:trNavigateToTaskRayEvent"/>
+  <aura:handler event="TASKRAY_LTNG:trExternalChange" action="{!c.handleExternalChange}"/>
+  <aura:handler name="change" value="{!v.recordId}" action="{!c.handleExternalChange}"/>
+  <aura:handler name="genericEvent" event="TASKRAY_LTNG:trGenericEvent" action="{!c.handleComponentEvent}"/>
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+  <TASKRAY_LTNG:trComponentContainer headerText="{!$Label.taskray_ltng.trSnapshotComponent_Header + ' (' + v.records.length + ')'}">
+    <div>
+      <aura:if isTrue="{!v.recordError == 'true'}">
+        <div class="noRecordId">
+          {!$Label.taskray_ltng.trComponents_RecordIdRequired}
+        </div>
+      </aura:if>
+      <aura:if isTrue="{!v.records.length > 0}">
+        <button class="slds-button" onclick="{!c.goToProject}">
+          <div class="projectName" id="{!v.currentProjectObject.projectId}">{!v.currentProjectObject.projectName}</div>
+        </button>
+      </aura:if>
+      <aura:if isTrue="{!v.records.length > 1}">
+        <div class="arrows">
+          <aura:if isTrue="{!v.visibleProjectIndex == 0}">
+            <button id="scrollLeft" class="slds-button slds-button--icon inactive scrollLeft">
+              <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronleft" category="utility" size="x-small" name="left" class="slds-button__icon left-arrow" fillOverride="#54698d" isButton="true" />
+            </button>
+            <button id="scrollRight" class="slds-button slds-button--icon scrollRight" onclick="{!c.goRight}">
+              <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronright" category="utility" size="x-small" name="right" class="slds-button__icon right-arrow" fillOverride="#54698d" isButton="true" />
+            </button>
+            <div class="slds-clear-float" />
+          </aura:if>
+          <aura:if isTrue="{!v.visibleProjectIndex != 0 &amp;&amp; v.visibleProjectIndex != v.records.length-1}">
+            <aura:if isTrue="{!visibleProjectIndex != v.records.length-1}">                                              
+              <button id="scrollLeft" class="slds-button slds-button--icon scrollLeft" onclick="{!c.goLeft}">
+                <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronleft" category="utility" size="x-small" name="right" class="slds-button__icon left-arrow" fillOverride="#54698d" isButton="true" />
+              </button>
+              <button id="scrollRight" class="slds-button slds-button--icon scrollRight" onclick="{!c.goRight}">
+                <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronright" category="utility" size="x-small" name="right" class="slds-button__icon right-arrow" fillOverride="#54698d" isButton="true" />
+              </button>
+              <div class="slds-clear-float" />
+            </aura:if>
+          </aura:if>
+          <aura:if isTrue="{!v.visibleProjectIndex == v.records.length-1}">
+            <button id="scrollLeft" class="slds-button slds-button--icon scrollLeft" onclick="{!c.goLeft}">
+              <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronleft" category="utility" size="x-small" name="right" class="slds-button__icon left-arrow" fillOverride="#54698d" isButton="true" />
+            </button>
+            <button id="scrollRight" class="slds-button slds-button--icon inactive scrollRight">
+              <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#chevronright" category="utility" size="x-small" name="right" class="slds-button__icon right-arrow" fillOverride="#54698d" isButton="true" />
+            </button> 
+            <div class="slds-clear-float" />                                                  
+          </aura:if>
+        </div>
+      </aura:if>
+      <!-- build dropdown -->
+      <aura:renderIf isTrue="{!v.currentProjectObject.doesProjectHaveTaskGroups == true}">
+        <div class="snapshot-task-group-picklist">
+          <TASKRAY_LTNG:trPicklistComponent 
+            SelectedId="{!v.selectedGroupId}"
+            SelectedName="{!v.selectedGroupName}"
+            DropdownArray="{!v.currentProjectObject.taskGroupInfoArray}"
+            DropdownLabel="{!$Label.taskray_ltng.trSnapshotComponent_TaskGroups}"
+            DropdownHeaderLabel="{!$Label.taskray_ltng.trSnapshotComponent_SelectTaskGroup}"
+            LimitDropdownHeight='true' />
+          </div>
+        </aura:renderIf>
+        <!-- end of dropdown -->
+        <span>
+          <aura:if isTrue="{!v.records.length > 0}">
+            <span>
+              <aura:if isTrue="{!v.currentProjectObject.statList.length == 0}">
+                <div class="nothingToRender">
+                  {!$Label.taskray_ltng.trComponents_NothingToRenderPart1}
+                  <span class="addTask" onclick="{!c.makeTask}">
+                    {!$Label.taskray_ltng.trComponents_NothingToRenderPart2}
+                  </span>
+                  {!$Label.taskray_ltng.trComponents_NothingToRenderPart3}
+                </div>
+              </aura:if>
+            </span>
+            <span>
+              <aura:if isTrue="{!v.currentProjectObject.statList.length != 0}">
+                <span>
+                  <TASKRAY_LTNG:trTaskSnapshot_view2
+                    projectName="{!v.currentProjectObject.projectName}"
+                    taskStatusCountsWithColor="{!v.currentProjectObject.statList}"
+                    blockedCount="{!v.currentProjectObject.blockedCount}"
+                    progressArray="{!v.currentProjectObject.progressArray}"
+                    overdueCount="{!v.currentProjectObject.overdueCount}"
+                    projectCompletionPercentage="{!v.currentProjectObject.completionPercentage}"
+                    scheduleConflictCount="{!v.currentProjectObject.scheduleConflictCount}" 
+                    timeEnabled="{!v.currentProjectObject.timeEnabled}"
+                    projectActualTime="{!v.currentProjectObject.actualTimeHrs}"
+                    projectEstimatedTime="{!v.currentProjectObject.estimatedTimeHrs}"
+                    />
+                </span>
+              </aura:if>
+            </span>
+          </aura:if>
+        </span>
+        <span>
+          <aura:if isTrue="{!v.recordError != 'true'}">
+            <span>
+              <aura:if isTrue="{!v.records.length == 0}">
+                <span>
+                  <div class="noProjects">
+                    {!$Label.taskray_ltng.trComponents_noProjectsToShow}
+                  </div>
+                </span>
+              </aura:if>
+            </span>
+          </aura:if>
+        </span>
+      </div>
+    </TASKRAY_LTNG:trComponentContainer>
+  </aura:component>

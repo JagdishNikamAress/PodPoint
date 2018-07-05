@@ -1,0 +1,13 @@
+.THIS .slds-dropdown-trigger_click.slds-is-open .slds-dropdown, .THIS .slds-dropdown-trigger--click.slds-is-open .slds-dropdown {
+    display:block; visibility:visible; opacity:1
+}
+
+.THIS .slds-limit-dropdown-height {
+	max-height: 25vh;
+	overflow: auto;
+}
+
+.THIS .slds-combobox__input{
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,15 @@
+.THIS{
+	position: relative;
+	border: 1px solid #D8DDE6;
+	border-radius: 4px;
+	padding: 12px;
+}
+
+.THIS .slds-text-heading--small{
+	line-height: 24px;
+	font-weight: normal;
+}
+
+.THIS .header{
+  padding-top: 10px;
+}

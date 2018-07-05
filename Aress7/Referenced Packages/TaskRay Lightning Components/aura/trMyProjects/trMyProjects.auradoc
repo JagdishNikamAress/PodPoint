@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+	<aura:example name="trMyProjects" ref="trMyProjects" label="My Projects">
+		Shows a high level of view of your current TaskRay projects
+	</aura:example>
+</aura:documentation>

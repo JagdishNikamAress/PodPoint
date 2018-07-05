@@ -1,0 +1,3 @@
+<design:component label="TaskRay Projects">
+	<design:attribute name="width" datasource="NARROW,WIDE" default='NARROW' />
+</design:component>

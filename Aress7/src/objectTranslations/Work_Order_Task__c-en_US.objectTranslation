@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Work Order Task</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Work Order Tasks</value>
+    </caseValues>
+    <quickActions>
+        <label><!-- Add ENA Fields --></label>
+        <name>Add_ENA_Fields</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Add PSL/PG Number --></label>
+        <name>Add_PSL_PG_Number</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Add Preferred Chargepoint --></label>
+        <name>Add_Preferred_Chargepoint</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Add Serial Number --></label>
+        <name>Add_Serial_Number</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Add VRN &amp; Signee --></label>
+        <name>Add_Signee_Name_Relationship</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Task Status --></label>
+        <name>Update_Task_Status</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Wi-Fi Connected? --></label>
+        <name>Wi_Fi_Connected</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

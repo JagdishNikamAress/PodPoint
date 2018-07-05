@@ -1,0 +1,32 @@
+<aura:component controller="TASKRAY_LTNG.trComponentCtrl">
+	<ltng:require 
+        styles="/resource/TASKRAY_LTNG__trltngresources/dragula.css"
+        scripts="/resource/TASKRAY_LTNG__trltngresources/dragula.js" />
+    <aura:attribute name="recordId" type="String" access="global"/>
+	<aura:attribute name="currentProjectObject" type="Object"/>
+	<aura:attribute name="drake" type="Object"/>
+
+    <div id="project_span" class="{!v.currentProjectObject.noTasks ? 'hidden' : ''}">
+        <aura:iteration items="{!v.currentProjectObject.tasks}" var="all_project_categories">
+            <div class="column-container">
+                    <div class="slds-text-heading--label">
+                        <ui:outputText value="{!all_project_categories.colDisplayName}" />
+                    </div>
+                    <span class="{!'slds-badge'}" style="{!'background-color: ' + all_project_categories.colColor}" >
+                        {!all_project_categories.tasks.length}
+                    </span>                                   
+                    <div id="{!all_project_categories.statusName}" aura:id="draggable" class="sortable-column">    
+                        <aura:iteration items="{!all_project_categories.tasks}" var="task"> 
+                                <div id="{!task.Id}" class="card">
+                                    <TASKRAY_LTNG:trQuickTaskCard TaskName="{!task.Name}"
+                                        ParentProjectName="{!v.currentProjectObject.projectName}"
+                                        TaskId="{!task.Id}" 
+                                        ParentCol="{!all_project_categories.statusName}"
+                                        Blocked="{!task.blocked}"/> 
+                                </div> 
+                        </aura:iteration>                
+                    </div>
+                </div>
+        </aura:iteration>
+    </div>
+</aura:component>

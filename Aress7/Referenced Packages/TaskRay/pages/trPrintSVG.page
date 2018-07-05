@@ -1,0 +1,89 @@
+<apex:page showHeader="false" sidebar="false">
+	<script>
+		var footer_colLabel='{!$Label.TaskRay_PlanView_Footer_ColumnLabel}';
+		var footer_rowLabel='{!$Label.TaskRay_PlanView_Footer_RowLabel}';
+		var pageWidth = parseInt(window.localStorage.TASKRAY__PRINT__PAGE_WIDTH);
+		var pageHeight = parseInt(window.localStorage.TASKRAY__PRINT__PAGE_HEIGHT);
+		var scale = parseFloat(window.localStorage.TASKRAY__PRINT__SCALE);
+		var outputSVGHeight = parseInt(window.localStorage.TASKRAY__PRINT__OUTPUT_SVG_HEIGHT);
+		var outputSVGWidth = parseInt(window.localStorage.TASKRAY__PRINT__OUTPUT_SVG_WIDTH);
+		var svg = window.localStorage.TASKRAY__PRINT__OUTPUT_SVG;
+		var vectorWidth = pageWidth*scale;
+		var vectorHeight = pageHeight*scale;
+		if(window.localStorage.TASKRAY__PRINT__SCALINGTYPE==='tile'){
+			vectorWidth = outputSVGWidth*(5/6)*scale;
+			vectorHeight = outputSVGHeight*(5/6)*scale;
+		}
+
+		// var scaledSVG = '<svg height="'+pageHeight*scale+'" width="'+pageWidth*scale+'" viewBox="0 0 '+outputSVGWidth+' '+outputSVGHeight+'">'+svg+'</svg>';
+		// var styleStr = '@media print {\
+	 //    @page {\
+	 //        size: '+pageWidth+'px '+pageHeight+'px ;\
+	 //        margin: .5in;\
+	 //    }\
+		// }';
+		// var style = document.createElement('style');
+		// style.type = 'text/css';
+		// style.innerHTML = styleStr;
+		// document.getElementsByTagName('head')[0].appendChild(style);
+		sheet = document.styleSheets[0];
+		sheet.insertRule("@page {size: " + window.localStorage.TASKRAY__PRINT__PAGE_ORIENTATION + ";}", 1);
+		sheet.insertRule("@page {margin: 0.75in 0.75in 0.5in 0.75in;}", 1);
+
+		sheet.insertRule(".cut-rect {stroke-dasharray: 5,5;}", 1);
+		sheet.insertRule("@page {size: " + pageWidth + "px " + pageHeight + "px;", 1);
+
+		var numPagesWide = Math.ceil(vectorWidth/pageWidth);
+		var percentageOfVectorWidthPerPage = 1/numPagesWide;
+		var numPagesTall = Math.ceil(vectorHeight/pageHeight);
+		var percentageOfVectorHeightPerPage = 1/numPagesTall;
+
+		var vectorPixelsPerPageWidth = percentageOfVectorWidthPerPage*outputSVGWidth;
+		var vectorPixelsPerPageHeight = percentageOfVectorHeightPerPage*outputSVGHeight;
+
+		var isPortrait = (vectorPixelsPerPageHeight>vectorPixelsPerPageWidth) ? true : false;
+		var svgScaleDim = (isPortrait) ? ' height="'+pageHeight+'" ' : ' width="'+pageWidth+'" ';
+		if(window.localStorage.TASKRAY__PRINT__SCALINGTYPE==='tile'){
+			if(isPortrait){
+				vectorPixelsPerPageWidth = pageWidth/(pageHeight/vectorPixelsPerPageHeight);
+				numPagesWide = Math.ceil(outputSVGWidth/vectorPixelsPerPageWidth);
+			} else{
+				vectorPixelsPerPageHeight = pageHeight/(pageWidth/vectorPixelsPerPageWidth);
+				numPagesTall = Math.ceil(outputSVGHeight/vectorPixelsPerPageHeight);
+			}
+		}
+
+		function returnSheetBasedOnIndex(gridX, gridY){
+			var startX = gridX * vectorPixelsPerPageWidth;
+			var startY = gridY * vectorPixelsPerPageHeight;
+			var widthToCover = vectorPixelsPerPageWidth;
+			var heightToCover = vectorPixelsPerPageHeight;
+
+			var footerSpan = (totalSlices>1) ? '<span style="font-size:12px;position:absolute; right:0; bottom:-16px">'+footer_rowLabel+(gridY+1)+' '+footer_colLabel+(gridX+1)+'</span>' : '';
+			var svgRect = (totalSlices>1) ? '<rect class="cut-rect" x="'+startX+'" y="'+startY+'" width="'+widthToCover+'" height="'+heightToCover+'" style="fill:transparent;stroke-width:1;stroke:rgb(0,0,0);" />' : '';
+			return '<div style="position: relative; width:'+pageWidth+'px; height:'+pageHeight+'px;page-break-after: always;"><svg '+svgScaleDim+' viewBox="' + startX + ' '  + startY + ' ' + widthToCover + ' ' + heightToCover + '">'+svg+svgRect+'</svg>'+footerSpan+'</div>';
+		}
+
+		var gridX = 0;
+		var gridY = 0;
+
+
+		var totalSlices=numPagesTall*numPagesWide;
+		var domNodeStr = '';
+		for(var sheetIndex=0; sheetIndex<totalSlices; sheetIndex++){
+			if(gridY < numPagesTall){//this is the new row case, we want to pass a reset X, and the next Y down.
+				domNodeStr+=returnSheetBasedOnIndex(gridX, gridY);
+				gridY++;	
+			}else if(gridY === numPagesTall){
+				gridY = 0;
+				gridX += 1;
+				domNodeStr+=returnSheetBasedOnIndex(gridX, gridY);
+				gridY++;
+			}
+		}
+		document.body.innerHTML = domNodeStr;
+
+		window.print();
+	</script>
+
+</apex:page>

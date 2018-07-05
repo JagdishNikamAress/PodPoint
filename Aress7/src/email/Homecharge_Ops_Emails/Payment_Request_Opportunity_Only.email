@@ -1,0 +1,9 @@
+Hi {!Account.FirstName},
+
+To complete your payment, please follow the link below to provide your payment details: 
+
+{!Opportunity.Paylink__c}
+
+If you've got any questions, don't hesitate to contact our support team. 
+
+Kind Regards,

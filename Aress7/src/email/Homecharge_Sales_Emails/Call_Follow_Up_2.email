@@ -1,0 +1,8 @@
+Hi {!Account.FirstName},
+
+Thanks for getting in touch with the POD Point team and welcome to the world of electric driving! I hope we covered all your questions you had, but we’re always here to help.
+
+Ready to get charging? Our awesome tool guides you through the whole process of getting your perfect charging point installed at home by one of our expert installers. Just click the button below to get going.
+
+{!Case.Ordering_Tool_Customer_URL__c}
+{!Opportunity.Ordering_Tool_Customer_URL__c}

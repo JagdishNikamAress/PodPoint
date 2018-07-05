@@ -1,0 +1,11 @@
+Hi {!Account.FirstName},
+
+I attempted to contact you today regarding your home charger. I hope the information sent previously was of help to you. If you have any questions please let me know and I’ll walk you through anything that’s not clear. 
+
+Ready to get charging? Simply click below to continue:
+
+{!Case.Ordering_Tool_Customer_URL__c} 
+{!Opportunity.Ordering_Tool_Customer_URL__c}
+
+Please see our Terms & Conditions below: 
+https://pod-point.com/standard-install-and-olev-terms-conditions

@@ -1,0 +1,25 @@
+/*
+This file is generated and isn't the actual source code for this
+managed global class.
+This read-only file shows the class's global constructors,
+methods, variables, and properties.
+To enable code to compile, all methods return null.
+*/
+global class Ctrl032_GetCandidates implements FSL.IChatterAction {
+    global Ctrl032_GetCandidates() {
+
+    }
+    @RemoteAction
+    global static Map<String,Object> getFslOperation(Long schedulingStartLong, Id opId) {
+        return null;
+    }
+    @RemoteAction
+    global static FSL.Ctrl032_GetCandidates.GetCandidatesData getGetCandidatesData() {
+        return null;
+    }
+global class GetCandidatesData {
+    global GetCandidatesData() {
+
+    }
+}
+}

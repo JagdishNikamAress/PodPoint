@@ -1,0 +1,8 @@
+.THIS .forceSearchFilterHeader{
+  display:none;
+}
+
+.THIS .forceChatterOverflowActionMenu .slds-button--icon-border svg {
+	width: 1rem;
+	height: 1rem;
+}

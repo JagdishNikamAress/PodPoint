@@ -1,0 +1,52 @@
+<apex:page controller="AllOrderPageController" cache="false">
+    <apex:form >
+         <apex:pageBlock title="Ongoing Orders">
+           <apex:pageMessages />
+           <apex:pageBlockTable value="{!AllOrders}" var="o" id="myRerender">
+               <apex:column headerValue="Internal Order #" >
+                   <apex:outputlink value="/apex/OrderOverviewPage_iPro?id={!o.id}">{!o.Internal_Order__c}</apex:outputlink>
+              </apex:column>
+               <apex:column headerValue="Order Send Date" >
+                <apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                        <apex:param value="{!o.Order_Send_Date__c}" /> 
+                   </apex:outputText>
+                </apex:column>
+                 <apex:column headerValue="Account Name" >
+                 <apex:outputField value="{!o.account.name}"/>
+              </apex:column>
+               <apex:column headerValue="Status" >
+                 <apex:outputField value="{!o.status}"/>
+              </apex:column>
+                <apex:column headerValue="Description" >
+                 <apex:outputField value="{!o.description}"/>
+              </apex:column>
+           </apex:pageBlockTable>
+           </apex:pageBlock>
+        
+        
+        <apex:pageBlock title="Completed Orders">
+           <apex:pageMessages />
+
+           <apex:pageBlockTable value="{!CompletedOrders}" var="o" id="myRerender">
+              <apex:column headerValue="Internal Order #" >
+                 <apex:outputlink value="/apex/OrderOverviewPage_iPro?id={!o.id}">{!o.Internal_Order__c}</apex:outputlink>
+              </apex:column>
+               <apex:column headerValue="Order Send Date" >
+                <apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                        <apex:param value="{!o.Order_Send_Date__c}" /> 
+                   </apex:outputText>
+                </apex:column>
+               <apex:column headerValue="Account Name" >
+                 <apex:outputField value="{!o.account.name}"/>
+              </apex:column>
+               <apex:column headerValue="Status" >
+                 <apex:outputField value="{!o.status}"/>
+              </apex:column>
+               <apex:column headerValue="Description" >
+                 <apex:outputField value="{!o.description}"/>
+              </apex:column>
+           </apex:pageBlockTable>
+           </apex:pageBlock>
+
+    </apex:form>
+</apex:page>

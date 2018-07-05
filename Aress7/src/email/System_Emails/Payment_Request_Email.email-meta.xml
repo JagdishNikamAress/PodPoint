@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Payment Request Email</name>
+    <style>none</style>
+    <subject>POD Point - Complete Your Payment</subject>
+    <textOnly>Complete your order now
+
+Hi {!Account.FirstName},
+
+Thanks for placing an order with POD Point.
+
+To complete your order, please follow the link below to provide your payment details:
+
+
+
+If you&apos;ve got any questions, don&apos;t hesitate to contact our support team.
+
+Thank you,
+
+The POD Point Team</textOnly>
+    <type>custom</type>
+</EmailTemplate>

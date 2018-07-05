@@ -1,0 +1,12 @@
+Hey Amy, 
+
+The resource with below details has been deleted. 
+
+Absence Number : {!ResourceAbsence.AbsenceNumber} 
+Resource Type : {!ResourceAbsence.Type} 
+Duration : {!ResourceAbsence.Duration__c} 
+Slot Options : {!ResourceAbsence.Slot_Options__c} 
+
+
+Thanks, 
+POD Point

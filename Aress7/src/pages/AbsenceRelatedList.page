@@ -1,0 +1,28 @@
+<apex:page standardController="ServiceResource" extensions="RelatedAbsenceController" sidebar="true" showHeader="false" >     
+    <apex:form >    
+        <apex:pageblock id="AbsenceList"> 
+            <div style="margin-left: 0%;"><apex:commandLink value="Add Absence" action="{!newAbsence}" target="_parent" styleClass="btn" style="text-decoration:none;padding:4px;" /></div> 
+            <br/> 
+            <apex:pageBlockTable value="{!absences}" var="abs" rendered="{!NOT(ISNULL(absences))}">                 
+                <apex:column HeaderValue="Action" width="60"> 
+                <!--    <apex:commandLink value="Edit" style="color:#015ba7;" action="{!editContact}" target="_parent" ><apex:param value="{!abs.id}" name="absenceId"/> 
+                    </apex:commandLink> -->
+                    &nbsp;|&nbsp; 
+                    <apex:commandLink value="Del" onclick="return confirm('Are you sure?')" style="color:#015ba7;" action="{!deleteContact}" target="_parent"><apex:param value="{!abs.id}" name="absenceId"/> 
+                    </apex:commandLink> 
+
+                </apex:column> 
+
+                <!--<apex:column headerValue="Absence Number"><apex:outputLink value="/{!abs.id}" target="_blank">{!abs.AbsenceNumber}</apex:outputLink> </apex:column>    -->           
+                 <apex:column value="{!abs.AbsenceNumber}"/>
+                <apex:column value="{!abs.Start}"/> 
+                <apex:column value="{!abs.End}"></apex:column> 
+                <apex:column value="{!abs.Type}"/>  
+                 <apex:column value="{!abs.Slot_Options__c}"/>
+                <apex:column value="{!abs.FSL__Approved__c}"/>
+            </apex:pageBlockTable>            
+
+            <apex:outputLabel value="No records to display" rendered="{!(ISNULL(absences))}" styleClass="noRowsHeader"></apex:outputLabel> 
+        </apex:pageblock> 
+    </apex:form>  
+</apex:page>

@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Fired on a successful list change via DnD" >
+    <aura:attribute name="data" type="Object" />
+    <aura:attribute name="recordId" type="String" /> 
+</aura:event>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Compact_Sched_Pol_Rule</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Compact_Sched_Pol_Rule</fullName>
+        <fields>Work_Rule__c</fields>
+        <fields>Scheduling_Policy__c</fields>
+        <fields>Name</fields>
+        <fields>CreatedById</fields>
+        <label>Compact_Sched_Pol_Rule</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Scheduling_Policy__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Scheduling Policy</label>
+        <referenceTo>Scheduling_Policy__c</referenceTo>
+        <relationshipLabel>Scheduling Policy Work Rule</relationshipLabel>
+        <relationshipName>Scheduling_Policy_Work_Rule</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Work_Rule__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Work Rule</label>
+        <referenceTo>Work_Rule__c</referenceTo>
+        <relationshipLabel>Scheduling Policy Work Rule</relationshipLabel>
+        <relationshipName>Scheduling_Policy_Work_Rule</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Scheduling Policy Work Rule</label>
+    <nameField>
+        <label>Scheduling Policy Work Rule Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Scheduling Policy Work Rule</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Work_Rule__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Scheduling_Policy__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>Work_Rule__c</searchFilterFields>
+        <searchFilterFields>Scheduling_Policy__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

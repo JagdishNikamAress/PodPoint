@@ -1,0 +1,49 @@
+<apex:page controller="FSL.AppointmentBookingController" standardStylesheets="true" showHeader="false">
+
+
+    <script>
+
+        var userLocale = "{!UserLocale}";
+        var isCommunitiesPage = false;
+
+        var appBooking = {
+
+            isInCommunity:               '{!isInCommunity}',
+            appBookingSettings:          JSON.parse('{!JSENCODE(appBookingSettings)}'),
+            isAMPM:                      (("{!currentTime}".indexOf('PM') == -1) && ("{!currentTime}".indexOf('AM') == -1)) ? false : true,
+
+            icons: {
+                spinner: "{!URLFOR($Resource.FSL__LightningDesignSystem, 'assets/images/spinners/slds_spinner.gif')}"
+            },
+
+            remoteActions: {
+                getFslOperation: '{!$RemoteAction.AppointmentBookingController.getFslOperation}',
+            },
+
+            fieldNames: {
+                settings: {
+                    Recommended_Threshold__c:   '{!$ObjectType.FSL__AppointmentBookingSettings__c.fields.FSL__Recommended_Threshold__c.Name}',
+                    Ideal_Threshold__c:         '{!$ObjectType.FSL__AppointmentBookingSettings__c.fields.FSL__Ideal_Threshold__c.Name}',
+                    Show_Grade_Explanation__c:  '{!$ObjectType.FSL__AppointmentBookingSettings__c.fields.FSL__Show_Grade_Explanation__c.Name}',
+                    AutoTerritoryPicker__c:     '{!$ObjectType.FSL__AppointmentBookingSettings__c.fields.FSL__AutoTerritoryPicker__c.Name}',
+                    LazyLoadBookingInHours__c:  '{!$ObjectType.FSL__AppointmentBookingSettings__c.fields.FSL__LazyLoadBookingInHours__c.Name}'
+                },
+
+                FslOperationFieldNames: {
+                    ResultText:     '{!$ObjectType.FSL__FSL_Operation__c.Fields.FSL__ResultText__c.Name}',
+                    Initiator:      '{!$ObjectType.FSL__FSL_Operation__c.Fields.FSL__Initiator__c.Name}',
+                    Request_Type:   '{!$ObjectType.FSL__FSL_Operation__c.Fields.FSL__Request_Type__c.Name}'
+                }
+            }
+        };
+        
+    </script>
+
+    <c:ChatterAction ></c:ChatterAction>
+    <c:AppointmentBooking ClassName="{!ClassName}"></c:AppointmentBooking>
+    
+    <script>
+        bootstrap.UpdatePermissionSetsBootstrap('BookAppointment','BookAppointment');
+    </script>
+
+</apex:page>

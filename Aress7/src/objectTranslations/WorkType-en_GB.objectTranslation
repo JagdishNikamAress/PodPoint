@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Appointment Start Offset --></label>
+        <name>Appointment_Start_Offset__c</name>
+    </fields>
+    <fields>
+        <help>Calculates the Due Date by adding Minutes to the Service creation time, reflecting the organisation&apos;s internal SLA</help>
+        <label><!-- Due Date Offset --></label>
+        <name>FSL__Due_Date_Offset__c</name>
+    </fields>
+    <fields>
+        <label><!-- Exact Appointments --></label>
+        <name>FSL__Exact_Appointments__c</name>
+    </fields>
+</CustomObjectTranslation>

@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>TaskRay Email Assistant</aura:description>
+	<aura:example name="ExampleName" ref="exampleComponentName" label="Label">
+		TaskRay Email Assistant
+	</aura:example>
+</aura:documentation>

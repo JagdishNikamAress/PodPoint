@@ -1,0 +1,14 @@
+<apex:page standardController="Case" extensions="CaseController" action="{!createMaintenanceCase}"  sidebar="false" showHeader="false" >
+<apex:pageMessages id="showmsg"></apex:pageMessages>
+<apex:form >
+    <apex:outputLink value="/{!caseID}" rendered="{!caseID != ''}" onclick="CloseAndRefresh()">Go to Record</apex:outputLink>
+</apex:form>
+<script language="JavaScript" type="text/javascript">
+    function CloseAndRefresh()
+    {       
+       window.opener.location.href="/{!caseID}";    
+       //window.close();
+       self.close();
+     }
+</script>
+</apex:page>

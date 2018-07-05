@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" access="global" description="event fired on toggle action" >
+    <aura:attribute name="toggleField" access="global" type="Boolean" default="false" />
+</aura:event>

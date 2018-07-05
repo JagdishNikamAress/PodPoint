@@ -1,0 +1,1177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Total Amount</value>
+        </caseValues>
+        <name>amount_opportunity</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>New or Existing Business</value>
+        </caseValues>
+        <name>type_opportunity</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <label><!-- Account Classification --></label>
+        <name>Account_Classification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Email --></label>
+        <name>Account_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Phone Number --></label>
+        <name>Account_Phone_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Type --></label>
+        <name>Account_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- MIS Advance Amount --></label>
+        <name>Advance_Paid__c</name>
+    </fields>
+    <fields>
+        <label><!-- Amount Excluding VAT --></label>
+        <name>Amount_Excluding_VAT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing City --></label>
+        <name>Billing_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing Country --></label>
+        <name>Billing_Country_Picklist__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing Country --></label>
+        <name>Billing_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing Postcode --></label>
+        <name>Billing_Postal_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing State --></label>
+        <name>Billing_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing Street --></label>
+        <name>Billing_Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Brand Type --></label>
+        <name>Brand_Type__c</name>
+        <picklistValues>
+            <masterLabel>JLR</masterLabel>
+            <translation><!-- JLR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jaguar</masterLabel>
+            <translation><!-- Jaguar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Land Rover</masterLabel>
+            <translation><!-- Land Rover --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Case Link(Install) --></label>
+        <name>Case_Link_Install__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Link --></label>
+        <name>Case_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Number(Install) --></label>
+        <name>Case_Number_Install__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Number --></label>
+        <name>Case_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Record Type(Install) --></label>
+        <name>Case_Record_Type_Install__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Record Type --></label>
+        <name>Case_Record_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- City(Install) --></label>
+        <name>City_Install__c</name>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Completed On (Install) --></label>
+        <name>Completed_On_Install__c</name>
+    </fields>
+    <fields>
+        <label><!-- Completed On --></label>
+        <name>Completed_On__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confirm Date &amp; Dispatch Address --></label>
+        <name>Confirm_Date_Dispatch_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Created Date(Install) --></label>
+        <name>Created_Date_Install__c</name>
+    </fields>
+    <fields>
+        <label><!-- Created Date --></label>
+        <name>Created_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Ordering Tool Step --></label>
+        <name>Current_Step__c</name>
+    </fields>
+    <fields>
+        <label><!-- DB Competitor --></label>
+        <name>DB_Competitor__c</name>
+        <picklistValues>
+            <masterLabel>Competitor A</masterLabel>
+            <translation><!-- Competitor A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Competitor B</masterLabel>
+            <translation><!-- Competitor B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Competitor C</masterLabel>
+            <translation><!-- Competitor C --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- COPS Approved Date --></label>
+        <name>Date_of_COPS_Approved__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Email --></label>
+        <name>Dealer_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Name --></label>
+        <name>Dealer_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealership Type --></label>
+        <name>Dealership_Type__c</name>
+        <picklistValues>
+            <masterLabel>Authorised Repairer</masterLabel>
+            <translation><!-- Authorised Repairer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EV Overflow Workshop</masterLabel>
+            <translation><!-- EV Overflow Workshop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Future Retailer</masterLabel>
+            <translation><!-- Future Retailer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Future Retailer (Sales Only)</masterLabel>
+            <translation><!-- Future Retailer (Sales Only) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Future Retailer (Service Only)</masterLabel>
+            <translation><!-- Future Retailer (Service Only) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overflow Workshop</masterLabel>
+            <translation><!-- Overflow Workshop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retailer</masterLabel>
+            <translation><!-- Retailer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retailer (Sales Only)</masterLabel>
+            <translation><!-- Retailer (Sales Only) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retailer (Service Only)</masterLabel>
+            <translation><!-- Retailer (Service Only) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retailer + AR</masterLabel>
+            <translation><!-- Retailer + AR --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Dealership --></label>
+        <name>Dealership__c</name>
+    </fields>
+    <fields>
+        <label><!-- Equipment Cost --></label>
+        <name>Equipment_Cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- FA URL(Install) --></label>
+        <name>FA_URL_Install__c</name>
+    </fields>
+    <fields>
+        <label><!-- FA URL --></label>
+        <name>FA_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- FieldAware ID --></label>
+        <name>FieldAware_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- FieldAware URL --></label>
+        <name>FieldAware_URL_del__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Quote Sent Date --></label>
+        <name>First_Quote_Sent_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Flag --></label>
+        <name>Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Google Drive Folder Link --></label>
+        <name>Google_Drive_Folder_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- In Approval? --></label>
+        <name>In_Approval__c</name>
+    </fields>
+    <fields>
+        <help><!-- Records the first time Opportunity Stage changed to &quot;Install Scheduled&quot; --></help>
+        <label><!-- Install Became Scheduled Date --></label>
+        <name>Install_Became_Scheduled_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Completed Date --></label>
+        <name>Install_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Don&apos;t forget to add margin! --></help>
+        <label><!-- Install Quote 2 --></label>
+        <name>Install_Cost_Quote_2__c</name>
+    </fields>
+    <fields>
+        <help><!-- Don&apos;t forget to add margin! --></help>
+        <label><!-- Install Quote 1 --></label>
+        <name>Install_Cost_Quote__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Hours 2 --></label>
+        <name>Install_Hours_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Hours(Install) --></label>
+        <name>Install_Hours_Install__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Hours 1 --></label>
+        <name>Install_Hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Only --></label>
+        <name>Install_Only__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Requested Stage --></label>
+        <name>Install_Requested_Stage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Status --></label>
+        <name>Install_Status_New__c</name>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incomplete</masterLabel>
+            <translation><!-- Incomplete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requested</masterLabel>
+            <translation><!-- Requested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scheduled</masterLabel>
+            <translation><!-- Scheduled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Verified</masterLabel>
+            <translation><!-- Verified --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Installer Name(Install) --></label>
+        <name>Installer_Name_Install__c</name>
+    </fields>
+    <fields>
+        <label><!-- Installer Name --></label>
+        <name>Installer_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is OLEV --></label>
+        <name>Is_OLEV__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Opportunity Won? --></label>
+        <name>Is_Opportunity_Won__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job ID(Install) --></label>
+        <name>Job_ID_Install__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job ID --></label>
+        <name>Job_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Stage Change Date --></label>
+        <name>Last_Stage_Change_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lease Duration(months) --></label>
+        <name>Lease_Duration__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12</masterLabel>
+            <translation><!-- 12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>24</masterLabel>
+            <translation><!-- 24 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>36</masterLabel>
+            <translation><!-- 36 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6</masterLabel>
+            <translation><!-- 6 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Lease Start Date --></label>
+        <name>Lease_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Leasing Company --></label>
+        <name>Leasing_Company__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lost to Competitor --></label>
+        <name>Lost_to_Competitor__c</name>
+        <picklistValues>
+            <masterLabel>BluPoint</masterLabel>
+            <translation><!-- BluPoint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chargemaster</masterLabel>
+            <translation><!-- Chargemaster --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EO Charging</masterLabel>
+            <translation><!-- EO Charging --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Elm EV</masterLabel>
+            <translation><!-- Elm EV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evolt</masterLabel>
+            <translation><!-- Evolt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Franklin Energy</masterLabel>
+            <translation><!-- Franklin Energy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NewMotion</masterLabel>
+            <translation><!-- NewMotion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rolec</masterLabel>
+            <translation><!-- Rolec --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tesla</masterLabel>
+            <translation><!-- Tesla --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Managed Installation --></label>
+        <name>Managed_Installation__c</name>
+    </fields>
+    <fields>
+        <label><!-- No of Accepted Quote --></label>
+        <name>No_of_Accepted_Quote__c</name>
+    </fields>
+    <fields>
+        <label><!-- Non-Standard Install Type --></label>
+        <name>Non_Standard_Install_Type__c</name>
+        <picklistValues>
+            <masterLabel>On-site Extra Work</masterLabel>
+            <translation><!-- On-site Extra Work --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On-site Survey &amp; Rescheduled Install</masterLabel>
+            <translation><!-- On-site Survey &amp; Rescheduled Install --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-install Remote Survey</masterLabel>
+            <translation><!-- Pre-install Remote Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-install Site Survey</masterLabel>
+            <translation><!-- Pre-install Site Survey --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Non-Standard Install --></label>
+        <name>Non_Standard_Install__c</name>
+    </fields>
+    <fields>
+        <help><!-- Choose the route to market associated with this opportunity. Choose &quot;Strategic&quot; if it is an account which has a genuine possibility of expanding to over 500 Sockets --></help>
+        <label><!-- Which Route to Market? --></label>
+        <name>Oportunity_Type__c</name>
+        <picklistValues>
+            <masterLabel>Destination</masterLabel>
+            <translation><!-- Destination --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Destination Strategic</masterLabel>
+            <translation><!-- Destination Strategic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home</masterLabel>
+            <translation><!-- Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Strategic</masterLabel>
+            <translation><!-- Home Strategic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Norway</masterLabel>
+            <translation><!-- Norway --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workplace</masterLabel>
+            <translation><!-- Workplace --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workplace Strategic</masterLabel>
+            <translation><!-- Workplace Strategic --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Opportunity 100% Probability --></label>
+        <name>Opportunity_100_Probability__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Classification --></label>
+        <name>Opportunity_Classification__c</name>
+        <picklistValues>
+            <masterLabel>Norway</masterLabel>
+            <translation><!-- Norway --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UK</masterLabel>
+            <translation><!-- UK --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Created Date --></label>
+        <name>Opportunity_Created_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Owned Temporarily --></label>
+        <name>Opportunity_Owned_Temporarily__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Route to Market --></label>
+        <name>Opportunity_Route_to_Market__c</name>
+        <picklistValues>
+            <masterLabel>Automotive</masterLabel>
+            <translation><!-- Automotive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Built Environment</masterLabel>
+            <translation><!-- Built Environment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Destination</masterLabel>
+            <translation><!-- Destination --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insights</masterLabel>
+            <translation><!-- Insights --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workplace</masterLabel>
+            <translation><!-- Workplace --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Type --></label>
+        <name>Opportunity_Type__c</name>
+        <picklistValues>
+            <masterLabel>Agents/Developers</masterLabel>
+            <translation><!-- Agents/Developers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Architect</masterLabel>
+            <translation><!-- Architect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BE Influencer</masterLabel>
+            <translation><!-- BE Influencer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Park</masterLabel>
+            <translation><!-- Business Park --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Car Club</masterLabel>
+            <translation><!-- Car Club --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consultants</masterLabel>
+            <translation><!-- Consultants --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contractor</masterLabel>
+            <translation><!-- Contractor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Fleet</masterLabel>
+            <translation><!-- Corporate Fleet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate/SME Motor Finance</masterLabel>
+            <translation><!-- Corporate/SME Motor Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer</masterLabel>
+            <translation><!-- Dealer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Depot</masterLabel>
+            <translation><!-- Depot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Design Engineer</masterLabel>
+            <translation><!-- Design Engineer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Distributor</masterLabel>
+            <translation><!-- Distributor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Energy Aggregators</masterLabel>
+            <translation><!-- Energy Aggregators --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Energy Companies</masterLabel>
+            <translation><!-- Energy Companies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Facilities Management</masterLabel>
+            <translation><!-- Facilities Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance Company</masterLabel>
+            <translation><!-- Finance Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fleet Management</masterLabel>
+            <translation><!-- Fleet Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fuel Companies</masterLabel>
+            <translation><!-- Fuel Companies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Governmental</masterLabel>
+            <translation><!-- Governmental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grid Operators</masterLabel>
+            <translation><!-- Grid Operators --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grocer</masterLabel>
+            <translation><!-- Grocer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hotel &amp; Attractions</masterLabel>
+            <translation><!-- Hotel &amp; Attractions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Housing Associations</masterLabel>
+            <translation><!-- Housing Associations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Industry Body</masterLabel>
+            <translation><!-- Industry Body --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leasing Company</masterLabel>
+            <translation><!-- Leasing Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Motor Group</masterLabel>
+            <translation><!-- Motor Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OEM</masterLabel>
+            <translation><!-- OEM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office</masterLabel>
+            <translation><!-- Office --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ordering Tool</masterLabel>
+            <translation><!-- Ordering Tool --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Tech</masterLabel>
+            <translation><!-- Other Tech --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Private Equity</masterLabel>
+            <translation><!-- Private Equity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Property Management</masterLabel>
+            <translation><!-- Property Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rental</masterLabel>
+            <translation><!-- Rental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retail</masterLabel>
+            <translation><!-- Retail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>School</masterLabel>
+            <translation><!-- School --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Smart Cities</masterLabel>
+            <translation><!-- Smart Cities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Solar</masterLabel>
+            <translation><!-- Solar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subcontractors</masterLabel>
+            <translation><!-- Subcontractors --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transport</masterLabel>
+            <translation><!-- Transport --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wholesaler</masterLabel>
+            <translation><!-- Wholesaler --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Order Number --></label>
+        <name>Order_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Status --></label>
+        <name>Order_Status__c</name>
+        <picklistValues>
+            <masterLabel>Activated</masterLabel>
+            <translation><!-- Activated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dispatched</masterLabel>
+            <translation><!-- Dispatched --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Install Only</masterLabel>
+            <translation><!-- Install Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partially Dispatched</masterLabel>
+            <translation><!-- Partially Dispatched --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready for Dispatch</masterLabel>
+            <translation><!-- Ready for Dispatch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready for Helen</masterLabel>
+            <translation><!-- Ready for Helen --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Order Type --></label>
+        <name>Order_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ordering Tool Customer URL --></label>
+        <name>Ordering_Tool_Customer_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ordering Tool URL --></label>
+        <name>Ordering_Tool_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Paylink --></label>
+        <name>Paylink__c</name>
+    </fields>
+    <fields>
+        <label><!-- MIS Payment Type --></label>
+        <name>Payment_Type__c</name>
+        <picklistValues>
+            <masterLabel>Advance Paid</masterLabel>
+            <translation><!-- Advance Paid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Direct Debit</masterLabel>
+            <translation><!-- Direct Debit --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Phase --></label>
+        <name>Phase__c</name>
+        <relationshipLabel><!-- Bidding Companies --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PostCode(Install) --></label>
+        <name>PostCode_Install__c</name>
+    </fields>
+    <fields>
+        <label><!-- PostCode --></label>
+        <name>PostCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project Manager(Install) --></label>
+        <name>Project_Manager_Install__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Manager --></label>
+        <name>Project_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Purchase Type --></label>
+        <name>Purchase_Type__c</name>
+        <picklistValues>
+            <masterLabel>Lease</masterLabel>
+            <translation><!-- Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchase</masterLabel>
+            <translation><!-- Purchase --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Records the first time Opportunity Stage changes to &quot;Qualified&quot; --></help>
+        <label><!-- Qualified Date --></label>
+        <name>Qualified_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote PDF Sent --></label>
+        <name>Quote_PDF_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote less than List Price --></label>
+        <name>Quote_less_than_List_Price__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ready to Invoice --></label>
+        <name>Ready_to_Invoice__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reason for Closing --></label>
+        <name>Reason_for_Closing__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reason for Closing --></label>
+        <name>Reason_for_Closing_picklist__c</name>
+        <picklistValues>
+            <masterLabel>Customer Error</masterLabel>
+            <translation><!-- Customer Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Refunded</masterLabel>
+            <translation><!-- Customer Refunded --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Didn&apos;t Win Tender</masterLabel>
+            <translation><!-- Didn&apos;t Win Tender --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost to Competitor</masterLabel>
+            <translation><!-- Lost to Competitor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Budget</masterLabel>
+            <translation><!-- No Budget --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Contact</masterLabel>
+            <translation><!-- No Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System Error</masterLabel>
+            <translation><!-- System Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User Error</masterLabel>
+            <translation><!-- User Error --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Refund? --></label>
+        <name>Refund__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Route to Market --></label>
+        <name>Route_to_Market__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scheduled Date &amp; Time(Install) --></label>
+        <name>Scheduled_Date_Time_Install__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scheduled Date &amp; Time --></label>
+        <name>Scheduled_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scope of Work 2 --></label>
+        <name>Scope_of_Work_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scope of Work(Install) --></label>
+        <name>Scope_of_Work_Install__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scope of Work 1 --></label>
+        <name>Scope_of_Work__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping City --></label>
+        <name>Shipping_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping Country --></label>
+        <name>Shipping_Country_Picklist__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping Country --></label>
+        <name>Shipping_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping Postcode --></label>
+        <name>Shipping_Postal_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping State --></label>
+        <name>Shipping_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping Street --></label>
+        <name>Shipping_Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Sockets --></label>
+        <name>Sockets__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Status (old) --></label>
+        <name>Status_Install__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey Status (old) --></label>
+        <name>Status_Survey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Street(Install) --></label>
+        <name>Street_Install__c</name>
+    </fields>
+    <fields>
+        <label><!-- Street --></label>
+        <name>Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey Status --></label>
+        <name>Survey_Status__c</name>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incomplete</masterLabel>
+            <translation><!-- Incomplete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quoted</masterLabel>
+            <translation><!-- Quoted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requested</masterLabel>
+            <translation><!-- Requested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scheduled</masterLabel>
+            <translation><!-- Scheduled --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- T&amp;C Agreed --></label>
+        <name>T_C_Agreed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Bonus --></label>
+        <name>Total_Bonus__c</name>
+    </fields>
+    <fields>
+        <label><!-- Amount excluding VAT --></label>
+        <name>Total_Exc_VAT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type(Install) --></label>
+        <name>Type_Install__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- VAT Amount --></label>
+        <name>VAT_Amount2__c</name>
+    </fields>
+    <fields>
+        <label><!-- VAT Amount --></label>
+        <name>VAT_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- VAT % --></label>
+        <name>VAT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Condition --></label>
+        <name>Vehicle_Condition__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle End Year --></label>
+        <name>Vehicle_End_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Make --></label>
+        <name>Vehicle_Make__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Model --></label>
+        <name>Vehicle_Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Purchase Option --></label>
+        <name>Vehicle_Purchase_Option__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Start Year --></label>
+        <name>Vehicle_Start_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Workplace Grant --></label>
+        <name>Workplace_Grant__c</name>
+    </fields>
+    <quickActions>
+        <label><!-- Event --></label>
+        <name>Event</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Log a Call --></label>
+        <name>Log_a_Call</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Task --></label>
+        <name>Task</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Bid --></label>
+        <name>Bid</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Commercial --></label>
+        <name>Commercial</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Home Charge --></label>
+        <name>Home_Charge</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Home Charge Norway --></label>
+        <name>Home_Charge_Norway</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Online Payment --></label>
+        <name>Online_Payment</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Other Type Account --></label>
+        <name>Other_Type_Account</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Master Bid --></label>
+        <name>Project</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Please choose an actual dealership from the list. --></errorMessage>
+        <name>Actual_Dealer_mandatory_if_POD_Point</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The status cannot be changed to Won since there is no accepted quote for this opportunity, --></errorMessage>
+        <name>Opportunity_has_one_accepted_quote</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- EasyUpload --></label>
+        <name>EasyUpload</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_Bulk_SMS --></label>
+        <name>LiveText__Send_Bulk_SMS</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOP --></label>
+        <name>Loop__LOOP</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOP_Merge --></label>
+        <name>Loop__LOOP_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOPlus --></label>
+        <name>Loop__LOOPlus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOP_Merge --></label>
+        <name>Loop__Mass_LOOP_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOPlus --></label>
+        <name>Loop__Mass_LOOPlus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New --></label>
+        <name>New</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Bidder --></label>
+        <name>New_Bidder</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Payment_Terminal --></label>
+        <name>Payment_Terminal</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Request_Survey_FA --></label>
+        <name>Request_Survey_FA</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Request_Survey_FSL --></label>
+        <name>Request_Survey_FSL</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Sales_Coach --></label>
+        <name>Sales_Coach</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_Email_Primary --></label>
+        <name>Send_Email_Primary</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Survey_Request --></label>
+        <name>Survey_Request</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Create_Tasks_Opp --></label>
+        <name>activities__Create_Tasks_Opp</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Download_Attachments --></label>
+        <name>attachmentzip__Download_Attachments</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Conga_Send_to_EchoSign --></label>
+        <name>echosign_dev1__Conga_Send_to_EchoSign</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_to_EchoSign --></label>
+        <name>echosign_dev1__Send_to_EchoSign</name>
+    </webLinks>
+</CustomObjectTranslation>

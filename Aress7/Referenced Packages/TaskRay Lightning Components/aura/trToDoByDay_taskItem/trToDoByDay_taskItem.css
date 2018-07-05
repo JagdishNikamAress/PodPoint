@@ -1,0 +1,23 @@
+.THIS .strike-through{
+  text-decoration: line-through;
+}
+
+.THIS .projectName{
+    line-height: 1;
+}
+
+.THIS .taskGroupName {
+	color: #54698D;
+	font-size: 12px;
+}
+
+.THIS .projectGroupNameDivider {
+	color: #9faab5;
+}
+
+.THIS:not(:last-child){
+	border-bottom: 1px solid #D8DDE6;
+	padding-bottom: 8px;
+	width: calc(100% - 8px);
+	margin-left: 4px;
+}

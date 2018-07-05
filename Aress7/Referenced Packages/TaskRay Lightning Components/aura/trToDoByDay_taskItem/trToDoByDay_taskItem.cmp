@@ -1,0 +1,41 @@
+<aura:component >
+  <aura:attribute name="todoItem" type="Object" access="public"/>
+  <aura:registerEvent name="genericEvent" type="TASKRAY_LTNG:trGenericEvent"/>
+  <div class="todo-by-day-item">
+    <div class="todo-by-day-task-header-container slds-clearfix">
+      <!-- if this task is owned by current user show the checkbox -->
+      <aura:if isTrue="{!v.todoItem.showTaskCheckbox}">
+        <div class="slds-form-element todo-by-day-task-complete-checkbox slds-float--left">
+          <div class="slds-form-element__control">
+          <label class="slds-checkbox">
+            <input type="checkbox" id="{!v.todoItem.taskId}" onchange="{!c.completeTask}" aura:id="completed-checkbox"/>
+            <span class="slds-checkbox--faux"></span>
+          </label>
+          </div>
+        </div>
+      </aura:if>
+      <!-- Always show the task name -->
+      <div class="{!v.todoItem.showTaskCheckbox ? 'todo-by-day-name-container slds-float--left' : 'todo-by-day-name-container-no-checkbox todo-by-day-name-container slds-float--left'}">
+        <div aura:id="task-name">{!v.todoItem.taskName}</div>
+        <!-- print the project name -->
+        <button class="slds-button" onclick="{!c.goToProject}">
+          <div class="projectName" id="{!v.todoItem.projectId}">{!v.todoItem.projectName}</div>
+        </button>
+        <aura:if isTrue="{!v.todoItem.taskGroupName != null}">
+          <span class="projectGroupNameDivider"> | </span>
+          <span class="taskGroupName">{!v.todoItem.taskGroupName}</span>
+        </aura:if>
+      </div>
+    </div>
+
+    <aura:if isTrue="{!v.todoItem.hasChecklistItems}">
+      <!-- loop through checklists -->
+      <aura:iteration items="{!v.todoItem.checklists}" var="checklist">
+        <div class="{!v.todoItem.hasChecklistItems ? 'slds-text-heading--label todo-by-day-item-checklist-name-checkbox-indent' : 'slds-text-heading--label todo-by-day-item-checklist-name'}">{!checklist.checklistName}</div>
+        <aura:iteration items="{!checklist.checklistItems}" var="checklistItem">
+          <TASKRAY_LTNG:trToDoByDay_checklistItem checklistItem="{!checklistItem}" />
+        </aura:iteration>
+      </aura:iteration>
+    </aura:if>
+  </div>
+</aura:component>

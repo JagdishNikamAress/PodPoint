@@ -1,0 +1,98 @@
+.THIS .top-row {
+  position: relative;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #d8dde6;
+
+}
+
+.THIS .slds-icon-background-taskray {
+  background-color: #44a2b8 !important;
+  padding: 4px 4px 2px 4px !important;
+}
+
+.THIS .slds-icon-background-taskray svg {
+  margin-top:-6px !important;
+}
+
+.THIS .project-name--button{
+  text-align: left;
+  margin-left: 8px;
+  max-width: calc(100% - 54px);
+  line-height: 1;
+  font-size: 13px;
+}
+
+.THIS .project-completion--block{
+  max-width: 180px;
+  padding-left: 8px;
+  vertical-align: middle;
+}
+
+.THIS .project-follow--button{
+  max-width: 140px;
+  padding-left: 8px;
+  vertical-align: middle;
+}
+
+.THIS .expandable-chevron{
+  margin-top: 5px;
+}
+
+.THIS .expandable-chevron svg{
+  fill: #9faab5;
+}
+
+.THIS .project-overview--wrapper{
+  margin-bottom: 8px;
+}
+
+.THIS .project-overview--container{
+  width: 60%;
+  display: inline-block;
+  background-color:#F1F3F7; 
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.THIS .task-snapshot--container{
+  width:38%;
+  margin-left:2%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.THIS .slds-is-selected.project-autoFollow--button{
+  padding:0 4px 0 4px;
+}
+
+.THIS .project-autoFollow--button svg{
+  width: .75rem !important;
+  height: .75rem !important;
+}
+
+.THIS .project-owner--block{
+  position: relative;
+  padding-left:40px;
+}
+
+.THIS .project-owner--image{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.THIS .project-owner--button{
+  text-align: left;
+}
+
+.THIS .project-name--node{
+  position: relative;
+  padding-left: 16px;
+}
+
+.THIS .project-name--node .icon-block{
+  position: absolute;
+  left:0;
+  top: calc(50% - 11px);
+}

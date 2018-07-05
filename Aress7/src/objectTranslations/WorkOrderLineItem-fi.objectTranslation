@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Work Order Line Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Case Owner --></label>
+        <name>Case_Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Type --></label>
+        <name>Case_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Work Order Line Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Work Order Line Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Customer Confirmation --></label>
+        <name>Customer_Confirmation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Fill In Candidate --></label>
+        <name>FSL__IsFillInCandidate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Visiting Hours --></label>
+        <name>FSL__VisitingHours__c</name>
+        <relationshipLabel><!-- Work Order Line Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Id --></label>
+        <name>Opportunity_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Technician Notes --></label>
+        <name>Technician_Notes__c</name>
+    </fields>
+    <quickActions>
+        <label><!-- SendEmail --></label>
+        <name>SendEmail</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Commercial Install --></label>
+        <name>Commercial_Install</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Homecharge Install --></label>
+        <name>Homecharge_Install</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Maintenance --></label>
+        <name>Maintenance</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Survey --></label>
+        <name>Survey</name>
+    </recordTypes>
+</CustomObjectTranslation>

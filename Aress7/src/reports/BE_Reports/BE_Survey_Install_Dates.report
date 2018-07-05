@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Case.WorkOrders$Case_Owner__c</field>
+    </columns>
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Case.WorkOrders$Name</field>
+    </columns>
+    <columns>
+        <field>Case.WorkOrders$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Case$Survey_Scheduled_Start_Date_Time__c</field>
+    </columns>
+    <columns>
+        <field>Case$Survey_Status__c</field>
+    </columns>
+    <columns>
+        <field>Case$Install_Scheduled_Start_Date_Time__c</field>
+    </columns>
+    <columns>
+        <field>Case$Install_Status__c</field>
+    </columns>
+    <currency>GBP</currency>
+    <filter>
+        <criteriaItems>
+            <column>Case$Owner</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Isabel James,James Stevens,Sam Deptford</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <name>BE Survey/Install Dates</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Cases_WO_SA__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Case$Survey_Status__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Case$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

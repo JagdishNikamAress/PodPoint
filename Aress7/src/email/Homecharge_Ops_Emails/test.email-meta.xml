@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Need to fill in 1st Offered date and morning or afternoon</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Homecharge - Provisional Booking - First Contact - Standard</name>
+    <style>none</style>
+    <subject>POD Point Installation Booking - Please Respond</subject>
+    <type>text</type>
+</EmailTemplate>

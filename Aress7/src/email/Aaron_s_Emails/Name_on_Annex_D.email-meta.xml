@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Checking Cable run ok to run in trunking above ground</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Z - Trunking Above Ground</name>
+    <style>none</style>
+    <subject>Quick Check (Pod Point Homecharge)</subject>
+    <type>text</type>
+</EmailTemplate>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>mike.francis@pod-point.com</contactEmail>
+    <label>Ordering Tool Integration</label>
+    <oauthConfig>
+        <callbackUrl>https://ordering-staging.pod-point.com</callbackUrl>
+        <consumerKey>3MVG9w8uXui2aB_opAktcsx3QOeh7OWCSv5T.7epXz7oQUsH37POS_UA_iWXVU20xEEs1Olnfb0QMG1.RAkQn</consumerKey>
+        <scopes>Full</scopes>
+    </oauthConfig>
+</ConnectedApp>

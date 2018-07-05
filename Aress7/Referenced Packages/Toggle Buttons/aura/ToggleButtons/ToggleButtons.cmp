@@ -1,0 +1,37 @@
+<aura:component access="global" implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="type" type="String" access="global"/>
+    <aura:attribute name="checkboxField" type="Boolean" access="global"/>
+    <aura:registerEvent access="global" name="toggle" type="arxxustoggle:Toggle"/>        
+    <input id="toggleCmp" style="display:none" value="{!v.checkboxField}" checked="{!v.checkboxField}" onchange="{!c.handleToggle}" type="checkbox" />
+    <aura:if isTrue="{!v.type == 'Led'}" >
+    	<arxxustoggle:LedButton toggleField="{!v.checkboxField}" />
+        <aura:set attribute="else">
+        	<aura:if isTrue="{!v.type == 'Switch'}" >
+                <arxxustoggle:RectangularSwitch toggleField="{!v.checkboxField}" /> 
+                <aura:set attribute="else">
+                    <aura:if isTrue="{!v.type == 'Flat'}">
+                        <arxxustoggle:FlatButton toggleField="{!v.checkboxField}" />
+                        <aura:set attribute="else">
+                            <aura:if isTrue="{!v.type == 'Flip'}" >
+                                <arxxustoggle:FlipButton toggleField="{!v.checkboxField}" />
+                                <aura:set attribute="else">
+                                    <aura:if isTrue="{!v.type == 'Slanted'}" >
+                                        <arxxustoggle:SkewedButton toggleField="{!v.checkboxField}" />
+                                        <aura:set attribute="else">
+                                            <aura:if isTrue="{!v.type == 'Power'}" >
+                                                <arxxustoggle:PowerButton toggleField="{!v.checkboxField}" />
+                                                <aura:set attribute="else">
+                                                    <arxxustoggle:ToggleButton toggleField="{!v.checkboxField}" />
+                                                </aura:set>
+                                            </aura:if>
+                                        </aura:set>
+                                    </aura:if>
+                                </aura:set>
+                            </aura:if>
+                        </aura:set>
+                    </aura:if>
+                </aura:set>
+            </aura:if>
+        </aura:set>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>trComponents_NothingToRenderPart1</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Part 1 of Component label Nothing to Render Message</shortDescription>
+        <value>This project doesn&apos;t have any tasks. Click</value>
+    </labels>
+    <labels>
+        <fullName>trComponents_NothingToRenderPart2</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Part 2 of Component label Nothing to Render Message</shortDescription>
+        <value>here</value>
+    </labels>
+    <labels>
+        <fullName>trComponents_NothingToRenderPart3</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Part 3 of Component label Nothing to Render Message</shortDescription>
+        <value>to add a task.</value>
+    </labels>
+    <labels>
+        <fullName>trComponents_RecordIdRequired</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Component label for error when record ID is required.</shortDescription>
+        <value>This component is not compatible with this page type. Please embed in a Record Page layout using Lightning App Builder.</value>
+    </labels>
+    <labels>
+        <fullName>trComponents_noProjectsToShow</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Component label for when there are no projects to show.</shortDescription>
+        <value>No projects to show.</value>
+    </labels>
+    <labels>
+        <fullName>trEmailAssistant_MyProjectsTab</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for the My Projects tab of TaskRay Email Assistant Component</shortDescription>
+        <value>My Projects</value>
+    </labels>
+    <labels>
+        <fullName>trEmailAssistant_ProjectsForAccount</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for the Account badge of TaskRay Email Assistant Component</shortDescription>
+        <value>Projects for Account:</value>
+    </labels>
+    <labels>
+        <fullName>trEmailAssistant_SnapshotTab</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for the Snapshot tab of TaskRay Email Assistant Component</shortDescription>
+        <value>Snapshot</value>
+    </labels>
+    <labels>
+        <fullName>trEmailAssistant_TaskRayHeader</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for header bar of TaskRay Email Assistant Component</shortDescription>
+        <value>TaskRay</value>
+    </labels>
+    <labels>
+        <fullName>trEmailAssistant_TasksTab</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for the Today tab of TaskRay Email Assistant Component</shortDescription>
+        <value>Today</value>
+    </labels>
+    <labels>
+        <fullName>trEmailAssistant_TimeTab</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for the time tab of TaskRay Email Assistant Component</shortDescription>
+        <value>Time</value>
+    </labels>
+    <labels>
+        <fullName>trEmailAssistant_ToDoTab</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for the To Do tab of TaskRay Email Assistant Component</shortDescription>
+        <value>To Do</value>
+    </labels>
+    <labels>
+        <fullName>trFeedComponent_Header</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header for the Status Component</shortDescription>
+        <value>TaskRay Feed</value>
+    </labels>
+    <labels>
+        <fullName>trMyProjectsComponent_FollowProject</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Follow a project feed button</shortDescription>
+        <value>Follow</value>
+    </labels>
+    <labels>
+        <fullName>trMyProjectsComponent_FollowingProject</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Following a project feed button</shortDescription>
+        <value>Following</value>
+    </labels>
+    <labels>
+        <fullName>trMyProjectsComponent_Header</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header for the TaskRay Projects Component</shortDescription>
+        <value>TaskRay Projects</value>
+    </labels>
+    <labels>
+        <fullName>trMyProjectsComponent_PctCompleted</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Percent completed suffix</shortDescription>
+        <value>% Complete</value>
+    </labels>
+    <labels>
+        <fullName>trMyProjectsComponent_PctCompleted_short</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Percent completed suffix short</shortDescription>
+        <value>%</value>
+    </labels>
+    <labels>
+        <fullName>trMyProjectsComponent_ProjectOverview</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My Projects Project Overview header</shortDescription>
+        <value>Project Overview</value>
+    </labels>
+    <labels>
+        <fullName>trMyProjectsComponent_ProjectOwner</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My Projects Component Project Owner subtext</shortDescription>
+        <value>Project Owner</value>
+    </labels>
+    <labels>
+        <fullName>trMyProjectsComponent_TaskOverview</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My Projects Task Overview header</shortDescription>
+        <value>Task Overview</value>
+    </labels>
+    <labels>
+        <fullName>trMyProjectsComponent_TaskOverview_info</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My Projects Task Overview Info header</shortDescription>
+        <value>Info</value>
+    </labels>
+    <labels>
+        <fullName>trMyProjectsComponent_UnfollowProject</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Unfollow a project feed button</shortDescription>
+        <value>Unfollow</value>
+    </labels>
+    <labels>
+        <fullName>trMyProjectsComponent_filterLabel</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter label for project component</shortDescription>
+        <value>Show</value>
+    </labels>
+    <labels>
+        <fullName>trNoLicenseError</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No License error text</shortDescription>
+        <value>Whoops! Looks like you don&apos;t have a TaskRay license.</value>
+    </labels>
+    <labels>
+        <fullName>trPendingInterviewItem_interviewDate</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TaskRay Interview Item Interview Date label</shortDescription>
+        <value>Due Date:</value>
+    </labels>
+    <labels>
+        <fullName>trPendingInterviewItem_owner</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TaskRay Interview Item Owner label</shortDescription>
+        <value>Owner:</value>
+    </labels>
+    <labels>
+        <fullName>trProjectCloneComponent_Add</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used as text for add button</shortDescription>
+        <value>+Add</value>
+    </labels>
+    <labels>
+        <fullName>trProjectCloneComponent_Create</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used as create button text</shortDescription>
+        <value>Create</value>
+    </labels>
+    <labels>
+        <fullName>trProjectCloneComponent_GoToProject</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used as text for link to newly created project</shortDescription>
+        <value>Go to project</value>
+    </labels>
+    <labels>
+        <fullName>trProjectCloneComponent_GoToTimesheet</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used as text for go to timesheet button</shortDescription>
+        <value>Go To Timesheet</value>
+    </labels>
+    <labels>
+        <fullName>trProjectCloneComponent_Name</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title for name step</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>trProjectCloneComponent_NoDateSelected</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>error to show when there is no date selected in a clone</shortDescription>
+        <value>Please select a date to clone a project with a date option selected.</value>
+    </labels>
+    <labels>
+        <fullName>trProjectCloneComponent_NoTemplateProjects</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Project template component error - no template projects</shortDescription>
+        <value>Please create a template project to use this component.</value>
+    </labels>
+    <labels>
+        <fullName>trProjectCloneComponent_NumberFour</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used in blue circle that denotes steps</shortDescription>
+        <value>4</value>
+    </labels>
+    <labels>
+        <fullName>trProjectCloneComponent_NumberOne</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used in blue circle that denotes steps</shortDescription>
+        <value>1</value>
+    </labels>
+    <labels>
+        <fullName>trProjectCloneComponent_NumberThree</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used in blue circle that denotes steps</shortDescription>
+        <value>3</value>
+    </labels>
+    <labels>
+        <fullName>trProjectCloneComponent_NumberTwo</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used in blue circle that denotes steps</shortDescription>
+        <value>2</value>
+    </labels>
+    <labels>
+        <fullName>trProjectCloneComponent_Schedule</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title for schedule step</shortDescription>
+        <value>Schedule</value>
+    </labels>
+    <labels>
+        <fullName>trProjectCloneComponent_SetFirstDate</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Text for first radio button option</shortDescription>
+        <value>Set first task date</value>
+    </labels>
+    <labels>
+        <fullName>trProjectCloneComponent_SetLastDate</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Text for last radio button option</shortDescription>
+        <value>Set last task date</value>
+    </labels>
+    <labels>
+        <fullName>trProjectCloneComponent_Title</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title for header of clone component</shortDescription>
+        <value>TaskRay Template Clone</value>
+    </labels>
+    <labels>
+        <fullName>trProjectOverview_Task_Group_Unassigned</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Task Group Unassigned Group label</shortDescription>
+        <value>Ungrouped</value>
+    </labels>
+    <labels>
+        <fullName>trSnapshotComponent_Header</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header for the Snapshot Component</shortDescription>
+        <value>TaskRay Snapshot</value>
+    </labels>
+    <labels>
+        <fullName>trSnapshotComponent_SelectTaskGroup</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select Task Group label for the Snapshot Component</shortDescription>
+        <value>Select Task Group</value>
+    </labels>
+    <labels>
+        <fullName>trSnapshotComponent_ShowAll</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Show All label for the Snapshot Component</shortDescription>
+        <value>Show All</value>
+    </labels>
+    <labels>
+        <fullName>trSnapshotComponent_TaskGroups</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Task Groups label for the Snapshot Component</shortDescription>
+        <value>Task Groups</value>
+    </labels>
+    <labels>
+        <fullName>trSnapshotComponent_Ungrouped</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Ungrouped label for the Snapshot Component</shortDescription>
+        <value>Ungrouped</value>
+    </labels>
+    <labels>
+        <fullName>trSnapshot_Actual_Hours_prefix</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TaskRay Snapshot actual hours prefix</shortDescription>
+        <value>Actual Time:</value>
+    </labels>
+    <labels>
+        <fullName>trSnapshot_Actual_Hours_suffix</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TaskRay Snapshot actual hours suffix</shortDescription>
+        <value>hrs</value>
+    </labels>
+    <labels>
+        <fullName>trSnapshot_Estimated_Hours_prefix</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TaskRay Snapshot estimated hours prefix</shortDescription>
+        <value>Estimated Time:</value>
+    </labels>
+    <labels>
+        <fullName>trSnapshot_Estimated_Hours_suffix</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TaskRay Snapshot estimated hours suffix</shortDescription>
+        <value>hrs</value>
+    </labels>
+    <labels>
+        <fullName>trStatusComponent_Header</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header for the Status Component</shortDescription>
+        <value>TaskRay Status</value>
+    </labels>
+    <labels>
+        <fullName>trTaskBoardComponent_Header</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header for the Task Board Component</shortDescription>
+        <value>TaskRay Kanban</value>
+    </labels>
+    <labels>
+        <fullName>trTaskSnapshot_HeaderTitle</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Task Snapshot component title</shortDescription>
+        <value>Task Snapshot</value>
+    </labels>
+    <labels>
+        <fullName>trTaskSnapshot_blocked</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Task Overview blocked label</shortDescription>
+        <value>blocked</value>
+    </labels>
+    <labels>
+        <fullName>trTaskSnapshot_complete</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Task Overview complete label</shortDescription>
+        <value>complete</value>
+    </labels>
+    <labels>
+        <fullName>trTaskSnapshot_overdue</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Task Overview overdue label</shortDescription>
+        <value>overdue</value>
+    </labels>
+    <labels>
+        <fullName>trTaskSnapshot_scheduleConflict</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Task Overview schedule label</shortDescription>
+        <value>in schedule conflict</value>
+    </labels>
+    <labels>
+        <fullName>trTimeWeek_Add</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used as Add button in Taskray Time lightning component</shortDescription>
+        <value>Add</value>
+    </labels>
+    <labels>
+        <fullName>trTimeWeek_Billable</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used as billable checkbox label in Taskray Time lightning component</shortDescription>
+        <value>Billable:</value>
+    </labels>
+    <labels>
+        <fullName>trTimeWeek_Cancel</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used as cancel button text in Taskray Time lightning component</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>trTimeWeek_F</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used to denote Friday</shortDescription>
+        <value>F</value>
+    </labels>
+    <labels>
+        <fullName>trTimeWeek_M</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used to denote Monday</shortDescription>
+        <value>M</value>
+    </labels>
+    <labels>
+        <fullName>trTimeWeek_S</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used to denote Saturday/Sunday</shortDescription>
+        <value>S</value>
+    </labels>
+    <labels>
+        <fullName>trTimeWeek_Save</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used as save button text in Taskray Time lightning component</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>trTimeWeek_T</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used to denote Tuesday and Thursday</shortDescription>
+        <value>T</value>
+    </labels>
+    <labels>
+        <fullName>trTimeWeek_Title</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used as title in Taskray Time lightning component</shortDescription>
+        <value>TaskRay Time</value>
+    </labels>
+    <labels>
+        <fullName>trTimeWeek_W</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Used to denote Wednesday</shortDescription>
+        <value>W</value>
+    </labels>
+    <labels>
+        <fullName>trToDoByDay_DueToday</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Due Today header for Inbox Component</shortDescription>
+        <value>DUE TODAY</value>
+    </labels>
+    <labels>
+        <fullName>trToDoByDay_NothingDueToday</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Nothing due today message for Inbox Component</shortDescription>
+        <value>Congratulations, you have no tasks due today!</value>
+    </labels>
+    <labels>
+        <fullName>trToDoByDay_Overdue</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Overdue date header for Inbox Component</shortDescription>
+        <value>OVERDUE</value>
+    </labels>
+    <labels>
+        <fullName>trToDoByDay_PendingActionPrefix</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Inbox Component pending action prefix</shortDescription>
+        <value>Pending action:</value>
+    </labels>
+    <labels>
+        <fullName>trToDoByDay_PendingActionPrefix_2</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Inbox Component pending action prefix</shortDescription>
+        <value>on</value>
+    </labels>
+    <labels>
+        <fullName>trToDoByDay_ShowMore</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Show more text for Inbox Component</shortDescription>
+        <value>Show More</value>
+    </labels>
+    <labels>
+        <fullName>trToDoByDay_WhatsHappening</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Whats happening text for Inbox Component</shortDescription>
+        <value>What&apos;s happening on your tasks</value>
+    </labels>
+    <labels>
+        <fullName>trToDoComponent_AllTasksComplete</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tasks Complete Message for the To Do Component</shortDescription>
+        <value>All of this project&apos;s tasks are complete.</value>
+    </labels>
+    <labels>
+        <fullName>trToDoComponent_Date</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Date Label for the To Do Component</shortDescription>
+        <value>Date</value>
+    </labels>
+    <labels>
+        <fullName>trToDoComponent_DropDownGroupBy</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Group By Label for the To Do Component dropdown</shortDescription>
+        <value>Group By</value>
+    </labels>
+    <labels>
+        <fullName>trToDoComponent_Header</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header for the To Do Component</shortDescription>
+        <value>TaskRay To Do</value>
+    </labels>
+    <labels>
+        <fullName>trToDoComponent_NothingToRenderPart1</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Part 1 of Nothing to Render Message for the To Do Component</shortDescription>
+        <value>This project doesn&apos;t have any tasks. Click</value>
+    </labels>
+    <labels>
+        <fullName>trToDoComponent_NothingToRenderPart2</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Part 2 of Nothing to Render Message for the To Do Component</shortDescription>
+        <value>here</value>
+    </labels>
+    <labels>
+        <fullName>trToDoComponent_NothingToRenderPart3</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Part 3 of Nothing to Render Message for the To Do Component</shortDescription>
+        <value>to add a task.</value>
+    </labels>
+    <labels>
+        <fullName>trToDoComponent_Status</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Status Label for the To Do Component</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>trToDoComponent_TaskGroup</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Task Group Label for the To Do Component</shortDescription>
+        <value>Task Group</value>
+    </labels>
+    <labels>
+        <fullName>trTodayComponent_Header</fullName>
+        <categories>TASKRAY_LIGHTNING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header for the Today Component</shortDescription>
+        <value>TaskRay Today</value>
+    </labels>
+</CustomLabels>

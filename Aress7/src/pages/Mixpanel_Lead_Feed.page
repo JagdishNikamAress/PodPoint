@@ -1,0 +1,15 @@
+<apex:page standardController="Lead">
+
+<html>
+    <script>
+        var api_key = "{!$Setup.Mixpanel__c.API_Key__c}",
+            api_secret = "{!$Setup.Mixpanel__c.API_Secret__c}";
+
+        function sendProjectApiInfo(){
+            document.getElementById("app_frame").contentWindow.postMessage({api_key:api_key, api_secret:api_secret},"*")
+        }
+    </script>
+    <iframe id="app_frame" scrolling="yes" onload="javascript:sendProjectApiInfo(this);" src="https://mixpanelplatform.com/apps/mixpanel-mixpanel-3-KC7XB5s/?email={!Lead.Email}" style="display: block; margin: 0 auto; width: 930px; height: 800px"></iframe>
+</html>
+
+</apex:page>

@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Drag_Na_Duration__c</fullName>
+        <defaultValue>60</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Drag Na Duration</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Drag_Na_Label__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Drag Na Label</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Drag_Na_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Drag Na Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Filter_Candidates__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Filter candidates after get slots</description>
+        <externalId>false</externalId>
+        <label>Filter Candidates</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Filters__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Custom service list filters</description>
+        <externalId>false</externalId>
+        <label>Filters</label>
+        <length>50000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Gantt_Policy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Gantt Chart Policy</label>
+        <referenceTo>Scheduling_Policy__c</referenceTo>
+        <relationshipLabel>User Settings</relationshipLabel>
+        <relationshipName>User_Settings</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Gantt_View_Finish_Hour__c</fullName>
+        <defaultValue>24</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Set the visible finish hour on the timeline</description>
+        <externalId>false</externalId>
+        <label>Gantt View Finish Hour</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Gantt_View_Start_Hour__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Set the visible start hour on the timeline</description>
+        <externalId>false</externalId>
+        <label>Gantt View Start Hour</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Include_Weekends__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Include weekends inside the gantt view</description>
+        <externalId>false</externalId>
+        <label>Include Weekends</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Invisible_Polygons__c</fullName>
+        <deprecated>false</deprecated>
+        <description>List of ids of Invisible polygons on the map</description>
+        <externalId>false</externalId>
+        <label>Hidden Polygons</label>
+        <length>130000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Left_Panel_Width_Percentage__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Left Panel Width Percentage</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Load_On_Today__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>First load gantt on today&apos;s date or last visited date</description>
+        <externalId>false</externalId>
+        <label>Load On Today</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Lock_Gantt__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>gantt is locked for drag and drop</description>
+        <externalId>false</externalId>
+        <label>Lock Gantt</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Map_Object_Markers__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Map Object Markers</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Match_Gantt_Dates__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Service list should match the dates visible on the gantt</description>
+        <externalId>false</externalId>
+        <label>Match Gantt Dates</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Resource_Filter__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Last selected resource filtering for gantt view</description>
+        <externalId>false</externalId>
+        <label>Resource Filter</label>
+        <length>1000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Resource_Row_Height__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Set the height of a row in the gantt</description>
+        <externalId>false</externalId>
+        <label>Resource Row Height</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>medium</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>xsmall</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>small</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>large</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Scheduling_horizon_limit__c</fullName>
+        <defaultValue>14</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Determines the number of days to show before the selected scheduling horizon</description>
+        <externalId>false</externalId>
+        <label>Scheduling horizon limit</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Selected_List_View__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Last selected list view for service appointment list</description>
+        <externalId>false</externalId>
+        <label>Selected List View</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Services_List_Height_Percentage__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Services_List_Height Percentage</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Services_Per_Page__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Set the maximum amount of services per page</description>
+        <externalId>false</externalId>
+        <label>Services Per Page</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>75</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>150</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>125</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>100</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>50</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Show_Orphan_Services__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Show Orphan Services</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>User_Settings</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>View_Capacity_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Show only capacities with chosen duration</description>
+        <externalId>false</externalId>
+        <label>View Capacity Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Day</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Week</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Month</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>User Setting</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{000000}</displayFormat>
+        <label>User Setting Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>User Settings</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Update Opp stage to ready to invoice once a managed installation case is changed to Ready to Commissionl This flow will be classed from a process.</description>
+    <formulas>
+        <name>OpportunityID</name>
+        <dataType>String</dataType>
+        <expression>LEFT({!OppID},15)</expression>
+    </formulas>
+    <interviewLabel>Update Opp stage to Ready to Invoice {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Opp stage to Ready to Invoice</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Lookup_Opp</name>
+        <label>Lookup Opp</label>
+        <locationX>323</locationX>
+        <locationY>156</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Opp_Stage</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>OppID</elementReference>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <outputAssignments>
+            <assignToReference>strOppID</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>strStageName</assignToReference>
+            <field>StageName</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Opp_Stage</name>
+        <label>Update Opp Stage</label>
+        <locationX>537</locationX>
+        <locationY>156</locationY>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>strOppID</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>StageName</field>
+            <value>
+                <stringValue>Ready to Invoice</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <startElementReference>Lookup_Opp</startElementReference>
+    <variables>
+        <name>OppID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>strOppID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>strStageName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

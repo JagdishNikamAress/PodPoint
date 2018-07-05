@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>POD Point hjemmelader som følger med din Renault Zoe</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>POD Point hjemmelader som følger med din Renault Zoe</name>
+    <style>none</style>
+    <subject>POD Point hjemmelader som følger med din Renault Zoe</subject>
+    <type>text</type>
+</EmailTemplate>

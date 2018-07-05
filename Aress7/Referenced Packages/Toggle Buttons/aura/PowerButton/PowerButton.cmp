@@ -1,0 +1,7 @@
+<aura:component >   
+    <aura:attribute name="toggleField" type="Boolean" default="false" />
+    <div>
+		<input id="power" onchange="{!c.handleChange}" checked="{!v.toggleField}" type="checkbox" />
+        <label for="power" class="power" ><span class="icon-off"></span></label>      
+	</div>
+</aura:component>

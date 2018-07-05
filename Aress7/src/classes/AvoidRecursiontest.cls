@@ -1,0 +1,43 @@
+@isTest
+public class AvoidRecursiontest {
+    public static testmethod void test01(){ 
+        AvoidRecursion.isFirstRun();
+        AvoidRecursion.isFirstRun1();
+        AvoidRecursion.isFirstRun2();
+        AvoidRecursion.isFirstRun3();
+        AvoidRecursion.caseBeforeUpdater();
+        AvoidRecursion.saAfterUpdater();
+        AvoidRecursion.saBeforeUpdater1();
+        AvoidRecursion.saBeforeDeleter();
+        AvoidRecursion.saBeforeUpdater();
+        AvoidRecursion.saAfterUpdater1();
+        AvoidRecursion.quoteAfterUpdate();
+        AvoidRecursion.quoteBeforeUpdate();
+        AvoidRecursion.OpptyBeforeInsert();
+        AvoidRecursion.quoteBeforeInsert();
+        AvoidRecursion.OpptyAfterUpdate();
+        AvoidRecursion.isFirstRun4();
+        AvoidRecursion.runTwiceCheck();
+        AvoidRecursion.accountAfterUpdate();
+        AvoidRecursion.accountBeforeInsert();
+        AvoidRecursion.feedAfterUpdate();
+        AvoidRecursion.feedAfterInsert();
+        AvoidRecursion.feedAfterDelete();
+        AvoidRecursion.opptyProdAfterInsert();
+        AvoidRecursion.opptyProdAfterUpdate();
+        AvoidRecursion.opptyProdBeforeDelete();
+        AvoidRecursion.opptyProdBeforeUpdate();
+        AvoidRecursion.opptyProdBeforeInsert();
+        AvoidRecursion.opptyProdAfterDelete();
+        AvoidRecursion.OpptyBeforeUpdate();
+        AvoidRecursion.qtlAfterInsert();
+        AvoidRecursion.qtlAfterUpdate();
+        AvoidRecursion.prodRequireAfterInsert();
+        AvoidRecursion.prodRequireAfterDelete();
+         AvoidRecursion.WoBeforeUpdater();
+        AvoidRecursion.WoTypeUpdater();
+        AvoidRecursion.saBeforeInserter();
+        AvoidRecursion.saBeforeDeleter1();
+        AvoidRecursion.saAfterInserter();
+    }
+}

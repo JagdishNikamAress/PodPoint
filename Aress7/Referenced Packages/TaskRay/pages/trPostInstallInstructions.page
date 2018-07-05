@@ -1,0 +1,78 @@
+<apex:page showHeader="false" sidebar="false">
+    <link href="{!URLFOR($Resource.trplugins, 'sds/salesforce-lightning-design-system-vf.css')}" rel="stylesheet" type="text/css" />
+  <div class="slds">
+    <div class="slds-text-heading--medium" style="color: #16325C; padding-left:16px;">
+    Welcome to TaskRay!
+    </div>
+    <br/>
+    <div class="slds-text-color--weak" style="color: #54698D; padding-left:16px;">
+    <p>Now that TaskRay is installed, what are the next steps? In order for you and your team to start working in TaskRay, you have to complete a couple of quick setup steps, which are outlined below.</p>
+    </div>
+    <br/>
+    <h3 class="slds-section-title--divider" style="letter-spacing:1px;">Assign Permission Sets</h3>
+      <div style="padding-left: 16px;">
+      <br/>
+      <div class="slds-text-color--weak" style="color: #54698D;">TaskRay access is managed by permission sets. Whether you are running the free trial or have already purchased licenses for your org, it is necessary to assign the TaskRay persmission set to designated users, as well as open up access to the TaskRay tab.
+      </div>
+      <br/>
+      <h3 class="slds-section__title">Assign Permission Sets</h3>
+        <ol class="slds-list--ordered">
+          <li>From <b>Setup</b>, locate <b>Permission Sets</b>.</li>
+          <li>Click on <b>TaskRay - Standard Access</b>.</li>
+          <li>Click <b>Manage Assignments</b>.</li>
+          <li>Click <b>Add Assignments</b>.</li>
+          <li>Select users using the checkboxes.</li>
+          <li>Click <b>Assign</b>.</li>
+          <li>Click <b>Done</b> to confirm.</li>
+        </ol>
+        <br/>
+      <h3 class="slds-section__title">Grant App (or Tab) Access</h3>
+      <div class="slds-text-color--weak" style="color: #54698D;"><b>Note:</b> This applies to Enterprise and Unlimited Editions. Alternatively, <b>all</b> editions may <b>optionally</b> add the TaskRay tab to an existing app.
+      </div>
+      <br/>
+      <p><b>Instructions for Salesforce Classic</b></p>
+        <ol class="slds-list--ordered">
+          <li>From <b>Setup</b>, locate <b>Create | Apps</b>.</li>
+          <li>Click <b>Edit</b> next to <b>TaskRay</b>.</li>
+          <li>In the <b>Assign to Profiles</b> section, check the <b>Visible</b> checkbox for applicable profiles.</li>
+        </ol>
+        <br/>
+         <p><b>Instructions for Lightning</b></p>
+        <ol class="slds-list--ordered">
+          <li>From <b>Setup</b>, locate <b>Apps | App Manager</b>.</li>
+          <li>Find <b>TaskRay (app type: Lightning)</b> in the list, click on the <b>down arrow</b> next to the name, and select <b>Edit</b>.</li>
+          <li>Select the <b>Assign to User Profiles</b> tab.</li>
+          <li>Select the profiles from the <b>Available Profiles</b> list and click on the <b>right arrow (add)</b> to add them to the <b>Selected Profiles</b> list.</li>
+          <li>Click <b>Done</b>.</li>
+        </ol>
+        <br/>
+        </div>
+    <h3 class="slds-section-title--divider" style="letter-spacing:1px;">Assign Licenses</h3>
+    <div style="padding-left: 16px;">
+      <br/>
+      <div class="slds-text-color--weak" style="color: #54698D;">
+      <p><b>Important!</b> This section is <u>NOT applicable for TaskRay trials</u>.</p>
+      <br/>
+      <p>After you have purchased individual user licenses of TaskRay, you will need to assign them to the designated users so that they can access the app. Although this is not necessary for TaskRay trial users, it is important to keep in mind for future setup if you do decide to purchase TaskRay licenses.</p>
+      <br />
+      <p><b>Note:</b> This process is not currently available in the Salesforce Lightning interface and can only be done in Salesforce Classic. If you are in Lightning, you would have to <a class="slds-button slds-text-link--reset" style="color: #0070d2; font-size: 13px;" href="https://help.salesforce.com/HTViewSolution?id=000230642&language=en_US" target="_blank">switch to Classic</a> to assign licenses to your users.</p>
+      <br/>
+      </div>
+      <p><b>Instructions for Salesforce Classic</b></p>
+        <ol class="slds-list--ordered">
+          <li>From <b>Setup</b>, locate <b>Installed Packages</b>.</li>
+          <li>Click on <b>TaskRay</b>.</li>
+          <li>Click on <b>Manage Licenses</b>.</li>
+          <li>Click <b>Add Users</b>.</li>
+          <li>Select users using the checkboxes next to their names.</li>
+          <li>Under the <b>Selected Users</b> section, click <b>Add</b>.</li>
+        </ol>
+      <br />
+      <div class="slds-text-color--weak" style="color: #54698D;">
+      <p>You're all set! TaskRay is now ready to use. </p>
+      <br/>
+      <p>Check out our <a class="slds-button slds-text-link--reset" style="color: #0070d2; font-size: 13px;" href="https://support.taskray.com/hc/categories/204630528-TaskRay-Guide" target="_blank">User Guide</a> to learn more about TaskRay. If you ever have any questions about using TaskRay, reach out to our <a class="slds-button slds-text-link--reset" style="color: #0070d2; font-size: 13px;" href="https://support.taskray.com/hc/en-us/requests/new" target="_blank">Support Team</a>. We're here to help!</p>
+      </div>
+      </div>
+  </div>
+</apex:page>

@@ -1,0 +1,53 @@
+<aura:component controller="TASKRAY_LTNG.trComponentCtrl">
+  <aura:attribute name="dateToDisplay" type="Date" />
+  <aura:attribute name="startDate" type="Date"/>
+  <aura:attribute name="overdue" type="Boolean" default="false"/>
+  <aura:attribute name="todoItems" type="Object[]" access="private"/>
+  <aura:attribute name="localizedDateStr" type="String" access="private"/>
+  <aura:attribute name="todoItemCount" type="Integer" access="private" default="0"/>
+  <aura:attribute name="runConfetti" type="AURA.ACTION" />
+  <aura:attribute name="refetchOverdueDates" type="AURA.ACTION" />
+  <aura:attribute name="noItemsMessage" type="String" default="" access="private" />
+  <aura:attribute name="errorMessage" type="Object" />
+  <aura:handler name="genericEvent" event="TASKRAY_LTNG:trGenericEvent" action="{!c.handleComponentEvent}"/>
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+  <aura:handler event="TASKRAY_LTNG:trExternalChange" action="{!c.handleExternalChange}"/>
+
+  <!-- <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+  <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/> -->
+
+  <div class="todo-by-day-container">
+    {!v.errorMessage}
+
+    <div class="todo-by-day-header-container slds-clearfix VerticalAlignContainer">
+      <aura:if isTrue="{!!v.overdue}">
+        <span class="slds-text-heading--label VerticalAlignContainer-item--bottom">{!v.dateToDisplay} {!$Label.taskray_ltng.trToDoByDay_DueToday} - {!v.localizedDateStr}</span>
+      </aura:if>
+
+      <aura:if isTrue="{!v.overdue}">
+        <span class="slds-text-heading--label VerticalAlignContainer-item--bottom overdue-label">{!$Label.taskray_ltng.trToDoByDay_Overdue} - {!v.localizedDateStr}</span>
+      </aura:if>
+
+      <aura:renderIf isTrue="{!v.todoItemCount > 0}">
+        <div class="slds-badge">
+          {!v.todoItemCount}
+        </div>
+      </aura:renderIf>
+    </div>
+    <aura:renderIf isTrue="{!v.noItemsMessage!=''}">
+      <div class="slds-clearfix">
+        {!v.noItemsMessage}
+      </div>
+    </aura:renderIf>
+    <hr />
+    <aura:iteration items="{!v.todoItems}" var="todoItem" indexVar="index">
+      <aura:if isTrue="{!todoItem.TASKRAY__trFlowUniqueName__c}">
+        <TASKRAY_LTNG:trToDoByDay_interviewItem interviewObj="{!todoItem}" />
+      </aura:if>
+      <aura:if isTrue="{! !todoItem.TASKRAY__trFlowUniqueName__c}">
+        <TASKRAY_LTNG:trToDoByDay_taskItem todoItem="{!todoItem}" />
+      </aura:if>
+    </aura:iteration>
+  </div>
+</aura:component>

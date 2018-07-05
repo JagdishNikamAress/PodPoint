@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <choices>
+        <name>Closed</name>
+        <choiceText>Closed</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Closed</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Invoiced</name>
+        <choiceText>Invoiced</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Invoiced</stringValue>
+        </value>
+    </choices>
+    <decisions>
+        <name>If_Competitor</name>
+        <label>If Competitor</label>
+        <locationX>311</locationX>
+        <locationY>278</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Competitor</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Closed_Reason</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Lost to Competitor</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Compititor</targetReference>
+            </connector>
+            <label>Competitor</label>
+        </rules>
+        <rules>
+            <name>Else</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Closed_Reason</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Lost to Competitor</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opp</targetReference>
+            </connector>
+            <label>Else</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>If_Stage_Closed</name>
+        <label>If Stage = Closed</label>
+        <locationX>114</locationX>
+        <locationY>152</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Closed2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Choose_Stage</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Closed</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Enter_Closed_Reason_Page</targetReference>
+            </connector>
+            <label>Closed</label>
+        </rules>
+        <rules>
+            <name>Not_Closed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Choose_Stage</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Invoiced</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opp</targetReference>
+            </connector>
+            <label>Not Closed</label>
+        </rules>
+    </decisions>
+    <dynamicChoiceSets>
+        <name>ClosedReasonOpp</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Reason_for_Closing_picklist__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>OppCompetitor</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Lost_to_Competitor__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <interviewLabel>Change Opp Stage to Closed or Invoiced {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Change Opp Stage to Closed or Invoiced</label>
+    <processType>Flow</processType>
+    <recordUpdates>
+        <name>Update_Opp</name>
+        <label>Update Opp</label>
+        <locationX>318</locationX>
+        <locationY>149</locationY>
+        <connector>
+            <targetReference>Success_Page</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>strOppId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Lost_to_Competitor__c</field>
+            <value>
+                <elementReference>Choose_Competitor</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Reason_for_Closing_picklist__c</field>
+            <value>
+                <elementReference>Closed_Reason</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>StageName</field>
+            <value>
+                <elementReference>Choose_Stage</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <screens>
+        <name>Enter_Closed_Reason_Page</name>
+        <label>Enter Closed Reason Page</label>
+        <locationX>111</locationX>
+        <locationY>272</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>If_Competitor</targetReference>
+        </connector>
+        <fields>
+            <name>Closed_Reason</name>
+            <choiceReferences>ClosedReasonOpp</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Closed Reason</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+    </screens>
+    <screens>
+        <name>Stage_Selection_Page</name>
+        <label>Stage Selection Page</label>
+        <locationX>112</locationX>
+        <locationY>32</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>If_Stage_Closed</targetReference>
+        </connector>
+        <fields>
+            <name>Choose_Stage</name>
+            <choiceReferences>Closed</choiceReferences>
+            <choiceReferences>Invoiced</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Choose Stage</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+    </screens>
+    <screens>
+        <name>Success_Page</name>
+        <label>Success Page</label>
+        <locationX>502</locationX>
+        <locationY>149</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Message</name>
+            <fieldText>The Opp is successfully changed to {!Choose_Stage}. Please close the window by clicking on Cross on top right.</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <screens>
+        <name>Update_Compititor</name>
+        <label>Update Compititor</label>
+        <locationX>537</locationX>
+        <locationY>281</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Update_Opp</targetReference>
+        </connector>
+        <fields>
+            <name>Choose_Competitor</name>
+            <choiceReferences>OppCompetitor</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Choose Competitor</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+    </screens>
+    <startElementReference>Stage_Selection_Page</startElementReference>
+    <variables>
+        <name>strOppId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CreatePdf</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EmailQuote</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>NewQuote</actionName>
+        <content>QuoteEditPage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SyncQuote</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>true</enableFeeds>
+    <fields>
+        <fullName>AccountId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AdditionalName</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>BillingName</fullName>
+        <inlineHelpText>Quote billing address will be taken from the Account billing address</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>ContactId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ContractId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Custom_T_C_Disclaimer__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If you select Quote Template &quot;Standard Quote (with Custom T&amp;C)&quot;, then this field will overwrite the standard T&amp;C disclaimer on the Quote</inlineHelpText>
+        <label>Custom T&amp;C Disclaimer</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Discount</fullName>
+    </fields>
+    <fields>
+        <fullName>Email</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>ExpirationDate</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Fax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>GrandTotal</fullName>
+    </fields>
+    <fields>
+        <fullName>In_Approval__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>In Approval</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Invoice_Accounts_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Invoice/Accounts Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IsSyncing</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>LineItemCount</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Needs_Approval__c</fullName>
+        <externalId>false</externalId>
+        <label>Needs Approval</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Notes_about_your_order__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Notes for Supply Team</inlineHelpText>
+        <label>Order Notes</label>
+        <length>255</length>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Quotes_Presented__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Quotes Presented</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OpportunityId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>QuoteToName</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Quote_Notes__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Used with &quot;Built Environment&quot; Quote</inlineHelpText>
+        <label>Quote Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Quote_as_result_of_CPD__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Quote as result of CPD</description>
+        <externalId>false</externalId>
+        <label>Quote as result of CPD</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ShippingHandling</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>ShippingName</fullName>
+        <inlineHelpText>Quote shipping address will be taken from Primary Contact address (or Survey address if it exists)</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Signature_Sign_Now__c</fullName>
+        <externalId>false</externalId>
+        <label>Signature</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Subtotal</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Survey_Option__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Option</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Supply Only</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Survey Option 1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Survey Option 2</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Tax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>TotalPrice</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Total_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>if ( TEXT(Opportunity.CurrencyIsoCode) = &quot;GBP&quot;, if( Opportunity.RecordTypeId =&apos;012240000006rJv&apos;, Subtotal , Total_Inc_VAT__c + UK_VAT__c + Workplace_Grant__c ) , Total_Inc_VAT__c + mva__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Inc_VAT__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Opportunity.RecordTypeId =&apos;012240000006rJv&apos;, Opportunity.Amount_Excluding_VAT__c,
+
+IF( Opportunity.Workplace_Grant__c =TRUE, Subtotal ,Opportunity.Amount))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Subtotal</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>UK_VAT__c</fullName>
+        <description>Calculates UK VAT</description>
+        <externalId>false</externalId>
+        <formula>If(Opportunity.RecordTypeId == &apos;012240000006rJv&apos;,  Subtotal -  Total_Inc_VAT__c  , Subtotal/5 )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>UK VAT</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Workplace_Grant__c</fullName>
+        <externalId>false</externalId>
+        <label>Workplace Grant</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>mva__c</fullName>
+        <externalId>false</externalId>
+        <formula>Subtotal*0.25</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>mva (25%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>pdfSignURL__c</fullName>
+        <externalId>false</externalId>
+        <label>pdfSignURL</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>signature__c</fullName>
+        <externalId>false</externalId>
+        <label>signature</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <listViews>
+        <fullName>mine</fullName>
+        <columns>QUOTE.NAME</columns>
+        <columns>OPPORTUNITY.NAME</columns>
+        <columns>QUOTE.ISSYNCING</columns>
+        <columns>QUOTE.EXPIRATIONDATE</columns>
+        <columns>QUOTE.SUBTOTAL</columns>
+        <columns>QUOTE.TOTALPRICE</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Quotes</label>
+    </listViews>
+    <searchLayouts>
+        <customTabListAdditionalFields>QUOTE.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OPPORTUNITY.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>QUOTE.ISSYNCING</customTabListAdditionalFields>
+        <customTabListAdditionalFields>QUOTE.EXPIRATIONDATE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>QUOTE.SUBTOTAL</customTabListAdditionalFields>
+        <customTabListAdditionalFields>QUOTE.TOTALPRICE</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>QUOTE.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OPPORTUNITY.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>QUOTE.ISSYNCING</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>QUOTE.EXPIRATIONDATE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>QUOTE.SUBTOTAL</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>QUOTE.TOTALPRICE</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>QUOTE.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>OPPORTUNITY.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>QUOTE.ISSYNCING</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>QUOTE.EXPIRATIONDATE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>QUOTE.SUBTOTAL</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>QUOTE.TOTALPRICE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>QUOTE.PHONE</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>QUOTE.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OPPORTUNITY.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>QUOTE.ISSYNCING</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>QUOTE.EXPIRATIONDATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>QUOTE.SUBTOTAL</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>QUOTE.TOTALPRICE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Bill_To_or_Ship_To_is_empty</fullName>
+        <active>false</active>
+        <errorConditionFormula>OR(
+OR( ISBLANK(ShippingCity),
+ ISBLANK(ShippingStreet ),
+ISBLANK(ShippingPostalCode )
+  ), 
+
+ OR( ISBLANK(BillingCity),
+ ISBLANK(BillingStreet ),
+ISBLANK(BillingPostalCode )
+ )
+)</errorConditionFormula>
+        <errorMessage>Bill To and Ship To Address cannot be blank.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Blank_InvoiceORAccounts_Email</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISCHANGED(Status),ISPICKVAL(Status, &apos;Accepted&apos;),ISBLANK(Invoice_Accounts_Email__c))</errorConditionFormula>
+        <errorDisplayField>Invoice_Accounts_Email__c</errorDisplayField>
+        <errorMessage>Please add a Invoice/Accounts Email before accepting the Quote</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Quote_cannot_be_created_as_Opp_is_Won</fullName>
+        <active>true</active>
+        <errorConditionFormula>TEXT(Opportunity.StageName ) = &apos;Won&apos;</errorConditionFormula>
+        <errorMessage>You cannot create or edit any more quote since the opportunity is already Won.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Quote_without_survey</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISBLANK(TEXT(Survey_Option__c)), ISPICKVAL(Status,&apos;Accepted&apos;))</errorConditionFormula>
+        <errorDisplayField>Survey_Option__c</errorDisplayField>
+        <errorMessage>Please select a Survey Option before accepting the Quote</errorMessage>
+    </validationRules>
+</CustomObject>

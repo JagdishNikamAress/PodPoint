@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Install case is Ready to be Commissioned</name>
+    <style>none</style>
+    <subject>Install Case is Ready to be Commissioned</subject>
+    <type>text</type>
+</EmailTemplate>

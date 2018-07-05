@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>After online payment, customer is sent auto email with VAT receipt attached.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Customer VAT Receipt</name>
+    <style>none</style>
+    <subject>POD Point Order - Payment Confirmed</subject>
+    <textOnly>Hi {!BLANKVALUE(Account.FirstName, Account.Name)},
+
+Thank you, your POD Point order is confirmed.
+
+We&apos;ve also attached a VAT receipt for your order. If you have any further questions, don&apos;t hesitate to contact our support team.
+
+Thank you,
+
+The POD Point Team
+
+Need some help?
+
+We’re here, if you need to talk</textOnly>
+    <type>custom</type>
+</EmailTemplate>

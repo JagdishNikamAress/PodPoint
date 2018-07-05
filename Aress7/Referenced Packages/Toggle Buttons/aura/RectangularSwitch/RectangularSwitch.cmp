@@ -1,0 +1,8 @@
+<aura:component >   
+    <aura:attribute name="toggleField" type="Boolean" default="false" />
+    <div class="switch switchbtn">
+		<!--<input id="toggleCmp" checked="{!v.toggleField}"  type="checkbox" />-->
+        <ui:inputCheckbox aura:id="toggleCmp"  value="{!v.toggleField}" />
+        <label for="toggleCmp" ><i></i></label>
+	</div>
+</aura:component>

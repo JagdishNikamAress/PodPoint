@@ -1,0 +1,136 @@
+<apex:page StandardController="ServiceResource" extensions="sample" docType="html-5.0">
+    <script>
+    function onpickVal(){
+        //  alert('in pickval');
+    // if(document.getElementById('{!$Component.theForm.pb.pbs.pbsi1.sl1}').value == 'Extra Shift Opt Out'){
+        if(document.getElementById('{!$Component.theForm.pb.pbs.pbsi1.sl1}').value == 'Extra Shift Opt Out'){
+            //alert('in shift out');
+            document.getElementById('{!$Component.theForm.pb.pbs.pbsi2.sl2}').style.display = "none";
+            document.getElementById('{!$Component.theForm.pb.pbs.pbsi2.opl2}').style.display = "none";
+            document.getElementById('{!$Component.theForm.pb.pbs.pbsi4.opl4}').style.display = "none";
+            document.getElementById('{!$Component.theForm.pb.pbs.pbsi4.if4}').style.display = "none";
+        } else  if(((document.getElementById('{!$Component.theForm.pb.pbs.pbsi1.sl1}').value == 'Holiday' || document.getElementById('{!$Component.theForm.pb.pbs.pbsi1.sl1}').value == 'Parental' || document.getElementById('{!$Component.theForm.pb.pbs.pbsi1.sl1}').value == 'Medical')) && (document.getElementById('{!$Component.theForm.pb.pbs.pbsi2.sl2}').value == 'Partial Day')){
+            // alert('Partial day');
+            document.getElementById('{!$Component.theForm.pb.pbs.pbsi4.opl4}').style.display = "none";
+            document.getElementById('{!$Component.theForm.pb.pbs.pbsi4.if4}').style.display = "none";
+            var x= document.getElementById('{!$Component.theForm.pb.pbs.pbsi5.a}');
+            //x.value ="--Select--";
+            for(i=0; i<x.options.length;i++){
+                console.log(x.options[i].value);
+                x.options[i].style.display = "block";
+                x.options[i].removeAttribute('selected');
+                if(x.options[i].value == 'Evening (5pm - 8pm)' || x.options[i].value == 'Full Day (7am - 8pm)' || x.options[i].value == 'None')
+                {
+                    x.options[i].style.display = "none";
+                }
+            }
+           x.options[0].setAttribute("selected", "selected");
+        } else  if(((document.getElementById('{!$Component.theForm.pb.pbs.pbsi1.sl1}').value == 'Holiday' || document.getElementById('{!$Component.theForm.pb.pbs.pbsi1.sl1}').value == 'Parental' || document.getElementById('{!$Component.theForm.pb.pbs.pbsi1.sl1}').value == 'Medical')) && (document.getElementById('{!$Component.theForm.pb.pbs.pbsi2.sl2}').value == 'One Day')){
+            
+            document.getElementById('{!$Component.theForm.pb.pbs.pbsi4.opl4}').style.display = "none";
+            document.getElementById('{!$Component.theForm.pb.pbs.pbsi4.if4}').style.display = "none";
+            var x= document.getElementById('{!$Component.theForm.pb.pbs.pbsi5.a}');
+            for(i=0; i<x.options.length;i++){
+                console.log(x.options[i].value);
+                x.options[i].style.display = "block";
+                x.options[i].removeAttribute('selected');
+                if(x.options[i].value == 'Evening (5pm - 8pm)' || x.options[i].value == 'Morning (7am -12pm)' || x.options[i].value == 'Afternoon (12pm - 8pm)' || x.options[i].value == 'None')
+                {
+                    x.options[i].style.display = "none";
+                }
+            }
+            x.options[3].setAttribute("selected", "selected");
+        } else  if(((document.getElementById('{!$Component.theForm.pb.pbs.pbsi1.sl1}').value == 'Holiday' || document.getElementById('{!$Component.theForm.pb.pbs.pbsi1.sl1}').value == 'Parental' || document.getElementById('{!$Component.theForm.pb.pbs.pbsi1.sl1}').value == 'Medical')) && (document.getElementById('{!$Component.theForm.pb.pbs.pbsi2.sl2}').value == 'Longer')){
+            document.getElementById('{!$Component.theForm.pb.pbs.pbsi4.opl4}').style.display = "block";
+            document.getElementById('{!$Component.theForm.pb.pbs.pbsi4.if4}').style.display = "block";
+            var x= document.getElementById('{!$Component.theForm.pb.pbs.pbsi5.a}');
+            for(i=0; i<x.options.length;i++){
+                console.log(x.options[i].value);
+                x.options[i].style.display = "block";
+                x.options[i].removeAttribute('selected');
+                if(x.options[i].value == 'Evening (5pm - 8pm)' || x.options[i].value == 'Morning (7am -12pm)' || x.options[i].value == 'Afternoon (12pm - 8pm)' || x.options[i].value == 'None')
+                {
+                    x.options[i].style.display = "none";
+                    
+                }
+                
+            }
+            x.options[3].setAttribute("selected", "selected");
+        }else {
+            document.getElementById('{!$Component.theForm.pb.pbs.pbsi2.sl2}').style.display = "block";
+            document.getElementById('{!$Component.theForm.pb.pbs.pbsi2.opl2}').style.display = "block";
+            document.getElementById('{!$Component.theForm.pb.pbs.pbsi4.opl4}').style.display = "block";
+            document.getElementById('{!$Component.theForm.pb.pbs.pbsi4.if4}').style.display = "block";
+        }
+      // }else   if((document.getElementById('{!$Component.theForm.pb.pbs.pbsi1.sl1}').value == 'Holiday') && (document.getElementById('{!$Component.theForm.pb.pbs.pbsi2.sl2}').value == 'Partial Day')){
+      /*   if((document.getElementById('{!$Component.theForm.pb.pbs.pbsi1.sl1}').value == 'Holiday') && (document.getElementById('{!$Component.theForm.pb.pbs.pbsi2.sl2}').value == 'Partial Day')){
+            document.getElementById('{!$Component.theForm.pb.pbs.pbsi4.opl4}').style.display = "none";
+            document.getElementById('{!$Component.theForm.pb.pbs.pbsi4.if4}').style.display = "none";
+        } else {
+            document.getElementById('{!$Component.theForm.pb.pbs.pbsi4.opl4}').style.display = "block";
+             document.getElementById('{!$Component.theForm.pb.pbs.pbsi4.if4}').style.display = "block";
+        }*/
+   // }
+   	}
+    
+</script>
+    <apex:form id="theForm">
+    <apex:pageMessages ></apex:pageMessages>
+    
+    <apex:pageBlock title="New Absence" mode="edit" id="pb">
+        <apex:pageBlockButtons >
+                 <apex:commandButton value="Submit" action="{!customSave}" />   
+        </apex:pageBlockButtons>
+        
+        <apex:pageBlockSection columns="1" id="pbs">
+            <apex:pageblockSectionItem id="pbsi1">   
+                <apex:outputLabel value="Type" />  
+                <apex:outputPanel >  
+                <apex:actionRegion >      
+                <apex:selectList size="1" value="{!Type}" id="sl1" onchange="onpickVal()" required="true">
+                    <apex:selectOptions value="{!Types}"/>
+                    <apex:actionSupport event="onchange" reRender="a"/>
+                </apex:selectList>
+                </apex:actionRegion> 
+                </apex:outputPanel>                  
+            </apex:pageblockSectionItem>
+            
+            <apex:pageblockSectionItem id="pbsi2">   
+                <apex:outputLabel value="Duration" id="opl2"/>             
+                <apex:selectList size="1" value="{!Duration}" id="sl2" onchange="onpickVal()" required="true">
+                    <apex:selectOptions value="{!Durations}"/>
+                   
+                    <apex:actionSupport event="onchange" reRender="a"/>
+                </apex:selectList>                
+            </apex:pageblockSectionItem>
+           
+            
+            <apex:pageblockSectionItem id="pbsi3">   
+                <apex:outputLabel value="Start Date"/>
+                <!--<apex:inputField value="{!abs.Start}" >--> 
+                <apex:input value="{!StartDate}" type="date" id="if3" required="true">
+                    <apex:actionSupport event="onchange" reRender="a"/>  
+                </apex:input>            
+            </apex:pageblockSectionItem>
+            
+            <apex:pageblockSectionItem id="pbsi4">   
+                <apex:outputLabel value="End Date" id="opl4"/>
+                <!--<apex:inputField value="{!abs.End}" id="if4" >--> 
+                <apex:input value="{!EndDate}" id="if4" type="date" >
+                    <apex:actionSupport event="onchange"/>  
+                </apex:input>            
+            </apex:pageblockSectionItem>
+            
+            
+            <apex:pageblockSectionItem id="pbsi5">
+                <apex:outputLabel value="Slot Option"/>
+                <apex:selectList size="1" value="{!slotOption}" id="a" required="true">
+                    <apex:selectOptions value="{!SlotOptions}"/>
+                </apex:selectList>
+            </apex:pageblockSectionItem>            
+        </apex:pageBlockSection>        
+    </apex:pageBlock>
+
+    </apex:form>
+
+</apex:page>

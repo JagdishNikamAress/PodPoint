@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Activation Date --></label>
+        <name>Activation_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- CPD Certificate Sent? --></label>
+        <name>CPD_Certificate_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- DB Activity Type --></label>
+        <name>DB_Activity_Type__c</name>
+    </fields>
+    <fields>
+        <help>所有事件计数</help>
+        <label><!-- Count of Events --></label>
+        <name>FSL__Count_of_Events__c</name>
+    </fields>
+    <fields>
+        <label><!-- Count of Tasks --></label>
+        <name>FSL__Count_of_Tasks__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event Type --></label>
+        <name>FSL__Event_Type__c</name>
+        <picklistValues>
+            <masterLabel>Resource Absence</masterLabel>
+            <translation>资源缺乏</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Appointment</masterLabel>
+            <translation>服务预约</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- MIS URL --></label>
+        <name>MIS_URL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Remember to use the SITE link and not the individual unit. --></help>
+        <label><!-- Open Charge URL --></label>
+        <name>Open_Charge_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start (Date) --></label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Task Assigned To --></label>
+        <name>Task_Assigned_To__c</name>
+    </fields>
+    <fields>
+        <label><!-- Task Type --></label>
+        <name>Task_Type__c</name>
+        <picklistValues>
+            <masterLabel>Call</masterLabel>
+            <translation><!-- Call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meeting</masterLabel>
+            <translation><!-- Meeting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Grabs the vehicle make from Account --></help>
+        <label><!-- Vehicle Make Copy --></label>
+        <name>Vehicle_Make_Copy__c</name>
+    </fields>
+    <fields>
+        <help><!-- Grabs the vehicle model from Account --></help>
+        <label><!-- Vehicle Model Copy --></label>
+        <name>Vehicle_Model_Copy__c</name>
+    </fields>
+</CustomObjectTranslation>

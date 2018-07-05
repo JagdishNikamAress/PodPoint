@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Order and Contract will be automatically created on the opportunity is Won.</description>
+    <label>Automatic Order and Contract Creation</label>
+    <processType>AutoLaunchedFlow</processType>
+</Flow>

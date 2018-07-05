@@ -1,0 +1,8 @@
+.THIS {
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+.THIS.fade-out {
+  opacity: 0;
+}

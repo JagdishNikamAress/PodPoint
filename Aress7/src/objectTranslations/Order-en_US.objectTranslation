@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Notes for iPRO</value>
+        </caseValues>
+        <name>order_description</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Order Status</value>
+        </caseValues>
+        <name>order_status</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <label><!-- Accepted --></label>
+        <name>Accepted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bay Markings --></label>
+        <name>Bay_Markings__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cable Management --></label>
+        <name>Cable_Management__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cable --></label>
+        <name>Cable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call --></label>
+        <name>Call__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case ID --></label>
+        <name>Case_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Number --></label>
+        <name>Case_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Orders --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Civils Booked --></label>
+        <name>Civils_Booked__c</name>
+    </fields>
+    <fields>
+        <label><!-- Complete --></label>
+        <name>Complete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Completed On --></label>
+        <name>Completed_On__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confirm Date to Site &amp; Address --></label>
+        <name>Confirm_Dispatch_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date to Site Count --></label>
+        <name>Date_to_Site_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date to Site Filled Count --></label>
+        <name>Date_to_Site_Filled_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Earliest Date to Site --></label>
+        <name>Earliest_Date_to_Site__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Sent --></label>
+        <name>Email_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- FA Check --></label>
+        <name>FA_Check__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fastners --></label>
+        <name>Fastners__c</name>
+    </fields>
+    <fields>
+        <label><!-- FieldAware URL --></label>
+        <name>FieldAware_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Case Created --></label>
+        <name>Install_Case_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Notes --></label>
+        <name>Install_Notes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Notes from the Install team --></help>
+        <label><!-- Install Notes for Helen --></label>
+        <name>Install_Notes_for_Helen__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Only --></label>
+        <name>Install_Only__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Scheduled Start Date &amp; Time --></label>
+        <name>Install_Scheduled_Start_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Status --></label>
+        <name>Install_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Installer Email --></label>
+        <name>Installer_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Installer Name --></label>
+        <name>Installer_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Internal Order # --></label>
+        <name>Internal_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job ID --></label>
+        <name>Job_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Link To Case --></label>
+        <name>Link_To_Case__c</name>
+    </fields>
+    <fields>
+        <label><!-- MCB --></label>
+        <name>MCB__c</name>
+    </fields>
+    <fields>
+        <label><!-- MIS Site Contact Email --></label>
+        <name>MIS_Site_Contact_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- MIS Site Contact --></label>
+        <name>MIS_Site_Contact__c</name>
+    </fields>
+    <fields>
+        <help><!-- Notes for Helen or Finance team about your order --></help>
+        <label><!-- Notes about your order --></label>
+        <name>Notes_about_your_order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Send Date --></label>
+        <name>Order_Send_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Stages --></label>
+        <name>Order_Stages__c</name>
+        <picklistValues>
+            <masterLabel>Installation</masterLabel>
+            <translation><!-- Installation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project Manager --></label>
+        <name>Project_Manager__c</name>
+        <picklistValues>
+            <masterLabel>Alex McKinney</masterLabel>
+            <translation><!-- Alex McKinney --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amy Lambourne</masterLabel>
+            <translation><!-- Amy Lambourne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arne Nikolaus</masterLabel>
+            <translation><!-- Arne Nikolaus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bradley Turk</masterLabel>
+            <translation><!-- Bradley Turk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Christos Polydoros</masterLabel>
+            <translation><!-- Christos Polydoros --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>James Farrier</masterLabel>
+            <translation><!-- James Farrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Joshua Doyle-Tanner</masterLabel>
+            <translation><!-- Joshua Doyle-Tanner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kostas Papadakis</masterLabel>
+            <translation><!-- Kostas Papadakis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Martin Miles</masterLabel>
+            <translation><!-- Martin Miles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Richard King</masterLabel>
+            <translation><!-- Richard King --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Richard Lindop</masterLabel>
+            <translation><!-- Richard Lindop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Richard Wise</masterLabel>
+            <translation><!-- Richard Wise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sam Biggs</masterLabel>
+            <translation><!-- Sam Biggs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shauna Black</masterLabel>
+            <translation><!-- Shauna Black --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stephen Kellett</masterLabel>
+            <translation><!-- Stephen Kellett --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stuart Clark</masterLabel>
+            <translation><!-- Stuart Clark --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- RAMS --></label>
+        <name>RAMS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scheduled Date &amp; Time --></label>
+        <name>Scheduled_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Started On --></label>
+        <name>Started_On__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Supply Manager --></label>
+        <name>Supply_Manager__c</name>
+        <picklistValues>
+            <masterLabel>Ahshok</masterLabel>
+            <translation><!-- Ahshok --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Helen</masterLabel>
+            <translation><!-- Helen --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Tracking # --></label>
+        <name>Tracking__c</name>
+    </fields>
+    <recordTypes>
+        <label><!-- Managed Installation --></label>
+        <name>Managed_Installation</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Non Managed Installation --></label>
+        <name>Non_Managed_Installation</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Please ensure all date to site is filled. --></errorMessage>
+        <name>Not_all_date_to_site_is_filled</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Create_Install_Case --></label>
+        <name>Create_Install_Case</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Create_Install_CaseWFA --></label>
+        <name>Create_Install_CaseWFA</name>
+    </webLinks>
+</CustomObjectTranslation>

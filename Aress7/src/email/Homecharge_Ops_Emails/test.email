@@ -1,0 +1,7 @@
+Hi {!Contact.FirstName}
+
+I would like to arrange your POD Point installation date! I have provisionally booked you in for the next available date which is {!Case.Install_Date__c}. Our engineer will arrive between {!if(ISPICKVAL(Case.AM_PM__c,"AM"),"8am","12pm")} and {!if(ISPICKVAL(Case.AM_PM__c,"AM"),"10am","2pm")} - an installation typically takes around 2 hours.
+
+If you could confirm if you'll be available on this date that would be wonderful. If not, I will happily arrange a later date.
+
+Please also see our guide on the Home Installation Process:  https://pod-point.com/landing-pages/ev-charger-installation

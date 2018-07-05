@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <decisions>
+        <name>OppID_is_not_null</name>
+        <label>OppID is not null</label>
+        <locationX>115</locationX>
+        <locationY>198</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Is_not_Null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>strOppID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opp</targetReference>
+            </connector>
+            <label>Is not Null</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Update Install Hours {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Install Hours</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Opp</name>
+        <label>Update Opp</label>
+        <locationX>363</locationX>
+        <locationY>199</locationY>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>strOppID</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Install_Hours__c</field>
+            <value>
+                <elementReference>InstallHours</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <startElementReference>OppID_is_not_null</startElementReference>
+    <variables>
+        <name>InstallHours</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <name>strOppID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Address</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>EffectiveEndDate</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>EffectiveStartDate</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>FSL__Internal_SLR_HomeAddress_Geolocation__c</fullName>
+        <deprecated>false</deprecated>
+        <displayLocationInDecimal>true</displayLocationInDecimal>
+        <externalId>false</externalId>
+        <label>Internal SLR HomeAddress Geolocation</label>
+        <required>false</required>
+        <scale>6</scale>
+        <trackHistory>false</trackHistory>
+        <type>Location</type>
+    </fields>
+    <fields>
+        <fullName>OperatingHoursId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ServiceResourceId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ServiceTerritoryId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>TerritoryType</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Travel_Group_1__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Travel Group 1</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Travel_Group_2__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>Travel Group 2</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Travel_Group_3__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Travel Group 3</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <searchLayouts>
+        <customTabListAdditionalFields>ServiceTerritory</customTabListAdditionalFields>
+        <customTabListAdditionalFields>TerritoryType</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EffectiveStartDate</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EffectiveEndDate</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ServiceTerritory</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>TerritoryType</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EffectiveStartDate</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EffectiveEndDate</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ServiceTerritory</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>TerritoryType</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>EffectiveStartDate</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>EffectiveEndDate</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>ServiceTerritory</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TerritoryType</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EffectiveStartDate</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EffectiveEndDate</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>FSL__Secondary_STM</fullName>
+        <active>true</active>
+        <errorConditionFormula>(ISPICKVAL(TerritoryType, &quot;Secondary&quot;) &amp;&amp; 
+    ( ( ( ISCHANGED(Longitude) || ISCHANGED(Latitude) ) &amp;&amp; ( (NOT(ISBLANK(Longitude))) || (NOT(ISBLANK(Latitude))) )) || 
+      (NOT(ISBLANK(FSL__Internal_SLR_HomeAddress_Geolocation__Latitude__s))) || 
+      (NOT(ISBLANK(FSL__Internal_SLR_HomeAddress_Geolocation__Longitude__s))) || 
+      (NOT(ISBLANK( Street ))) || 
+      (NOT(ISBLANK( City ))) ||
+      (NOT(ISBLANK( Country ))) ||
+      (NOT(ISBLANK( State ))) || 
+      (NOT(ISBLANK(  PostalCode  )))
+    )
+ )</errorConditionFormula>
+        <errorMessage>Cannot save Service Territory Member of type secondary with Operating Hours or Address</errorMessage>
+    </validationRules>
+</CustomObject>

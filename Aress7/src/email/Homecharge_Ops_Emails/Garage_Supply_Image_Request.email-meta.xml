@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Garage Supply - Image Request</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Garage Supply - Image Request</name>
+    <style>none</style>
+    <subject>Home Charge - Garage Supply - Image Request</subject>
+    <type>text</type>
+</EmailTemplate>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Request for Installation date Confirmation</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Z - Installation Confirm</name>
+    <style>none</style>
+    <subject>Please Confirm your Install Date (Pod Point)</subject>
+    <type>text</type>
+</EmailTemplate>

@@ -1,0 +1,63 @@
+<apex:page standardController="Quote" extensions="QuoteEditClass">
+    <apex:sectionHeader title="Quote" subtitle="New Quote"/>
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageblockButtons >
+                <apex:commandButton value="Save" action="{!doSave}"/>
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageblockButtons>
+            <apex:pageMessages id="showmsg"></apex:pageMessages>
+            <apex:pageBlockSection title="Quote Information" collapsible="false">
+                <apex:inputField value="{!qote.Name}"/>
+                <apex:inputField value="{!qote.ExpirationDate}" required="true"/>
+                <apex:outputText value="{!opp.Name}"/>
+                <apex:outputField value="{!qote.IsSyncing}"/>
+                <apex:outputText value="{!opp.Account.Name}"/>
+                <apex:inputCheckbox value="{!qote.Quote_as_result_of_CPD__c}	"/>
+                <apex:inputField value="{!qote.Status}"/>
+                <apex:inputField value="{!qote.Notes_about_your_order__c}"/>
+                <apex:inputField value="{!qote.Invoice_Accounts_Email__c}"/>
+                <apex:inputField value="{!qote.signature__c}"/>
+                <apex:inputField value="{!qote.Survey_Option__c}"/>
+                <apex:inputField value="{!qote.Description}"/>
+                <apex:inputField value="{!qote.signature__c}"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!qote.pdfSignURL__c}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Totals" collapsible="false">
+                <apex:outputField value="{!qote.Discount}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Temp" collapsible="false">
+                <apex:outputText value="{!subtot}" label="Total Amount"/>
+                <apex:outputText value="{!subtot}" label="Total Price"/>
+                <apex:outputField value="{!Quote.GrandTotal}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Prepared For" collapsible="false">
+                <apex:inputField value="{!qote.ContactId}"/>
+                <apex:inputField value="{!qote.Phone}"/>
+                <apex:inputField value="{!qote.Email}"/>
+                <apex:inputField value="{!qote.Fax}"/>
+            </apex:pageBlockSection>
+                
+            <apex:pageBlockSection title="Address Information" collapsible="false">
+                <apex:inputField value="{!qote.BillingName}"/>
+                <apex:inputField value="{!qote.ShippingName}"/>
+                <apex:inputField value="{!qote.BillingCountry}"/>
+                <apex:inputField value="{!qote.ShippingCountry}"/>
+                <apex:inputField value="{!qote.BillingStreet}"/>
+                <apex:inputField value="{!qote.ShippingStreet}"/>
+                <apex:inputField value="{!qote.BillingCity}"/>
+                <apex:inputField value="{!qote.ShippingCity}"/>
+                <apex:inputField value="{!qote.BillingPostalCode}"/>
+                <apex:inputField value="{!qote.ShippingPostalCode}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="System Information" collapsible="false">
+                <apex:inputField value="{!qote.Needs_Approval__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

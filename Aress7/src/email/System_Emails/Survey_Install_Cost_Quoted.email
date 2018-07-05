@@ -1,0 +1,9 @@
+Hey {!Opportunity.OwnerFirstName},
+
+Please note your survey has been quoted and scoped.
+
+Account name: {!Account.Name}
+Opportunity Name: {!Case.Opportunity_Name__c}
+Case Link : {!Case.Link}
+Case Number : {!Case.CaseNumber}
+FieldAware Job ID : {!Case.Job_ID__c}

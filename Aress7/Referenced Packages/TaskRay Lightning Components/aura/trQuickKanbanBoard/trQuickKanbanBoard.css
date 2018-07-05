@@ -1,0 +1,170 @@
+.THIS.TASKRAY_LTNGTrQuickKanbanBoard .name_scroll_area {
+    padding: 0px 12px;
+}
+
+.THIS.TASKRAY_LTNG.TASKRAY_LTNGTrComponentContainer.TASKRAY_LTNGTrQuickKanbanBoard {
+    padding: 10px 0px 0px 0px !important;
+    min-height: 150px;
+    margin-bottom: 0px !important;
+}
+
+.THIS.TASKRAY_LTNG.TASKRAY_LTNGTrComponentContainer.TASKRAY_LTNGTrQuickKanbanBoard .taskray-component--header.TASKRAY_LTNGTrComponentHeader {
+    padding: 12px 12px 0px 12px !important;
+}
+
+.THIS #project_span {
+    display: flex;
+}
+
+.THIS .projectName {
+    font-size: 14px;
+    color: #0070D2;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.THIS .arrows {
+    display: inline;
+    position: relative;
+    top: 1px;
+}
+
+.THIS .scrolling-div {
+    padding: 0px !important;
+}
+
+.THIS div.projectCards {
+    margin-bottom: 15px;
+}
+
+.THIS div.projectCards .inactive {
+   opacity: 0.25;
+}
+
+div.projectCards.THIS .scrollRight {
+    padding-left: 0px;
+}
+
+.THIS div.projectCards .scrollLeft, .THIS div.projectCards .scrollRight {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin-top:0;
+}
+
+.THIS .scrollLeft, .THIS .scrollRight {
+    top: 5px;
+    vertical-align: top;
+    position: relative;
+} 
+
+.THIS div.projectCards .project_kanban {
+    max-height: 400px;
+    overflow-x: auto;
+    width: 100% !important;
+    margin-bottom: 0px;
+}
+
+.THIS div.projectCards .kanban_column {
+    float: left;
+    width: 215px;
+    height: 300px;
+    margin-left: 5px;
+    overflow-y: scroll;
+}
+
+.THIS .slds-text-heading--label {
+    display: inline-block;
+}
+
+.THIS div.projectCards .slds-badge {
+    background-color: #777;
+    color: #fff;
+    text-align: center;
+    vertical-align: top;
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 10px;
+    padding: 3px 7px;
+    margin-left: 5px;
+}
+
+.THIS div.projectCards .prioritized {
+    background-color: #F69727;
+}
+
+.THIS div.projectCards .holding {
+    background-color: #A2A2A2;
+}
+
+.THIS div.projectCards .started {
+    background-color: #3DA0C1;
+}
+
+.THIS div.projectCards .finished {
+    background-color: #4DAC49;
+}
+
+.THIS div.projectCards .sortable_column {
+    margin-top: 2px;
+}
+
+.THIS div.projectCards .sortable-ghost {
+    height: 89px;
+    width: 200px;
+    background-color: #d3d6ff;
+    border: 1px dotted #666666;
+    color: transparent;
+}
+
+.THIS .nothingToRender, .THIS .noProjects, .THIS .noRecordId {
+    text-align: center;
+    color: #54698D;
+}
+
+.THIS .noRecordId, .THIS .noProjects {
+    padding: 10px 0px;    
+}
+
+.THIS .nothingToRender {
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+    margin-left: auto; 
+    margin-right: auto; 
+    left: 0;
+    right: 0;
+}
+
+.THIS .addTask {
+    color: #006eb3;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.THIS.disappear {
+    margin: 0px !important;
+    transition: margin 2s ease-in-out;
+    -moz-transition: margin 2s ease-in-out;
+    -webkit-transition: margin 2s ease-in-out;
+    padding: 0px !important;
+    transition: padding 2s ease-in-out;
+    -moz-transition: padding 2s ease-in-out;
+    -webkit-transition: padding 2s ease-in-out;
+    border: 0px;
+}
+
+.THIS li {
+    list-style-type: none;
+}
+
+.THIS article.slds-card:hover {
+    border-color: #1589ee ;
+}
+
+.THIS{
+    user-select: none;
+}

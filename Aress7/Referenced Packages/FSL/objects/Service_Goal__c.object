@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Ignore_Home_Base_Coordinates__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Sets the scheduling to include or exclude from minimize travel considerations the first and last travel of the day, to and from the service resource home base</inlineHelpText>
+        <label>Exclude Home Base Travel</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Object_Group_Field__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Object_Group_Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prioritize_Resource__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Prioritize Resource</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Least Qualified</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Most Qualified</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Resource_Group_Field__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Resource_Group_Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Resource_Priority_Field__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Resource Priority Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Service Objective</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Service Goal Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Service Objectives</pluralLabel>
+    <recordTypes>
+        <fullName>Objective_Asap</fullName>
+        <active>true</active>
+        <description>Schedule as soon as possible</description>
+        <label>ASAP</label>
+        <picklistValues>
+            <picklist>Prioritize_Resource__c</picklist>
+            <values>
+                <fullName>Least Qualified</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Most Qualified</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Objective_Minimize_Overtime</fullName>
+        <active>true</active>
+        <description>Minimize the use of overtime</description>
+        <label>Minimize Overtime</label>
+        <picklistValues>
+            <picklist>Prioritize_Resource__c</picklist>
+            <values>
+                <fullName>Least Qualified</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Most Qualified</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Objective_Minimize_Travel</fullName>
+        <active>true</active>
+        <description>Minimize travel time</description>
+        <label>Minimize Travel</label>
+        <picklistValues>
+            <picklist>Prioritize_Resource__c</picklist>
+            <values>
+                <fullName>Least Qualified</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Most Qualified</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Objective_PreferredEngineer</fullName>
+        <active>true</active>
+        <description>Prioritize scheduling according to preferred resource</description>
+        <label>Preferred Resource</label>
+        <picklistValues>
+            <picklist>Prioritize_Resource__c</picklist>
+            <values>
+                <fullName>Least Qualified</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Most Qualified</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Objective_Resource_Priority</fullName>
+        <active>true</active>
+        <description>Prefer a resource based on a field value on the resource</description>
+        <label>Resource Priority</label>
+        <picklistValues>
+            <picklist>Prioritize_Resource__c</picklist>
+            <values>
+                <fullName>Least Qualified</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Most Qualified</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Objective_Skill_Level</fullName>
+        <active>true</active>
+        <description>Prefer the least/most qualified candidate</description>
+        <label>Skill Level</label>
+        <picklistValues>
+            <picklist>Prioritize_Resource__c</picklist>
+            <values>
+                <fullName>Least Qualified</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Most Qualified</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

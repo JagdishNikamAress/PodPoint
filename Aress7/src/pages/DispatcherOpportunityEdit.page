@@ -1,0 +1,4 @@
+<apex:page standardController="Opportunity" extensions="DispatcherOpportunityEditController"  
+    action="{!getRedir}">
+    nullValue(redir.url, urlFor($Action.Opportunity.Edit, Opportunity.id, null, true))
+</apex:page>

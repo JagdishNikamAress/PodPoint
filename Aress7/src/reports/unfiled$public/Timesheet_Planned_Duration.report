@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Case$Planned_Duration__c</field>
+    </columns>
+    <columns>
+        <field>Case$Timesheet_Duration__c</field>
+    </columns>
+    <columns>
+        <field>Case.WorkOrders$Planned_Duration__c</field>
+    </columns>
+    <columns>
+        <field>Case.WorkOrders$Timesheet_Duration__c</field>
+    </columns>
+    <columns>
+        <field>Case.WorkOrders$Duration</field>
+    </columns>
+    <columns>
+        <field>Case.WorkOrders.ServiceAppointments$Duration</field>
+    </columns>
+    <columns>
+        <field>Case.WorkOrders.ServiceAppointments$Actual_Duration_Hours__c</field>
+    </columns>
+    <columns>
+        <field>Case.WorkOrders.ServiceAppointments$Timesheet_Hours_New__c</field>
+    </columns>
+    <currency>GBP</currency>
+    <format>Tabular</format>
+    <name>Timesheet &amp; Planned Duration</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Cases_WO_SA__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Case$X1st_Date_Offered__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

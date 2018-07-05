@@ -1,0 +1,92 @@
+<apex:page showHeader="false" standardStylesheets="true" id="page">
+	<apex:outputPanel id="header" layout="block">
+		<!-- This is a Header block. Paste your APEX or HTML code here. -->
+
+		<!-- APEX image example: -->
+		<apex:image url="{!URLFOR($Resource.CompanyLogo)}" style="display: block; margin: 0 auto; margin-bottom: 20px;"/> <!-- height="100px" width="410px"  -->
+
+		<!-- You may use <style> tag for your styles. -->
+		<!-- CSS style example: -->
+
+		<!--
+		<style type="text/css">
+			.header {
+				background-color: lightgray;
+				text-align: center;
+				color: black;
+				font-size: 20px;
+				height: 100px;
+				/*margin-bottom: 20px;*/
+			}
+			.headertext {
+				line-height: 100px;
+			}
+		</style>
+		 -->
+
+		<!-- Simple APEX header example: -->
+
+		<!--
+		<apex:outputPanel layout="block" styleClass="header">
+			<apex:outputText value="Simple Header" styleClass="headertext"/>
+		</apex:outputPanel>
+		 -->
+	</apex:outputPanel>
+
+	<apex:outputPanel id="content" layout="block">
+		<!-- Paste your Success Page APEX or HTML code here -->
+		<apex:pageBlock >
+			<apex:pageMessage summary="Thank you. Your payment was successful." severity="confirm" strength="3" />
+		</apex:pageBlock>
+	</apex:outputPanel>
+
+	<apex:outputPanel id="footer" layout="block">
+		<!-- This is a Footer block. Paste your APEX or HTML code here. -->
+
+		<!-- You may use <style> tag for your styles. -->
+		<!-- CSS style example: -->
+
+		<style type="text/css">
+			.footer {
+				background-color: whitesmoke;
+				text-align: center;
+				color: black;
+				font-size: 14px;
+				height: 130px;
+				/*margin-top: 20px;*/
+				position: absolute;
+				bottom:0;
+				width: 100%;
+				border-top: 1px solid lightgray;
+			}
+			.footertext {
+				line-height: 50px;
+			}
+
+			.maillink, .maillink:hover {
+				color: red;
+				text-decoration: none;
+			}
+			.band {
+				height: 80px;
+				background-color: gray;
+			}
+		</style>
+
+		<apex:outputPanel layout="block" styleClass="footer">
+			<apex:outputText value="POD POINT  | 620 Folsom Street, Suite 100  |  San Francisco, CA 94107  |  USA  |  " styleClass="footertext"/>
+			<apex:outputLink value="https://pod-point.com/" >https://pod-point.com/</apex:outputLink>
+			<apex:outputText value="  |  " styleClass="footertext"/>
+			<apex:outputLink value="mailto:support@pod-point.com" styleClass="maillink">support@pod-point.com</apex:outputLink>
+			<apex:outputPanel layout="block" styleClass="band" />
+		</apex:outputPanel>
+
+
+		<!-- Simple APEX footer example: -->
+		<!--
+		<apex:outputPanel layout="block" styleClass="footer">
+			<apex:outputText value="Simple Footer" styleClass="footertext"/>
+		</apex:outputPanel>
+		 -->
+	</apex:outputPanel>
+</apex:page>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <attachedDocuments>SalesTools/POD_Point_Conditions_of_Sale.pdf</attachedDocuments>
+    <available>false</available>
+    <description>Email Template for UK Quote</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Standard UK Quote</name>
+    <style>none</style>
+    <subject>Your Quote from POD Point - Quote ID : {!Quote.QuoteNumber}</subject>
+    <type>text</type>
+</EmailTemplate>

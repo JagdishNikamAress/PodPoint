@@ -1,0 +1,7 @@
+<aura:component >
+  <aura:attribute name="headerText" type="String" default="" />
+  <div class="taskray-component--header">
+    <span class="slds-text-heading--small">{!v.headerText}</span>
+    <TASKRAY_LTNG:svgIcon svgPath="/taskray.sprite.svg#taskray-check" category="standard" size="small" name="taskray-check" containerClass="slds-icon_container--circle component-header-check VerticalAlignContainer-item--bottom VerticalAlignContainer-item--right" iconRoot="{!$Resource.TASKRAY_LTNG__trltngresources}" />
+  </div>
+</aura:component>

@@ -1,0 +1,14 @@
+<aura:documentation>
+	<aura:description>Chatter feed wrapper container for TaskRay</aura:description>
+	<aura:example name="ExampleName" ref="exampleComponentName" label="Label">
+		var params = {taskObj: taskObj};
+    $A.createComponent('TASKRAY_LTNG:trForceChatterFullFeedWrapper', params,
+                       function(chatterFeed) {
+                           var content = component.find('content');
+                           var contentBody = content.get('v.body');
+                           contentBody.push(chatterFeed);
+                           content.set('v.body', contentBody);
+                           component.set('v.insertedTaskIds',insertedTaskIds);
+                       });
+	</aura:example>
+</aura:documentation>

@@ -1,0 +1,13 @@
+<apex:page Controller="activities.CloseTasksController" >
+    <script>
+           window.onload=function()
+           {
+             doInit();
+           };
+        </script>
+<apex:form >
+
+    <apex:actionFunction name="doInit" action="{!close}" />
+
+  </apex:form>
+</apex:page>

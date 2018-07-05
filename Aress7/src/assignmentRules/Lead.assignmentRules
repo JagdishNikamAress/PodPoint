@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignmentRule>
+        <fullName>Basic Lead Assignment</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <assignedTo>oliver.dodd@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Website - Work (whitepaper download)</value>
+            </criteriaItems>
+            <template>System_Emails/IQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>gill.howard@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Work - Quote Request</value>
+            </criteriaItems>
+            <template>System_Emails/IQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>gill.howard@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Website – Employee</value>
+            </criteriaItems>
+            <template>System_Emails/IQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>jarred.rayns@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Website - Driver</value>
+            </criteriaItems>
+            <template>System_Emails/IQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>gill.howard@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Website - Dealership Brochure</value>
+            </criteriaItems>
+            <template>System_Emails/IQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>gill.howard@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Website - Welcome Booklet</value>
+            </criteriaItems>
+            <template>System_Emails/IQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>gill.howard@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Workcharge lead - introduction made by a POD Point investor.</value>
+            </criteriaItems>
+            <template>System_Emails/IQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>jarred.rayns@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Destination - Quote Request</value>
+            </criteriaItems>
+            <template>System_Emails/IQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>jarred.rayns@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Website - Destination (whitepaper download)</value>
+            </criteriaItems>
+            <template>System_Emails/IQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>jarred.rayns@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Website - Destination Whitepaper (Hotels Email Campaign)</value>
+            </criteriaItems>
+            <template>System_Emails/IQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>james.stevens@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Built Environment Lead</value>
+            </criteriaItems>
+            <template>System_Emails/IQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>jarred.rayns@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.LeadSource</field>
+                <operation>equals</operation>
+                <value>Crowdcube Offer</value>
+            </criteriaItems>
+            <template>System_Emails/IQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>isabel.james@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Built CPD Lead</value>
+            </criteriaItems>
+            <template>System_Emails/CPD_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>oliver.dodd@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Market__c</field>
+                <operation>equals</operation>
+                <value>Workcharge</value>
+            </criteriaItems>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>jarred.rayns@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Market__c</field>
+                <operation>equals</operation>
+                <value>Commercial</value>
+            </criteriaItems>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>isabel.james@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Conversion__c</field>
+                <operation>equals</operation>
+                <value>CPD Training Request</value>
+            </criteriaItems>
+            <template>System_Emails/CPD_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>james.stevens@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Market__c</field>
+                <operation>equals</operation>
+                <value>Built Environment</value>
+            </criteriaItems>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Lead Assignment Based on Post Code</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>gill.howard@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <formula>AND( OR(TRIM(Assign_by_Route_to_Market__c) =&apos;Website - Work (whitepaper download)&apos;,TRIM(Assign_by_Route_to_Market__c) =&apos;Work - Quote Request&apos;,TRIM(Assign_by_Route_to_Market__c) =&apos;Website – Employee&apos; )
+,  
+OR(
+UPPER(LEFT(PostalCode,2)) = &apos;WD&apos;,UPPER(LEFT(PostalCode,2)) = &apos;WC&apos;,UPPER(LEFT(PostalCode,2)) = &apos;UB&apos;,UPPER(LEFT(PostalCode,2)) = &apos;TW&apos;,UPPER(LEFT(PostalCode,2)) = &apos;TR&apos;,UPPER(LEFT(PostalCode,2)) = &apos;TQ&apos;,UPPER(LEFT(PostalCode,2)) = &apos;TN&apos;,UPPER(LEFT(PostalCode,2)) = &apos;TA&apos;,UPPER(LEFT(PostalCode,2)) = &apos;SW&apos;,UPPER(LEFT(PostalCode,2)) = &apos;SS&apos;,UPPER(LEFT(PostalCode,2)) = &apos;SP&apos;,UPPER(LEFT(PostalCode,2)) = &apos;SO&apos;,UPPER(LEFT(PostalCode,2)) = &apos;SN&apos;,UPPER(LEFT(PostalCode,2)) = &apos;SM&apos;,UPPER(LEFT(PostalCode,2)) = &apos;SL&apos;,UPPER(LEFT(PostalCode,2)) = &apos;SG&apos;,UPPER(LEFT(PostalCode,2)) = &apos;SE&apos;,UPPER(LEFT(PostalCode,2)) = &apos;RM&apos;,UPPER(LEFT(PostalCode,2)) = &apos;RH&apos;,UPPER(LEFT(PostalCode,2)) = &apos;RG&apos;,UPPER(LEFT(PostalCode,2)) = &apos;PO&apos;,UPPER(LEFT(PostalCode,2)) = &apos;PL&apos;,UPPER(LEFT(PostalCode,2)) = &apos;OX&apos;,UPPER(LEFT(PostalCode,2)) = &apos;NW&apos;,UPPER(LEFT(PostalCode,2)) = &apos;MK&apos;,UPPER(LEFT(PostalCode,2)) = &apos;ME&apos;,UPPER(LEFT(PostalCode,2)) = &apos;LU&apos;,UPPER(LEFT(PostalCode,2)) = &apos;KT&apos;,UPPER(LEFT(PostalCode,2)) = &apos;IG&apos;,UPPER(LEFT(PostalCode,2)) = &apos;HP&apos;,UPPER(LEFT(PostalCode,2)) = &apos;HA&apos;,UPPER(LEFT(PostalCode,2)) = &apos;GU&apos;,UPPER(LEFT(PostalCode,2)) = &apos;GL&apos;,UPPER(LEFT(PostalCode,2)) = &apos;EX&apos;,UPPER(LEFT(PostalCode,2)) = &apos;EN&apos;,UPPER(LEFT(PostalCode,2)) = &apos;EC&apos;,UPPER(LEFT(PostalCode,2)) = &apos;DT&apos;,UPPER(LEFT(PostalCode,2)) = &apos;DA&apos;,UPPER(LEFT(PostalCode,2)) = &apos;CT&apos;,UPPER(LEFT(PostalCode,2)) = &apos;CR&apos;,UPPER(LEFT(PostalCode,2)) = &apos;CO&apos;,UPPER(LEFT(PostalCode,2)) = &apos;CM&apos;,UPPER(LEFT(PostalCode,2)) = &apos;BS&apos;,UPPER(LEFT(PostalCode,2)) = &apos;BR&apos;,UPPER(LEFT(PostalCode,2)) = &apos;BN&apos;,UPPER(LEFT(PostalCode,2)) = &apos;BH&apos;,UPPER(LEFT(PostalCode,2)) = &apos;BA&apos;,UPPER(LEFT(PostalCode,2)) = &apos;AL&apos;
+
+
+))</formula>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>philip.hill@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <formula>AND( OR(TRIM(Assign_by_Route_to_Market__c) =&apos;Website - Work (whitepaper download)&apos;,TRIM(Assign_by_Route_to_Market__c) =&apos;Work - Quote Request&apos;,TRIM(Assign_by_Route_to_Market__c) =&apos;Website – Employee&apos; ) 
+, 
+OR(
+UPPER(LEFT(PostalCode,2)) = &apos;WV&apos;,UPPER(LEFT(PostalCode,2)) = &apos;WS&apos;,UPPER(LEFT(PostalCode,2)) = &apos;WR&apos;,UPPER(LEFT(PostalCode,2)) = &apos;TF&apos;,UPPER(LEFT(PostalCode,2)) = &apos;SY&apos;,UPPER(LEFT(PostalCode,2)) = &apos;ST&apos;,UPPER(LEFT(PostalCode,2)) = &apos;SA&apos;,UPPER(LEFT(PostalCode,2)) = &apos;PE&apos;,UPPER(LEFT(PostalCode,2)) = &apos;NR&apos;,UPPER(LEFT(PostalCode,2)) = &apos;NP&apos;,UPPER(LEFT(PostalCode,2)) = &apos;NN&apos;,UPPER(LEFT(PostalCode,2)) = &apos;NG&apos;,UPPER(LEFT(PostalCode,2)) = &apos;LN&apos;,UPPER(LEFT(PostalCode,2)) = &apos;LL&apos;,UPPER(LEFT(PostalCode,2)) = &apos;LE&apos;,UPPER(LEFT(PostalCode,2)) = &apos;LD&apos;,UPPER(LEFT(PostalCode,2)) = &apos;IP&apos;,UPPER(LEFT(PostalCode,2)) = &apos;HR&apos;,UPPER(LEFT(PostalCode,2)) = &apos;DY&apos;,UPPER(LEFT(PostalCode,2)) = &apos;DE&apos;,UPPER(LEFT(PostalCode,2)) = &apos;CV&apos;,UPPER(LEFT(PostalCode,2)) = &apos;CF&apos;,UPPER(LEFT(PostalCode,2)) = &apos;CB&apos;
+
+)
+)</formula>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>daniel.eyers@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <formula>AND(  OR(TRIM(Assign_by_Route_to_Market__c) =&apos;Website - Work (whitepaper download)&apos;,TRIM(Assign_by_Route_to_Market__c) =&apos;Work - Quote Request&apos;,TRIM(Assign_by_Route_to_Market__c) =&apos;Website - Employee&apos; ) 
+, 
+OR
+(
+UPPER(LEFT(PostalCode,2)) = &apos;ZE&apos;,UPPER(LEFT(PostalCode,2)) = &apos;YO&apos;,UPPER(LEFT(PostalCode,2)) = &apos;WN&apos;,UPPER(LEFT(PostalCode,2)) = &apos;WF&apos;,UPPER(LEFT(PostalCode,2)) = &apos;WA&apos;,UPPER(LEFT(PostalCode,2)) = &apos;TS&apos;,UPPER(LEFT(PostalCode,2)) = &apos;TD&apos;,UPPER(LEFT(PostalCode,2)) = &apos;SR&apos;,UPPER(LEFT(PostalCode,2)) = &apos;SK&apos;,UPPER(LEFT(PostalCode,2)) = &apos;PR&apos;,UPPER(LEFT(PostalCode,2)) = &apos;PH&apos;,UPPER(LEFT(PostalCode,2)) = &apos;PA&apos;,UPPER(LEFT(PostalCode,2)) = &apos;OL&apos;,UPPER(LEFT(PostalCode,2)) = &apos;NE&apos;,UPPER(LEFT(PostalCode,2)) = &apos;ML&apos;,UPPER(LEFT(PostalCode,2)) = &apos;LS&apos;,UPPER(LEFT(PostalCode,2)) = &apos;LA&apos;,UPPER(LEFT(PostalCode,2)) = &apos;KY&apos;,UPPER(LEFT(PostalCode,2)) = &apos;KW&apos;,UPPER(LEFT(PostalCode,2)) = &apos;KA&apos;,UPPER(LEFT(PostalCode,2)) = &apos;IV&apos;,UPPER(LEFT(PostalCode,2)) = &apos;HX&apos;,UPPER(LEFT(PostalCode,2)) = &apos;HU&apos;,UPPER(LEFT(PostalCode,2)) = &apos;HS&apos;,UPPER(LEFT(PostalCode,2)) = &apos;HG&apos;,UPPER(LEFT(PostalCode,2)) = &apos;HD&apos;,UPPER(LEFT(PostalCode,2)) = &apos;FY&apos;,UPPER(LEFT(PostalCode,2)) = &apos;FK&apos;,UPPER(LEFT(PostalCode,2)) = &apos;EH&apos;,UPPER(LEFT(PostalCode,2)) = &apos;DN&apos;,UPPER(LEFT(PostalCode,2)) = &apos;DL&apos;,UPPER(LEFT(PostalCode,2)) = &apos;DH&apos;,UPPER(LEFT(PostalCode,2)) = &apos;DG&apos;,UPPER(LEFT(PostalCode,2)) = &apos;DD&apos;,UPPER(LEFT(PostalCode,2)) = &apos;CW&apos;,UPPER(LEFT(PostalCode,2)) = &apos;CH&apos;,UPPER(LEFT(PostalCode,2)) = &apos;CA&apos;,UPPER(LEFT(PostalCode,2)) = &apos;BT&apos;,UPPER(LEFT(PostalCode,2)) = &apos;BL&apos;,UPPER(LEFT(PostalCode,2)) = &apos;BD&apos;,UPPER(LEFT(PostalCode,2)) = &apos;BB&apos;,UPPER(LEFT(PostalCode,2)) = &apos;AB&apos;
+
+)
+)</formula>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>gill.howard@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <formula>AND( OR(TRIM(Assign_by_Route_to_Market__c) =&apos;Website - Work (whitepaper download)&apos;,TRIM(Assign_by_Route_to_Market__c) =&apos;Work - Quote Request&apos;,TRIM(Assign_by_Route_to_Market__c) =&apos;Website – Employee&apos; )
+, 
+OR(
+UPPER(LEFT(PostalCode,2)) = &apos;W&apos;,UPPER(LEFT(PostalCode,2)) = &apos;N&apos;,UPPER(LEFT(PostalCode,2)) = &apos;E&apos;
+
+)
+)</formula>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>philip.hill@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <formula>AND( OR(TRIM(Assign_by_Route_to_Market__c) =&apos;Website - Work (whitepaper download)&apos;,TRIM(Assign_by_Route_to_Market__c) =&apos;Work - Quote Request&apos;,TRIM(Assign_by_Route_to_Market__c) =&apos;Website – Employee&apos; )
+, 
+OR( 
+UPPER(LEFT(PostalCode,2)) = &apos;B&apos; 
+)
+)</formula>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>daniel.eyers@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <formula>AND( OR(TRIM(Assign_by_Route_to_Market__c) =&apos;Website - Work (whitepaper download)&apos;,TRIM(Assign_by_Route_to_Market__c) =&apos;Work - Quote Request&apos;,TRIM(Assign_by_Route_to_Market__c) =&apos;Website – Employee&apos; )
+, 
+OR( 
+UPPER(LEFT(PostalCode,2)) = &apos;M&apos;,UPPER(LEFT(PostalCode,2)) = &apos;L&apos;,UPPER(LEFT(PostalCode,2)) = &apos;G&apos;,UPPER(LEFT(PostalCode,2)) = &apos;S&apos;
+
+)
+)</formula>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>jarred.rayns@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Website - Driver</value>
+            </criteriaItems>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>gill.howard@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Website - Dealership Brochure</value>
+            </criteriaItems>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>gill.howard@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Website - Welcome Booklet</value>
+            </criteriaItems>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>gill.howard@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Workcharge lead - introduction made by a POD Point investor.</value>
+            </criteriaItems>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>james.stevens@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Built environment Lead - Bruce CEA Email Campaign</value>
+            </criteriaItems>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>james.stevens@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Built Environment - Construction Mag Ad - Free Consultation Request</value>
+            </criteriaItems>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>jarred.rayns@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Destination - Quote Request</value>
+            </criteriaItems>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>jarred.rayns@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Website - Destination (whitepaper download)</value>
+            </criteriaItems>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>jarred.rayns@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Linkedin - Destination (whitepaper download)</value>
+            </criteriaItems>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>gill.howard@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Linkedin - Workplace (whitepaper download)</value>
+            </criteriaItems>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>jarred.rayns@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Website - Destination Whitepaper (Hotels Email Campaign)</value>
+            </criteriaItems>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>james.stevens@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>North Build - Event Lead</value>
+            </criteriaItems>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>james.stevens@pod-point.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Built Environment Lead</value>
+            </criteriaItems>
+            <template>System_Emails/MQL_Lead_Notification</template>
+        </ruleEntry>
+    </assignmentRule>
+</AssignmentRules>

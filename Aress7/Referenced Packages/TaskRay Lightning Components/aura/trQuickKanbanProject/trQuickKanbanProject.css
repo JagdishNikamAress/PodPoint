@@ -1,0 +1,17 @@
+.THIS{
+  width:100%;
+}
+.THIS .column-container {
+    width: 200px;
+    margin-left: 3px;
+    margin-right: 3px;
+    float: left;
+}
+
+.THIS .sortable-column{
+  height: 100%;
+}
+
+.THIS.hidden{
+  display:none !important;
+}

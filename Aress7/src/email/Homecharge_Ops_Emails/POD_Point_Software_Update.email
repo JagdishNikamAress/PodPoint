@@ -1,0 +1,9 @@
+Hi {!Contact.FirstName}
+
+I Hope you are well.
+
+We are rolling out a software update across some of our units to improve reporting, including the unit at {!Opportunity.Account}
+
+This would only take around 20 minute per unit and we do not need access to the distribution board.
+
+Would you like me to go ahead and send an engineer or are there any prerequisites you need before we attend site?

@@ -1,0 +1,23 @@
+Hi {!Contact.FirstName},
+
+I would like to propose the following date to schedule in a site survey at {!Account.Name} - {!Case.City__c} to allow us to provide a quote for the installation of the electric vehicle charge points requested.
+
+Our first available slot is {!Case.Survey_Scheduled_Start_Date_Time__c} which has been scheduled. Please let us know if this is not a good time for you.
+
+Could you confirm that the site contact on the day will be yourself on {!BLANKVALUE(Contact.Phone, Contact.MobilePhone)} and review the following address:
+
+{!Account.Name} 
+{!Case.Street__c}
+{!Case.City__c}
+{!Case.PostalCode__c}
+
+
+Your engineer will be {!WorkOrder.Technician__c} who will arrive as close as possible to the agreed time slot, but please allow for up to an hour of fluctuation around the arrival time.
+
+We will need access to the relevant distribution board and plant room, any area affected by the installation of the charge-point supply cable and the desired charge-point location. The survey should be complete within 1 hour.
+
+
+Please don’t hesitate to contact me if you have any questions.
+
+
+Kind regards,

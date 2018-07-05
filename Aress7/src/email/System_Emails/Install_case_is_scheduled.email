@@ -1,0 +1,13 @@
+Hey {!Account.OwnerFullName},
+
+The Install for the Opportunity below has been scheduled.
+
+Account name: {!Account.Name} 
+Opportunity name: {!Case.Opportunity_Name__c}
+Install Case Link : {!Case.Link}
+Install Case Number : {!Case.CaseNumber}
+Install Scheduled Date & Time: {!Case.Scheduled_On__c}
+FieldAware Job ID : {!Case.Job_ID__c} 
+
+Thanks, 
+POD Point Install Team

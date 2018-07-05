@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email to Opp Owner when Online Payment Opp becomes &quot;Won&quot;</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Chargent Confirmation to Opp Owner</name>
+    <style>none</style>
+    <subject>Online Payment Confirmation - {!Opportunity.Account}</subject>
+    <type>text</type>
+</EmailTemplate>

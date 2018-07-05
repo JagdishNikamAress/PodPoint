@@ -1,0 +1,63 @@
+.THIS.task-group--container{
+  padding: 8px 0;
+  border-bottom: 1px solid #d8dde6;
+}
+
+.THIS.task-group--container:last-child{
+  border-bottom: 0;
+}
+
+.THIS .task-group--header{
+  margin-bottom: 6px;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+.THIS .tg-progress-bar--container{
+  width: calc(100% - 200px);
+}
+
+.THIS .tg-progress-bar--subcontainer{
+  border-radius:4px;
+  height:16px;
+  background-color:#cfd5df;
+  margin-top: 2px;
+}
+
+.THIS .tg-progress-bar--bar{
+  background-color: #54698d;
+  border-radius:4px;
+  height:16px;
+  text-align:center;
+}
+
+.THIS .tg-progress-bar--zerowidthbar{
+  background-color: transparent !important;
+  width: 100% !important;
+}
+
+.THIS .tg-progress-bar--pct-complete-label{
+  color:white;
+  line-height: 17px;
+  font-size: 11px;
+}
+
+.THIS .milestones--container{
+  margin-top:8px;
+}
+
+.THIS .task-group-start--date{
+  width: 100px;
+  text-align: left;
+  min-height: 20px;
+  padding-top: 2px;
+  padding-left: 2px;
+}
+
+.THIS .task-group-end--date{
+  width: 100px;
+  text-align: right;
+  min-height: 20px;
+  padding-top: 2px;
+  padding-right: 2px;
+}

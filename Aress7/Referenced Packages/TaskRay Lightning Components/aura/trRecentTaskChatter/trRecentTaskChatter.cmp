@@ -1,0 +1,16 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,force:hasRecordId" controller="TASKRAY_LTNG.trComponentCtrl" access="global">
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:attribute name="insertedTaskIds" type="String[]" access="private"/>
+  <aura:attribute name="numTasksToShow" type="Integer"/>
+
+    <TASKRAY_LTNG:trComponentContainer headerText="{!$Label.taskray_ltng.trFeedComponent_Header}">
+      <div class="slds-text-heading--label header">
+      	{!$Label.taskray_ltng.trToDoByDay_WhatsHappening}
+      </div>
+      <hr class="header-hr" />
+      <div aura:id="content"></div>
+      <button aura:id='showMore' class="slds-button slds-button" onclick="{!c.showMore}">
+      	{!$Label.taskray_ltng.trToDoByDay_ShowMore}
+      </button>
+    </TASKRAY_LTNG:trComponentContainer>
+</aura:component>

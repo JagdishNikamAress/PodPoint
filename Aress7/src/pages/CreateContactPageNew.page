@@ -1,0 +1,151 @@
+<apex:page standardController="Contact" extensions="CreateContactControllerNew" showHeader="false" sidebar="false" applyBodyTag="false" applyHtmlTag="false">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+    @media only screen and (min-width: 300px) and (max-width: 800px) {
+        /* Force table to not be like tables anymore */
+        #no-more-tables table,
+        #no-more-tables thead,
+        #no-more-tables tbody,
+        #no-more-tables th,
+        #no-more-tables td,
+        #no-more-tables tr {
+        display: block;
+        }
+         
+        /* Hide table headers (but not display: none;, for accessibility) */
+        #no-more-tables thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        }
+         
+        #no-more-tables tr { border: 1px solid #ccc; }
+          
+        #no-more-tables td {
+        /* Behave like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        white-space: normal;
+        text-align:left;
+        }
+         
+        #no-more-tables td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align:left;
+        font-weight: bold;
+        }
+         
+        /*
+        Label the data
+        */
+        #no-more-tables td:before { content: attr(data-title); }
+        }        
+    </style>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" ></link>
+    
+    <div class="container">
+        <apex:form id="TheForm">
+            <apex:pageBlock title="Contacts" id="pb">
+                <apex:pageMessages />      
+                
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="text-center">
+                        <apex:pageBlockSection >
+                            <apex:inputField value="{!cont.AccountId}" required="true"/>
+                        </apex:pageBlockSection>
+                    </h4>
+                </div>
+                <div id="no-more-tables">
+                    <table class="col-sm-12 table-bordered table-striped table-condensed cf">
+                        <apex:variable var="rowNumber" value="{!1}"/>
+                        <thead class="cf">
+                            <tr>
+                                <th >No.</th>
+                                    <th >FirstName</th>
+                                    <th >Last Name</th>        
+                                    <th >Email</th>    
+                                    <th >Action</th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                            <apex:repeat var="con" value="{!conWrapList}">
+                                <tr>
+                                    <td ><apex:outputText value="{!rowNumber}" style="text-align:center;">
+                                            <apex:param value="{!rowNumber+1}" />
+                                        </apex:outputText>
+                                    </td>
+                                    <td data-title="FirstName"><apex:inputText value="{!con.FirstName}" /></td>
+                                    <td data-title="LastName"><apex:inputText value="{!con.LastName}"/></td>
+                                    <td data-title="Email"><apex:inputText value="{!con.Email}"/></td>
+                                    <td data-title="Action"><apex:commandButton value="Delete" action="{!deleteRow}" reRender="pb">
+                                            <apex:param name="rowIndex" value="{!rowNumber}"/>
+                                        </apex:commandButton>
+                                        <apex:variable var="rowNumber" value="{!rowNumber+1}"/>
+                                    </td>
+                                </tr>
+                            </apex:repeat>
+                     </tbody>
+                     <apex:pageBlockButtons >
+                        <apex:commandButton value="Submit" action="{!submit}" />
+                        <apex:commandButton value="Cancel" action="{!cancel}"/>
+                    </apex:pageBlockButtons>
+                    
+                </table>
+                <apex:commandButton action="{!addRow}" value="Add 10 Rows" reRender="pb" />
+            </div>
+        </div>
+            </apex:pageBlock>
+        </apex:form>
+    </div>
+        <!--
+        <apex:pageBlockTable id="thetable" title="Contacts" var="con" value="{!conWrapList}">
+            <apex:column headerValue="No." style="width:5%; text-align:center;" headerClass="centertext">
+                <apex:outputText value="{!rowNumber}" style="text-align:center;">
+                    <apex:param value="{!rowNumber+1}" />
+                </apex:outputText>
+            </apex:column> 
+            
+            <apex:column headerValue="First Name" style="width:20%;">
+                <apex:inputText value="{!con.FirstName}"/>
+            </apex:column>
+            
+            <apex:column headerValue="Last Name" style="width:20%;">
+                <apex:inputText value="{!con.LastName}"/>
+            </apex:column>
+            
+            <apex:column headerValue="Email" style="width:20%;">
+                <apex:inputText value="{!con.Email}"/>
+            </apex:column>
+            
+            <apex:column headerValue="Action" style="width:20%;">
+                <apex:commandButton value="Delete" action="{!deleteRow}" reRender="pb">
+                    <apex:param name="rowIndex" value="{!rowNumber}"/>
+                </apex:commandButton>
+                <apex:variable var="rowNumber" value="{!rowNumber+1}"/>
+            </apex:column>
+
+        </apex:pageBlockTable>
+        
+         <apex:commandButton action="{!addRow}" value="Add 10 Rows" reRender="pb" />
+         <apex:pageBlockButtons >
+            <apex:commandButton value="Submit" action="{!submit}" />
+            <apex:commandButton value="Cancel" action="{!cancel}"/>
+         </apex:pageBlockButtons>
+      
+        </apex:pageBlock>
+    </apex:form>-->
+</apex:page>

@@ -1,0 +1,10 @@
+Hey {!Opportunity.OwnerFirstName},
+
+Please note your order is ready for dispatch. You will get another email once the order has been fully dispatched.
+
+Account name: {!Account.Name}
+Opportunity name: {!Order.Opportunity}
+Order Number : {!Order.OrderNumber}
+
+Thanks,
+POD Point Operations Team

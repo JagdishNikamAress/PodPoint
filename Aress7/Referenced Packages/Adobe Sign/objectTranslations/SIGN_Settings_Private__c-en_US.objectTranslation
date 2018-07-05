@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Document Cloud Settings Private</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Document Cloud Settings Private</value>
+    </caseValues>
+    <fields>
+        <label><!-- API Key --></label>
+        <name>API_Key__c</name>
+    </fields>
+    <fields>
+        <label><!-- Access Token Demo --></label>
+        <name>Access_Token_Demo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Access Token Expiration Demo --></label>
+        <name>Access_Token_Expiration_Demo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Access Token Expiration Preview --></label>
+        <name>Access_Token_Expiration_Preview__c</name>
+    </fields>
+    <fields>
+        <label><!-- Access Token Expiration Stage --></label>
+        <name>Access_Token_Expiration_Stage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Access Token Expiration --></label>
+        <name>Access_Token_Expiration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Access Token Preview --></label>
+        <name>Access_Token_Preview__c</name>
+    </fields>
+    <fields>
+        <label><!-- Access Token --></label>
+        <name>Access_Token__c</name>
+    </fields>
+    <fields>
+        <label><!-- Access Token Stage --></label>
+        <name>Access_Token_stage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client ID Demo --></label>
+        <name>Client_ID_Demo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client ID Preview --></label>
+        <name>Client_ID_Preview__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client ID Stage --></label>
+        <name>Client_ID_Stage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client ID --></label>
+        <name>Client_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Secret Demo --></label>
+        <name>Client_Secret_Demo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Secret Preview --></label>
+        <name>Client_Secret_Preview__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Secret Stage --></label>
+        <name>Client_Secret_Stage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Secret --></label>
+        <name>Client_Secret__c</name>
+    </fields>
+    <fields>
+        <label><!-- Network Range One Set --></label>
+        <name>Network_Range_One_Set__c</name>
+    </fields>
+    <fields>
+        <label><!-- Network Range Two Set --></label>
+        <name>Network_Range_Two_Set__c</name>
+    </fields>
+    <fields>
+        <label><!-- Refresh Token Demo --></label>
+        <name>Refresh_Token_Demo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Refresh Token Preview --></label>
+        <name>Refresh_Token_Preview__c</name>
+    </fields>
+    <fields>
+        <label><!-- Refresh Token Stage --></label>
+        <name>Refresh_Token_Stage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Refresh Token --></label>
+        <name>Refresh_Token__c</name>
+    </fields>
+    <fields>
+        <label><!-- Security Shared Token --></label>
+        <name>Security_Shared_Token__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

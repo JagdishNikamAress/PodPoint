@@ -1,0 +1,29 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" >
+    <apex:form >
+        <html style="overflow:hidden;">
+            <style>
+            .container{
+                background-color: #91BF43; 
+                color: white; 
+                padding: 100px 80px 100px 80px;
+                height:600px;
+                }
+            </style>
+            <body style="margin: 0; padding: 0;">
+                <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"/>
+                <apex:image url="{!$Resource.CompanyLogo}" height="60" width="200" style="margin : .75%"/>
+                <div class="container" >
+                    <div style="background-color: white; color: black; padding: 20px 80px 20px 80px;  border-radius: 40px 40px 40px 40px;height:220px">
+                        <center>
+                            <P style="font-size: 30px;font-family: Arial;    font-weight: 600;">Thank you for confirming your installation.</P>
+                            <br/><br/>
+                            <P style="font-size: 30px;font-family: Arial; font-weight: lighter;">You will receive a confirmation email shortly.</P>
+                           <!--<apex:commandButton action="{!WoEnter}" value="Save"/>-->
+                           <!--<apex:commandButton action="{!WoEnter}" style="background-color: #D9D9D9;cursor : pointer; padding: 16px 32px; text-align: center; display: inline-block; font-size: 16px; margin: 4px 2px;border-radius: 10px;font-family: 'Quicksand', sans-serif;" value="Submit"/>-->
+                        </center>
+                    </div>
+                </div> 
+            </body>
+        </html>
+    </apex:form>
+</apex:page>

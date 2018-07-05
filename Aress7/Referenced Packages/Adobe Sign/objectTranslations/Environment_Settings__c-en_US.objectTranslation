@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Document Cloud Environment Settings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Document Cloud Environment Settings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Config API URL --></label>
+        <name>Config_API_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Config URL --></label>
+        <name>Config_URL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Set to Production, Stage, Preview or Demo. Leave blank to stay on production. --></help>
+        <label><!-- Environment Name --></label>
+        <name>Environment_Name__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

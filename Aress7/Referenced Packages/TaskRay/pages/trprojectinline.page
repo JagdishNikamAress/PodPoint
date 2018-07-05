@@ -1,0 +1,2180 @@
+<apex:page standardController="TASKRAY__Project__c" sidebar="false"
+    showheader="false" extensions="TASKRAY.trStandardController">
+    <link href="{!URLFOR($Resource.trbootstrap, 'bootstrap/css/bootstrap.css')}" rel="stylesheet" type="text/css" />
+    <link href="{!URLFOR($Resource.trplugins, 'jquery/custom-theme/jquery-ui-1.8.17.custom.css')}" rel="stylesheet" type="text/css" />
+    <link href="{!URLFOR($Resource.trplugins, 'jquery/plugins/chosen.css')}" rel="stylesheet" type="text/css" />
+    <link href="{!URLFOR($Resource.trplugins, 'jquery/plugins/colorpicker/css/colorpicker.css')}" rel="stylesheet" type="text/css" />
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trplugins, 'jquery/jquery-1.7.1.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trplugins, 'jquery/jquery-ui-1.8.17.custom.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trbootstrap, 'bootstrap/js/bootstrap-collapse.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trbootstrap, 'bootstrap/js/bootstrap-modal.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trbootstrap, 'bootstrap/js/bootstrap-tooltip.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trbootstrap, 'bootstrap/js/bootstrap-tab.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trbootstrap, 'bootstrap/js/bootstrap-popover.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trbootstrap, 'bootstrap/js/bootstrap-alert.js')}" />
+    <!-- <apex:includeScript value="{!URLFOR($Resource.trbootstrap, 'bootstrap/js/bootstrap-typeahead.js')}" /> -->
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trplugins, 'jquery/plugins/jquery.loadmask.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trplugins, 'jquery/plugins/canvasloadermin.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trplugins, 'jquery/plugins/ui.multiselect.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trplugins, 'jquery/plugins/chosen.jquery.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trplugins, 'jquery/plugins/jquery.cookie.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trplugins, 'jquery/plugins/jquery.placeholder.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trplugins, 'jquery/plugins/colorpicker/js/bootstrap-colorpicker.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trplugins, 'plugins/insertion.query.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trplugins, 'plugins/typeahead.bundle.js')}" />
+    <apex:outputPanel layout="none" rendered="{!$CurrentPage.parameters.isdtp == 'p1'}">
+        <script type='text/javascript' src='/javascript/jslabels?lang={!JSINHTMLENCODE(userLocale)}'></script>
+    </apex:outputPanel>
+    <link href="{!URLFOR($Resource.trpopupcss)}" rel="stylesheet" type="text/css" />
+    <link href="{!URLFOR($Resource.trplugins, 'jquery/plugins/ui.multiselect.css')}" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        html{
+            overflow-y:hidden;
+        }
+        .inline-edit-toggle-btn{
+            display:none;
+        }
+        #chatter-groups{
+            width:100%;
+        }
+        
+        #chatter_groups_chzn{
+            margin-top: 5px;
+            width:100% !important;
+        }
+        #chatter_groups_chzn input{
+            width: 200px !important;
+        }
+        
+        .modal-footer{
+            padding-top: 6px !important;
+            padding-bottom: 6px !important;
+        }
+        
+        .sharing-user-pic{
+            height:36px;
+        }
+        /*bootstrap hacks*/
+        .search-hidden{
+            display:none;
+        }
+        .typeahead li{
+            margin-left: 0 !important;
+        }
+        .nav.nav-tabs{
+            margin-left: 1px;
+            margin-right: 3px;
+        }
+        .nav-tabs .disabled{
+            cursor: not-allowed;
+            background-color:transparent;
+            border-color: transparent;
+        }
+        .nav-tabs .disabled a:hover{
+            cursor: not-allowed;
+            background-color:transparent;
+            border-color: transparent;
+        }
+        #groups > div.group-sharing-explanation.alert.alert-block{
+            max-width: 100%;
+        }
+        .metadata#section_header{
+            margin-top: 0px;
+        }
+        #details label{
+            margin-bottom: 0px;
+            margin-top: 5px;
+        }
+        #details input{
+            margin-bottom: 0px;
+        }
+        #datePicker select{
+            width: auto;
+        }
+        #chatterfeedshell textarea{
+            box-shadow: none;
+            border-width: 0px;
+        }
+        #chatterfeedshell textarea:hover{
+            box-shadow: none;
+        }
+        #details .modal-footer{
+            margin-top:20px;
+        }
+        /* Load Mask */
+        .wrapper {
+            left: 50%;
+            position: absolute;
+            top: 50%;
+        }
+        #canvasLoader{
+            z-index:10000;
+        }
+        .dataCol input[type="checkbox"]{
+            margin-top:6px;
+        }
+        .dataCol span span{
+            /*margin-top:6px;*/
+            /*display: inline-block;*/
+        }
+        .detailList .dataCol select{
+            width: auto;
+        }
+        select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input{
+            margin-bottom: 0px;
+        }
+
+        .pageDescription:hover{
+            text-decoration: underline;
+        }
+
+        #gridbuddy-iframe, #box-iframe{
+            height: 100%;
+        }
+        body .bPageTitle .ptBody .pageType{
+            margin-left: 6px;
+            display: none;
+            width: 100%;
+            color: #54698D;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.75px;
+            line-height: 15px;
+        }
+        body .bPageTitle .ptBody .pageDescription {
+            height: 27px;
+            margin-left: 30px;
+            display: inline-block;
+            font-size: 18px;
+            color: #0070D2 !important;
+        }
+
+        body .bPageTitle{
+            padding-top:0 !important;
+            margin-left: -25px;
+            margin-right: -25px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .pageTitleIcon{
+            display: none !important;
+        }
+
+        html,body{
+            height: 100%;
+        }
+
+        #clone-confirm{
+            margin-left: -300px;
+            width: 600px;
+        }
+
+        .clone-modal-child-project-row{
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+
+        .clone-modal-child-project{
+            clear: both;
+        }
+
+        .clone-modal-child-project-name, .clone-modal-child-project-start-date, .clone-modal-child-project-end-date{
+            float: left;
+            margin-left:20px;
+        }
+        #clone-dialog{
+            display: none;
+            width: calc(100% - 50px) !important;
+            margin-left: 25px;
+        }
+        .overflowYAuto{
+            overflow-y: auto;
+        }
+        #clone-title-div .circle_info{
+            width: 14px;
+            height: 14px;
+            padding: 0;
+        }
+        #clone-title-div .circle_info:before{
+            font-size:14px;
+        }
+
+        .clone-modal-child-header .clone-modal-child-project-name{
+            width: 220px;
+            text-align: left;
+        }
+
+        .clone-modal-child-header .clone-modal-child-project-name{
+            width: 220px;
+            text-align: left;
+            font-weight:bold;
+        }
+
+        .clone-modal-child-header .clone-modal-child-project-start-date,.clone-modal-child-header .clone-modal-child-project-end-date{
+            width: 164px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .topicInput .input.ghost{
+            width: 100%;
+        }
+
+        .topics.topic-vf{
+            position: relative;
+        }
+
+        .topicInput .input {
+            border: 0 !important;
+            padding: 5px !important;
+            margin: 7px 0 0 !important;
+            float: left !important;
+            outline: none !important;
+            resize: none !important;
+            width: 30px;
+            overflow: hidden !important;
+            outline: 0 !important;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+            box-shadow: none !important;
+            height: 18px;
+
+        }
+        #topics-container-div .topics.init .standaloneTopicWidgetTitle{
+            border-bottom: 0px;
+        }
+        #topics-container-div{
+            padding-left:22px;
+        }
+        #topics-container-div .topics{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .record-type-change-link{
+            color: #0088cc !important;
+            margin-left: 8px;
+        }
+        .pointer{
+            cursor: pointer;
+        }
+        li.disabled a{
+            color: #ccc;
+        }
+
+        .button--warning{
+            background-color: #ffb75d !important;
+            color: white !important;
+        }
+
+        .button--danger{
+            background-color: #c23934 !important;
+            color: white !important;
+        }
+
+        .nav-tabs > .active > a, .nav-tabs > .active > a:hover{
+            border: 0;
+        }
+        .nav-tabs > li > a:hover{
+            border-color: transparent;
+            background-color: transparent;
+            border-bottom: 2px solid #2d95d6;
+        }
+        .nav-tabs > li.active > a:hover{
+            border-bottom: 2px solid #2d95d6;
+        }
+        body .nav-tabs li.active > a {
+            border: 0;
+            padding-bottom: 0;
+            text-transform: uppercase;
+            color: #16325C;
+        }
+
+        body .nav-tabs li > a {
+            border: 0;
+            padding-bottom: 0;
+            text-transform: uppercase;
+            font-size: 14px;
+            line-height: 21px;
+            letter-spacing: 0.875px;
+            padding: 24px 16px 8px 16px;
+            color: #54698D;
+            margin-right: 20px;
+        }
+
+        body .nav-tabs > li {
+            margin-bottom: 0;
+            margin-left: 0px;
+        }
+
+        body .nav-tabs > li.active > a {
+            border-bottom: 2px solid #2d95d6;
+            padding: 24px 16px 8px 16px;
+            color: #16325C;
+        }
+
+        body .nav-tabs > li.active > a:focus {
+            outline: none;
+        }
+
+        body .nav-tabs > li.active > a:active {
+            outline: none;
+        }
+
+    #add-contributor-search, #sharing-add-contributor-search{
+        border: 1px solid #eee;
+        padding: 1px;
+        margin-bottom: 8px;
+    }
+    /*header typeahead styling*/
+    .typeahead,
+    .tt-query,
+    .tt-hint {
+      width: 396px;
+      height: 30px;
+      padding: 8px 12px;
+      font-size: 24px;
+      line-height: 30px;
+      border: 2px solid #ccc;
+      -webkit-border-radius: 8px;
+         -moz-border-radius: 8px;
+              border-radius: 8px;
+      outline: none;
+    }
+
+    .typeahead {
+      background-color: #fff;
+    }
+
+    .typeahead:focus {
+      border: 2px solid #0097cf;
+    }
+
+    .tt-query {
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+         -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+              box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    }
+
+    .tt-hint {
+      color: #54698D;
+      display: none;
+    }
+
+    .tt-dropdown-menu {
+      width: 100%;
+      margin-top: 12px;
+      padding: 8px 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      -webkit-border-radius: 8px;
+         -moz-border-radius: 8px;
+              border-radius: 8px;
+      -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+         -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+              box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    }
+
+    .tt-suggestion {
+      padding: 3px 20px;
+      font-size: 18px;
+      line-height: 24px;
+      cursor: pointer;
+    }
+
+    .tt-suggestion.tt-cursor {
+      color: #fff;
+      background-color: #0097cf;
+
+    }
+
+    .tt-suggestion p {
+      margin: 0;
+    }
+/*LAURA, THIS SEEMS A LITTLE CLOODGEY*/
+    .nav.nav-tabs {
+        display: none;
+    }
+    /*end header typeahead styling*/
+    #editPage .pbSubsection, .editPage .pbSubsection{
+        margin-top:0 !important;
+    }
+    #topics-container-div{
+        max-width: calc(100% - 22px);
+    }
+    </style>
+    <script type="text/javascript">
+        <apex:outputPanel rendered="{!childProjectInfo != ''}" layout="none">
+            var childProjectInfo=JSON.parse('{!JSENCODE(childProjectInfo)}');
+        </apex:outputPanel>
+    </script>
+    <script type="text/javascript">
+    var waitForClose=false;
+    //Monkey patch for inline editing on ios
+    function getEventTarget(a) {return window.event&&a.srcElement?a.srcElement:a.target;}
+
+    var sun32gif = '{!URLFOR($Resource.trplugins, 'images/sun32.png')}';
+    var currentProjectId='';
+    var loadType="{!JSENCODE($CurrentPage.parameters.type)}";
+    var loadProjectId="{!JSENCODE(Project__c.Id)}";
+    var loadTab="{!JSENCODE($CurrentPage.parameters.tab)}";
+    var showCloneInterface="{!JSENCODE($CurrentPage.parameters.clone)}";
+    var chatterGroupId="{!JSENCODE($CurrentPage.parameters.chatterGroupId)}";
+    var parentProjectId="{!JSENCODE($CurrentPage.parameters.parentProjectId)}";
+    var remove= '{!JSENCODE(URLFOR($Resource.trplugins, 'images/remove.png'))}';
+    var autoFollowingTasks='{!autoFollowingCurrentProject}';
+    var sharingEnabled; 
+    $j = jQuery.noConflict();
+
+    function closeModal(){
+        if(!waitForClose){
+            parent.closeModal(parent.modalIds.PROJECT_DETAIL_MODAL, '{!JSENCODE(Project__c.Id)}');
+        }
+    }
+
+    function GetURLParameter(sParam)
+    {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++)
+        {
+            var sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] == sParam)
+            {
+                return sParameterName[1];
+            }
+        }
+    }
+    //If there's a custom redirect url set, navigate to it.
+    //This replaces .setRedirect(true);
+    var customRedirectURL = '{!JSENCODE(customRedirectURL)}';
+    if(customRedirectURL){
+        var isDTPStr = (GetURLParameter('isdtp')) ? '&isdtp='+GetURLParameter('isdtp') : '';
+        window.location.replace(customRedirectURL+isDTPStr);
+        //We need to throw the exception so that code execution stops on this page, while we're loading the redirect page. If we don't we'll have problems with the standardcontroller extension being out of sync
+        throw new Error('reloading...');
+    }
+
+    $j(document).ready(function(){
+        if(typeof(Ext) !== 'undefined'){parent.Ext = Ext;}
+        var groupId = '';
+
+        //Setup topics
+        var topicContainerId = $j('#topics-container-div .topics').attr('id');
+        if(topicContainerId!=null){
+            SfdcApp.TopicsFeed.applyHandlers(topicContainerId);
+            //var topicContainerWidth = $j('#chatter').width();
+            //$j('#topics-container-div').width(topicContainerWidth-60);
+        }
+
+        // $j('#gridbuddy-iframe,#box-iframe').height($j(window).height()-172);
+
+        window.navigateToUrlNewTab=parent.window.navigateToUrlNewTab;
+        //Watch for the stupid view and edit pageBlockButtons
+        insertionQ('.lookupHoverDetailOverridable.lookupHoverDetail .detailList').every(function(element){
+            var inputs = document.querySelectorAll('.lookupHoverDetailOverridable .pbButton input');
+            for (var i = 0; i < inputs.length; ++i) {
+                var onclickAttrStr = inputs[i].getAttribute('onclick');
+                onclickAttrStr = onclickAttrStr.replace('navigateToUrl(','navigateToUrlNewTab(');
+                inputs[i].setAttribute('onclick',onclickAttrStr);
+            }
+            var anchors = document.querySelectorAll('.lookupHoverDetailOverridable a');
+            for (var i = 0; i < anchors.length; ++i) {
+                anchors[i].setAttribute('target','_blank');
+            }
+        }.bind(this));
+
+        parent.inlineEditsFromModal=false;
+        attachInlineEditingForMobile();
+
+        $j('.inlineEditWrite').on('dblclick',function(e){
+            showEditButtonsFromInlineEdit();
+        });
+
+        $j('.dataCol input,select').on('focus click',function(e){
+            focusedOnInput();
+        });
+
+        function focusedOnInput(){
+            parent.inlineEditsFromModal=true;
+        }
+
+        if(pageHasErrorMsg()){
+           showEditButtonsFromInlineEdit(); 
+        } else if('{!JSENCODE($CurrentPage.parameters.type)}' === 'new' && '{!TASKRAY__Project__c.Id}' !== '' ){
+            var goToTeam = ('{!JSENCODE($CurrentPage.parameters.saveandnext)}' == 'true' && '{!JSENCODE($CurrentPage.parameters.tab)}' == 'contributors' ) ? true : false;
+            if({!closeDialog}){
+                closeModal();
+            }
+            parent.projectCreatedFromModal('{!TASKRAY__Project__c.Id}',goToTeam);
+        }
+
+        if(loadProjectId != ''){
+            $j('.pageDescription').css('color','#0088cc');
+            $j('.pageDescription').css('cursor','pointer');
+            $j('.pageDescription').click(function(){
+                // window.open('/'+loadProjectId, '_blank');
+                parent.popNewStdRecordTab(loadProjectId);
+            });
+        }
+        
+
+        function showEditButtonsFromInlineEdit(){
+            $j('.inline-edit-toggle-btn').show();
+            $j('.inline-edit-toggle-btn').css('display','inline-block');
+            $j('.hide-on-inline-edit').hide();
+            parent.inlineEditsFromModal=true;
+        }
+
+        $j('.fieldSet-OwnerId select').change(function(){
+            showEditButtonsFromInlineEdit();
+        });
+
+        $j('.fieldSet-OwnerId input, input.fieldSet-OwnerId').focus(function(){
+            showEditButtonsFromInlineEdit();
+        });
+
+        if({!JSENCODE($CurrentPage.parameters.type) == 'new'}){$j('.inline-edit-toggle-btn').show();$j('.inline-edit-toggle-btn').css('display','inline-block');}
+
+        $j(document).on('click','a', function() {
+            if($j(this).attr('href')!== undefined){
+                if($j(this).attr('href').indexOf('javascript')==-1 && $j(this).attr('href')!='#' && !$j(this).parent().parent().hasClass('nav-tabs'))
+                {
+                    window.open($j(this).attr('href'));
+                    return false;
+                }
+            }
+        });
+    
+           //do some quick dom changes to make titles look the way we want
+        // $j(this).find('.pageTitleIcon').css('background-image','url('+sun32gif+')');
+        $j(this).find('.pageTitleIcon').remove();
+        //$j(this).find('.pbTitle').first().html('<h2 class="mainTitle">Project Edit</h2>');
+        $j(this).find('.pbSubheader.first').find('h3').text('Project Information');
+        currentProjectId=$j('#projectId').val();
+    
+        if((loadType=='new' && loadProjectId=='') || {!editMode} ){
+            disableEditTabs();
+            $j('.inline-edit-toggle-btn').show();
+            $j('.inline-edit-toggle-btn').css('display','inline-block');
+            if({!closeDialog} && chatterGroupId!=null && chatterGroupId!=''){
+                waitForClose=true;
+            }
+        }
+        else{
+            if(parent){
+                // contributorTabDisplayUpdate(currentProjectId);
+                attachProjectEditMethods();
+                if(loadTab!='' && $j('#'+loadTab).length > 0 && {!NOT(editMode)}){
+                    if(parent.newTaskRayUI){
+                        parent.getAndProcessBoardData();
+                    }
+                    $j('#'+loadTab+'-tab a').tab('show');
+                }
+                if(showCloneInterface){
+                    $j('.clone-project-btn').click();
+                }
+            }
+        }
+        $j('input, textarea').placeholder();
+
+        //Init color picker
+        $j('.fieldSet-'+'TASKRAY__'+'ProjectColor__c').colorpicker();
+
+        //Add autofollow dom watching
+        $j('.auto-follow-tasks-toggle').change(function(){
+            var currentPageType='{!JSENCODE($CurrentPage.parameters.type)}';
+            if( currentPageType != 'new'){
+                parent.TASKRAY.trController.toggleProjectAutoFollow("{!TASKRAY__Project__c.Id}", function(event, result){
+                    //console.log(result);
+                });
+            }
+        });
+
+        clearLoadMask();
+
+        /*
+         *  On form post-back close the dialog if a viariable has been
+         *  set on the server side.
+         */
+        if({!closeDialog}){
+            if(pageHasErrorMsg() == false){
+                if($j.cookie('bltr_view')=='planning'){
+                    closeModal();
+                    // parent.$j('.modal').modal('hide');
+                    parent.planningViewLastEditedItem='{!JSENCODE(Project__c.Id)}';
+                    parent.forceUpdateFromOutsideReact();
+                    // parent.initPage();
+                }
+                else{
+                    if(parent.currentBoardId == 'project')
+                    {
+                        parent.currentProjectId = '{!JSENCODE(Project__c.Id)}';
+                        parent.forceUpdateFromOutsideReact();
+                        // parent.initPage();
+                    }
+                    else{
+                        if(getAndProcessBoardDataRan === false){
+                            parent.getAndProcessBoardData();
+                        }
+                        // parent.forceUpdateFromOutsideReact();
+                        // parent.initPage();
+                    }
+
+                    closeModal();
+                    // parent.$j('.modal').modal('hide');
+                }
+            }
+        } else if({!refresh}){
+            parent.planningViewLastEditedItem='{!JSENCODE(Project__c.Id)}';
+            parent.forceUpdateFromOutsideReact();
+            // parent.initPage();
+        }
+
+        if(parentProjectId){
+            var parentProjectName = parent.fetchProjectNameFromId(parentProjectId);
+            // $j.each(parent.sidebarProjectInfo,function(index,obj){
+            //     if(obj.project.Id == parentProjectId){
+            //         parentProjectName = obj.project.Name;
+            //         return false;
+            //     }
+            // });
+            //Set the name
+            $j('.fieldSet-'+'TASKRAY__'+'Project_Parent__c').val(parentProjectName);
+            
+            //Set the id value
+            $j('.fieldSet-'+'TASKRAY__'+'Project_Parent__c').parents('.dataCol').children('input[id$="lkold"]').val(parentProjectName);
+            $j('.fieldSet-'+'TASKRAY__'+'Project_Parent__c').parents('.dataCol').children('input[id$="lkid"]').val(parentProjectId);
+            $j('.fieldSet-'+'TASKRAY__'+'Project_Parent__c').parents('.dataCol').children('input[id$="mod"]').val(1);
+        }
+
+        if({!NOT(editMode)}){
+            var ownerDiv = $j('.fieldSet-OwnerId');
+            if(ownerDiv.length>0){
+                ownerDiv.parent().parent().prev().find('label').attr('style','font-size:11px; font-weight: bold;');
+            }
+        }
+
+        //Prevent form submission on enter keystroke
+        $j('.lookupInput input').on('keydown',function(e){
+            var code = e.keyCode || e.which;
+            if(code==13){
+                e.stopPropagation();
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        //Resize integration iframes
+        // $j('#myTabContent').height($j('body').height()-174);
+
+        attachRecordTypeChangeMethods();
+        setupOffsetDirection();
+        if(GetURLParameter('tab') === 'chatter' && $j('#showFeedLink a:visible').length>0){
+            $j('#showFeedLink a').click();
+        }
+
+        var showAttachmentUpload = GetURLParameter('showattachmentupload');
+        if(GetURLParameter('tab') === 'chatter' && typeof(showAttachmentUpload) !== 'undefined' && showAttachmentUpload!=='undefined' && showAttachmentUpload!=='false'){
+            //click the file pane            
+            $j('.publisherattachContentPost').click();
+            //click the upload from computer button
+            $j('#chatterUploadFileAction').click();
+            //click the choose file button not working
+            // $j('#chatterFile').click()
+        }
+        //end doc ready
+    });
+
+
+function setupOffsetDirection(){
+    if({!dependenciesEnabled}){
+        $j('input[name=offsetDirection]').on('change',function(e){
+            syncOffsetDirectionColumnVisibility();
+        });
+        syncOffsetDirectionColumnVisibility();
+    } else{
+        $j('#clone-task-offset-direction-container').hide();
+    }
+}
+
+function syncOffsetDirectionColumnVisibility(){
+    var newValue = $j('input[name=offsetDirection]:checked').val();
+    if(newValue==='first'){
+        $j('.clone-modal-child-project-start-date').show();
+        $j('.clone-modal-child-project-end-date').hide();
+    } else if(newValue==='last'){
+        $j('.clone-modal-child-project-start-date').hide();
+        $j('.clone-modal-child-project-end-date').show();
+    }
+}
+
+function attachRecordTypeChangeMethods(){
+    //Attach the change link
+    $j('[field-path="RecordTypeId"]').append('<a class="record-type-change-link" href="javascript:changeRecordType();">Change</a>');
+    //Select the appropriate record type
+    $j('#record-type-select option[value="'+'{!JSENCODE(recordTypeIdForRecord)}'+'"').attr('selected','selected');
+    //Attach the update record type method
+    $j('#record-type-change-save-btn').click(function(){
+        var recordToUpdate = '{!JSENCODE(Project__c.Id)}';
+        var newRecordTypeId = $j('#record-type-select option:selected').attr('value');
+        var updateObj={};
+        updateObj[recordToUpdate]=newRecordTypeId;
+        parent.TASKRAY.trTaskBoardController.updateRecordTypesOfRecords('TASKRAY__'+'Project__c', updateObj,function(result,event){
+            window.location.reload();
+        });
+    });
+}
+
+function changeRecordType(){
+    $j('#record-type-change').modal('show');
+}
+
+    function disableEditTabs(){
+        $j('#contributors-tab').addClass('disabled');
+        $j('#contributors-tab').click(function(e){e.stopPropagation();});
+        $j('#group-tab').addClass('disabled');
+        $j('#group-tab').click(function(e){e.stopPropagation();});
+        $j('#chatter-tab').addClass('disabled');
+        $j('#chatter-tab').click(function(e){e.stopPropagation();});
+        $j('#boxintegration-tab').addClass('disabled');
+        $j('#boxintegration-tab').click(function(e){e.stopPropagation();});
+        $j('#gridbuddy-tab').addClass('disabled');
+        $j('#gridbuddy-tab').click(function(e){e.stopPropagation();});
+    }
+    
+    function attachProjectEditMethods(){
+        $j("#project-edit-content a[target!='_self']").each(function(element){ 
+            var href = $j(this).attr('href');
+            if(typeof(href) !== 'undefined'){
+                if(href.indexOf("http") >= 0)
+                {
+                    if(href.indexOf("isdtp=p1")){
+                        $j(this).attr('href',href.replace('isdtp%3Dp1',''));
+                    }
+                    $j(this).attr('target','_blank');
+                }
+            }
+        });
+           
+        $j(".dataCol span:contains('<a href=')").each(function(){
+            $j(this).html($j(this).text());
+        });
+        
+        $j('.delete-btn').click(function(e){
+            e.preventDefault();
+            //$j("#delete-confirm").modal('show');
+            window.parent.openDeleteProjectConfirmation('{!JSENCODE(Project__c.Id)}','{!JSENCODE(Project__c.Name)}');
+        });
+        
+        $j('.archive-project-btn').click(function(e){
+            e.preventDefault();
+            //$j("#archive-confirm").modal('show');
+            window.parent.openArchiveProjectConfirmation('{!JSENCODE(Project__c.Id)}','{!JSENCODE(Project__c.Name)}');
+        });
+        
+        $j('.clone-project-btn').click(function(e){
+            var useOldProjectCloneModal = {!useOldProjectCloneModal};
+            if(useOldProjectCloneModal){
+                $j('#clone-dialog').show();
+                $j('.campaignTab').hide();
+                $j('#project-edit-content').addClass('overflowYAuto');
+                window.parent.mixpanel.track('Clone Project', {'New Interface': false});
+            } else{
+                window.parent.openCloneProjectModal('{!JSENCODE(Project__c.Id)}','{!JSENCODE(Project__c.Name)}');
+                window.parent.closeModal(parent.modalIds.PROJECT_DETAIL_MODAL);
+            }
+        });
+
+        $j('.clone-cancel-btn').click(function(e){
+            $j('#clone-dialog').hide();
+            $j('.campaignTab').show(); 
+            $j('#project-edit-content').removeClass('overflowYAuto');
+        });
+
+        $j('#clear-clone-project-start-date').click(function(){
+            $j('.newCloneStartDate').val('');
+        });
+        
+        $j('#clear-clone-project-end-date').click(function(){
+            $j('.newCloneEndDate').val('');
+        });
+
+        $j('#delete-confirm-btn').click(function(){
+        showLoadMask(function(){});
+        var deleteSubs = $j('#delete-sub-projects-checkbox').is(':checked');
+        parent.TASKRAY.trController.markProjectDeleted_v3("{!TASKRAY__Project__c.Id}",deleteSubs, function(event, result){
+            if (result.status) {
+                if(parent.currentBoardId == 'project')
+                {
+                    //parent.populateProjects(parent.refreshTasks());
+                }
+                else{
+                    //parent.populateProjects(parent.refreshTasks());
+                }
+                if(parent){
+                    parent.forceUpdateFromOutsideReact();
+                    // parent.initPage();
+                    parent.dialogOpen = false;
+                    closeModal();
+                    // parent.$j('.modal').modal('hide');
+                }
+            }
+            else{
+                alert("There was an issue with deleting this record: "+result.message.replace('"','\"'));
+            }
+            clearLoadMask();
+            }, {
+                escape: true
+            });
+        });
+    
+        $j('#archive-confirm-btn').click(function(){
+            var archiveSubProject = $j('#archive-sub-projects-checkbox').is(':checked');
+            parent.TASKRAY.trController.archiveProjects_v2(["{!TASKRAY__Project__c.Id}"], archiveSubProject, function(event, result){
+                if (result.status) {
+                    if(parent){
+                        if(parent.currentBoardId == 'project')
+                        {
+                            parent.currentProjectId = '{!JSENCODE(Project__c.Id)}';
+                            //parent.populateProjects(parent.refreshTasks());
+                        }
+                        else{
+                            //parent.populateProjects(parent.refreshTasks());
+                        }
+                        parent.forceUpdateFromOutsideReact();
+                        // parent.initPage();
+                        parent.dialogOpen = false;
+                        closeModal();
+                        // parent.$j('.modal').modal('hide');
+                    }
+                }
+                else{
+                    var parsedText = $j('<span />').text("There was an issue with archiving this record: "+result.message).text();
+                    alert(parsedText);
+                }
+            });    
+        });
+
+
+        //Does the two tab saving logic
+        $j('.save-project-contribandgroup').unbind('click');
+        $j('.save-project-contribandgroup').click(function(){
+            saveContribAndGroup($j(this),true);
+        });
+        
+        $j('#cloneChildren').change(function(){
+            if(this.checked){
+                //Show children
+                $j('.clone-modal-child-project').not('#'+'{!JSENCODE(Project__c.Id)}').show();
+            } else{
+                //hide children
+                $j('.clone-modal-child-project').not('#'+'{!JSENCODE(Project__c.Id)}').hide();
+            }
+        });
+
+        $j('.old-clone-btn').click(function(){
+            var overrideObj = {};
+           if($j('#cloneChildren').is(':checked')){
+            $j('.clone-modal-child-project').each(function(index,row){
+                var $row = $j(this);
+                overrideObj[$row.attr('id')]={newName:$row.find('.newCloneName').val(),newStartDate:$row.find('.newCloneStartDate').val(),newEndDate:$row.find('.newCloneEndDate').val()};
+            });
+           } else{
+            var $row = $j('.clone-modal-child-project#{!JSENCODE(Project__c.Id)}');
+            overrideObj[$row.attr('id')]={newName:$row.find('.newCloneName').val(),newStartDate:$row.find('.newCloneStartDate').val(),newEndDate:$row.find('.newCloneEndDate').val()};
+           }
+
+
+            showLoadMask(function(){});
+            var projectId=$j('#projectId').val();
+            var optionObj = {};
+            optionObj.cloneChildrenProjects=($j('#cloneChildren').is(':checked')) ? 'true' : 'false';
+            //projectInfoObj.assignInactiveToCurrent=($j('#assignInactiveToCurrent').is(':checked')) ? 'true' : 'false';
+            optionObj.assignInactiveToCurrent='true';
+            var newValue = ($j('#clone-task-offset-direction-container').is(':visible')) ? $j('input[name=offsetDirection]:checked').val() : null;
+            if(newValue==='first'){
+                optionObj.depCloneBasedOnProjectStart='true';
+            } else if(newValue==='last'){
+                optionObj.depCloneBasedOnProjectEnd='true';
+            }
+            parent.TASKRAY.trTaskBoardController.cloneProjectReturnId_v3(projectId, overrideObj, optionObj, function(status,result){
+                if (result.status) {
+                    if(parent){
+                        // parent.populateProjects(parent.refreshTasks);
+                        var newProjectId=status;
+                        parent.getAndProcessBoardData(newProjectId);
+                        closeModal();
+                    }
+                    // parent.$j('.modal').modal('hide');
+                }
+                else{
+                    alert("An exception occurred while cloning this project:\n\n"+result.message);
+                }
+                clearLoadMask();
+            });
+        });
+
+        sortChildProjects();
+        $j('#clone-title-div .circle_info').popover();
+
+    }
+    
+
+    function saveContribAndGroup(thisItem,clearLoadMaskAfter){
+        showLoadMask(function(){});
+        $j('.save-project-contribandgroup').removeAttr('isclicked');
+        $j(thisItem).attr('isclicked','true');
+
+        if($j(thisItem).attr('closeDialog')=='true'){
+            shareProjectsWithChatter(function(){
+                //console.log('updated chatter sharing');
+                if(clearLoadMaskAfter){ clearLoadMask(); }
+                if(parent){
+                    parent.planningViewLastEditedItem='{!JSENCODE(Project__c.Id)}';;
+                    parent.forceUpdateFromOutsideReact();
+                    // parent.initPage();
+                    closeModal();
+                    // parent.$j('.modal').modal('hide');
+                }
+            });
+        }
+        else{
+            shareProjectsWithChatter(function(){
+                //console.log('updated chatter sharing');
+                if(clearLoadMaskAfter){ clearLoadMask(); }
+                if(parent){
+                    parent.planningViewLastEditedItem='{!JSENCODE(Project__c.Id)}';
+                    parent.forceUpdateFromOutsideReact();
+                    // parent.initPage();
+                }
+            });
+        }
+        if(sharingEnabled){
+            if($j(thisItem).attr('closeDialog')=='true'){updateUserInvites(function(){if(clearLoadMaskAfter){ clearLoadMask(); }
+                parent.closeModal(parent.modalIds.PROJECT_DETAIL_MODAL);
+                // parent.$j('.modal').modal('hide');
+            });}
+            else{ 
+                if($j(thisItem).attr('changenext')=='true'){
+                    updateUserInvites(function(){refreshSharingTable(function(){if(clearLoadMaskAfter){ clearLoadMask(); } });$j('#group-tab > a').tab('show');}); 
+                }
+                else{
+                    updateUserInvites(function(){refreshSharingTable(function(){ if(clearLoadMaskAfter){ clearLoadMask(); } });});
+                }
+            }
+        } else {
+            if($j(thisItem).attr('closeDialog')=='true'){ 
+                updateContributorInvites(function(){ 
+                    if(parent){
+                        parent.closeModal(parent.modalIds.PROJECT_DETAIL_MODAL);
+                    // parent.$j('.modal').modal('hide');
+                    }
+                });
+            } else {
+                if($j(thisItem).attr('changenext')=='true'){
+                    updateContributorInvites(function(){
+                        refreshContributorsTable(function(){ if(clearLoadMaskAfter){ clearLoadMask(); } });
+                        $j('#group-tab > a').tab('show');
+                    });
+                }else{
+                    updateContributorInvites(function(){
+                        refreshContributorsTable(function(){ if(clearLoadMaskAfter){ clearLoadMask(); } });
+                    });
+                }
+            }
+        }
+    }
+
+
+
+    /* 
+     *  contributorTabInit()
+     *  Initialize the contributors tab when sharing isn't enabled
+     */
+    function contributorTabInit(){
+        var searchResultObjs={};
+        if(!parent){return;}
+        parent.TASKRAY.trController.isProjectSharingEnabled(function(event, result){
+            if(result.result){$j('#contributors-warning-sharing-enabled').show();}
+            else{$j('#contributors-warning-no-sharing').show();}
+            //ifcontributors-warning-no-sharing
+        });
+
+        function typeaheadMatcher(q,cb){
+            var substrRegex = new RegExp(q, 'i');
+            function substringMatcher(objs, q, displayKey, valueKey) {
+              
+              var matches, substrRegex;
+           
+              // an array that will be populated with substring matches
+              matches = [];
+           
+              // regex used to determine if a string contains the substring `q`
+              substrRegex = new RegExp(q, 'i');
+           
+              // iterate through the pool of strings and for any string that
+              // contains the substring `q`, add it to the `matches` array
+              _.forEach(objs, function(obj) {
+                var str = obj[displayKey];
+                if (substrRegex.test(str)) {
+                  // the typeahead jQuery plugin expects suggestions to a
+                  // JavaScript object, refer to typeahead docs for more info
+                  var match = _.cloneDeep(obj);
+                  match['tt-label'] = str;
+                  match['tt-value']=obj[valueKey];
+                  matches.push(match);
+                }
+              });
+           
+              return matches;
+            };
+            remoteActionUserSearchSource(q,cb);
+        }
+
+        function remoteActionUserSearchSource(q,cb){
+            var contributors = [];
+            $j('.contributor-row,').each(function(i,o){
+                if($j(o).find('.remove-contributor').length>0){
+                    contributors.push($j(o).attr('id'));
+                }
+            });
+            parent.TASKRAY.trController.projectContributorSearch_v2(q,contributors,function(event,results){
+                var result_list = [];
+                var result_objs = [];
+                $j.each(results.result,function(index,o){
+                    o.realName = o.Name;
+                    o.Name= (o.UserRoleName !=null) ? o.Name+" ("+o.UserRoleName+")" : o.Name;
+                    // searchResultObjs[o.Name]=o;
+                    result_list.push(o);
+                });
+                cb(result_list);
+            });
+        }
+
+        $j('#add-contributor-search').typeahead({
+          hint: true,
+          highlight: true,
+          minLength: 3
+        },
+        {
+          name: 'Name',
+          displayKey: 'Name',
+          source: typeaheadMatcher
+        });
+
+        $j('#add-contributor-search').on('typeahead:selected',function(event, suggestion){
+            addContributorSelect(suggestion);
+            //Clear out the input
+            setTimeout(function(){$j('#add-contributor-search').typeahead('val', '');},0);
+        });
+
+        $j('#allinternaluserscheckbox-unshare').unbind('change');
+        $j('#allinternaluserscheckbox-unshare').change(function(e){
+            if(!$j(this).is(':checked')){
+                $j('#delete-all-internal-share-modal').modal('show');
+            }
+        });
+        $j('#delete-all-internal-share-confirm-btn').unbind('click');
+        $j('#delete-all-internal-share-confirm-btn').click(function(e){
+            $j('#delete-all-internal-share-modal').modal('hide');
+            //Show a load mask while this is running
+            showLoadMask(function(){});
+            //Do the remote action for deleting the share and bouncing the pane
+            parent.TASKRAY.trController.toggleAllInternalUserSharing(currentProjectId, 'removeshare',function(even,results){
+                //console.log(results.result);
+                if(results.result=='share removed'){
+                //refresh logic
+                if(parent){
+                    parent.forceUpdateFromOutsideReact();
+                }
+                // parent.initPage();
+                // contributorTabDisplayUpdate(currentProjectId);
+                }
+                else{
+                //error logic
+                alert(results.message);
+                }
+                clearLoadMask(function(){});
+            },{ buffer: false, timeout: 120000 });
+        });
+        
+        $j('input, textarea').placeholder();
+        
+    }
+    
+    function contributorTabSharingInit(){
+        refreshSharingTable();
+        //addSaveButtonClickHandler();    
+        var searchResultObjs={};
+
+        /*Start Typeahead*/
+        function typeaheadMatcher(q,cb){
+            remoteActionUserSearchSource(q,cb);
+        }
+
+        function remoteActionUserSearchSource(q,cb){
+            parent.TASKRAY.trController.projectSharingUGSearchResults(q,currentProjectId,function(event,results){
+                var result_list = [];
+                $j.each(results.result,function(index,o){
+                    result_list.push(o);
+                });
+                cb(result_list);
+            });
+        }
+
+        $j('#sharing-add-contributor-search').typeahead({
+          hint: true,
+          highlight: true,
+          minLength: 3
+        },
+        {
+          name: 'Name',
+          displayKey: 'userOrGroupName',
+          source: typeaheadMatcher
+        });
+
+        $j('#sharing-add-contributor-search').on('typeahead:selected',function(event, suggestion){
+            addSharingTableRow(suggestion,true);
+            attachSharingTableClickHandlers();
+            //Clear out the input
+            setTimeout(function(){$j('#sharing-add-contributor-search').typeahead('val', '');},0);
+        });
+
+        /*End typeahead*/
+
+        // $j('#sharing-add-contributor-search').typeahead({
+        //     source: function(query,process) {
+                
+        //     },
+        //     updater: function(item){
+        //         o=searchResultObjs[item];
+        //         addSharingTableRow(o,true);
+        //         attachSharingTableClickHandlers();
+        //     },
+        //     minLength: 3
+        // });
+        $j('#allinternaluserscheckbox-share').unbind('change');
+        $j('#allinternaluserscheckbox-share').change(function(e){
+            if($j(this).is(':checked')){
+                $j('#add-all-internal-share-modal').modal('show');
+            }
+        });
+        $j('#add-all-internal-share-confirm-btn').unbind('click');
+        $j('#add-all-internal-share-confirm-btn').click(function(e){
+            $j('#add-all-internal-share-modal').modal('hide');
+            //Show load mask while this is running
+            showLoadMask(function(){});
+            //Do the remote action for adding the share and bouncing the pane
+            parent.TASKRAY.trController.toggleAllInternalUserSharing(currentProjectId, 'addshare',function(even,results){
+                //console.log(results.result);
+                if(results.result=='share added'){
+                //refresh logic
+                if(parent){
+                    parent.forceUpdateFromOutsideReact();
+                }
+                // parent.initPage();
+                // contributorTabDisplayUpdate(currentProjectId);
+                }
+                else{
+                //error logic
+                alert(results.message);
+                }
+                clearLoadMask(function(){});
+            });
+        });
+
+        $j('input, textarea').placeholder();
+    }
+    
+
+    if({!refresh}){
+        if($j.cookie('bltr_view')=='planning'){
+            parent.planningViewLastEditedItem='{!JSENCODE(Project__c.Id)}';
+        }
+        parent.forceUpdateFromOutsideReact();
+        // parent.initPage();
+    }
+    
+
+    function pageHasErrorMsg(){
+        return !$j('.messageTable').length==0;
+    }
+
+    /*
+     *  
+     */
+    function storeChatterGroupIdsOnParent(){
+        var ids = [];
+        $j('#chatter-groups').children(':selected').each(function(i,o){
+            ids.push($j(o).val());
+        });
+        // new project, save the chatter group ids to the parent until after record is saved    
+        parent.chatterGroupIds = ids;
+    }
+    
+    /*
+     *  Updates the list of Chatter groups that the current project is
+     *  shared with
+     */
+    function shareProjectsWithChatter(callback){
+        //This is now handled in react
+        // var ids = [];
+        // $j('#chatter-groups').children(':selected').each(function(i,o){
+        //     ids.push($j(o).val());
+        // });
+        // // new project, save the chatter group ids to the parent until after record is saved    
+        // parent.chatterGroupIds = ids;
+        // debugger;
+        // //console.log('Sharing Project Id: '+parent.chatterGroupIds);
+        // if($j('#projectId').val() != ''){
+        //     parent.TASKRAY.trController.saveProjectChatterGroups(ids,$j('#projectId').val(),function(status,result){
+        //         callback();
+        //     }, {
+        //         escape: true
+        //     });
+        //     parent.chatterGroupIds = null;
+        // }
+    }
+    
+    
+    function cloneProject(){
+        showLoadMask(function(){});
+        projectInfoObj={};
+        projectInfoObj.projectId=$j('#projectId').val();
+        projectInfoObj.newProjectName=$j('#new-project-title').val();
+        projectInfoObj.newStartDate=$j('.newCloneStartDate').val();
+        projectInfoObj.newEndDate=$j('.newCloneEndDate').val();
+        projectInfoObj.cloneChildrenProjects=($j('#cloneChildren').is(':checked')) ? 'true' : 'false';
+        //projectInfoObj.assignInactiveToCurrent=($j('#assignInactiveToCurrent').is(':checked')) ? 'true' : 'false';
+        projectInfoObj.assignInactiveToCurrent='true';
+        parent.TASKRAY.trController.cloneProjectReturnId_v2(projectInfoObj, function(status,result){ 
+            if (result.status) {
+                $j('#clone-confirm').modal('hide');
+                var newProjectId=result.result;
+                $j.cookie('apex__bltrProjectId', newProjectId, {
+                    expires : 365,
+                    path : '/',
+                    secure : true
+                });
+                if(parent){
+                    parent.populateProjects(parent.refreshTasks);
+                
+                    parent.closeModal(parent.modalIds.PROJECT_DETAIL_MODAL);
+                    // parent.$j('.modal').modal('hide');
+                    
+                    if(parent.newTaskRayUI){
+                        // parent.getAndProcessBoardData(function(){parent.toggleProjectFunnel(newProjectId, 'hierarchy',function(){},true);});
+                        parent.getAndProcessBoardData(newProjectId);
+                        parent.closeModal(parent.modalIds.PROJECT_DETAIL_MODAL);
+                        // parent.$j('.modal').modal('hide');
+                    } else{
+                        parent.window.location = parent.trProjectBoardPage;
+                    }
+                }
+            }
+            else{
+                alert("An exception occurred while cloning this project:\n\n"+result.message);
+            }
+            clearLoadMask();
+        });
+    }
+    
+    //Contributor tab functions
+    /*
+     *  function contributorTabDisplayUpdate
+     */
+    /*function contributorTabDisplayUpdate(projectId){
+        parent.TASKRAY.trController.isProjectSharedToAllInternalUsers(projectId, function(e,r){
+            if(r.result == false){
+                $j('#allinternaluserscheckbox-share').attr('checked',false);
+                $j('#projectSharing').show();
+                $j('#projectContributors').hide();        
+                contributorTabSharingInit();
+                sharingEnabled = true;
+            }
+            else{
+                $j('#allinternaluserscheckbox-unshare').attr('checked',true);
+                $j('#projectSharing').hide();
+                $j('#projectContributors').show();
+                
+                fetchCurrentContributorsNameList();
+                contributorTabInit();
+                sharingEnabled = false;
+            }
+        });
+    }*/
+    
+    /*
+     * AddContributorSelect()
+     * Handle the selection of a contributor from the search results
+     */
+    function addContributorSelect(o){
+        if($j('#add-contributor option:selected').html()!=''){
+            addContributorTableRow(o);
+            $j("#add-contributor").html("<option></option>");
+            $j("#add-contributor").trigger("liszt:updated");
+        }
+    }
+    
+    /* 
+     *  addContributorTableRow(o)
+     *  Adds contributors to the rows
+     */
+    function addContributorTableRow(o){
+        if(o.Id.substring(0, 3) == "00G"){
+            if(o.Type == "Queue"){
+                var letters = "";
+                var letterRegEx = /^[0-9a-zA-Z]+$/; 
+                var name_array = o.realName.split(" ");
+                for(var x=0; x<name_array.length; x++){
+                    if(name_array[x][0] != undefined && letters.length < 2 && name_array[x][0].match(letterRegEx)){
+                        letters += name_array[x][0];
+                    }
+                }
+
+                var contribCircleImg = "<div style='float: left; height: 36px; width: 36px; border-radius: 18px; background-color: #faa732; cursor: pointer;'><div style='width: 36px; margin-top: 11px; text-align: center; color: white; font-size: 20px; float: left'>" + letters + "</div></div>";
+                $j('#contributors-table').append('<tr class="unsaved-contributor-row" id="'+o.Id+'"><td>' + contribCircleImg + '<span style="float: left; margin-top: 11px;">&nbsp'+o.Name +'&nbsp</span><span class="label label-warning unsaved-label" style="margin-top: 11px; float: left;">{!JSENCODE($Label.TaskRay_ProjectModal_ContribTableUnsavedRow)}</span></span></td><td><img class="remove-contributor" src="'+remove+'" style="cursor:pointer; margin: 10px; width:16px;" /></td></tr>');
+            }else if(o.Type == "Regular"){
+                var contribCircleImg = "<div style='visibility: hidden; float: left; height: 36px; width: 36px; border-radius: 18px; background-color: #faa732; cursor: pointer;'><div style='visibility: hidden; width: 36px; margin-top: 11px; text-align: center; color: white; font-size: 20px; float: left'>" + letters + "</div></div>";
+                $j('#contributors-table').append('<tr class="unsaved-contributor-row" id="'+o.Id+'"><td>' + contribCircleImg + '<span style="float: left; margin-top: 11px;">&nbsp'+o.Name +'&nbsp</span><span class="label label-warning unsaved-label" style="margin-top: 11px; float: left;">{!JSENCODE($Label.TaskRay_ProjectModal_ContribTableUnsavedRow)}</span></span></td><td><img class="remove-contributor" src="'+remove+'" style="cursor:pointer; margin: 10px; width:16px;" /></td></tr>');
+            }
+
+        }
+        else {
+            o.Name= (o.UserRoleName !=null && o.Name.indexOf(o.UserRoleName) == -1) ? o.Name+" ("+o.UserRoleName+")" : o.Name;
+            $j('#contributors-table').append('<tr id="'+o.Id+'" class="unsaved-contributor-row" ><td><img src="'+o.SmallPhotoUrl+'" style="height:36px; border-radius: 18px;"/><span style="margin-top: 15px;">&nbsp;'+o.Name+'&nbsp;<span class="label label-warning unsaved-label">{!JSENCODE($Label.TaskRay_ProjectModal_ContribTableUnsavedRow)}</span></span></td><td><img class="remove-contributor" src="'+remove+'" style="cursor:pointer; margin: 10px; width:16px;" /></td></tr>');
+            addContributorRemoveClickHandler();
+            $j("#add-contributor").html("<option></option>");
+            $j("#add-contributor").trigger("liszt:updated");
+        }
+    }
+    
+    /*
+     * updateUserInvites
+     * Added a 'previous' check to see if the checkboxes have been checked or unchecked to display a confirming message
+     * warning the user about the change in access to Project.
+     */
+    function updateUserInvites(callback){
+        var rows = [];
+        var toConfirm = false;
+        var currentProjectId = $j('#projectId').val();
+        
+        $j('.result-row').each(function(i,o){
+            $j(o).css('background-color','#fff');
+            var userRow = {};
+            userRow['id'] = $j(o).attr('id');
+            userRow['isowner'] = $j(o).attr('isowner');
+            userRow['name'] = $j('#'+userRow['id']+'-name').text();
+            userRow['read'] = $j('#'+userRow['id']+'-readonly').is(':checked');
+            userRow['previousRead'] = ($j('#'+userRow['id']+'-readonly').attr('previous') == "true");
+            userRow['write'] =  $j('#'+userRow['id']+'-readwrite').is(':checked');
+            userRow['previousWrite'] = ($j('#'+userRow['id']+'-readwrite').attr('previous') == "true");
+            var accessLevel = ''
+            if(userRow['read'] && userRow['write']){
+                userRow['accessLevel'] = 'Edit';
+            } else if (userRow['read'] && !userRow['write']){
+                userRow['accessLevel'] = 'Read';
+            } else{
+                userRow['accessLevel'] = 'Remove';
+            }
+            if(userRow['isowner']!='true'){rows.push(userRow);}
+        });
+        
+        var userAccessMap={};
+        $j(rows).each(function(i,o){
+            userAccessMap[o.id]=o.accessLevel;
+        });
+        
+        parent.TASKRAY.trController.saveProjectSharing_bulk($j('#projectId').val(), userAccessMap,function(e,r){
+            if(!r.status){
+                alert(r.message);
+            }
+            if( typeof callback === 'function') {
+                        callback();
+            }
+        },{ buffer: false, timeout: 120000 });
+        
+        if(rows.length==0){
+            if( typeof callback === 'function') {
+                callback();
+            }
+        }
+    }
+    
+    function refreshSharingTable(callback){
+        if(!parent){return;}
+        parent.TASKRAY.trController.getUserNamesAndAccessForProject(currentProjectId,function(event,results){
+                $j('#current-shares-table .result-row').remove();
+                if(results.status == true){
+                    var resultsSorted=[];
+                    $j.each(results.result,function(i,o){
+                        resultsSorted.push(o);
+                    });
+                    //Sort by contributor then by user.Name
+                    function sortF(ob1,ob2) {
+                        if (ob1.isOwner == true && ob2.isOwner==false) {
+                            return -1;
+                        } else if (ob1.isOwner == false && ob2.isOwner==true) {
+                            return 1;
+                        }
+                    
+                        // Else go to the 2nd item
+                        if (ob1.userOrGroupName < ob2.userOrGroupName) { 
+                            return -1;
+                        } else if (ob1.userOrGroupName > ob2.userOrGroupName) {
+                            return 1
+                        } else { // nothing to split them
+                            return 0;
+                        }
+                    }
+                    resultsSorted.sort(sortF);
+                    $j.each(resultsSorted,function(i,o){
+                        addSharingTableRow(o);
+                    });
+                    attachSharingTableClickHandlers();
+                }
+                if( typeof callback === 'function') {
+                    callback();
+                }
+            }, {
+           escape : true
+        }); 
+    }
+
+    function addSharingTableRow(o,isNew){
+        var readOnlyCheckbox = '';
+        var readWriteCheckbox = '';
+        var label = '';
+        if($j('#project-records-sharing-level').val() == "true" || o.isOwner == true){
+            readOnlyCheckbox = '<input id="'+o.userOrGroupID+'-readonly" class="read-checkbox" type="checkbox" previous="true" checked="checked" disabled="disabled"  />';
+        } else{
+            if(o.readAccess){
+                readOnlyCheckbox = '<input id="'+o.userOrGroupID+'-readonly" class="read-checkbox" previous="true" type="checkbox" checked="checked" +  />';
+            }else if(isNew){
+                readOnlyCheckbox = '<input id="'+o.userOrGroupID+'-readonly" class="read-checkbox" previous="false" type="checkbox" checked="checked" +  />';
+            }
+            else{
+                readOnlyCheckbox = '<input id="'+o.userOrGroupID+'-readonly" class="read-checkbox" previous="false" type="checkbox" />';    
+            }
+        }
+        if(o.isOwner == true){
+            readWriteCheckbox = '<input id="'+o.userOrGroupID+'-readwrite" type="checkbox" previous="true" checked="checked" disabled="disabled" />';
+        } else{
+            if(o.readWriteAccess){
+                readWriteCheckbox = '<input id="'+o.userOrGroupID+'-readwrite" class="write-checkbox" previous="true" type="checkbox" checked="checked" />';
+            }else if(isNew){
+                readWriteCheckbox = '<input id="'+o.userOrGroupID+'-readwrite" class="write-checkbox" previous="false" type="checkbox" checked="checked" />';
+            }
+            else{
+                readWriteCheckbox = '<input id="'+o.userOrGroupID+'-readwrite" class="write-checkbox" previous="false" type="checkbox" />'; 
+            }
+        }
+        if(o.isOwner == true){
+            label = '&nbsp;<span class="label label-info">{!JSENCODE($Label.TaskRay_ProjectModal_ContribTableProjectRow)}</span>'
+        }
+        if(o.userOrGroup == 'group'){
+            label = '&nbsp;<span class="label label-info">{!JSENCODE($Label.TaskRay_ProjectModal_ContribTableGroupRow)}</span>'
+        }
+        if(isNew==true){
+            label = '&nbsp;<span class="label label-warning">{!JSENCODE($Label.TaskRay_ProjectModal_ContribTableUnsavedRow)}</span>'
+        }
+        var unsavedStr= (isNew) ? 'unsaved="true"' : '';
+        var imgStr= (o.smallPhotoUrl =='') ? '' : '<img class="sharing-user-pic" src="'+o.smallPhotoUrl+'" />';
+        var isOwnerStr= (o.isOwner ==true) ? 'isOwner="true"' : 'isOwner="false"';
+        $j('#current-shares-table tbody').append('<tr '+unsavedStr+' class="result-row" id="'+o.userOrGroupID+'" '+isOwnerStr+'><td>'+imgStr+'</td><td id="'+o.userOrGroupID+'-name" style="min-width:275px;">'+o.userOrGroupName+label+'</td><td style="text-align:center;"text-align:center;">'+readOnlyCheckbox+'</td><td style="text-align:center;">'+readWriteCheckbox+'</td></tr>');
+    }
+    
+    function attachSharingTableClickHandlers(){
+        /* 
+         * For check the 'read only checkbox' and deactivate it 
+         */
+        $j('.write-checkbox').change(function(){
+            var checkbox = $j('#'+$j(this).parents('tr').attr('id')+'-readonly');
+            if($j(this).is(':checked')){
+                checkbox.prop('disabled',true);
+            }
+            else{
+                checkbox.prop('disabled',false);
+            }
+            if(!checkbox.is(':checked')){
+                checkbox.prop('checked',true);
+            }
+        });
+        
+        $j('.read-checkbox').change(function(){
+            var checkbox = $j('#'+$j(this).parents('tr').attr('id')+'-readwrite');
+            if(!$j(this).is(':checked')){
+                checkbox.prop('disabled',true);
+            }
+            else{
+                checkbox.prop('disabled',false);
+            }
+            if(checkbox.is(':checked')){
+                checkbox.prop('checked',false);
+            }
+        });
+    }
+    
+    function refreshContributorsTable(callback){
+        $j('#contributors-table').find('tr').remove();
+        fetchCurrentContributorsNameList(callback);
+    }
+    
+    /*
+     *  fetchCurrentContributorsNameList
+     *  loads a list of usernames that are current contributors to the selected project
+     */
+    function fetchCurrentContributorsNameList(callback){
+        $j('#contributors-table tr').remove();
+        if(!parent){return;}
+        parent.TASKRAY.trController.getCurrentContributorsList($j('#projectId').val(),function(event,result){
+            if(result.status){
+                //Sort by contributor then by user.Name
+                function sortF(ob1,ob2) {
+                    if (ob1.contributor == true && ob2.contributor==false) {
+                        return 1;
+                    } else if (ob1.contributor == false && ob2.contributor==true) {
+                        return -1;
+                    }
+                
+                    // Else go to the 2nd item
+                    var ob1Name = (typeof(ob1.user) === 'undefined') ? ob1.contribGroup.Name : ob1.user.Name;
+                    var ob2Name = (typeof(ob2.user) === 'undefined') ? ob2.contribGroup.Name : ob2.user.Name;
+
+
+                    if (ob1Name < ob2Name) { 
+                        return -1;
+                    } else if (ob1Name > ob2Name) {
+                        return 1
+                    } else { // nothing to split them
+                        return 0;
+                    }
+                }
+                event.sort(sortF);
+                $j.each(event,function(i,o){
+                    var nameString;
+                    if(typeof(o.user) !== 'undefined'){
+                        nameString = (typeof(o.user) !== 'undefined' && o.user.UserRole != null && o.user.UserRole.Name !=null) ? o.user.Name+" ("+o.user.UserRole.Name+")" : o.user.Name ;
+                    }else{
+                        var labelStr = (o.contribGroup.Type === 'Queue') ? "{!JSENCODE($Label.TaskRay_ProjectModal_QueueStringForContrib)}" : "{!JSENCODE($Label.TaskRay_ProjectModal_GroupStringForContrib)}";
+                        nameString = '<span class="fts" style="float: left; margin-top: 11px; margin-left: 3px;">'+o.contribGroup.Name+'&nbsp;<span class="label label-info">'+labelStr+'</span></span>';
+                    }
+
+                    if(!o.contributor){
+                        $j('#contributors-table').append('<tr class="contributor-row" id="'+o.user.Id+'"><td><img src="'+o.user.SmallPhotoUrl+'" style="height:36px; border-radius: 18px;"/><span style="margin-top: 11px;">&nbsp;'+nameString +'</span></td><td></td></tr>');
+                    } else {
+                        if(o.user != null){
+                            $j('#contributors-table').append('<tr class="contributor-row" id="'+o.user.Id+'"><td><img src="'+o.user.SmallPhotoUrl+'" style="height:36px; border-radius: 18px;"/><span style="margin-top: 11px;">&nbsp;'+nameString+'<span></td><td><img id="'+o.contributorId+'" class="remove-contributor" src="'+remove+'" style="cursor:pointer; width:16px; margin:10px;"/></td></tr>');
+                        }
+                        else if(o.contribGroup.Type === 'Queue'){
+                            
+                            var letters = "";
+                            var letterRegEx = /^[0-9a-zA-Z]+$/; 
+                            var name_array = o.contribGroup.Name.split(" ");
+                            for(var x=0; x<name_array.length; x++){
+                                if(name_array[x][0] != undefined && letters.length < 2 && name_array[x][0].match(letterRegEx)){
+                                    letters += name_array[x][0];
+                                  }
+                            }
+
+                            var contribCircleImg = "<div style='float: left; height: 36px; width: 36px; border-radius: 18px; background-color: #faa732; cursor: pointer;'><div style='width: 36px; margin-top: 11px; text-align: center; color: white; font-size: 20px; float: left'>" + letters + "</div></div>";
+                            var contribLetters = "<div style='width: 36px; text-align: center; color: white; font-size: 15px;'></div>"
+                            $j('#contributors-table').append('<tr class="contributor-row" id="'+o.contribGroup.Id+'"><td>' + contribCircleImg + '&nbsp;'+nameString +'</td><td><img id="'+o.contributorId+'" class="remove-contributor" src="'+remove+'" style="cursor:pointer; width:16px; margin:10px;"/></td></tr>');
+                        } else if(o.contribGroup.Type==='Regular'){
+                            var contribCircleImg = "<div style='float: left; height: 36px; 18px; background-color: white; visibility: hidden; cursor: pointer;'><div style='visibility: hidden; width: 36px; margin-top: 11px; text-align: center; color: white; font-size: 20px; float: left'>" + letters + "</div></div>";
+                            var contribLetters = "<div style='width: 36px; text-align: center; color: white; font-size: 15px;'></div>"
+                            $j('#contributors-table').append('<tr class="contributor-row" id="'+o.contribGroup.Id+'"><td>' + contribCircleImg + '&nbsp;'+nameString +'</td><td><img id="'+o.contributorId+'" class="remove-contributor" src="'+remove+'" style="cursor:pointer; width:16px; margin:10px;"/></td></tr>');
+                        }
+                        
+                    }
+                });
+                addContributorRemoveClickHandler();
+            }
+            if(typeof(callback)=='function'){callback();}
+        });
+    }
+    
+    /* 
+     *  addContributorRemoveClickHandler()
+     *  Removes the contributor row and contributor from the database as necessary
+     */
+    function addContributorRemoveClickHandler(){
+        $j('.remove-contributor').unbind('click');
+       $j('.remove-contributor').on('click',function(e){
+        
+        if($j(this).attr('id') != undefined){
+            var id = $j(this).attr('id');
+            $j(this).parents('tr').remove();
+            parent.TASKRAY.trController.removeContributorFromProject(id,function(e,r){
+                if(r.status){
+                    if(parent){
+                        parent.refreshSidebarUserPhotos();
+                    }
+                }
+            });
+            
+        } else {
+            $j(this).parents('tr').remove();
+        }
+       });
+    }
+    
+    function updateContributorInvites(callback){
+        var ids = [];
+        $j('.unsaved-contributor-row').each(function(i,o){
+            ids.push($j(o).attr('id'));
+        });
+        
+        parent.TASKRAY.trController.addProjectContributors(ids,currentProjectId,function(e,r){
+            if(parent){
+                parent.refreshSidebarUserPhotos();
+            }
+        });
+        
+    
+        callback();
+    }
+
+    if('{!JSENCODE($CurrentPage.parameters.saveandnext)}' == 'true' && '{!JSENCODE($CurrentPage.parameters.tab)}' == 'contributors' ){
+        // parent.advanceToContributorsTab()
+    }
+
+    var getAndProcessBoardDataRan = false;
+    if(( '{!JSENCODE($CurrentPage.parameters.type)}' == 'new' && {!closeDialog} ) || ( '{!JSENCODE($CurrentPage.parameters.type)}' == 'new' && '{!JSENCODE($CurrentPage.parameters.tab)}' == 'contributors' ) || ( '{!JSENCODE($CurrentPage.parameters.saveandnext)}' == 'true' && '{!JSENCODE($CurrentPage.parameters.tab)}' == 'contributors' )){
+        $j.cookie('apex__bltrProjectId', '{!JSENCODE(Project__c.Id)}', {
+            expires : 365,
+            path : '/',
+            secure : true
+        });
+        if(parent.newTaskRayUI){
+            parent.getAndProcessBoardData('{!JSENCODE(Project__c.Id)}');
+            getAndProcessBoardDataRan = true;
+            // parent.initPage(function(){parent.toggleProjectFunnel('{!JSENCODE(Project__c.Id)}', 'onlythis');});
+        } else {
+            parent.forceUpdateFromOutsideReact();
+            // parent.initPage();
+        }
+
+    }
+
+    function showLoadMask(callback) {
+        $j("#canvasloader-container").empty();
+        $j("#modal-backdrop-loadmask").show();
+        $j("#canvasloader-container").show();
+        var cl = new CanvasLoader('canvasloader-container');        
+        cl.setColor('#0099ff');
+        // default is '#000000'
+        cl.setDiameter(84);
+        // default is 40
+        cl.setDensity(75);
+        // default is 40
+        cl.setRange(1);
+        // default is 1.33
+        cl.setFPS(26);
+        // default is 24
+        cl.show();
+        // Hidden by default
+        // This bit is only for positioning - not necessary
+        $j("#canvasLoader").css('margin-top', ($j("#canvasLoader").outerHeight() / 2) * -1);
+        $j("#canvasLoader").css('margin-left', ($j("#canvasLoader").outerWidth() / 2) * -1);
+        $j("#canvasLoader").css('position','fixed');
+        $j("#canvasLoader").css('top',$j(window).height()/2);
+        $j("#canvasLoader").css('left',$j(window).width()/2);
+        /*loaderObj.style.position = "absolute";
+        loaderObj.style["top"] = cl.getDiameter() * -0.5 + "px";
+        loaderObj.style["left"] = cl.getDiameter() * -0.5 + "px";*/
+        
+    }
+
+    function clearLoadMask(callback){
+        $j("#canvasloader-container").empty();
+        $j("#modal-backdrop-loadmask").hide();
+    }
+    
+    function attachInlineEditingForMobile(){
+        var action;
+        $j('.inlineEditWrite,.inlineEditWriteOn').bind('touchend', function(event){
+               var now = new Date().getTime();
+               var lastTouch = $j(this).data('lastTouch') || now + 1;
+               var delta = now - lastTouch;
+               clearTimeout(action);
+               if(delta<500 && delta>0){
+                    $j(this).trigger('dblclick');
+                    // if(window.sfdcPage && window.sfdcPage.hasRun){sfdcPage.dblClickField(event, this);}
+               }else{
+                       $j(this).data('lastTouch', now);
+                       action = setTimeout(function(e){
+                               $j(this).trigger('click');
+                               clearTimeout(action);   // clear the timeout
+                       }, 500, [event]);
+               }
+               $j(this).data('lastTouch', now);
+                return false;
+        });
+    }
+
+    function sortChildProjects(){
+        var projectArr = [];
+        $j.each(childProjectInfo,function(index,childProj){
+            projectArr.push({project:childProj});
+        });
+        var sortedProjectArr=sortSidebar_projects(projectArr);
+
+        var newDOMNodes = [];
+        var onlyShowMasterDates = ({!dependenciesEnabled}) ? true : false;
+        $j.each(sortedProjectArr,function(index,projObj){
+            var existingDOMNode = $j('#clone-modal-child-projects form #'+projObj.project.Id);
+            if(existingDOMNode.length > 0){
+                existingDOMNode.css('margin-left',projObj.hierarchyPadding+'px');
+                var nameNode = existingDOMNode.find('.newCloneName');
+                nameNode.width(nameNode.width()-projObj.hierarchyPadding);
+                if(index>0 && onlyShowMasterDates){
+                    existingDOMNode.find('.clone-modal-child-project-start-date').css('visibility','hidden');
+                    existingDOMNode.find('.clone-modal-child-project-end-date').css('visibility','hidden');
+                }
+                newDOMNodes.push(existingDOMNode[0]);
+            }
+        });
+        $j('#clone-modal-child-projects form').remove('.clone-modal-child-project').append(newDOMNodes);
+    }
+
+    function sortSidebar_projects(projectArr){
+        // console.time('oldsort');
+        var projectIds=[];
+        var sortedMap={};
+        $j.each(projectArr,function(index,project){
+            projectIds.push(project.project.Id);
+            sortedMap[project.project.Id]=project;
+        });
+        //now sort the project arr by the date it starts, then by the name
+        projectArr.sort(function(a,b){
+            if(a.project.Name.toLowerCase() < b.project.Name.toLowerCase()){
+                return -1;
+            }
+            else if(a.project.Name.toLowerCase() > b.project.Name.toLowerCase()){
+                return 1;
+            }
+            return 0;
+            
+        });
+
+        var sortedProjects=[];
+        
+        var indicesToDel=[];
+        //If the project is an orphan, add it to the sorted (will pick up date sorting automatically)
+        $j.each(projectArr,function(index,project){
+            var parentId=project.project['TASKRAY__'+'Project_Parent__c'];
+            //console.log(project.project.Name);
+            if($j.inArray(parentId,projectIds) === -1 || parentId==null){
+                
+                project.hierarchyLevel=0;
+                project.hierarchyPadding = 0;
+                sortedProjects.push(project);
+                indicesToDel.push(index);
+                return true;
+            }
+        });
+        //remove these guys so we don't sort them again
+        $j.each(indicesToDel.reverse(),function(index,indextodel){
+                projectArr.splice(indextodel,1);
+        });
+        indicesToDel=[];
+        var isParentArr=[];
+        //Reverse all of this so they are added in the right sortOrder
+        projectArr=projectArr.reverse();
+        //If the project is not an orphan we need to map it somehow, so we have to run this multiple times to get all 5 layers
+        for(var i=0; i<5; i++){
+            //Loop through the project arr to try to find the parent
+            $j.each(projectArr,function(index,project){
+                blanketObj=sidebarProjectMapper(sortedProjects);
+                sortedMap=blanketObj['returnObj'];
+                sortedArr=blanketObj['returnArr'];
+                var parentId=project.project['TASKRAY__'+'Project_Parent__c'];
+                
+                //If the project has a parent already in the sorted projects, add it after the project
+                if($j.inArray(parentId,sortedArr) !== -1){
+                    project.hierarchyLevel=sortedProjects[sortedMap[parentId]].hierarchyLevel+1;
+                    project.hierarchyPadding = project.hierarchyLevel*15;
+                    isParentArr.push(parentId);
+                    sortedProjects.splice(sortedMap[parentId]+1,0,project);
+                    indicesToDel.push(index);
+                    //This is a kludge for sorting sublayers of projects in an alpha fashion. Maybe we should do the sorting / buildilng in the dom in the future
+                    i--;
+                    return false;
+                    //return true;
+                }
+            });
+            //remove these guys so we don't sort them again
+            $j.each(indicesToDel.reverse(),function(index,indextodel){
+                projectArr.splice(indextodel,1);
+            });
+            indicesToDel=[];
+        }
+
+        //if there is anything remaining in the project arr... we should add them to the end of the sorted array
+        if(projectArr.length > 0 ){
+            //console.log('there is a remainder of projects');
+            $j.each(projectArr,function(index,project){
+                project.hierarchyLevel=0;
+                project.project['TASKRAY__'+'Project_Parent__c']='';
+                sortedProjects.push(project);
+                indicesToDel.push(index);
+            });
+            //remove these guys so we don't sort them again
+            $j.each(indicesToDel.reverse(),function(index,indextodel){
+                projectArr.splice(indextodel,1);
+            });
+        }
+        $j.each(sortedProjects,function(index,project){
+            if($j.inArray(project.project.Id,isParentArr) !== -1){
+                project.hasChildren=true;
+            }
+        });
+        // console.timeEnd('oldsort');
+        return sortedProjects;
+    }
+
+    function sidebarProjectMapper(sortedProjects){
+        var blanketObj={};
+        var returnObj={};
+        var returnArr=[];
+        $j.each(sortedProjects,function(index,project){
+            if(project.project.Id!=null){
+                returnObj[project.project.Id]=index;    
+                returnArr.push(project.project.Id);
+            }
+        });
+        blanketObj['returnObj']=returnObj;
+        blanketObj['returnArr']=returnArr;
+        return blanketObj;
+    }
+
+</script>
+<div id="project-edit-content" style="height: 100%; background-color: #fdfdfd;">
+    <div class="campaignTab" style="height: 100%">
+        
+       <!--  <apex:outputPanel rendered="{!NOT(currentProject.Name == null)}">
+            <apex:sectionHeader title="TaskRay" subtitle="{!currentProject.Name}" />
+        </apex:outputPanel>
+        <apex:pageMessages />
+        <apex:outputPanel rendered="{!(currentProject.Name == null)}">
+            <script type="text/javascript">parent.chatterGroupIds = null;</script>
+            <apex:sectionHeader title="TaskRay" subtitle="New Project" />
+        </apex:outputPanel>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#details" data-toggle="tab">{!HTMLENCODE($Label.TaskRay_TaskModal_DetailTabLabel)}</a></li>
+            <li id="chatter-tab"><a href="#chatter" data-toggle="tab">{!HTMLENCODE($Label.TaskRay_TaskModal_ChatterTabLabel)}</a></li>
+            <li id="contributors-tab"><a href="#contributors" data-toggle="tab">{!HTMLENCODE($Label.TaskRay_ProjectModal_ContribTabLabel)}</a></li>
+            <li id="group-tab"><a href="#groups" data-toggle="tab">{!HTMLENCODE($Label.TaskRay_ProjectModal_GroupsTabLabel)}</a></li>
+            <apex:outputPanel rendered="{!boxExtPackInstalled}" layout="none">
+                <li id="boxintegration-tab"><a href="#boxintegration" data-toggle="tab">Box</a></li>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!gridBuddyExtPackInstalled}" layout="none">
+                <li id="gridbuddy-tab"><a href="#gridbuddy" data-toggle="tab">GridBuddy</a></li>
+            </apex:outputPanel>
+        </ul> -->
+
+        <apex:pageMessages />
+        <apex:outputPanel rendered="{!(currentProject.Name == null)}">
+            <script type="text/javascript">parent.chatterGroupIds = null;</script>
+            <!-- <apex:sectionHeader title="TaskRay" subtitle="New Project" /> -->
+        </apex:outputPanel>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#details" data-toggle="tab"></a></li>
+            <li id="chatter-tab"><a href="#chatter" data-toggle="tab"></a></li>
+            <li id="contributors-tab"><a href="#contributors" data-toggle="tab"></a></li>
+            <li id="group-tab"><a href="#groups" data-toggle="tab"></a></li>
+            <apex:outputPanel rendered="{!boxExtPackInstalled}" layout="none">
+                <li id="boxintegration-tab"><a href="#boxintegration" data-toggle="tab">Box</a></li>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!gridBuddyExtPackInstalled}" layout="none">
+                <li id="gridbuddy-tab"><a href="#gridbuddy" data-toggle="tab">GridBuddy</a></li>
+            </apex:outputPanel>
+        </ul>
+        
+        <div id="myTabContent" class="tab-content" style="height: 100%;">        
+            <div class="tab-pane fade active in" id="details">
+                <div id="topics-container-div">
+                    <topics:widget entity="{!TASKRAY__Project__c.Id}"/>
+                </div>
+                <apex:form >
+                <apex:outputPanel id="newprojectid">
+                    <input type="hidden" id="projectId" value="{!TASKRAY__Project__c.Id}" />
+                    <input type="hidden" id="projectName" value="{!Project__c.Name}" />
+                </apex:outputPanel>
+                    <apex:actionFunction name="archiveProject" action="{!archiveProject}" oncomplete="runArchive();" />
+                    <apex:pageBlock id="projectDetails" mode="edit">
+                        <apex:pageBlockSection columns="2">
+                            <apex:repeat value="{!fieldsetFields}" var="f">
+                                <!-- <apex:outputField value="{!currentProject[f]}" rendered="{!NOT(editMode) || CONTAINS(f.FieldPath,'__r')}" />
+                                <apex:inputField styleClass="fieldSet-{!f}" value="{!currentProject[f]}" required="{!f.required}" rendered="{!editMode && !CONTAINS(f.FieldPath,'__r')}" /> -->
+
+                                <!-- <apex:inputField value="{!currentProject[f]}" rendered="{!editMode || ((f=='OwnerId' && $ObjectType.Project__c.updateable) || ($CurrentPage.parameters.type == 'new' && NOT(CONTAINS(f.FieldPath,'__r')) ))}" styleClass="fieldSet-{!f}" required="{!f.required}"/>
+                                <apex:outputField value="{!currentProject[f]}" rendered="{! NOT(editMode) && ((NOT(CONTAINS(f.FieldPath,'__r')) && f!='OwnerId' && $CurrentPage.parameters.type != 'new') || (NOT($ObjectType.Project__c.updateable) && NOT(CONTAINS(f.FieldPath,'__r')) && $CurrentPage.parameters.type != 'new' ))}" ><apex:inlineEditSupport disabled="{!NOT($ObjectType.Project__c.updateable) || CONTAINS(f,'ProjectColor__c')}"></apex:inlineEditSupport></apex:outputField> -->
+                                <!-- Edit mode -->
+                                <apex:inputField value="{!currentProject[f]}" rendered="{!editMode && ($CurrentPage.parameters.type != 'new') && NOT(CONTAINS(f.FieldPath,'__r'))}" styleClass="fieldSet-{!f}" required="{!f.required}"/>
+                               <apex:outputField value="{!currentProject[f]}" rendered="{!editMode && ($CurrentPage.parameters.type != 'new') && NOT(CONTAINS(f,'TASKRAY__Project_Parent__r')) && CONTAINS(f.FieldPath,'__r')  || NOT($ObjectType.TASKRAY__Project__c.updateable)}"></apex:outputField>
+                               <!-- No edit mode -->
+                               <apex:inputField value="{!currentProject[f]}" rendered="{!NOT(editMode) && (f=='OwnerId' && $ObjectType.TASKRAY__Project__c.updateable) || ($CurrentPage.parameters.type == 'new' && NOT(CONTAINS(f.FieldPath,'__r')))}" styleClass="fieldSet-{!f}" required="{!f.required}"/>
+                               <apex:outputField value="{!currentProject[f]}" html-field-path="{!HTMLENCODE(f.FieldPath)}" rendered="{!NOT(editMode) && (NOT(CONTAINS(f,'TASKRAY__Project_Parent__r')) && f!='OwnerId' && $ObjectType.TASKRAY__Project__c.updateable) && ($CurrentPage.parameters.type != 'new')}"><apex:inlineEditSupport disabled="{!NOT($ObjectType.TASKRAY__Project__c.updateable) || CONTAINS(f,'ProjectColor__c') || CONTAINS(f.FieldPath,'__r')}"></apex:inlineEditSupport></apex:outputField>
+
+                                <!-- <apex:inputField value="{!currentProject[f]}" rendered="{!editMode || (f=='OwnerId' && $ObjectType.Project__c.updateable) || ($CurrentPage.parameters.type == 'new' && NOT(CONTAINS(f.FieldPath,'__r')) )}" styleClass="fieldSet-{!f}" required="{!f.required}"/>
+                               <apex:outputField value="{!currentProject[f]}" rendered="{!(NOT(CONTAINS(f.FieldPath,'__r')) && f!='OwnerId' && $CurrentPage.parameters.type != 'new' && NOT(editMode)) || (NOT($ObjectType.Project__c.updateable) && NOT(CONTAINS(f.FieldPath,'__r')) && $CurrentPage.parameters.type != 'new' && NOT(editMode))}"><apex:inlineEditSupport disabled="{!NOT($ObjectType.Project__c.updateable) || CONTAINS(f,'ProjectColor__c')}"></apex:inlineEditSupport></apex:outputField> -->
+                            </apex:repeat>
+                        </apex:pageBlockSection>
+                        <!-- <apex:pageBlockButtons >  -->
+                        <div class="modal-footer">
+                            <!--<div class="pull-left"><label class="checkbox"><apex:inputCheckbox styleClass="auto-follow-tasks-toggle" value="{!autoFollowingCurrentProject}"/>{!HTMLENCODE($Label.TaskRay_ProjectModal_AutoFollowTasksText)}</label></div>-->
+                            <!-- Added $ObjectType.Project__c.updateable check, Jordan, 2/28/2012-->
+                            
+                            
+                            <apex:commandLink styleClass="button button--neutral hide-on-inline-edit" action="{!changeForm}" value="{!HTMLENCODE($Label.taskray__taskray_infomodal_editlabel)}"  rendered="{!(userEditAccess && $ObjectType.TASKRAY__Project__c.updateable && NOT(editMode))}" onclick="saveContribAndGroup($j('.save-project-contribandgroup').first(),false);showLoadMask(function(){});"/>
+                            
+
+                            <apex:commandLink onClick="$j('body').trigger('click');" styleClass="clone-project-btn button button--neutral hide-on-inline-edit" value="{!HTMLENCODE($Label.taskray__taskray_taskmodal_clonebtnlabel)}" rendered="{!userEditAccess && NOT(currentProject.Name==null) && NOT(editMode)}" reRender="noRefresh"/>
+                            
+                            <apex:commandLink onClick="$j('body').trigger('click');" styleClass="archive-project-btn button button--neutral button--warning hide-on-inline-edit" value="{!HTMLENCODE($Label.taskray__taskray_projectmodal_archivebtntext)}" rendered="{!(userEditAccess && NOT(currentProject.Name == null) && $ObjectType.TASKRAY__Project__c.updateable && NOT(editMode))}" reRender="noRefresh"/>
+                            
+                            <!-- Added $ObjectType.Project__c.deletable check, Jordan, 2/28/2012-->
+                            <apex:commandLink onClick="$j('body').trigger('click');" styleClass="delete-btn button button--neutral button--danger hide-on-inline-edit" value="{!HTMLENCODE($Label.taskray__taskray_infomodal_deletelabel)}" rendered="{!(userAllAccess && NOT(currentProject.Name==null) && $ObjectType.TASKRAY__Project__c.deletable && NOT(editMode) )}" reRender="noRefresh"/>
+                            
+                            
+                            <apex:commandLink onClick="$j('body').trigger('click');" styleClass="inline-edit-toggle-btn button button--neutral" action="{!saveAndDontClose}" value="{!HTMLENCODE($Label.taskray__taskray_infomodal_savelabel)}" rendered="{!$CurrentPage.parameters.type != 'new'}" style=""/>
+                            
+                            <apex:commandLink onClick="$j('body').trigger('click');" styleClass="inline-edit-toggle-btn button button--brand" action="{!saveAndDontClose}" value="{!JSENCODE($Label.taskray__taskray_infomodal_saveandnextlabel)}" rendered="{!(currentProject.Name == null || $CurrentPage.parameters.type == 'new' ) }" style=""/>
+                            
+                            <apex:commandLink styleClass="inline-edit-toggle-btn button {!IF(currentProject.Name == null,'button--neutral','button--brand')}" action="{!saveAndClose}" value="{!JSENCODE($Label.taskray__taskray_infomodal_saveandcloselabel)}" rendered="{!($ObjectType.TASKRAY__Project__c.createable && currentProject.Name == null) || ($ObjectType.TASKRAY__Project__c.updateable && currentProject.Name != null)}" onClick="$j('body').trigger('click');showLoadMask();" style=""/>
+
+                            <!-- cancel buttons -->
+                            <apex:commandLink styleClass="button button--neutral inline-edit-toggle-btn" action="{!cancel}" onclick="parent.closeModal(parent.modalIds.PROJECT_DETAIL_MODAL, '{!JSENCODE(TASKRAY__Project__c.Id)}' ? '{!JSENCODE(TASKRAY__Project__c.Id)}' : null);return false;" value="{!JSENCODE($Label.taskray__taskray_infomodal_cancellabel)}" rendered="{!NOT(editMode) || currentProject.Name==null}" style="" />
+                            <apex:commandLink styleClass="button button--neutral inline-edit-toggle-btn" action="{!cancelEdit}" value="{!JSENCODE($Label.taskray__taskray_infomodal_cancellabel)}" rendered="{!editMode && NOT(currentProject.Name==null)}" style="" />
+                        </div>
+                        <!-- </apex:pageBlockButtons> -->
+                    </apex:pageBlock>
+                </apex:form>
+            </div>
+            <div class="tab-pane fade in" id="chatter">
+            <div
+              style="color: #16325c; font-weight: bold; font-size: 14px; margin-left: 4px; margin-bottom: 12px; font-family: Salesforce Sans Bold;"
+            >
+              {!HTMLENCODE($Label.TaskRay_ProjectModal_Chatter_Feed)}
+            </div>
+                <chatter:feedWithFollowers entityId="{!currentProject.Id}"></chatter:feedWithFollowers>
+            </div>
+            <!-- Contributors in react -->
+            <!-- Start conditional box tab -->
+            <apex:outputPanel rendered="{!boxExtPackInstalled}" layout="none">
+                <div class="tab-pane fade in" id="boxintegration" style="width:100%;height:100%;">
+                    <iframe id="box-iframe" src="{!HTMLENCODE(baseSFURL)}/apex/c__project_box_integration?Id={!TASKRAY__Project__c.Id}" style="border: 0; width: 100%; margin-bottom: 8px;"></iframe>
+                </div>
+            </apex:outputPanel>
+            <!-- End conditional box tab -->
+            <!-- Start conditional grid buddy tab -->
+            <apex:outputPanel rendered="{!gridBuddyExtPackInstalled}" layout="none">
+                <div class="tab-pane fade in" id="gridbuddy" style="width:100%;height:100%;">
+                    <iframe id="gridbuddy-iframe" src="{!HTMLENCODE(baseSFURL)}/apex/{!HTMLENCODE(gridBuddyProjectModalURL)}&id={!TASKRAY__Project__c.Id}" style="border: 0; width: 100%; margin-bottom: 8px;"></iframe>
+                </div>
+            </apex:outputPanel>
+            <!-- End conditional grid buddy tab -->
+        </div>
+        
+            <div id="delete-confirm" class="modal" style="display:none; margin-top:-75px;">
+                <div class="modal-header">{!HTMLENCODE($Label.TaskRay_ProjectModal_DeleteConfirmText)}</div>
+                <div class="modal-body">
+                    {!HTMLENCODE($Label.TaskRay_ProjectModal_DeleteConfirmBody)}
+                    <br /><br />
+                    <label><input type="checkbox" id="delete-sub-projects-checkbox" style="margin-top: 0; margin-right: 4px;" checked="checked"/>{!HTMLENCODE($Label.TaskRay_ProjectModal_DelSubProjCheckboxText)}</label>
+                </div>
+                <div class="modal-footer">
+                    <a id="delete-confirm-btn" href="#" class="button button--neutral button--danger">{!HTMLENCODE($Label.taskray__taskray_infomodal_deletelabel)}</a>
+                    <a onclick="$j('#delete-confirm').modal('hide');" href="#" class="button button--neutral">{!HTMLENCODE($Label.TaskRay_InfoModal_CancelLabel)}</a>
+                </div>
+            </div>
+            <div id="archive-confirm" class="modal" style="display:none; margin-top:-112px;">
+                <div class="modal-header"><strong>{!HTMLENCODE($Label.TaskRay_ProjectModal_ArchiveConfirmText)}</strong></div>
+                <div class="modal-body">
+                    {!HTMLENCODE($Label.TaskRay_ProjectModal_ArchiveBody1)} <strong>{!HTMLENCODE($Label.TaskRay_ProjectModal_ArchiveBody2)}</strong> {!HTMLENCODE($Label.TaskRay_ProjectModal_ArchiveBody3)}<br /><br />
+                    {!HTMLENCODE($Label.TaskRay_ProjectModal_ArchiveBody4)}
+                    <br /><br />
+                    <label><input type="checkbox" id="archive-sub-projects-checkbox" style="margin-top: 0; margin-right: 4px;" checked="checked"/>{!HTMLENCODE($Label.TaskRay_ProjectModal_ArchiveSubProjCheckboxText)}</label>
+                </div>
+                <div class="modal-footer">
+                    <a id="archive-confirm-btn" href="#" class="button button--neutral button--warning">{!HTMLENCODE($Label.taskray__taskray_projectmodal_archivebtntext)}</a>
+                    <a onclick="$j('#archive-confirm').modal('hide');" href="#" class="button button--neutral">{!HTMLENCODE($Label.TaskRay_InfoModal_CancelLabel)}</a>
+                </div>
+            </div>
+            <!-- <div id="clone-confirm" class="modal" style="display:none;">
+                <div class="modal-header"><h4 style="font-size:14px;">Project Clone</h4></div>
+                <div class="modal-body">
+                <div class="alert">
+                    <strong>Warning!</strong> Any Projects/Tasks assigned to inactive users will be assigned to you.
+                </div>
+                Cloning this project will:
+                <ul>
+                    <li>Copy any Chatter Group associations applied to original project</li>
+                    <li>Copy all field values of both the project and related tasks</li>
+                    <li>Copy Contributors (or if security is enabled, the security settings and permissions will be copied)</li>
+                    <li>Set the cloned project to active (cloning an archived project will not create an archived clone)</li>
+                </ul>   
+                New Project Title: <input id="new-project-title" type="text" value="Copy of {!Project__c.Name}" style="width: 98%; font-size: 12px;"/>
+                <apex:form >
+                <table>
+                    <tr class="date-select-container"><td>New Start Date:</td><td><apex:inputField value="{!Project__c.Project_Start__c}" styleClass="newCloneStartDate"/></td></tr>
+                    <tr class="date-select-container"><td>New End Date:</td><td><apex:inputField value="{!Project__c.Project_End__c}" styleClass="newCloneEndDate"/></td></tr>
+                </table>
+                </apex:form>
+                Clone children projects: <input type="checkbox" id="cloneChildren" checked="checked"/><br />
+                <div id="clone-modal-child-projects">
+                    <apex:form >
+                    <apex:repeat value="{!childProjects}" var="childProject">
+                        <div class="clone-modal-child-project-row clone-modal-child-project" id="{!HTMLENCODE(childProject.Id)}">
+                            <div class="clone-modal-child-project-name">
+                                <apex:inputField value="{!childProject.Name}" styleClass="newCloneName"/>
+                            </div>
+                            <div class="clone-modal-child-project-start-date">
+                                <apex:inputField value="{!childProject.TASKRAY__Project_Start__c}" styleClass="newCloneStartDate"/>
+                            </div>
+                            <div class="clone-modal-child-project-end-date">
+                                <apex:inputField value="{!childProject.TASKRAY__Project_End__c}" styleClass="newCloneEndDate"/>
+                            </div>
+                        </div>
+                    </apex:repeat>
+                    </apex:form>
+                </div>
+
+                </div>
+                <div>
+                </div>
+                <div class="modal-footer">
+                    <a id="clone-confirm-btn" href="#" onclick="cloneProject();" class="btn-bs btn-bs-primary" >Clone</a>
+                    <a onclick="$j('#clone-confirm').modal('hide');" href="#" class="btn-bs">Cancel</a>
+                </div>      
+            </div> -->
+            <div id="delete-all-internal-share-modal" class="modal" style="display:none;">
+                <div class="modal-header" style="text-align: center;"><strong>{!HTMLENCODE($Label.TaskRay_ProjectModal_ContribT_AllInternalConfHead)}</strong></div>
+                <div class="modal-body">
+                    {!HTMLENCODE($Label.TaskRay_ProjectModal_ContribTab_DelAllInternalConfBody)}
+                </div>
+                <div class="modal-footer">
+                    <a onclick="$j('#delete-all-internal-share-modal').modal('hide');" href="#" class="button button--neutral">{!HTMLENCODE($Label.TaskRay_InfoModal_CancelLabel)}</a>
+                    <a id="delete-all-internal-share-confirm-btn" href="#" class="button button--brand">{!HTMLENCODE($Label.TaskRay_ProjectModal_ContribT_AllInternalConfGo)}</a>
+                </div>
+            </div>
+            <div id="add-all-internal-share-modal" class="modal" style="display:none;">
+                <div class="modal-header" style="text-align: center;"><strong>{!HTMLENCODE($Label.TaskRay_ProjectModal_ContribT_AllInternalConfHead)}</strong></div>
+                <div class="modal-body">
+                    {!HTMLENCODE($Label.TaskRay_ProjectModal_ContribTab_AddAllInternalConfBody)}
+                </div>
+                <div class="modal-footer">
+                    <a onclick="$j('#add-all-internal-share-modal').modal('hide');" href="#" class="button button--neutral">{!HTMLENCODE($Label.TaskRay_InfoModal_CancelLabel)}</a>
+                    <a id="add-all-internal-share-confirm-btn" href="#" class="button button--brand">{!HTMLENCODE($Label.TaskRay_ProjectModal_ContribT_AllInternalConfGo)}</a>
+                </div>
+            </div>
+    </div>
+
+    <div class="fade in" id="clone-dialog" style="width:100%">
+        <div id="clone-title-div" style="width:100%;border-bottom:1px solid #e5e5e5;">
+            <h3>{!HTMLENCODE($Label.TaskRay_ProjectModal_CloneConfHeader)}</h3>
+        </div>
+        <div class="alert" style="margin-top: 6px;margin-bottom:8px;">
+            <strong>{!HTMLENCODE($Label.TaskRay_ProjectModal_CloneConfWarning1)}</strong> {!HTMLENCODE($Label.TaskRay_ProjectModal_CloneConfWarning2)}
+        </div>
+        {!HTMLENCODE($Label.TaskRay_ProjectModal_EffectHeader)}
+        <ul>
+            <li>{!HTMLENCODE($Label.TaskRay_ProjectModal_EffectBody1)}</li>
+            <li>{!HTMLENCODE($Label.TaskRay_ProjectModal_EffectBody2)}</li>
+            <li>{!HTMLENCODE($Label.TaskRay_ProjectModal_EffectBody3)}</li>
+            <li>{!HTMLENCODE($Label.TaskRay_ProjectModal_EffectBody3half)}</li>
+            <li>{!HTMLENCODE($Label.TaskRay_ProjectModal_EffectBody4)}</li>
+        </ul>   
+        <!-- New Project Title: <input id="new-project-title" type="text" value="Copy of {!Project__c.Name}" style="width: 98%; font-size: 12px;"/>
+        <apex:form >
+        <table>
+            <tr class="date-select-container"><td>New Start Date:</td><td><apex:inputField value="{!Project__c.Project_Start__c}" styleClass="newCloneStartDate"/></td></tr>
+            <tr class="date-select-container"><td>New End Date:</td><td><apex:inputField value="{!Project__c.Project_End__c}" styleClass="newCloneEndDate"/></td></tr>
+        </table>
+        </apex:form> -->
+        <input type="checkbox" id="cloneChildren" checked="checked"/>
+        <span style="margin-left:4px;font-weight:bold;">{!HTMLENCODE($Label.TaskRay_ProjectModal_CloneSubProjHeader)}</span>
+        <br />
+        <div id="clone-task-offset-direction-container">
+            <input type="radio" name="offsetDirection" value="first" checked="checked" />
+            <span style="margin-left:4px;font-weight:bold;">{!HTMLENCODE($Label.TaskRay_ProjectModal_CloneFirstTaskStartDate)}</span>
+            <br />
+            <input type="radio" name="offsetDirection" value="last" />
+            <span style="margin-left:4px;font-weight:bold;">{!HTMLENCODE($Label.TaskRay_ProjectModal_CloneLastTaskEndDate)}</span>
+        </div>
+        <div id="clone-modal-child-projects" style="margin-top: 6px; width: 670px;">
+            <apex:form >
+                <div class="clone-modal-child-project-row clone-modal-child-header" id="clone-header">
+                    <div class="clone-modal-child-project-name">
+                        {!HTMLENCODE($Label.TaskRay_ProjectModal_CloneSubProjNameHeader)}
+                    </div>
+                    <div class="clone-modal-child-project-start-date">
+                        {!HTMLENCODE($Label.TaskRay_ProjectModal_CloneSubProjStartDateHeader)} (<a id="clear-clone-project-start-date" class="pointer">{!HTMLENCODE($Label.TaskRay_ProjectModal_CloneSubProjClearAll)}</a>)
+                    </div>
+                    <div class="clone-modal-child-project-end-date">
+                        {!HTMLENCODE($Label.TaskRay_ProjectModal_CloneSubProjEndDateHeader)} (<a id="clear-clone-project-end-date" class="pointer">{!HTMLENCODE($Label.TaskRay_ProjectModal_CloneSubProjClearAll)}</a>)
+                    </div>
+                </div>
+            <apex:repeat value="{!childProjects}" var="childProject">
+                <div class="clone-modal-child-project-row clone-modal-child-project" id="{!HTMLENCODE(childProject.Id)}">
+                    <div class="clone-modal-child-project-name">
+                        <apex:inputField value="{!childProject.Name}" styleClass="newCloneName"/>
+                    </div>
+                    <div class="clone-modal-child-project-start-date">
+                        <apex:inputField value="{!childProject.TASKRAY__Project_Start__c}" styleClass="newCloneStartDate"/>
+                    </div>
+                    <div class="clone-modal-child-project-end-date">
+                        <apex:inputField value="{!childProject.TASKRAY__Project_End__c}" styleClass="newCloneEndDate"/>
+                    </div>
+                </div>
+            </apex:repeat>
+            </apex:form>
+        </div>
+        <div id="clone-footer-div" style="width:100%;border-top: 1px solid #e5e5e5; padding-top: 6px;">
+            <a class="button button--brand old-clone-btn pull-right">{!HTMLENCODE($Label.taskray__taskray_taskmodal_clonebtnlabel)}</a>
+            <a class="button button--neutral clone-cancel-btn pull-right" style="margin-right: 8px;">{!HTMLENCODE($Label.TaskRay_InfoModal_CancelLabel)}</a>
+        </div>
+    </div>
+
+    <div id="record-type-change" class="modal" style="display:none;">
+        <div class="modal-header">{!HTMLENCODE($Label.TaskRay_ProjectModal_RecordTypeChangeHeader)}</div>
+        <div class="modal-body">
+        <span>{!HTMLENCODE($Label.TaskRay_ProjectModal_RecordTypeChangeWarningText)}</span>
+        <br />
+        <br />
+        <select id="record-type-select">
+            <apex:repeat value="{!availableRecordTypes}" var="rt">
+                <option value="{!HTMLENCODE(rt.id)}">{!HTMLENCODE(rt.label)}</option>
+            </apex:repeat>
+        </select>
+        <br />
+        </div>
+        <div class="modal-footer">
+            <a onclick="$j('#record-type-change').modal('hide');" href="#" class="button button--neutral">{!HTMLENCODE($Label.TaskRay_InfoModal_CancelLabel)}</a>
+            <a id="record-type-change-save-btn" href="#" class="button button--neutral button--warning">{!HTMLENCODE($Label.taskray__taskray_infomodal_savelabel)}</a>
+        </div>
+    </div>
+
+</div>  
+<div id="canvasloader-container" class="wrapper"></div>
+<div id="modal-backdrop-loadmask" class="modal-backdrop in" style="display:none;"></div>
+<script>
+    //This fixes an issue with Visualforce inline help text.
+    //Previously the VF was somehow coming up with a null id for each inputField when it injected the .helpButton (with inline js)
+    //What this is doing is going over each field, finding the dom node it should be on, looking to see if there is a help button
+    //If there is a help button update the id of the help element to match what is injected into the sfdcPage.setHelp handler
+    var i =0;
+    <apex:repeat value="{!fieldsetFields}" var="f">
+        <apex:outputPanel rendered="{!NOT(CONTAINS(f,'__r'))}" layout="none">
+            sfdcPage.setHelp('{!f}','{!JSENCODE($ObjectType.TASKRAY__Project__c.fields[f].inlineHelpText)}');
+            var thElement = $j('.detailList tbody tr:nth-child('+(1+parseInt(Math.floor(i/2)))+') th:nth-child('+(i%2 === 0 ? 1 : 3)+')');
+            var helpElement = thElement.find('.helpButton');
+            helpElement.attr('id','{!f}-_help');
+        </apex:outputPanel>
+        i++;
+    </apex:repeat>
+</script>
+</apex:page>

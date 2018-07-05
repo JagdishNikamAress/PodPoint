@@ -1,0 +1,502 @@
+<apex:page sidebar="false" controller="FSL.SettingsController" showHeader="true" title="Field Service Settings" extensions="FSL.SettingsSharingController,FSL.SettingsSchedulingController,FSL.SettingsLifeCycleController,FSL.SettingsOptimizationController,FSL.PermissionsController,FSL.GanttStreamingChannel" standardStylesheets="false">
+ 
+   <apex:stylesheet value="{!$Resource.FSL__jqueryui_datepicker_styles}" />
+    <script src="/soap/ajax/39.0/connection.js" type="text/javascript"></script> 
+
+   <apex:stylesheet value="{!URLFOR($Resource.FSL__FontAwesome43, 'css/font-awesome.min.css')}" />
+
+   <div id="SettingsBody" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="SettingsApp" ng-controller="settingsCtrl as settings">
+
+        <div id="SettingsMenu">
+
+            <div class="searchBoxContainer">
+                <input type="text" placeholder="Search" ng-model="settings.searchPattern" />
+                <svg aria-hidden="true" class="slds-icon searchIconSettings" ng-hide="settings.searchPattern">
+                     <use xlink:href="{!URLFOR($Resource.LightningDesignSystem, 'assets/icons/utility-sprite/svg/symbols.svg#search')}"></use>
+                 </svg>
+
+                <svg aria-hidden="true" class="slds-icon searchIconSettings" ng-show="settings.searchPattern" ng-click="settings.searchPattern = null">
+                     <use xlink:href="{!URLFOR($Resource.LightningDesignSystem, 'assets/icons/utility-sprite/svg/symbols.svg#close')}"></use>
+                 </svg>
+
+            </div>
+
+            <div class="menuItem"
+                 ng-repeat="item in settings.menu | menuFilter:settings.searchPattern:1 track by $index"
+                 ng-init="item.show = false"
+                 ng-click="settings.switchPage($event, item, $index)">
+
+                    <collapse-box item="item"></collapse-box>
+
+                    <span class="blueHover" ng-class="{'setting-selected' : settings.selectedItem == item}" >
+                        <highlight color="ffe000" search="settings.searchPattern"  content="item.title"></highlight>
+                    </span>
+
+                <!-- 2nd level -->
+                <div>
+                    <div class="subMenuItem blueHover"
+                         ng-repeat="subItem in item.items | menuFilter:settings.searchPattern:2 track by $index"
+                         ng-init="subItem.show = false"
+                         ng-show="item.show"
+                         ng-click="settings.switchPageAndTab($event, item, subItem, $parent.$index, $index)">
+
+                            <collapse-box item="subItem"></collapse-box>
+
+                            <highlight ng-class="{'setting-selected-subitem' : settings.selectedItemTab.name == subItem.tabName}"
+                                       color="ffe000" search="settings.searchPattern"
+                                       content="subItem.title">
+                            </highlight>
+
+                            <!-- 3rd level -->
+                            <div class="subMenuItem subImaSheloMenu blueHover"
+                                 ng-repeat="subSubItem in subItem.items | menuFilter:settings.searchPattern:3 track by $index"
+                                 ng-show="subItem.show"
+                                 ng-click="settings.switchPageAndTab($event, item, subItem, $parent.$parent.$index, $parent.$index, subSubItem.id)">
+                                    <highlight color="ffe000" search="settings.searchPattern" content="subSubItem.title"></highlight>
+                            </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+       <!-- setting page, including tabs -->
+       <div id="SettingsForm">
+
+           <div id="SettingContainer">
+               <form-with-tabs
+                       ng-repeat="form in settings.menu track by $index"
+                       menu-item="form"
+                       ng-show="settings.selectedItem == form"
+                       selected-tab="settings.selectedItemTab">
+               </form-with-tabs>
+           </div>
+
+       </div>
+
+   </div>
+
+
+    <apex:form >
+        <apex:actionFunction action="{!startAuthorization}" name="startAuthorization" />
+    </apex:form>
+
+    <script>
+
+        var settings = {
+
+            onBoardingLink: '{!$Page.FSL__OnboardingWizard}',
+            ganttPic: '{!$Resource.FSL__ganttPic}',
+
+            icons: {
+                down: "{!URLFOR($Resource.FSL__LightningDesignSystem, 'assets/icons/utility-sprite/svg/symbols.svg#down')}",
+                arrowdown: "{!URLFOR($Resource.FSL__LightningDesignSystem, 'assets/icons/utility-sprite/svg/symbols.svg#arrowdown')}",
+                arrowup: "{!URLFOR($Resource.FSL__LightningDesignSystem, 'assets/icons/utility-sprite/svg/symbols.svg#arrowup')}",
+                check: "{!URLFOR($Resource.FSL__LightningDesignSystem, 'assets/icons/utility-sprite/svg/symbols.svg#check')}",
+                delete: "{!URLFOR($Resource.FSL__LightningDesignSystem, 'assets/icons/utility-sprite/svg/symbols.svg#delete')}",
+                up: "{!URLFOR($Resource.FSL__LightningDesignSystem, 'assets/icons/utility-sprite/svg/symbols.svg#up')}",
+                left: "{!URLFOR($Resource.FSL__LightningDesignSystem, 'assets/icons/utility-sprite/svg/symbols.svg#left')}",
+                right: "{!URLFOR($Resource.FSL__LightningDesignSystem, 'assets/icons/utility-sprite/svg/symbols.svg#right')}",
+                remove: "{!URLFOR($Resource.FSL__LightningDesignSystem, 'assets/icons/action-sprite/svg/symbols.svg#remove')}",
+                loading: "{!URLFOR($Resource.FSL__LightningDesignSystem, 'assets/images/spinners/slds_spinner.gif')}",
+                error: "{!URLFOR($Resource.FSL__LightningDesignSystem, 'assets/icons/action-sprite/svg/symbols.svg#error')}"
+            },
+
+            images: {
+                dispatcher: '{!URLFOR($Resource.FSL__dispatcher)}',
+                admin: '{!URLFOR($Resource.FSL__admin)}',
+                resource: '{!URLFOR($Resource.FSL__resource)}',
+                agent: '{!URLFOR($Resource.FSL__agent)}',
+                community: '{!URLFOR($Resource.FSL__community)}',
+                dispatchercommunity: '{!URLFOR($Resource.FSL__dispatchercommunity)}',
+            },
+
+            menu: [
+                {
+                    title: '{!JSENCODE($Label.fsl__gettingstarted)}',
+                    service: 'gettingStartedService',
+                    items: [
+                        {
+                            title: '{!JSENCODE($Label.fsl__gettingstarted)}',
+                            items: [],
+                            tabName: 'GettingStarted_gettingStarted',
+                            directive: 'getting-started-getting-started'
+                        },
+                        {
+                            title: '{!JSENCODE($Label.fsl__permissionsets)}',
+                            items: [],
+                            tabName: 'GettingStarted_permissions',
+                            directive: 'getting-started-permission-sets'
+                        }
+                    ]
+                },
+                {
+                    title: '{!JSENCODE($Label.fsl__serviceappointmentlifecycle)}',
+                    service: 'serviceAppointmentLifeCycleService',
+                    items: [
+                        {
+                            title: '{!JSENCODE($Label.fsl__creation)}',
+                            items: [],
+                            tabName: 'serviceAppointment_creation',
+                            directive: 'life-cycle-creation'
+                        },
+                        {
+                            title: '{!JSENCODE($Label.fsl__statusdefinitions)}',
+                            items: [],
+                            tabName: 'serviceAppointment_definitions',
+                            directive: 'life-cycle-status-definitions'
+                        },
+                        {
+                            title: '{!JSENCODE($Label.fsl__statustransitions)}',
+                            keywords: 'תזוזה, מעבר',
+                            items: [],
+                            tabName: 'serviceAppointment_transition',
+                            directive: 'life-cycle-status-transition'
+                        }
+                    ]
+                },
+
+                {
+                    title: '{!JSENCODE($Label.fsl__globalactions)}',
+                    keywords: 'service appointment, lifecycle',
+                    service: 'globalActionsService',
+                    items: [
+                        {
+                            title: '{!JSENCODE($Label.fsl__derivations)}',
+                            items: [],
+                            tabName: 'globalActions_derivations',
+                            directive: 'global-actions-derivations'
+                        },
+                        {
+                            title: '{!JSENCODE($Label.fsl__appointmentbooking)}',
+                            items: [],
+                            tabName: 'globalActions_booking',
+                            directive: 'global-actions-booking'
+                        },
+                        {
+                            title: '{!JSENCODE($Label.fsl__emergencywizard)}',
+                            items: [],
+                            tabName: 'globalActions_ui',
+                            directive: 'global-actions-emergency'
+                        }
+                    ]
+                },
+
+                {
+                    title: '{!JSENCODE($Label.fsl__scheduling55)}',
+                    service: 'schedulingService',
+                    items: [
+                        {
+                            title: '{!JSENCODE($Label.fsl__generallogika)}',
+                            items: [],
+                            tabName: 'scheduling_logic',
+                            directive: 'scheduling-logic'
+                        },
+                        {
+                            title:  '{!JSENCODE($Label.fsl__schedulingpolicies2)}',
+                            items: [],
+                            tabName: 'scheduling_policies',
+                            directive: 'scheduling-policies'
+                        },
+                        {
+                            title:  '{!JSENCODE($Label.fsl__dynamicgantt)}',
+                            items: [],
+                            tabName: 'scheduling_dynamic_gantt',
+                            directive: 'scheduling-dynamic-gantt'
+                        },
+                        {
+                            title:  '{!JSENCODE($Label.fsl__routing)}',
+                            items: [],
+                            tabName: 'scheduling_routing',
+                            directive: 'scheduling-routing'
+                        }
+                    ]
+                },
+
+                {
+                    title: '{!JSENCODE($Label.fsl__dispatcheronsolei)}',
+                    service: 'dispatcherConsoleUIService',
+                    items: [
+                        {
+                            title: '{!JSENCODE($Label.fsl__ganttconfigurations)}',
+                            items: [
+                                // {
+                                //     title: '{!JSENCODE($Label.fsl__configure21)}',
+                                //     id: '__configure'
+                                // },
+                                // {
+                                //     title: '{!JSENCODE($Label.fsl__monthlyview33)}',
+                                //     id: '__monthly'
+                                // },
+                                // {
+                                //     title: '{!JSENCODE($Label.fsl__resourcecalodner)}',
+                                //     id: '__calendar'
+                                // },
+                                // {
+                                //     title: '{!JSENCODE($Label.fsl__customize552)}',
+                                //     id: '__customize'
+                                // },
+                            ],
+                            tabName: 'scheduling_consoleUi',
+                            directive: 'scheduling-dispatcher-ui'
+                        },
+                        {
+                            title: '{!JSENCODE($Label.fsl__ganttupdates)}',
+                            items: [],
+                            tabName: 'gantt_live_updates',
+                            directive: 'gantt-live-updates'
+                        }
+                    ]
+                },
+
+                {
+                    title: '{!JSENCODE($Label.fsl__optimization6)}',
+                    service: 'optimizationService',
+                    items: [
+                        {
+                            title: '{!JSENCODE($Label.fsl__activation1)}',
+                            items: [],
+                            tabName: 'optimization_activation',
+                            directive: 'optimization-activation'
+                        },
+                        {
+                            title: '{!JSENCODE($Label.fsl__logic22)}',
+                            items: [
+                                {
+                                    title: '{!JSENCODE($Label.fsl__optimization6)}',
+                                    id: '__bgo-opt'
+                                },
+                                {
+                                    title: '{!JSENCODE($Label.fsl__rdoptimize)}',
+                                    id: '__rso-opt'
+                                },
+                            ],
+                            tabName: 'optimization_logic',
+                            directive: 'optimization-logic'
+                        },
+                        {
+                            title: '{!JSENCODE($Label.fsl__scheduled1jobs)}',
+                            items: [],
+                            tabName: 'optimization_jobs',
+                            directive: 'optimization-jobs'
+                        },
+                        {
+                            title: '{!JSENCODE($Label.fsl__advanced1parameters)}',
+                            items: [],
+                            tabName: 'optimization_advanced',
+                            directive: 'optimization-parameters'
+                        },
+                    ]
+                },
+
+                {
+                    title: '{!JSENCODE($Label.fsl__dispatch)}',
+                    keywords: 'service appointment, lifecycle',
+                    service: 'dispatchService',
+                    items: [
+                        {
+                            title: '{!JSENCODE($Label.fsl__drip4feed)}',
+                            items: [],
+                            tabName: 'dispatch_drip',
+                            directive: 'dispatch-drip-feed'
+                        },
+                        {
+                            title: '{!JSENCODE($Label.fsl__automation21)}',
+                            items: [
+                                {
+                                    title: '{!JSENCODE($Label.fsl__dispatchscheduledjobs)}',
+                                    id: '__disschedjobs'
+                                },
+                                {
+                                    title: '{!JSENCODE($Label.fsl__automention245)}',
+                                    id: '__automention'
+                                }
+                            ],
+                            tabName: 'dispatch_auto',
+                            directive: 'dispatch-automation'
+                        },
+                    ]
+                },
+
+                {
+                    title: '{!JSENCODE($Label.fsl__sharing13)}',
+                    keywords: 'service appointment, lifecycle',
+                    service: 'sharingService',
+                    items: [
+                        {
+                            title: '{!JSENCODE($Label.fsl__user3erritories)}',
+                            items: [],
+                            tabName: 'sharing_userTerritories',
+                            directive: 'sharing-user-territories'
+                        },
+                        {
+                            title: '{!JSENCODE($Label.fsl__automation21)}',
+                            items: [
+                                {
+                                    title: '{!JSENCODE($Label.fsl__sharing2triggers)}',
+                                    id: '__sharingtriggers'
+                                },
+                                {
+                                    title: '{!JSENCODE($Label.fsl__tbssj)}',
+                                    id: '__tbssj'
+                                }
+                            ],
+                            tabName: 'sharing_auto',
+                            directive: 'sharing-automation'
+                        },
+                        {
+                            title: '{!JSENCODE($Label.fsl__calendar3sync)}',
+                            items: [],
+                            tabName: 'sharing_sync',
+                            directive: 'sharing-calendar-sync'
+                        },
+                    ]
+                }
+            ]
+        };
+
+        var remoteActions = {
+            sharingLoadData: '{!$RemoteAction.SettingsSharingController.loadData}',
+            saveSettings: '{!$RemoteAction.SettingsController.saveSettings}',
+            restoreDefaultSettings: '{!$RemoteAction.SettingsController.restoreDefaultSettings}',
+            ServiceLifeCycle: {
+                LoadData: '{!$RemoteAction.SettingsLifeCycleController.loadData}',
+            },
+            getAllSettings: '{!$RemoteAction.SettingsController.getAllSettings}',
+            schedulingLoadData: '{!$RemoteAction.SettingsSchedulingController.loadData}',
+
+            runJobNow: '{!$RemoteAction.SettingsController.runJobNow}',
+            getOrgProperties: '{!$RemoteAction.SettingsOptimizationController.getProfileVariables}',
+            createOptUser: '{!$RemoteAction.SettingsOptimizationController.createOptUser}',
+            searchUsers: '{!$RemoteAction.SettingsController.searchUsers}',
+            createAndUpdatePermissionSet: '{!$RemoteAction.PermissionsController.createAndUpdatePermissionSet}',
+            validatePS: '{!$RemoteAction.PermissionsController.validatePS}',
+            registerSLR: '{!$RemoteAction.SettingsController.registerSLR}',
+            WriteToLog: '{!$RemoteAction.PermissionsController.WriteToLog}',
+            AssignAdminToUser:'{!$RemoteAction.PermissionsController.AssignAdminToUser}',
+
+            validatePushTopics: '{!$RemoteAction.GanttStreamingChannel.validatePushTopics}',
+            updatePushTopics: '{!$RemoteAction.GanttStreamingChannel.createPushTopics}',
+            checkObjectSharingStatus: '{!$RemoteAction.GanttStreamingChannel.checkObjectSharingStatus}',
+        };
+
+        var fieldNames = {
+            calendarSync: {
+                fromSFCalendar: '{!$ObjectType.FSL__Synchronize__c.Fields.FSL__From_Salesforce__c.Name}',
+                toSFCalendar: '{!$ObjectType.FSL__Synchronize__c.Fields.FSL__To_Salesforce__c.Name}',
+                outlookCategoryName: '{!$ObjectType.FSL__Synchronize__c.Fields.FSL__Display_Name__c.Name}'
+            },
+            AuthorizationInfo: {
+                Auth_Date__c : '{!$ObjectType.FSL__Authorization_Info__c.fields.FSL__Auth_Date__c.Name}',
+                Auth_Result__c : '{!$ObjectType.FSL__Authorization_Info__c.fields.FSL__Auth_Result__c.Name}',
+                Username__c : '{!$ObjectType.FSL__Authorization_Info__c.fields.FSL__Username__c.Name}'
+            },
+            triggerConf: {
+                Description__c: '{!$ObjectType.FSL__Trigger_Configurations__c.Fields.FSL__Description__c.Name}',
+                Run__c: '{!$ObjectType.FSL__Trigger_Configurations__c.Fields.FSL__Run__c.Name}'
+            },
+            statusTransitions : {
+                From_Status__c : '{!$ObjectType.FSL__Service_Legal_Statuses__c.Fields.FSL__From_Status__c.Name}',
+                To_Status__c : '{!$ObjectType.FSL__Service_Legal_Statuses__c.Fields.FSL__To_Status__c.Name}',
+                Allowed_Profiles__c : '{!$ObjectType.FSL__Service_Legal_Statuses__c.Fields.FSL__Allowed_Profiles__c.Name}',
+                Custom_VF__c:'{!$ObjectType.FSL__Service_Legal_Statuses__c.Fields.FSL__Custom_VF__c.Name}'
+            },
+            SchedulingPolicyName: '{!$ObjectType.FSL__Scheduling_Policy__c.Name}',
+            ObjectMappingObjName: '{!$ObjectType.FSL__ObjectMapping__c.Name}',
+            ServiceTerritory: {
+                System_Jobs__c: '{!$ObjectType.ServiceTerritory.Fields.FSL__System_Jobs__c.Name}'
+            },
+            General_Config__c : {
+                Value__c: '{!$ObjectType.FSL__General_Config__c.Fields.FSL__Value__c.Name}',
+            },
+            Automator_Config__c: {
+                Allow_No_Location__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__Allow_No_Location__c.Name}',
+                Allow_Locations__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__Allow_Locations__c.Name}',
+                Allow_Time_Horizon__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__Allow_Time_Horizon__c.Name}',
+                Allow_Time_Span_Back__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__Allow_Time_Span_Back__c.Name}',
+                Allow_Scheduling_Policy__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__Allow_Scheduling_Policy__c.Name}',
+                Allow_Filter_Field__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__Allow_Filter_Field__c.Name}',
+                One_Location_Mandatory__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__One_Location_Mandatory__c.Name}',
+                Class_Name__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__Class_Name__c.Name}',
+                Cron_Expression__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__Cron_Expression__c.Name}',
+                Date_Range__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__Date_Range__c.Name}',
+                Email_Notification__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__Email_Notification__c.Name}',
+                Enabled__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__Enabled__c.Name}',
+                Filter_Field__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__Filter_Field__c.Name}',
+                Label__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__Label__c.Name}',
+                Max_Objects_Count__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__Max_Objects_Count__c.Name}',
+                No_Location__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__No_Location__c.Name}',
+                Scheduling_Policy_Id__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__Scheduling_Policy_Id__c.Name}',
+                Time_Span_Backward__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__Time_Span_Backward__c.Name}',
+                Time_Span_Forward__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__Time_Span_Forward__c.Name}',
+                Notification_Username__c: '{!$ObjectType.FSL__Automator_Config__c.Fields.FSL__Notification_Username__c.Name}'
+            },
+            Logic_Settings__c: {
+                Pinned_Statuses_SF__c: '{!$ObjectType.FSL__Logic_Settings__c.Fields.FSL__Pinned_Statuses_SF__c.Name}',
+                Use_SLR__c: '{!$ObjectType.FSL__Logic_Settings__c.Fields.FSL__Use_SLR__c.Name}',
+                Show_Register_Btn__c: '{!$ObjectType.FSL__Logic_Settings__c.Fields.FSL__Show_Register_Btn__c.Name}',
+            },
+            OptimizationSettings__c: {
+                Max_Runtime_Single_Service__c: '{!$ObjectType.FSL__OptimizationSettings__c.Fields.FSL__Max_Runtime_Single_Service__c.Name}',
+                Pinned_Statuses__c: '{!$ObjectType.FSL__OptimizationSettings__c.Fields.FSL__Pinned_Statuses__c.Name}',
+            },
+            ObjectMapping__c: {
+                Active__c: '{!$ObjectType.FSL__ObjectMapping__c.fields.FSL__Active__c.Name}',
+                City__c: '{!$ObjectType.FSL__ObjectMapping__c.fields.FSL__City__c.Name}',
+                Country__c: '{!$ObjectType.FSL__ObjectMapping__c.fields.FSL__Country__c.Name}',
+                label__c: '{!$ObjectType.FSL__ObjectMapping__c.fields.FSL__label__c.Name}',
+                Latitude__c: '{!$ObjectType.FSL__ObjectMapping__c.fields.FSL__Latitude__c.Name}',
+                Territory__c: '{!$ObjectType.FSL__ObjectMapping__c.fields.FSL__Territory__c.Name}',
+                Longitude__c: '{!$ObjectType.FSL__ObjectMapping__c.fields.FSL__Longitude__c.Name}',
+                ObjectID__c: '{!$ObjectType.FSL__ObjectMapping__c.fields.FSL__ObjectID__c.Name}',
+                State__c: '{!$ObjectType.FSL__ObjectMapping__c.fields.FSL__State__c.Name}',
+                Street__c: '{!$ObjectType.FSL__ObjectMapping__c.fields.FSL__Street__c.Name}',
+                Zipcode__c: '{!$ObjectType.FSL__ObjectMapping__c.fields.FSL__Zipcode__c.Name}',
+                Early_Start__c: '{!$ObjectType.FSL__ObjectMapping__c.fields.FSL__Early_Start__c.Name}',
+                Due_Date__c: '{!$ObjectType.FSL__ObjectMapping__c.fields.FSL__Due_Date__c.Name}',
+                Default_Type__c: '{!$ObjectType.FSL__ObjectMapping__c.fields.FSL__Default_Type__c.Name}',
+                Scheduling_Policy__c: '{!$ObjectType.FSL__ObjectMapping__c.fields.FSL__Scheduling_Policy__c.Name}'
+            }
+        };
+
+        var authorizationInfo = JSON.parse('{!authorizationInfo}');
+        var sessionId = "{!$Api.Session_ID}";
+        var profile = "{!JSENCODE($Profile.Name)}";
+        var isOptimizationProfileExist = '{!isOptimizationProfileExist}';
+        var orgNameSpace = '{!orgNameSpace}';
+
+        sforce.connection.sessionId = "{!$Api.Session_ID}";
+
+    </script>
+
+    <apex:includeScript value="{!$Resource.FSL__jQuery}" />
+    <apex:includeScript value="{!$Resource.FSL__jqueryui_datepicker_js}" />
+    <apex:includeScript value="{!$Resource.FSL__MomentJS}" />
+    <apex:includeScript value="{!$Resource.FSL__MomentTimezone}" />
+    <apex:includeScript value="{!$Resource.FSL__angular150min}" />
+    <apex:includeScript value="{!$Resource.FSL__settingsBundle}" />
+    <apex:includeScript value="{!$Resource.FSL__bootstrap}" />
+    <apex:includeScript value="{!$Resource.FSL__angularUILatest}" />
+
+    <!-- includes for nomnoml graph -->
+    <apex:includeScript value="{!URLFOR($Resource.FSL__nomnoml_angular, 'libs/zepto.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.FSL__nomnoml_angular, 'libs/underscore.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.FSL__nomnoml_angular, 'libs/underscore.skanaar.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.FSL__nomnoml_angular, 'libs/dagre.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.FSL__nomnoml_angular, 'libs/skanaar.canvas.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.FSL__nomnoml_angular, 'libs/vector.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.FSL__nomnoml_angular, 'libs/nomnoml.jison.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.FSL__nomnoml_angular, 'libs/nomnoml.parser.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.FSL__nomnoml_angular, 'libs/nomnoml.layouter.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.FSL__nomnoml_angular, 'libs/nomnoml.renderer.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.FSL__nomnoml_angular, 'angular-nomnoml.js')}" />
+
+    <apex:stylesheet value="{!URLFOR($Resource.FSL__LightningDesignSystem, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.FSL__salesforceSansFonts, 'css/SalesforceSansFont.css')}" />
+    <apex:stylesheet value="{!$Resource.FSL__settingsStyles}" />
+
+
+</apex:page>

@@ -1,0 +1,23 @@
+New Marketing Qualified Lead:
+
+Conversion Type: {!Lead.Lead_Type__c}
+
+Name: {!Lead.Name}
+Email : {!Lead.Email}
+Phone : {!Lead.Phone}
+Company: {!Lead.Company}
+Postcode: {!Lead.PostalCode}
+
+Industry: {!Lead.Lead_Industry__c}
+Industry (if other): {!Lead.Lead_Industry_Other__c}
+
+Interest Reason: {!Lead.Problem_Trying_to_Solve__c}
+Interest Reason (if other): {!Lead.Problem_Trying_to_Solve_Other__c}
+
+Number of Parking Spaces: {!Lead.Number_of_Parking_Spaces__c}
+
+Comments: {!Lead.Comments__c}
+
+Please click on the link to see the lead : {!Lead.Link}
+
+Thanks,

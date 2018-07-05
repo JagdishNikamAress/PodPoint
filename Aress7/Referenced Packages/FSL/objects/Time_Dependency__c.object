@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Dependency__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dependency</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Same Start</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Start After Finish</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Start After Finish And Same Day</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Root_Service_Appointment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Root Service Appointment</label>
+        <referenceTo>ServiceAppointment</referenceTo>
+        <relationshipLabel>Appointment Dependencies (Root Service Appointment)</relationshipLabel>
+        <relationshipName>Time_Dependencies1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Same_Resource__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Same Resource</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Service_Appointment_1__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Service Appointment 1</label>
+        <referenceTo>ServiceAppointment</referenceTo>
+        <relationshipName>Time_Dependencies</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Service_Appointment_2__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Service Appointment 2</label>
+        <referenceTo>ServiceAppointment</referenceTo>
+        <relationshipName>Time_Dependencies_2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Appointment Dependency</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>AD-{0000}</displayFormat>
+        <label>Appointment Dependency Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Appointment Dependencies</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Dependency_Is_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISPICKVAL(Dependency__c , &apos;&apos;)</errorConditionFormula>
+        <errorDisplayField>Dependency__c</errorDisplayField>
+        <errorMessage>Dependency is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Root_Is_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISBLANK(Root_Service_Appointment__c)</errorConditionFormula>
+        <errorDisplayField>Root_Service_Appointment__c</errorDisplayField>
+        <errorMessage>Root service appointment is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Service_Appointment_2_Is_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISBLANK(Service_Appointment_2__c)</errorConditionFormula>
+        <errorDisplayField>Service_Appointment_2__c</errorDisplayField>
+        <errorMessage>Service appointment 2 is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Service_Appointment_2_Not_Changed</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISCHANGED(Service_Appointment_2__c)</errorConditionFormula>
+        <errorDisplayField>Service_Appointment_2__c</errorDisplayField>
+        <errorMessage>It is not allowed to change any of the service appointments in the relationship</errorMessage>
+    </validationRules>
+</CustomObject>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <decisions>
+        <name>if_Quote_ID_is_not_null</name>
+        <label>if Quote ID is not null</label>
+        <locationX>322</locationX>
+        <locationY>89</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Not_Null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>strQuoteID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Quote_Counter</targetReference>
+            </connector>
+            <label>Not Null</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <name>frCounter</name>
+        <dataType>Number</dataType>
+        <expression>IF
+(
+ ISNULL({!numQuotesEmailCount}),1,{!numQuotesEmailCount} + 1
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>Update Emails Counter in Quote {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Emails Counter in Quote</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Lookup_Quote</name>
+        <label>Lookup Quote</label>
+        <locationX>143</locationX>
+        <locationY>90</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>if_Quote_ID_is_not_null</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>strRelatedToId</elementReference>
+            </value>
+        </filters>
+        <object>Quote</object>
+        <outputAssignments>
+            <assignToReference>strQuoteID</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>numQuotesEmailCount</assignToReference>
+            <field>Number_of_Quotes_Presented__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Quote_Counter</name>
+        <label>Update Quote Counter</label>
+        <locationX>523</locationX>
+        <locationY>88</locationY>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>strQuoteID</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Number_of_Quotes_Presented__c</field>
+            <value>
+                <elementReference>frCounter</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Presented</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Quote</object>
+    </recordUpdates>
+    <startElementReference>Lookup_Quote</startElementReference>
+    <variables>
+        <name>numQuotesEmailCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+    <variables>
+        <name>strQuoteID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>strRelatedToId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

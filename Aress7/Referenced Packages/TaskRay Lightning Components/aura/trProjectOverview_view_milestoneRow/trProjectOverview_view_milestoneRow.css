@@ -1,0 +1,43 @@
+.THIS.milestone-task--container{
+  width: 100%;
+  border-radius:4px;
+  margin-top:6px;
+  margin-left: 100px;
+}
+
+.THIS .milestone-task--diamond{
+  margin-top:-2px;
+  fill:pink;
+}
+
+.THIS .milestone-task--name{
+  margin-left:4px;
+  vertical-align: middle;
+  line-height: 1;
+  font-size: 13px;
+}
+
+.THIS .milestone-task--date{
+  padding-right:2px;
+  vertical-align: middle;
+  font-size: 12px;
+  color: #54698d;
+}
+
+.THIS .milestone-task-date--container{
+  width: 120px;
+  display: inline-block;
+  text-align: right;
+}
+
+.THIS .milestone-task-name--container{
+  width: calc(100% - 220px);
+  display: inline-block;
+}
+
+.THIS .milestone-task-date--container.milestone-task-date--overdue{
+  color: #c23934 !important;
+}
+.THIS .milestone-task-date--container.milestone-task-date--overdue svg{
+  fill: #efd6d7 !important;
+}

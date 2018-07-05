@@ -1,0 +1,50 @@
+<aura:component >
+  <div id="confetti-container">
+    <div class="confetti confetti1" />
+    <div class="confetti confetti2" />
+    <div class="confetti confetti3">
+        <TASKRAY_LTNG:svgIcon svgPath="/taskray.sprite.svg#taskray-check" category="standard" size="small" name="taskray-check" containerClass="slds-icon_container--circle tr-confetti-icon rotating" iconRoot="{!$Resource.TASKRAY_LTNG__trltngresources}" />
+    </div>
+    <div class="confetti confetti4" />
+    <div class="confetti confetti5" />
+    <div class="confetti confetti6" />
+    <div class="confetti confetti7" />
+    <div class="confetti confetti8" />
+    <div class="confetti confetti9">
+      <TASKRAY_LTNG:svgIcon svgPath="/taskray.sprite.svg#taskray-check" category="standard" size="small" name="taskray-check" containerClass="slds-icon_container--circle tr-confetti-icon rotating" iconRoot="{!$Resource.TASKRAY_LTNG__trltngresources}" />
+    </div>
+    <div class="confetti confetti10" />
+    <div class="confetti confetti11">
+      <TASKRAY_LTNG:svgIcon svgPath="/taskray.sprite.svg#taskray-check" category="standard" size="small" name="taskray-check" containerClass="slds-icon_container--circle tr-confetti-icon rotating" iconRoot="{!$Resource.TASKRAY_LTNG__trltngresources}" />
+    </div>
+    <div class="confetti confetti12" />
+    <div class="confetti confetti13" />
+    <div class="confetti confetti14" />
+    <div class="confetti confetti15">
+      <TASKRAY_LTNG:svgIcon svgPath="/taskray.sprite.svg#taskray-check" category="standard" size="small" name="taskray-check" containerClass="slds-icon_container--circle tr-confetti-icon rotating" iconRoot="{!$Resource.TASKRAY_LTNG__trltngresources}" />
+    </div>
+    <div class="confetti confetti16" />
+    <div class="confetti confetti17" />
+    <div class="confetti confetti18" />
+    <div class="confetti confetti19" />
+    <div class="confetti confetti20" />
+    <div class="confetti confetti21" />
+    <div class="confetti confetti22" />
+    <div class="confetti confetti23" />
+    <div class="confetti confetti24" />
+    <div class="confetti confetti25" />
+    <div class="confetti confetti26" />
+    <div class="confetti confetti27" />
+    <div class="confetti confetti28" />
+    <div class="confetti confetti29" />
+    <div class="confetti confetti31" />
+    <div class="confetti confetti32" />
+    <div class="confetti confetti33" />
+    <div class="confetti confetti34" />
+    <div class="confetti confetti35" />
+    <div class="confetti confetti36" />
+    <div class="confetti confetti37" />
+    <div class="confetti confetti38" />
+    <div class="confetti confetti39" />
+  </div>
+</aura:component>

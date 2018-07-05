@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="stylesheet" href="https://use.typekit.net/c/df2ab0/1w;myriad-pro,b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a,ftc:W:n3/d">
+<style type="text/css">
+
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; }
+
+    img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+    table { border-collapse: collapse !important; }
+    body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; }
+    a { color: #8cc63f; text-decoration: none; }
+
+    a[x-apple-data-detectors] {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+    }
+
+    /* MOBILE STYLES */
+    @media screen and (max-width:600px){
+      h1 {
+        font-size: 32px !important;
+        line-height: 32px !important;
+      }
+    }
+
+    body {
+        background-color: white;
+        color: #333333;
+        font-family: 'myriad-pro', Helvetica, sans-serif;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        font-weight: 300;
+    }
+
+    h1 {
+      font-size: 2rem;
+      line-height: 3rem;
+      font-weight: 300;
+    }
+
+    /* ANDROID CENTER FIX */
+    div[style*="margin: 16px 0;"] { margin: 0 !important; }
+</style>
+</head>
+<body style="background-color: #f9f9f9; margin: 0 !important; padding: 0 !important;">
+
+<!-- HIDDEN PREHEADER TEXT -->
+<div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+    Follow up from our call earlier
+</div>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td bgcolor="#FFFFFF" align="center">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+            <tr>
+            <td align="center" valign="top" width="600">
+            <![endif]-->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
+                <tr>
+                    <td width="80%" align="left" valign="top" style="padding: 10px 0px;">
+                        <a href="https://pod-point.com" target="_blank">
+                            <img alt="Logo" src="https://ordering.pod-point.com/img/header_logo_small.png" style="display: block; color: #ffffff; font-size: 18px;" border="0">
+                        </a>
+                    </td>
+                    <td width="10%" align="right">
+                        <a href="https://www.facebook.com/PODPoint" target="_blank">
+                            <img alt="Facebook" src="https://ordering.pod-point.com/img/email/fb.png" style="display: block; width: 57px; max-width: 57px; min-width: 57px; float:right;" width="57" border="0">
+                        </a>
+                    </td>
+                    <td width="10%" align="right" style="padding-right: 10px;">
+                        <a href="https://twitter.com/POD_Point" target="_blank">
+                            <img alt="Twitter" src="https://ordering.pod-point.com/img/email/tw.png" style="display: block; width: 57px; max-width: 57px; min-width: 57px; float:right;" width="57" border="0">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#8CC63F" align="center">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+            <tr>
+            <td align="center" valign="top" width="600">
+            <![endif]-->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
+                <tr>
+                    <td align="center" valign="top" style="padding: 40px 10px 40px 10px;">
+
+                    </td>
+                </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#8CC63F" align="center" style="padding: 0px 10px 0px 10px;">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+            <tr>
+            <td align="center" valign="top" width="600">
+            <![endif]-->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
+                <tr>
+                    <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 0px 20px; border-radius: 15px 15px 0px 0px;">
+                      <h1>Lovely chatting with you!</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#ffffff" align="center" style="padding: 0px 0px 0px 0px;">
+                        <img src="https://ordering.pod-point.com/img/email/home.png" style="display: block; width: 100%; max-width: 100%; min-width: 100px; color: #ffffff;" border="0">
+                    </td>
+                </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+
+    <tr>
+        <td bgcolor="#f9f9f9" align="center" style="padding: 0px 10px 0px 10px;">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+            <tr>
+            <td align="center" valign="top" width="600">
+            <![endif]-->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
+              <tr>
+                <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 0px 30px;" >
+                <p style="margin: 0;">Hi {!Account.FirstName},</p>
+                </td>
+              </tr>
+
+              <tr>
+                <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 0px 30px;" >
+                <p style="margin: 0;">Thanks for getting in touch with the POD Point team and welcome to the world of electric driving! I hope we covered all your questions you had, but we’re always here to help.</p>
+                </td>
+              </tr>
+
+              <tr>
+                <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 20px 30px;" >
+                <p style="margin: 0;">Ready to get charging? Our awesome tool guides you through the whole process of getting your perfect charging point installed at home by one of our expert installers. Just click the button below to get going. </p>
+                </td>
+              </tr>
+
+              <tr>
+                <td bgcolor="#ffffff" align="left">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr>
+                        <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 30px 30px;">
+                          <table border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                              <tr>
+                                <td align="center" style="border-radius: 3px;" bgcolor="#8CC63F">
+                                  <a href="{!Opportunity.Ordering_Tool_Customer_URL__c}" target="_blank" style="font-size: 1.11111rem; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 12px 32px; border-radius: 2px; border: 1px solid #8CC63F; display: inline-block;">Get started!</a>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 20px 30px;" >
+                <p style="margin: 0;">Or download our Open Charge app to see how many charging stations are already installed in your area.</p>
+                </td>
+              </tr>
+
+              <tr>
+                <td bgcolor="#ffffff" align="left">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr>
+                        <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 10px 30px;">
+                          <table border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                              <tr>
+                                <td align="center" style="border-radius: 3px;" bgcolor="#FFFFFF">
+                                  <a href='https://itunes.apple.com/gb/app/pod-point-open-charge-charging/id996063316?mt=8'><img alt="App Store" src="https://ordering.pod-point.com/img/email/app-store.png"></a>
+                                  <a href='https://play.google.com/store/apps/details?id=com.podpoint'><img alt='Get it on Google Play' src='https://ordering.pod-point.com/img/email/play-store.png'/></a>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 10px 30px;" >
+                    <p style="margin: 0;">Kind Regards,</p>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 10px 30px;" >
+                    <p style="margin: 0;">{!Opportunity.OwnerFullName}</p>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 10px 30px;" >
+                    <p style="margin: 0;">020 7247 4114</p>
+                </td>
+              </tr>
+
+
+              <tr>
+                <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 20px 30px;" >
+                  <p style="margin: 0;">Resource Links:<br>
+                    <a href="https://pod-point.com/landing-pages/charging-an-electric-car-at-home" target="_blank">Guide to charging an electric car at home</a><br>
+                    <a href="https://pod-point.com/landing-pages/cost-of-charging-electric-car" target="_blank">Guide to cost of charging an electric<br>
+                    <a href="https://pod-point.com/landing-pages/how-long-does-it-take-to-charge-an-electric-car" target="_blank">Guide to how long it takes to charge an electric car
+                  </p>
+                </td>
+              </tr>
+
+              <tr>
+                <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 15px 15px;"></td>
+              </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+
+    <tr>
+        <td bgcolor="#f9f9f9" align="center" style="padding: 30px 10px 0px 10px;">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+            <tr>
+            <td align="center" valign="top" width="600">
+            <![endif]-->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
+                <tr>
+                  <td bgcolor="#d9edf7" align="center" style="padding: 30px 30px 30px 30px; border-radius: 15px 15px 15px 15px; color: #666666;" mc:edit="support copy">
+                    <h3 style="font-size: 1.11111rem; font-weight: 300; margin: 0;">Need some help?</h3>
+                    <p style="margin: 0;"><a href="https://pod-point.com/support" target="_blank" style="color: #666666; text-decoration: underline;">We&rsquo;re here, if you need to talk</a></p>
+                  </td>
+                </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+
+    <tr>
+        <td bgcolor="#f9f9f9" align="center" style="padding: 0px 10px 0px 10px;">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+            <tr>
+            <td align="center" valign="top" width="600">
+            <![endif]-->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
+              <tr>
+                <td bgcolor="#f9f9f9" align="center" style="padding: 25px 30px 10px 30px; font-size: 12px;" >
+
+                </td>
+              </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

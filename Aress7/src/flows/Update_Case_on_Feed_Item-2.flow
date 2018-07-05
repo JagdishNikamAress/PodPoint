@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <decisions>
+        <name>Case_Found</name>
+        <label>Case Found</label>
+        <locationX>235</locationX>
+        <locationY>90</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>strCaseID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Lookup_Record</targetReference>
+            </connector>
+            <label>Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Selected_Record_Type</name>
+        <label>Selected Record Type</label>
+        <locationX>599</locationX>
+        <locationY>87</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Matching_Record_Type</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>strRecordTypeName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Homecharge Case</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>strRecordTypeName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Domestic Survey Case</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>strRecordTypeName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Support Case</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>strRecordTypeName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Maintenance Case</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>strRecordTypeName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Norway Support Case</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Case</targetReference>
+            </connector>
+            <label>Matching Record Type</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Update Case on Feed Item {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Case on Feed Item</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Lookup_Case</name>
+        <label>Lookup Case</label>
+        <locationX>67</locationX>
+        <locationY>88</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Case_Found</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>strParentID</elementReference>
+            </value>
+        </filters>
+        <object>Case</object>
+        <outputAssignments>
+            <assignToReference>strCaseID</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>strRecordTypeID</assignToReference>
+            <field>RecordTypeId</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Lookup_Record</name>
+        <label>Lookup Record</label>
+        <locationX>411</locationX>
+        <locationY>90</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Selected_Record_Type</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>strRecordTypeID</elementReference>
+            </value>
+        </filters>
+        <object>RecordType</object>
+        <outputAssignments>
+            <assignToReference>strRecordTypeName</assignToReference>
+            <field>Name</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Case</name>
+        <label>Update Case</label>
+        <locationX>608</locationX>
+        <locationY>216</locationY>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>strCaseID</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Open</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <startElementReference>Lookup_Case</startElementReference>
+    <variables>
+        <name>strCaseID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>strParentID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>strRecordTypeID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>strRecordTypeName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,144 @@
+.THIS {
+  padding:8px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.THIS .status-square--container{
+  float: left;
+  width:12px;
+  height:12px;
+  margin-top:3px;
+  margin-left: 10px;
+  border-radius: 3px;
+}
+
+.THIS .snapshot-top-container {
+	width: 100%;
+	margin-top: 5px;
+}
+
+.THIS .snapshot-circle-container {
+	float: left;
+}
+
+.THIS .snapshot-circle {
+	float: right; 
+	margin-right: 5px;
+}
+
+.THIS .task-snapshot--graph {
+  margin-top:4px;
+}
+
+.THIS .snapshot-stat-list {
+	float: left;
+	margin-left: 10px;
+	margin-top: 3px;
+}
+
+.THIS .snapshot-stat-list-container {
+	float: left;
+	width: 55%;
+}
+
+.THIS .snapshot-stat-list-item {
+	float: left;
+	margin-left: 3px;
+	max-width: 130px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.THIS .taskSnapshotBucketCount {
+	float: left;
+	margin-left: 5px;
+}
+
+.THIS .taskSnapshotBucketName {
+	float: left;
+	margin-left: 2px;
+}
+
+.THIS .slds-task-snapshot-bottom-row-text {
+	float: left; 
+	margin-top: 3px; 
+	margin-left: 2px;
+}
+
+.THIS .slds-task-snapshot-bottom-row-icon {
+	float: left;
+}
+
+.THIS .slds-task-snapshot-right-stat-list {
+	float: left; 
+	margin-top: 18px; 
+	margin-left: 2%; 
+	height: 100%;
+}
+
+.THIS .info-container--row{
+  display: flex;
+}
+
+.THIS .overview-container--bottom {
+	margin-top: 15px;
+	width: 100%;
+}
+
+.THIS .info-container-complete--icon{
+  fill: #5bb265;
+  margin-top: -4px;
+  margin-right: 8px;
+}
+
+.THIS .slds-icon-schedule-conflict{
+  fill: #c23934;
+  margin-top: -4px;
+  margin-right: 8px;
+}
+
+.THIS .slds-icon-warning-task-snapshot{
+  fill: orange;
+  margin-top: -4px;
+  margin-right: 8px;
+}
+
+.THIS .slds-icon-clock-task-snapshot{
+  fill: red;
+  margin-top: -4px;
+  margin-right: 8px;
+}
+
+
+.THIS .taskSnapshotColorSquare {
+	float: left; 
+	margin-top: 4px;
+}
+
+.THIS .slds-clear-float {
+	clear: both;
+}
+
+.THIS .info-container--time{
+  display: flex;
+  width: 100%;
+  align-content: space-between;
+  justify-content: space-between;
+  margin: 6px 12px;
+  padding-top: 6px;
+  border-top: 1px solid #d8dde6;
+}
+
+.THIS .slds-icon-warning-estimated-time{
+  fill: #9faab5;
+  margin-top: -4px;
+  margin-right: 8px;
+}
+
+.THIS .slds-icon-warning-actual-time{
+  fill: #35495e;
+  margin-top: -4px;
+  margin-right: 8px;
+}

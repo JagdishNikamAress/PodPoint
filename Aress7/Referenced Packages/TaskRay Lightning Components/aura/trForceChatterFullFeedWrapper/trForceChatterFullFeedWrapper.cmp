@@ -1,0 +1,11 @@
+<aura:component controller="TASKRAY_LTNG.trComponentCtrl">
+      <aura:attribute name="taskObj" type="Object" required="true"/>
+      <aura:attribute name="showNewFeed" type="Boolean" access="private" default="false"/>
+      <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+      <div class="tr-chatter-feed-wrapper" aura:id="tr-chatter-feed-wrapper-{!v.taskObj.Id}">
+        <button class="slds-button" onclick="{!c.navigateToTask}">
+          <div class="taskName" id="{!v.taskObj.Id}">{!v.taskObj.Name}</div>
+        </button>
+        <forceChatter:feed type="RECORD" feedDesign="DEFAULT" subjectId="{!v.taskObj.Id}" />
+      </div>
+</aura:component>

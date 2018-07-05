@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This will notify the install manager by putting a chatter notification once a new case of type survey is created.</description>
+    <label>Notification on new Survey Creation</label>
+    <processType>Workflow</processType>
+</Flow>

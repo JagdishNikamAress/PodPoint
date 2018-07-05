@@ -1,0 +1,20 @@
+Hi {!Contact.FirstName},
+
+I would like to schedule in the site survey requested by PSA for {!Case.Opportunity_Name__c}.  This visit will allow us to provide a quote on the installation of our electric vehicle charge points.
+
+Our first available slot is {!Case.Scheduled_On__c}. Please let me know if this is a good time and I will book it in. 
+
+Could you also confirm if the site contact on the day will be yourself, {!BLANKVALUE(Contact.Phone, Contact.MobilePhone)} and review the following address:
+
+{!Case.Street__c}
+{!Case.City__c}
+{!Case.PostalCode__c}
+
+Your engineer will be {!Case.Installer__c}, he will arrive as close as possible to the agreed time slot but please allow for up to an hour of fluctuation around the arrival time.
+
+He will need access to the relevant distribution board and plant room, any area affected by the installation of the charge-point supply cable and the desired charge-point location. 
+
+If you have any questions please email or call me on the below number.
+
+
+Kind regards,

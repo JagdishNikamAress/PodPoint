@@ -1,0 +1,102 @@
+<aura:component >
+  <aura:attribute name="taskStatusCountsWithColor" type="Array" />
+  <aura:attribute name="progressArray" type="Array" />
+  <aura:attribute name="blockedCount" type="Integer" default="0"/>
+  <aura:attribute name="overdueCount" type="Integer" default="0"/>
+  <aura:attribute name="scheduleConflictCount" type="Integer" default="0"/>
+  <aura:attribute name="projectCompletionPercentage" type="String" default="0"/>
+  <aura:attribute name="timeEnabled" type="Boolean" default="0"/>
+  <aura:attribute name="projectEstimatedTime" type="Double" default="0"/>
+  <aura:attribute name="projectActualTime" type="Double" default="0"/>
+  <aura:attribute name="projectName" type="String"/>
+
+  <div class="overview-container">
+    <div class="snapshot-container">
+      <div class="slds-text-heading--label">{!$Label.taskray_ltng.trMyProjectsComponent_TaskOverview}</div>
+      <div class="snapshot-top-container">
+        <div class="snapshot-circle-container">
+          <div class="snapshot-circle">
+            <TASKRAY_LTNG:trMultipleArcProgressCircle_view progressArray="{!v.progressArray}" mountedInProjectRow="true"/>
+          </div>
+        </div>
+        <div class="snapshot-stat-list-container">
+          <div class="snapshot-stat-list">
+            <aura:iteration items="{!v.taskStatusCountsWithColor}" var="statusObj" indexVar="index">
+              <aura:if isTrue="{!statusObj.label != 'blocked' &amp;&amp; statusObj.label != 'overdue' &amp;&amp;  statusObj.label != 'scheduleConflict'}">
+                  <div class="snapshot-stat-list-item-container">
+                    <div class="status-square--container" style="{!'background-color:'+statusObj.color+';'}" />
+                    <div class="snapshot-stat-list-item">{!statusObj.count+' '+statusObj.label}</div>
+                    <div class="slds-clearfix"></div>
+                  </div>
+              </aura:if>
+            </aura:iteration> 
+          </div>
+        </div>
+        <div class="slds-clearfix" />
+      </div>
+    </div>
+    <div class="info-container">
+      <div class="slds-text-heading--label">{!$Label.taskray_ltng.trMyProjectsComponent_TaskOverview_info}
+      </div>
+        <div class="info-container--row">
+          <div class="info-container--icon">
+            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#success" category="utility" size="x-small" name="left" class="slds-button__icon info-container-complete--icon" isButton="false" />
+          </div>
+          <div class="info-container--label">
+            {!v.projectCompletionPercentage}% {!$Label.taskray_ltng.trTaskSnapshot_complete}
+          </div>
+        </div>
+        <aura:if isTrue="{!v.overdueCount > 0}">
+          <div class="info-container--row">
+            <div class="info-container--icon">
+              <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#clock" category="utility" size="x-small" name="left" class="slds-button__icon slds-icon-clock-task-snapshot" isButton="false" />
+            </div>
+            <div class="info-container--label">
+              {!v.overdueCount+' '+$Label.taskray_ltng.trTaskSnapshot_overdue}
+            </div>
+          </div>
+        </aura:if>
+        <aura:if isTrue="{!v.scheduleConflictCount > 0}">
+          <div class="info-container--row">
+            <div class="info-container--icon">
+              <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#link" category="utility" size="x-small" name="left" class="slds-button__icon slds-icon-schedule-conflict" isButton="false" />
+            </div>
+            <div class="info-container--label">
+              {!v.scheduleConflictCount+' '+$Label.taskray_ltng.trTaskSnapshot_scheduleConflict}
+            </div>
+          </div>
+        </aura:if>
+        <aura:if isTrue="{!v.blockedCount > 0}">
+          <div class="info-container--row">
+            <div class="info-container--icon">
+              <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#warning" category="utility" size="x-small" name="left" class="slds-button__icon slds-icon-warning-task-snapshot" isButton="false" />
+            </div>
+            <div class="info-container--label">
+              {!v.blockedCount+' '+$Label.taskray_ltng.trTaskSnapshot_blocked}
+            </div>
+          </div>
+        </aura:if>
+    </div>
+    <div class="slds-clearfix" />
+    <aura:if isTrue="{!v.timeEnabled}">
+      <div class="info-container--time">
+        <div class="info-container--row">
+          <div class="info-container--icon">
+            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#clock" category="utility" size="x-small" name="left" class="slds-button__icon slds-icon-warning-estimated-time" isButton="false" />
+          </div>
+          <div class="info-container--label">
+            {!$Label.taskray_ltng.trSnapshot_Estimated_Hours_prefix}{! ' '}{!v.projectEstimatedTime ? v.projectEstimatedTime : '-'}{! ' '}{!$Label.taskray_ltng.trSnapshot_Estimated_Hours_suffix}
+          </div>
+        </div>
+        <div class="info-container--row">
+          <div class="info-container--icon">
+            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#clock" category="utility" size="x-small" name="left" class="slds-button__icon slds-icon-warning-actual-time" isButton="false" />
+          </div>
+          <div class="info-container--label">
+            {!$Label.taskray_ltng.trSnapshot_Actual_Hours_prefix}{! ' '}{!v.projectActualTime ? v.projectActualTime : '-'}{! ' '}{!$Label.taskray_ltng.trSnapshot_Actual_Hours_suffix}
+          </div>
+        </div>
+      </div>
+    </aura:if>
+  </div>
+</aura:component>

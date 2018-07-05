@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Website Support Form - Notification Email</name>
+    <style>none</style>
+    <subject>Thank you, we&apos;ll be in touch shortly</subject>
+    <textOnly>Follow up from our call earlier
+
+We&apos;ll be in touch shortly!
+
+Hi there,
+
+Thanks for getting in touch, we&apos;ve received your enquiry and will get in touch with you as soon as we can.
+
+Kind Regards,
+
+POD Point Team
+
+020 7247 4114</textOnly>
+    <type>custom</type>
+</EmailTemplate>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <description>Email to send when you can&apos;t reach a customer (3rd time)</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Contact Attempted 3 (old)</name>
+    <style>none</style>
+    <subject>Electric car charging - what’s all the fuss about?</subject>
+    <textOnly>We tried to contact you
+
+Anything we can help you with?
+
+Hi {!Account.Name},
+
+I tried to give you a ring today, as I was wondering if you’re still interested in charging your electric car at home. If you need some advice or you’re unsure about anything at all, just reply to this email or give me call on the number below and I’ll answer any questions you may have.
+
+Ready to get charging? Click below to order your ideal home charging point now.
+
+{!Opportunity.Ordering_Tool_Customer_URL__c}
+
+Talk soon,
+
+{!Opportunity.OwnerFullName}
+020 7247 4114</textOnly>
+    <type>custom</type>
+</EmailTemplate>

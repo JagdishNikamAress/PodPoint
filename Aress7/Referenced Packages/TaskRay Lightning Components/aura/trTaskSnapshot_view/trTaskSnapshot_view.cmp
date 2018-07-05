@@ -1,0 +1,16 @@
+<aura:component >
+  <aura:attribute name="taskStatusCountsWithColor" type="Array" />
+  <aura:attribute name="progressArray" type="Array" />
+  <aura:attribute name="blockedCount" type="Integer" default="0"/>
+  <aura:attribute name="overdueCount" type="Integer" default="0"/>
+  <aura:attribute name="scheduleConflictCount" type="Integer" default="0"/>
+  <aura:attribute name="projectCompletionPercentage" type="String" default="0"/>
+  <aura:attribute name="timeEnabled" type="Boolean" default="0"/>
+  <aura:attribute name="projectEstimatedTime" type="Double" default="0"/>
+  <aura:attribute name="projectActualTime" type="Double" default="0"/>
+  <aura:attribute name="projectName" type="String"/>
+  <!-- Deprecated do not use -->
+  <div class="overview-container">
+    
+  </div>
+</aura:component>

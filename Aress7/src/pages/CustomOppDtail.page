@@ -1,0 +1,281 @@
+<apex:page standardController="Opportunity" extensions="OppExtensionController">
+    <script src="/soap/ajax/35.0/connection.js" type="text/javascript"></script>
+    <script src="/soap/ajax/35.0/apex.js" type="text/javascript"></script>
+    <script src="/support/console/22.0/integration.js" type="text/javascript"></script>
+    <script src="/js/functions.js" type="text/javascript"></script>
+    <script src="/resource/ChargentBase__jQuery/jquery-ui/js/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="/resource/ChargentBase__jQuery/jquery-ui/js/jquery-ui-1.10.3.custom.js" type="text/javascript"></script>
+    <script src="/resource/ChargentBase__jQuery/jquery-ui/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+
+   <!-- <script type="text/javascript">
+        function openEmail(){
+            sforce.connection.sessionId = "{!$Api.Session_ID}";
+            var oppId = "{!Opportunity.Id}";
+            var queryString = "Select Id,ContactId From OpportunityContactRole Where IsPrimary = True AND OpportunityId ='"+oppId+"'";
+            result = sforce.connection.query(queryString);
+            records = result.getArray("records");
+            var rec = records[0];<script src="/support/console/22.0/integration.js" type="text/javascript"></script>
+        }
+    </script> -->
+    
+    <script type="text/javascript">
+        function createPaymentDialog() {
+        sd = new SimpleDialog("PaymentDialog", true); 
+        sd.setWidth(455);
+        sd.setTitle('<a title="Close" tabindex="0" onclick="window.parent.sd.cancel(); parent.location.reload();" href="javascript:void(0)" class="dialogClose">Close</a><h2 id="title">Send Payment Request</h2>');
+        sd.createDialog();  
+        window.parent.sd = sd;
+        var iframe_url;
+        if (sforce.console != undefined) {
+        if (sforce.console.isInConsole()) {
+        iframe_url = '{!URLFOR("/apex/ChargentBase__PaymentRequestModal", null, [objId=Opportunity.Id])}'; 
+        } else {
+        iframe_url = '{!URLFOR("/apex/ChargentBase__PaymentRequestModal")}' + '?objId=' + '{!Opportunity.Id}';
+        }
+        } else {
+        iframe_url = '{!URLFOR("/apex/ChargentBase__PaymentRequestModal")}' + '?objId=' + '{!Opportunity.Id}';
+        }
+        
+        sd.setContentInnerHTML('<iframe id="iframeContentId" src="' + iframe_url + '" frameborder="0" height="260" width="410" marginheight="0" marginwidth="0" align="center" scrolling="no" style="overflow-y: hidden !important; overflow-x: hidden !important;" />');
+        }
+        
+        function setElements() {
+        try{
+        document.getElementById("PaymentDialogContent").style.padding = "20px";
+        document.getElementById("PaymentDialogContent").style.overflowY = "hidden";
+        document.getElementById("PaymentDialogContent").style.overflowX = "hidden";
+        document.getElementsByClassName("middle")[0].style.background = '#aaa';
+        document.getElementsByClassName("middle")[1].style.background = '#aaa';
+        document.getElementsByClassName("middle")[1].style.borderBottomRightRadius= '10px';
+        document.getElementsByClassName("middle")[1].style.borderBottomLeftRadius= '10px';
+        document.getElementsByClassName("bottomRight")[1].style.display = 'none';
+        document.getElementById('PaymentDialog').style.overflow = "auto";
+        } catch(e) {}
+        }
+        
+        function showPaymentDialog(){   
+        if (window.parent.sd == undefined) {
+        createPaymentDialog();
+        sd.show();  
+        } else {
+        window.parent.sd.show();
+        }   
+        
+        setElements();
+        } 
+        
+        //showPaymentDialog();
+    </script>
+
+    <apex:sectionHeader title="Opportunity" subtitle="{!Opportunity.Name}"/>
+<apex:pageMessages id="showmsg"></apex:pageMessages>
+<apex:form >
+    <apex:pageblock title="Opportunity Detail">
+        <apex:pageblockButtons >
+            <apex:commandButton action="{!Edit}" value="Edit" id="editButton"/>
+            <!--<apex:commandButton rerender="none" onclick="window.open('/{!Opportunity.Id}/e?clone=1&retURL={!Opportunity.Id}','_parent')" value="Clone" id="cloneButton" rendered="{!IF(Opportunity.Recordtype.Name == 'Commercial',True,False)}"/>-->
+            <apex:commandButton action="{!Delete}" value="Delete" id="deleteButton" rendered="{!if($Profile.Name =='System Administrator',True,False)}"/>
+            <apex:commandButton action="{!save}" id="saveButton" value="Save" style="display: none;"/>
+            <apex:commandButton onclick="resetInlineEdit()" id="cancelButton" value="Cancel" style="display: none;"/>
+            <apex:commandButton rerender="none" onclick="window.open('/flow/Change_Opp_Stage_to_Closed_or_Invoiced?strOppId={!Opportunity.Id}', '_blank', 'toolbar=0,location=0,menubar=0,width=800,height=500,top=300,left=600');" id="Change_Status" value="Update Status"/> 
+            <apex:commandButton rerender="none" onclick="window.open('/flow/Clone_Commercial_Opportinity?strOpportunityID={!Opportunity.Id}', '_blank', 'toolbar=0,location=0,menubar=0,width=800,height=500,top=300,left=600');" id="Clone_Opp" value="Clone with Products"/> 
+            
+            <!--<apex:commandButton onclick="window.open('/apex/SendCustomerData?id={!Opportunity.Id}', '_blank', 'toolbar=0,location=0,menubar=0,width=800,height=500,top=300,left=600');" id="Survey_Request" value="Request Survey (FA)" rendered="{!IF(OR(Opportunity.Recordtype.Name == 'Commercial',Opportunity.Recordtype.Name == 'Bid'),True,False)}"/>-->
+            <apex:commandButton onclick="window.open('/apex/SendCommCaseData?id={!Opportunity.Id}', '_blank', 'toolbar=0,location=0,menubar=0,width=800,height=500,top=300,left=600');" id="Request_Survey_FSL" value="Request Survey (FSL)" rendered="{!IF(OR(Opportunity.Recordtype.Name == 'Commercial',Opportunity.Recordtype.Name == 'Bid'),True,False)}"/>
+            <!--<apex:commandButton onclick="openEmail()" id="SendEmail" value="Send Email (Primary)"/>-->
+            <apex:commandButton onclick="showPaymentDialog(); return false;" id="SendPayRequest" value="Send Pay Request" rendered="{!IF(Opportunity.Recordtype.Name == 'Online Payment',False,False)}"/>
+            
+        </apex:pageblockButtons>
+        <apex:outputPanel rendered="{!IF(OR(Opportunity.Recordtype.Name == 'Commercial', Opportunity.Recordtype.Name == 'Bid'),True,False)}">
+            <apex:pageblockSection collapsible="false">
+                <apex:outputField value="{!Opportunity.Name}">
+                    <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="editButton,deleteButton,Change_Status,Survey_Request"/>
+                </apex:outputField>
+                <apex:outputField value="{!Opportunity.ownerid}"/>
+                <apex:outputField value="{!Opportunity.Accountid}">
+                    <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="editButton,deleteButton,Change_Status,Survey_Request"/>
+                </apex:outputField>
+                 <apex:outputField value="{!Opportunity.Opportunity_Owned_Temporarily__c}">
+                 <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="editButton,deleteButton,Change_Status,Survey_Request"/>
+                </apex:outputField>
+                <apex:outputField value="{!Opportunity.closedate}">
+                    <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="editButton,deleteButton,Change_Status,Survey_Request"/>
+                </apex:outputField>
+                <apex:outputField value="{!Opportunity.StageName}">
+                </apex:outputField>
+                <apex:outputField value="{!Opportunity.Probability}"/>
+                <apex:outputField value="{!Opportunity.amount}"/>
+                
+                <apex:outputField value="{!Opportunity.Sockets__c}">
+                    <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="editButton,deleteButton,Change_Status,Survey_Request"/>
+                </apex:outputField>
+                <!--  <apex:outputField value="{!Opportunity.Phase__c}">
+<apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="editButton,deleteButton"/>
+</apex:outputField> -->
+                <apex:outputField value="{!Opportunity.recordtypeid}"/>
+                <apex:pageBlockSectionItem />
+                <apex:outputField value="{!Opportunity.Ready_to_Invoice__c}">
+                    
+                </apex:outputField>
+                <apex:outputField value="{!Opportunity.Equipment_Cost__c}"/>
+                <apex:pageBlockSectionItem />
+                <apex:outputField value="{!Opportunity.Workplace_Grant__c}">
+                    <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="editButton,deleteButton,Change_Status,Survey_Request"/>
+                </apex:outputField>
+                <apex:pageBlockSectionItem />
+                <apex:outputField value="{!Opportunity.Reason_for_Closing_picklist__c}"></apex:outputField>
+                <apex:outputField value="{!Opportunity.Lost_to_Competitor__c}"></apex:outputField>
+               
+                <apex:outputField value="{!Opportunity.Phase__c}" rendered="{!IF(Opportunity.Recordtype.Name == 'Bid',True,False)}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Address Details">
+                <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="editButton,deleteButton,Change_Status,Survey_Request"/>
+                <apex:outputField value="{!Opportunity.Billing_Street__c}"/>
+                <apex:outputField value="{!Opportunity.Shipping_Street__c}"/>
+                <apex:outputField value="{!Opportunity.Billing_City__c}"/>
+                <apex:outputField value="{!Opportunity.Shipping_City__c}"/>
+                <apex:outputField value="{!Opportunity.Billing_Country_Picklist__c}"/>
+                <apex:outputField value="{!Opportunity.Shipping_Country_Picklist__c}"/>
+                <apex:outputField value="{!Opportunity.Billing_Postal_Code__c}"/>
+                <apex:outputField value="{!Opportunity.Shipping_Postal_Code__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageBlockSection title="Survey Details">
+                <!--<apex:outputField value="{!Opportunity.Status_Survey__c}"/>-->
+                <apex:outputField value="{!Opportunity.Survey_Status__c}"/>
+                <!--<apex:outputField value="{!Opportunity.Created_Date__c}"/>-->
+                <!--<apex:outputField value="{!Opportunity.Case_Number__c}"/>-->
+                <!--<apex:outputField value="{!Opportunity.Completed_On__c}"/>-->
+                <!--<apex:outputField value="{!Opportunity.Case_Link__c}"/>-->
+                <!--<apex:outputField value="{!Opportunity.Installer_Name__c}"/>-->
+                <!--<apex:outputField value="{!Opportunity.FA_URL__c}"/>-->
+                <!--<apex:outputField value="{!Opportunity.Street__c}"/>-->
+                <apex:outputField value="{!Opportunity.Project_Manager__c}"/>
+                <!--<apex:outputField value="{!Opportunity.City__c}"/>-->
+                <!--<apex:outputField value="{!Opportunity.Type__c}"/>-->
+                <!--<apex:outputField value="{!Opportunity.PostCode__c}"/>-->
+                <!--<apex:outputField value="{!Opportunity.Install_Hours__c}"/>-->
+                <!--<apex:outputField value="{!Opportunity.Install_Hours_2__c}"/>-->
+                <apex:outputField value="{!Opportunity.Scope_of_Work__c}"/>
+                <apex:outputField value="{!Opportunity.Scope_of_Work_2__c}"/>
+                <apex:outputField value="{!Opportunity.Install_Cost_Quote__c}"/>
+                <apex:outputField value="{!Opportunity.Install_Cost_Quote_2__c}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageblockSection title="Install Details">
+                <!--<apex:outputField value="{!Opportunity.Status_Install__c}"/>-->
+                <apex:outputField value="{!Opportunity.Install_Status_New__c}"/>
+                <!--<apex:outputField value="{!Opportunity.Created_Date_Install__c}"/>-->
+                <!--<apex:outputField value="{!Opportunity.Case_Number_Install__c}"/>-->
+                <!--<apex:outputField value="{!Opportunity.Completed_On_Install__c}"/>-->
+                <!--<apex:outputField value="{!Opportunity.Case_Link_Install__c}"/>-->
+                <!--<apex:outputField value="{!Opportunity.Installer_Name_Install__c}"/>-->
+                <!--<apex:outputField value="{!Opportunity.FA_URL_Install__c}"/>-->
+                <!--<apex:outputField value="{!Opportunity.Street_Install__c}"/>-->
+                <apex:outputField value="{!Opportunity.Project_Manager_Install__c}"/>
+                <!--<apex:outputField value="{!Opportunity.City_Install__c}"/>-->
+                <!--<apex:outputField value="{!Opportunity.Type_Install__c}"/>-->
+                <!--<apex:outputField value="{!Opportunity.PostCode_Install__c}"/>-->
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Order Details">
+                
+                <apex:outputField value="{!Opportunity.Order_Number__c}"/>
+                <apex:outputField value="{!Opportunity.Order_Type__c}"/>
+                <apex:outputField value="{!Opportunity.Order_Status__c}"/>
+                <apex:outputField value="{!Opportunity.Confirm_Date_Dispatch_Address__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Additional Information">
+                <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="editButton,deleteButton,Change_Status,Survey_Request"/>
+                <apex:outputField value="{!Opportunity.Description}"/>
+                <apex:outputField value="{!Opportunity.Quote_PDF_Sent__c}"/>
+                <apex:outputField value="{!Opportunity.Account_Classification__c}"/>
+                <apex:outputField value="{!Opportunity.Opportunity_Classification__c}"/>
+                <apex:outputField value="{!Opportunity.Route_to_Market__c}"/>
+                <apex:outputField value="{!Opportunity.Opportunity_Route_to_Market__c}"/>
+                 <apex:outputField value="{!Opportunity.Account_Type__c}"/>
+                <apex:outputField value="{!Opportunity.Opportunity_Type__c}"/>
+            </apex:pageblockSection>
+        </apex:outputPanel>
+        
+        <apex:outputPanel rendered="{!IF(Opportunity.Recordtype.Name == 'Online Payment',True,False)}">
+            <apex:pageblockSection >
+                
+                <apex:outputfield value="{!Opportunity.Accountid}"/>
+                <apex:outputfield value="{!Opportunity.ownerid}"/>  
+                <apex:outputfield value="{!Opportunity.Name}"/>
+                
+                <apex:outputfield value="{!Opportunity.closedate}"/>           
+                <apex:outputfield value="{!Opportunity.StageName}"/>
+                
+                <apex:outputfield value="{!Opportunity.Probability}"/>
+                
+                <apex:outputfield value="{!Opportunity.Amount}"/>
+                <apex:outputfield value="{!Opportunity.Amount_Excluding_VAT__c}"/>
+                <apex:outputField value="{!opportunity.Account_Email__c}"/>
+                <!--<apex:outputfield value="{!Opportunity.ChargentSFA__Billing_Email__c}"/>-->
+                <apex:outputField value="{!Opportunity.recordtypeid}"/>            
+                <!--<apex:outputfield value="{!Opportunity.ChargentSFA__Order_Information__c}"/>-->
+                <apex:outputfield value="{!opportunity.Billing_Street__c}"/>
+                <apex:outputfield value="{!opportunity.Paylink__c}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageblockSection title="Additional Information" collapsible="false">
+               <!-- <apex:outputfield value="{!Opportunity.ChargentSFA__Card_Number__c}"/>
+                <apex:outputfield value="{!Opportunity.ChargentSFA__Card_Security__c}"/>
+                <apex:outputfield value="{!Opportunity.ChargentSFA__Card_Name__c}"/>
+                <apex:outputfield value="{!Opportunity.ChargentSFA__Card_Month__c}"/>
+                <apex:outputfield value="{!Opportunity.ChargentSFA__Card_Type__c}"/>-->
+                <apex:outputfield value="{!Opportunity.createdbyid}"/>
+                <apex:outputfield value="{!Opportunity.lastmodifiedbyid}"/>
+            </apex:pageblockSection> 
+        </apex:outputPanel>
+        <apex:pageblockSection title="Cases" collapsible="true" columns="1" rendered="{!IF(OR(Opportunity.Recordtype.Name == 'Commercial',Opportunity.Recordtype.Name == 'Bid'),True,False)}">
+            <apex:pageBlockTable title="Cases" value="{!lstCases2}" var="case">
+               
+              <!--  <apex:column value="{!case.id}"/>              
+                <apex:column value="{!case.account.name}"/>
+                <apex:column value="{!case.Opportunity_Name__c}"/>-->
+               
+                <apex:column value="{!case.status}"/>
+                 <apex:column value="{!case.type}"/>
+                  <apex:column value="{!case.casenumber}"/>
+                 <apex:column headerValue="Link" >
+                    <apex:outputLink value="/{!case.id}">Go to record</apex:outputLink>                    
+                </apex:column>
+                
+            </apex:pageBlockTable>
+        </apex:pageblockSection>
+             <apex:pageblockSection title="Work Orders" collapsible="true" columns="1" rendered="{!IF(Opportunity.Recordtype.Name == 'Commercial',True,False)}">
+            <apex:pageBlockTable title="Work Orders" value="{!lstWO}" var="wo">
+                
+                
+                <apex:column value="{!wo.Status}"/>
+                <apex:column value="{!wo.WorkType.name}"/>
+                <apex:column value="{!wo.WorkOrderNumber}"/>
+                <apex:column value="{!wo.Case.casenumber}"/>
+                <apex:column headerValue="Link" >
+                    <apex:outputLink value="/{!wo.id}">Go to record</apex:outputLink>                    
+                </apex:column>
+               
+            </apex:pageBlockTable>
+        </apex:pageblockSection>
+      
+    </apex:pageblock>
+</apex:form>
+
+<apex:relatedList list="OpportunityContactRoles" />
+<apex:relatedList list="OpportunityLineItems"/>
+<apex:relatedList subject="{!Opportunity}" list="Transactions_20170807101244828__r" rendered="{!IF(Opportunity.Recordtype.Name == 'Online Payment',True,False)}"/>        
+<!--<apex:relatedList list="ChargentSFA__Transactions__r" rendered="{!IF(Opportunity.Recordtype.Name == 'Online Payment',True,False)}"/>
+<apex:relatedList list="ChargentSFA__Payment_Requests__r" rendered="{!IF(Opportunity.Recordtype.Name == 'Online Payment',True,False)}"/> -->
+<apex:relatedList list="Quotes"/>
+<apex:relatedList subject="{!Opportunity}" list="Orders" rendered="{!$ObjectType.Order.accessible}"/>
+
+<apex:relatedList list="OpenActivities"/>
+<apex:relatedList subject="{!Opportunity}" list="ActivityHistories" />
+<apex:relatedlist list="OpportunityHistories" title="Opportunity History"/>
+
+</apex:page>

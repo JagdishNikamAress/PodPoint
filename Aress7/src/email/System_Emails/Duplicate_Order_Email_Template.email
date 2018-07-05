@@ -1,0 +1,8 @@
+Hi {!Opportunity.OwnerFirstName},
+
+There is already an existing Order for {!Opportunity.Name}.
+
+Let Dkap know if you got this email so we can fix your order.
+
+Thanks,
+Dkap

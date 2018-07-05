@@ -1,0 +1,235 @@
+.THIS .datePicker {
+	padding-top:10px;
+	margin-bottom: 10px;
+	overflow: hidden;
+	clear: both;	
+}
+
+.THIS .slds-text-heading--small {
+	float: left;
+	line-height: 24px;
+}
+
+.THIS .datePicker {
+	float: right;
+}
+
+.THIS .datePicker .weekOfLabel {
+	display: inline-block;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.THIS .timeBar {
+	width: 100%;
+	background-color: #F4F6F9;
+}
+
+.THIS .timeBar.top .slds-col {
+	margin-top: 5px;
+	text-align: center;
+}
+
+.THIS .timeBar.bottom .slds-col {
+	height: 20px;
+	margin-bottom: 5px;
+	text-align: center;
+}
+
+.THIS .timeBar.slds-grid.top {
+	padding-top: 3px;
+	height: 35px;
+	cursor: pointer;
+}
+
+.THIS .arrowIcon {
+	cursor: pointer;
+}
+
+.THIS .oneTimeItem {
+	overflow: hidden;
+	clear: both;
+	position: relative;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.THIS .oneTimeItem .taskProjectForTime {
+	width: 80%;
+	float: left;
+}
+
+.THIS .oneTimeItem .hoursForTime {
+	float: right;
+}
+
+.THIS .addTime {
+	margin-top: 10px;
+	padding-left: 10px;
+}
+
+.THIS .goToTimeSheet {
+	margin-top: 10px;
+	margin-bottom: 5px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.THIS .mondayLetter {
+	padding-right: 7px;
+	padding-left: 7px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	width: 25px;
+	height: 25px;
+	border-radius: 20px;
+}
+
+.THIS .wednesdayLetter {
+	padding-right: 7px;
+	padding-left: 7px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	width: 25px;
+	height: 25px;
+	border-radius: 20px;
+}
+
+.THIS .tuesdayLetter {
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	width: 25px;
+	height: 25px;
+	border-radius: 20px;
+}
+
+.THIS .thursdayLetter {
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	width: 25px;
+	height: 25px;
+	border-radius: 20px;
+}
+
+.THIS .fridayLetter {
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	width: 25px;
+	height: 25px;
+	border-radius: 20px;
+}
+
+.THIS .saturdayLetter {
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	width: 25px;
+	height: 25px;
+	border-radius: 20px;
+} 
+
+.THIS .sundayLetter {
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	width: 25px;
+	height: 25px;
+	border-radius: 20px;
+} 
+
+.THIS .inputContainer {
+	margin-bottom: 5px;
+}
+
+.THIS .inputElements {
+	margin-top: 15px;
+	height: 37px;
+	clear: both;
+}
+
+.THIS .hoursInputDiv {
+	width: 18%;
+	float: left;
+	display: inline-block;
+	margin-left: 8px;
+}
+
+.THIS .inputHours {
+	padding-right: 8px;
+	padding-left: 8px;
+}
+
+.THIS .billableCheckboxDiv {
+	width: 25%;
+	float: left;
+	margin-left: 8px;
+	padding-top: 8px;
+}
+
+.THIS .billableCheckbox {
+	height: 18px;
+	width: 18px;
+	margin-left: 5px;
+	vertical-align: bottom;
+}
+
+.THIS .buttonsSaveCancel {
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+.THIS .slds-button-neutral {
+	width: 65px;
+}
+
+.THIS .goToTimeSheet {
+	display: inline-block;
+}
+
+.THIS .selected {
+	background-color: #44a2b8;
+	color: white;
+}
+
+.THIS .VerticalAlignContainer {
+  display: flex;
+}
+
+.THIS .VerticalAlignContainer-item--bottom {
+  align-self: flex-end;
+}
+
+.THIS .VerticalAlignContainer-item--top {
+  align-self: flex-start;
+}
+
+.THIS .VerticalAlignContainer-item--right {
+  margin-left:auto;
+}
+
+.THIS hr {
+  margin:4px !important;
+}
+
+.THIS .time-header-taskray-check{
+  background-color: #44a2b8 !important;
+  padding: 2px !important;
+}
+
+.THIS .tt-suggestion{
+	font-size: 14px !important;
+	cursor: pointer;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+	line-height: 20px !important;
+}

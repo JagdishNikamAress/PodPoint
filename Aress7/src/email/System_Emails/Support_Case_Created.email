@@ -1,0 +1,9 @@
+Hey {!Account.OwnerFirstName}, 
+
+A Support Case has been created for 
+
+Account: {!Account.Name} 
+Case Link: {!Case.Link} 
+
+Thanks, 
+Pod Point Support Team

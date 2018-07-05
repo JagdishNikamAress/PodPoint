@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Installer Sick/off</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Z - Installer Sick</name>
+    <style>none</style>
+    <subject>Apologies (Our Installer&apos;s Unable to Maker it) POD POINT</subject>
+    <type>text</type>
+</EmailTemplate>

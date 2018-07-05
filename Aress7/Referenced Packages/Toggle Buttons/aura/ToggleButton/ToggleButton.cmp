@@ -1,0 +1,7 @@
+<aura:component >   
+    <aura:attribute name="toggleField" type="Boolean" default="false" />
+    <div class="switch">
+        <input id="toggleCmp" checked="{!v.toggleField}" class="cmn-toggle cmn-toggle-round" type="checkbox" />
+		<label for="toggleCmp"></label>
+	</div>    
+</aura:component>

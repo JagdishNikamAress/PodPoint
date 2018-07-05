@@ -1,0 +1,13 @@
+<aura:component >
+    <aura:attribute name="TaskName" type="String" />
+    <aura:attribute name="TaskId" type="String" />
+    <aura:attribute name="ParentProjectName" type="String" />
+    <aura:attribute name="ParentCol" type="String" />
+    <aura:attribute name="Blocked" type="String" />
+
+    <div class="{!'card ' + v.Blocked}" id="{!v.TaskId}" pname="{!v.ParentProjectName}">
+    	<h5 class="card_text">
+    		{!v.TaskName}
+    	</h5>
+    </div>
+</aura:component>

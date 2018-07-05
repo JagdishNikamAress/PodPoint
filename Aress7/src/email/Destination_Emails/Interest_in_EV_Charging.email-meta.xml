@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>PP_Standard_Letterhead</letterhead>
+    <name>Interest in EV Charging</name>
+    <style>freeForm</style>
+    <subject>POD Point - Electric Vehicle Charging Solutions</subject>
+    <textOnly>Dear {!Lead.FirstName},
+
+We’re getting in touch because you previously registered your interest in implementing electric vehicle charging at your site.
+
+POD Point is the UK’s leading electric vehicle charging provider and we like to keep all of our contacts up-to-date with the latest offers, innovations and solutions.
+
+If you would like an updated quotation or want to get further information from us, please contact us on 020 7247 4114 or drop an email to Destination@pod-point.com.
+
+All the best,
+
+The POD Point team</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,66 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false">
+  <html>
+  	<body>
+      <div id="print-container" class="slds">
+        <h4 id="project-view-header" />
+        <div id="project-view-table-container" />
+      </div>
+    </body>
+    <link href="{!URLFOR($Resource.trplugins, 'sds/salesforce-lightning-design-system-vf.css')}" rel="stylesheet" type="text/css" />
+    <link href="{!URLFOR($Resource.trplugins, 'css/trtaskboard.css')}" rel="stylesheet" type="text/css" />
+    <style>
+      .slds .slds-truncate, #print-container span{
+        text-overflow: initial !important;
+        overflow: visible !important;
+        white-space: normal !important;
+      }
+      #print-container .project-view-td-container{
+        line-height: 1 !important;
+        height: auto !important;
+      }
+      .slds .slds-th__action{
+        display: block !important;
+        height: auto !important;
+      }
+      .slds button, span{
+        cursor: auto !important;
+      }
+      .parent-hover-target:hover .child-visible-when-hovered-parent{
+        display: none !important;
+      }
+      .slds .slds-is-resizable .slds-th__action:hover, .slds .slds-is-resizable .slds-th__action:focus{
+
+      }
+      .slds .slds-is-sortable .slds-th__action:hover, .slds .slds-is-sortable .slds-th__action:focus, .slds .slds-is-sortable.slds-has-focus .slds-th__action, .slds .slds-is-sortable.slds-has-focus .slds-th__action:hover, .slds .slds-is-sortable.slds-has-focus .slds-th__action:focus{
+        background-color: transparent !important;
+        box-shadow: none !important;
+      }
+      .project-view-project-more-actions{
+        display: none !important;
+      }
+      #print-container tbody td{
+        padding-left: 4px;
+        padding-right: 4px;
+      }
+      @media print {
+         body {
+            -webkit-print-color-adjust: exact;
+         }
+      }
+    </style>
+    <script>
+      window.addEventListener("message", receiveMessage, false);
+
+      function receiveMessage(event)
+      {
+        if(event.origin === window.location.origin && event.data && (event.data.projectViewTable || event.data.projectViewHeader)){
+          document.getElementById('project-view-table-container').innerHTML = event.data.projectViewTable;
+          document.getElementById('project-view-header').innerHTML = event.data.projectViewHeader;
+          window.setTimeout(function(){ window.print();}, 100);
+        }
+        return;
+      }
+      window.opener.postMessage('TASKRAY_PRINT_PROJECT_VIEW_READY',window.location.origin)
+    </script>
+  </html>
+</apex:page>

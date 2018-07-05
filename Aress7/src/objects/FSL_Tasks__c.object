@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Work_Type__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Work Type</label>
+        <referenceTo>WorkType</referenceTo>
+        <relationshipName>Tasks</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>FSL Task</label>
+    <nameField>
+        <label>Task Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>FSL Tasks</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>ABB_Checklist_SAT_Form_Task</fullName>
+        <active>true</active>
+        <label>ABB Checklist (SAT Form) Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>ABB_Commissioning_Task</fullName>
+        <active>true</active>
+        <label>ABB Commissioning Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>ABB_Complete_Upload_EIC_Task</fullName>
+        <active>true</active>
+        <label>ABB Complete &amp; Upload EIC Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>ABB_Instructions_Name_Sticker_Task</fullName>
+        <active>true</active>
+        <label>ABB Instructions &amp; Name Sticker Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>ABB_PP_Commissioning</fullName>
+        <active>true</active>
+        <label>ABB PP Commissioning</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>ABB_Rapid_DC_Test_Charge_Task</fullName>
+        <active>true</active>
+        <label>ABB Rapid DC Test Charge Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>ABB_Required_Photos</fullName>
+        <active>true</active>
+        <label>ABB Required Photos</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>ABB_Serial_Number_Task</fullName>
+        <active>true</active>
+        <label>ABB Serial Number Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Additional_Works_Survey_Task</fullName>
+        <active>true</active>
+        <label>Additional Works Survey Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Annex_D_Form_Task</fullName>
+        <active>true</active>
+        <label>Annex D Form Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Commercial_Survey_Form_Task</fullName>
+        <active>true</active>
+        <label>Commercial Survey Form Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Commissioning_Form_Task</fullName>
+        <active>true</active>
+        <label>Commissioning Form Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>ENA_Form_Task</fullName>
+        <active>true</active>
+        <label>ENA Form Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Groundworks_Commercial_Photos_Task</fullName>
+        <active>true</active>
+        <label>Groundworks (Commercial) Photos Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Groundworks_Domestic_Photos_Task</fullName>
+        <active>true</active>
+        <label>Groundworks (Domestic) Photos Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Install_Commercial_Photos_Task</fullName>
+        <active>true</active>
+        <label>Install (Commercial) Photos Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Install_Domestic_Photos_Task</fullName>
+        <active>true</active>
+        <label>Install (Domestic) Photos Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Installation_Assessment_Form_Task</fullName>
+        <active>true</active>
+        <label>Installation Assessment Form Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Maintenance_Form_Task</fullName>
+        <active>true</active>
+        <label>Maintenance Form Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Maintenance_Form_Trial_Task</fullName>
+        <active>true</active>
+        <label>Maintenance Form Trial Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Preferred_Chargepoint_Task</fullName>
+        <active>true</active>
+        <label>Preferred Chargepoint Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>RAMS_Form_Task</fullName>
+        <active>true</active>
+        <label>RAMS Form Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Simple_Task</fullName>
+        <active>true</active>
+        <label>Simple Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Site_Handover_Form_Task</fullName>
+        <active>true</active>
+        <label>Site Handover Form Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Survey_Commercial_Photos_Task</fullName>
+        <active>true</active>
+        <label>Survey (Commercial) Photos Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Survey_Domestic_Photos_Task</fullName>
+        <active>true</active>
+        <label>Survey (Domestic) Photos Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Swap_Out_Form_Task</fullName>
+        <active>true</active>
+        <label>Swap Out Form Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Unit_PSL_PG_Number_Task</fullName>
+        <active>true</active>
+        <label>Unit PSL/PG Number Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Wi_Fi_Status_Task</fullName>
+        <active>true</active>
+        <label>Wi-Fi Status Task</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>iAuditor_Form_Task</fullName>
+        <active>true</active>
+        <label>iAuditor Form Task</label>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

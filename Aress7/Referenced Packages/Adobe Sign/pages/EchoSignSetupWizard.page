@@ -1,0 +1,385 @@
+<apex:page controller="echosign_dev1.EchoSignSetupWizardController" 
+	tabStyle="echosign_dev1__SIGN_Agreement__c" 
+	showHeader="{!IF(NOT ISNULL($CurrentPage.parameters.showheadersidebar),$CurrentPage.parameters.showheadersidebar,'false')}" 
+	sidebar="{!IF(NOT ISNULL($CurrentPage.parameters.showheadersidebar),$CurrentPage.parameters.showheadersidebar,'false')}"
+	standardStylesheets="true"
+	action="{!onInit}">
+	
+	<apex:includeScript value="{!$Resource.echosign_dev1__walkmeimpt}"/>
+	
+	<apex:includeScript value="{!URLFOR($Resource.echosign_dev1__jquery1103, 'jquery-ui-1.10.3.custom/js/jquery-1.9.1.js')}"/>
+	
+	<apex:includeScript value="{!URLFOR($Resource.echosign_dev1__jszip, '/jszip.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.echosign_dev1__jszip, '/jszip-load.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.echosign_dev1__jszip, '/jszip-deflate.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.echosign_dev1__jszip, '/jszip-inflate.js')}"/>
+	
+	<style type="text/css">
+	    @font-face {
+            font-family: AdobeCleanRegular;
+            src: url('{!URLFOR($Resource.AdobeFonts,'AdobeClean-Regular.otf')}') format('opentype');
+        }
+                  
+        @font-face {
+            font-family: AdobeCleanBold;
+            src: url('{!URLFOR($Resource.AdobeFonts,'AdobeClean-Bold.otf')}') format('opentype');
+        }
+        
+		.adobePrimaryText {
+			font-size: 14px;
+            font-family: AdobeCleanRegular;
+            color: #4B4B4B;
+            -moz-opacity: 1.0;
+			-khtml-opacity: 1.0;
+			 opacity: 1.0;
+		}
+		
+		.adobePrimaryBoldText {
+			font-size: 14px;
+            font-family: AdobeCleanBold;
+            color: #4B4B4B;
+            -moz-opacity: 1.0;
+			-khtml-opacity: 1.0;
+			 opacity: 1.0;
+		}
+		
+		.adobeLinkText {
+			font-size: 14px;
+            font-family: AdobeCleanRegular;
+            color: #3278BE;
+            text-decoration: none;
+            -moz-opacity: 1.0;
+			-khtml-opacity: 1.0;
+			 opacity: 1.0;
+		}
+		
+        .echoSignButton {
+            background: -webkit-linear-gradient(#3287D2, #3278BE); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(#3287D2, #3278BE); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(#3287D2, #3278BE); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(#3287D2, #3278BE); /* Standard syntax */
+            background: -ms-linear-gradient(top,#3287D2 0,#3278BE 100%);
+            border: 1px solid #002341;
+            filter: alpha(opacity=70);
+            width: inherit;
+            min-width: 170px;
+            height: 38px;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 0px;
+            padding-top: 3px;
+            margin: 15px 15px 15px 15px;
+            color: #ffffff;
+            font-size: 15px;
+            font-family: AdobeCleanBold;
+            text-shadow: 0px 0px #000000;
+        }.echoSignButton:hover {
+            background: #3287D2;
+            cursor: hand;
+            cursor: pointer;
+        }.echoSignButton:active {
+            background: #3278BE;
+            -webkit-box-shadow: inset 0 0 4px #000000;
+            -moz-box-shadow: inset 0 0 4px #000000;
+            box-shadow: inset 0 0 4px #000000;
+        }       		
+		
+		.sectionParagraph {
+			padding-top: 20px;
+		}
+	</style>	
+	
+	<script type="text/javascript">
+		$jquery = jQuery.noConflict();
+
+        function getSelectorFromSalesforceId(salesforceId) {
+        	return '#' + salesforceId.replace(/([#;&,.+*~':"!^$\[\]()=>|/])/g, '\\\\$1');
+      	}
+                  
+        function salesforceJQuery(salesforceId) {
+        	return jQuery(getSelectorFromSalesforceId(salesforceId));
+       }
+                
+    	function removeStandardStyleButtons() {
+    		try {
+        		$jquery( getSelectorFromSalesforceId('{!$Component.wizardForm.wizardPageBlock.loginPanel.signinButton}') ).removeClass('btn');
+        		$jquery( getSelectorFromSalesforceId('{!$Component.wizardForm.wizardPageBlock.loginPanel.signupButton}') ).removeClass('btn');
+        	} catch(err) {
+        		console.log(err);
+        	}
+        }
+        
+        var updatesFrameLoadCount = 0;
+		
+		function onUpdatesFrameLoad() {
+			updatesFrameLoadCount++;
+			
+			if( updatesFrameLoadCount == 1 ) {
+				document.getElementById("{!$Component.wizardForm.wizardPageBlock.bottomWizardButtons.nextButton}").disabled = true;
+			} if( updatesFrameLoadCount == 2 ) {
+				document.getElementById("{!$Component.wizardForm.wizardPageBlock.bottomWizardButtons.nextButton}").disabled = false;
+				document.getElementById("{!$Component.wizardForm.wizardPageBlock.bottomWizardButtons.nextButton}").src = "{!$Resource.echosign_dev1__NextButton}";
+			}
+		}
+                                                       
+        jQuery(window).load(function() {
+        	removeStandardStyleButtons();
+        	
+        	if( {!isStepLogin} && !{!isNetworkRangesAdded} ) {
+        		disableLoginButton();
+        	}
+    	});
+    	
+    	function enableLoginButton() {
+    		document.getElementById('{!$Component.wizardForm.wizardPageBlock.loginPanel.signinButton}').disabled = false;
+    	}
+    	
+    	function disableLoginButton() {
+    		document.getElementById('{!$Component.wizardForm.wizardPageBlock.loginPanel.signinButton}').disabled = true;
+    	}
+    	    	
+    	function zipMatadata(data) {
+    		var fileName = 'settings/Security.settings';
+    		var metadataDeployZip = zip(data, fileName);
+    		
+	        deployMetadataZipFile(metadataDeployZip);
+    	}
+    	
+    	function processSecurityRanges(zipData) {
+    		var data = unzip(zipData, 'settings/Security.settings'); 		
+    		ensureNetworkRangesExists(data);
+    	}
+    	
+    	function ensureRemoteSite() {
+    	    if( {!isMetatadataRemoteSiteExists} ) {
+    	    	return;
+    		}
+    		
+    		createRemoteSite();
+    	}
+    	
+    	function createRemoteSite() {
+			// Calls the Metdata API from JavaScript to create the Remote Site Setting to permit Apex callouts
+			var binding = new XMLHttpRequest();
+			var request = 
+				'<?xml version="1.0" encoding="utf-8"?>' + 
+				'<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">'+
+					'<env:Header>' + 
+						'<urn:SessionHeader xmlns:urn="http://soap.sforce.com/2006/04/metadata">' + 
+							'<urn:sessionId>{!$Api.Session_ID}</urn:sessionId>' + 
+						'</urn:SessionHeader>' + 
+						'<urn:CallOptions xmlns:urn="http://soap.sforce.com/2006/04/metadata">' + 
+							'<urn:client>Adobe/Echosign/</urn:client>' + 
+						'</urn:CallOptions>' + 
+					'</env:Header>' + 
+					'<env:Body>' +
+						'<createMetadata xmlns="http://soap.sforce.com/2006/04/metadata">' + 
+							'<metadata xsi:type="RemoteSiteSetting">' + 
+								'<fullName>adobeesign_mdapi</fullName>' + 
+								'<description>Metadata API Remote Site Setting for the eSign for Salesforce</description>' + 
+								'<disableProtocolSecurity>false</disableProtocolSecurity>' + 
+								'<isActive>true</isActive>' + 
+								'<url>https://{!Host}</url>' +
+							'</metadata>' +
+						'</createMetadata>' +
+					'</env:Body>' + 
+				'</env:Envelope>';
+			
+			binding.open('POST', 'https://{!Host}/services/Soap/m/33.0');
+			binding.setRequestHeader('SOAPAction','""');
+			binding.setRequestHeader('Content-Type', 'text/xml');
+			binding.onreadystatechange = 
+				function() { 
+					if(this.readyState==4) {
+						var parser = new DOMParser();
+						var doc  = parser.parseFromString(this.response, 'application/xml');
+						var errors = doc.getElementsByTagName('errors');
+						var messageText = '';
+						for(var errorIdx = 0; errorIdx < errors.length; errorIdx++)
+							messageText+= errors.item(errorIdx).getElementsByTagName('message').item(0).innerHTML + '\n';
+						displayMetadataResponse(messageText);
+					} 
+				}
+			binding.send(request);
+		}
+		
+		function unzip(zipData, fileName) {
+		    var zip = new JSZip(zipData, {base64:true});
+		    var zipFileNames = [];
+		    for(var zipfileName in zip.files) {
+		    	if( fileName == '' || fileName == null || fileName == zipfileName ) {
+		        	zipFileNames.push(zipfileName);
+		        	break;
+		        }  
+		    }
+		              
+	        var fileName = null;
+	        var file = null;
+	        while(true)
+	        {
+	        	// Pop the next file
+	            file = null;
+	            fileName = zipFileNames.pop();
+	            if(fileName == null)
+	                break;
+	            file = zip.files[fileName];
+	            // Only break for files, skip over folder entries
+	            if(file.data!=null && file.data.length>0)
+	                break;
+	        }
+	        // File to send or done?
+	        var more = file!=null ? true : false;
+	        var path = more ? fileName : null;
+	        var data = more ? file.data : null;
+	        
+	        return data;
+		}
+		
+		function zip(data, path) {
+			var zipFile = new JSZip();		
+			zipFile.file('package.xml', '{!JSENCODE(packageXml)}');
+			zipFile.file(path, data);	
+			var zipData = zipFile.generate();
+			
+			return zipData;
+		}
+		
+		function showProgressPanel() {
+    		document.getElementById('loadingPanel').style.display = 'block';
+        }
+	</script>
+	
+	<apex:outputPanel id="wizardSectionHeader">
+		<apex:sectionHeader title="{!$Label.Wizard_Page_Header}" subtitle="{!sectionSubtitle}" />
+    </apex:outputPanel>
+    
+    <apex:form id="wizardForm" styleClass="adobePrimaryText">
+    	<script>
+    		removeStandardStyleButtons();
+    		if( {!isConfigInProgress} ) {
+        		showProgressPanel();
+        	}
+    	</script>
+        <apex:actionFunction rerender="wizardForm,bottomWizardButtons" name="oauthLoginStart" action="{!onOauthLoginStart}" oncomplete="ensureRemoteSite(); setTimeout('handleSecurityRanges()', 2500); return false;"/>   	
+    	<apex:actionFunction rerender="wizardForm,bottomWizardButtons,retrievePoller" name="handleSecurityRanges" action="{!retrieveMetadata}" oncomplete="if( {!isError} ) { return false; }"/>   	
+    	<apex:actionFunction rerender="wizardForm,bottomWizardButtons,deployPoller" name="deployMetadataZipFile" action="{!deployMetadataZipFile}">
+    		<apex:param name="metadataDeployZip" assignTo="{!metadataDeployZip}" value=""/>
+    	</apex:actionFunction>
+    	<apex:actionFunction rerender="wizardForm,bottomWizardButtons" name="ensureNetworkRangesExists" action="{!ensureNetworkRangesExists}" oncomplete="if( !{!isNetworkRangesExist} ) { zipMatadata('{!JSENCODE(metadataFileData)}'); } else { window.location.href = '{!oauthLoginUrl}'; }">
+    		<apex:param name="metadataFileData" assignTo="{!metadataFileData}" value=""/>
+    	</apex:actionFunction>
+    	<apex:actionFunction rerender="wizardForm,bottomWizardButtons" name="displayMetadataResponse" action="{!displayMetadataResponse}">
+			<apex:param name="metadataResponse" assignTo="{!metadataResponse}" value="{!metadataResponse}"/>
+		</apex:actionFunction>
+		<apex:outputpanel id="deployPoller">
+        	<apex:outputpanel rendered="{!startDeployPoller}">
+            	<apex:actionPoller action="{!retrieveDeployResult}" oncomplete="if( {!isError} || {!startDeployPoller} ) { return false; } window.location.href = '{!oauthLoginUrl}';" rerender="deployPoller,messagePanel" interval="5" />
+            </apex:outputpanel>
+        </apex:outputpanel>
+		<apex:outputpanel id="retrievePoller">
+        	<apex:outputpanel rendered="{!startRetrievePoller}">
+            	<apex:actionPoller action="{!retrieveRetrieveResult}" oncomplete="if( {!isError} || {!startRetrievePoller} ) { return false; } processSecurityRanges('{!metadataRetrievedZip}'); if( {!isError} ) { return false; }" rerender="retrievePoller,messagePanel" interval="5" />
+            </apex:outputpanel>
+        </apex:outputpanel>
+    	<apex:pageBlock id="wizardPageBlock" title="{!blockTitle}">
+			<apex:pageBlockButtons location="bottom" id="bottomWizardButtons">
+       			<apex:commandButton id="backButton" 
+       				style="background:transparent;border-width:0px;" 
+       				image="{!$Resource.echosign_dev1__BackButton}" 
+       				action="{!doBack}" 
+       				value="{!$Label.Back_Button_Label}" 
+       				onclick="document.getElementById('{!$Component.wizardForm.wizardPageBlock.bottomWizardButtons.backButton}').src = '{!$Resource.echosign_dev1__BackButtonPressed}';" 
+       				rerender="theMessages,wizardSectionHeader,loginPanel,stepAccountSection,stepUpdatesSection,stepDoneSection,wizardPageBlock,backButton,nextButton" 
+       				rendered="{! NOT(isStepDone) && NOT(isStepLogin) && NOT(isStepReloginComplete) && NOT(isConfigInProgress) }"
+       				oncomplete="removeStandardStyleButtons();" />
+       			<apex:commandButton id="nextButton" 
+       				style="background:transparent;border-width:0px;" 
+       				image="{! IF( isStepUpdates, $Resource.NextButtonDisabled, $Resource.NextButton ) }" 
+       				action="{!doNext}" 
+       				value="{!$Label.Next_Button_Label}" 
+       				onclick="document.getElementById('{!$Component.wizardForm.wizardPageBlock.bottomWizardButtons.nextButton}').src = '{!$Resource.echosign_dev1__NextButtonPressed}'; /*if( isStepLoginComplete ) { handleNetworking('{!metadataRetrievedZip}'); window.location = '/apex/EchoSignSetupWizard?stepName=Updates&showheadersidebar={!$CurrentPage.parameters.showheadersidebar}'; }*/" 
+       				rerender="theMessages,wizardSectionHeader,loginPanel,stepAccountSection,stepUpdatesSection,stepDoneSection,wizardPageBlock,backButton,nextButton" 
+       				disabled="{! isStepOauthError }" 
+       				rendered="{! NOT(isStepDone) && NOT(isStepLogin) && NOT(isStepReloginComplete) && NOT(isError) && NOT(isConfigInProgress) }" />
+       			<apex:commandButton id="closeButton" 
+       				style="background:transparent;border-width:0px;" 
+       				image="{! $Resource.NextButton }" 
+       				value="{! $Label.Close_Button_Label }" 
+       				onclick="window.close();" 
+       				rendered="{! isStepReloginComplete }" />	
+        		<apex:outputPanel id="updatesButtonsMessage" 
+        			style="vertical-align: super;" 
+        			rendered="{! isStepUpdates }">
+        			<h2>{!$Label.Wizard_Update_Save_Message}</h2>
+        		</apex:outputPanel>
+        	</apex:pageBlockButtons>
+        	<apex:pageBlockSection id="loginPanel" columns="1">   	
+		    	<apex:outputPanel rendered="{!isStepLogin}">
+					<apex:outputPanel layout="block" styleClass="adobePrimaryBoldText">
+						{!$Label.Wizard_Login_Title_One}<br/>
+					</apex:outputPanel>
+					<apex:outputPanel layout="block" styleClass="adobePrimaryText sectionParagraph">
+						{!$Label.Wizard_Login_Title_Two}
+					</apex:outputPanel>
+					<apex:outputPanel layout="block" styleClass="adobePrimaryText sectionParagraph">
+						{!$Label.Wizard_Login_Signup_Button_Label}
+					</apex:outputPanel>
+					<apex:outputPanel layout="block">
+						<apex:commandButton id="signupButton"
+							value="{!$Label.Wizard_Signup_Link_Label}" 
+							style="filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3287D2', endColorstr='#3278BE',GradientType=0 );" 
+							styleClass="echoSignButton" 
+							onclick="window.open('{!registrationPageUrl}');" 
+							oncomplete="" 
+							rerender="" />
+					</apex:outputPanel>
+					<apex:outputPanel layout="block" styleClass="adobePrimaryText">
+						{!$Label.Wizard_Login_Signin_Button_Label}
+					</apex:outputPanel>
+					<apex:outputPanel layout="block">
+						<apex:commandButton id="signinButton"
+							value="{!$Label.Wizard_Signin_Link_Label}" 
+							style="filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3287D2', endColorstr='#3278BE',GradientType=0 );" 
+							styleClass="echoSignButton" 
+							onclick="if( {!isNetworkRangesAdded} ) { window.location.href = '{!oauthLoginUrl}'; } else { oauthLoginStart(); } return false;"
+							rerender="loginPanel,messagePanel,wizardPageBlock" />
+					</apex:outputPanel>
+					<apex:outputPanel id="metadataConfirmPanel" layout="block" style="padding-top: 10px;" rendered="{! !isNetworkRangesAdded }">			
+						<apex:inputCheckbox value="{!metadataRemoteSiteConfirmed}">
+							<apex:actionSupport event="onchange" rerender="metadataConfirmPanel" oncomplete="if( {!metadataRemoteSiteConfirmed} ) { enableLoginButton(); } else { disableLoginButton(); }" />
+						</apex:inputCheckbox>
+						<apex:outputPanel styleClass="adobePrimaryText sectionParagraph">
+							{!$Label.Authorize_Remote_Site_Label}
+						</apex:outputPanel>
+						<br/><br/>
+						<apex:outputPanel styleClass="adobePrimaryText sectionParagraph">
+							Before proceeding, please ensure that both the "Lock sessions to the IP address from which they originated" and the "Lock sessions to the domain in which they were first used" settings under the Setup > Security Controls > Session Settings are unchecked or toggle the "Timeout Value" between the default (2 hours) to another value of your choice.
+						</apex:outputPanel>
+					</apex:outputPanel>
+				</apex:outputPanel>	
+        	</apex:pageBlockSection>
+        	<apex:pageBlockSection columns="1">     	        
+	    		<apex:outputPanel layout="block" id="messagePanel">
+	    			<apex:pagemessages id="theMessages"/>
+	    		</apex:outputPanel>
+	    		<div id="loadingPanel" style="display: none;">
+			       	<div class="waitingSearchDiv" style="width: 100%; height: 100%; display: ; opacity:.5;"></div>
+			        <img src="{!$Resource.loading}" style="width:40px;height:40px;padding-left:30%;" />
+		        </div>
+        	</apex:pageBlockSection>
+      		<apex:pageBlockSection id="stepUpdatesSection" columns="1">
+      			<apex:outputPanel rendered="{! isStepUpdates }">
+      				<iframe onload="onUpdatesFrameLoad()" src="{!baseServerUrl}/salesforce-web/salesforceCredentials?session={!$Api.Session_ID}&server={!$Api.Partner_Server_URL_70}&namespace={!namespace}&Version={!version}" width="100%" height="320px" frameborder="0" />
+      			</apex:outputPanel>
+      		</apex:pageBlockSection>
+      		<apex:pageBlockSection id="stepDoneSection" columns="1">
+      			<apex:outputPanel rendered="{!isStepDone}">
+      				<p>{!$Label.Wizard_Start_Message}</p>
+      				<p><img src="{!$Resource.AdobeBlueArrow}" style="vertical-align: top;"/>&nbsp;&nbsp;<apex:outputPanel style="vertical-align: super;"><a href="{!URLFOR($Action.SIGN_Agreement__c.New)}}" target="_parent">{!$Label.Wizard_New_Agreement_Label}</a></apex:outputPanel></p>
+      				<p>{!$Label.Wizard_Admin_Link_1} <a href="/apex/EchosignAdmin" target="_parent">{!$Label.Wizard_Admin_Link_2}</a> {!$Label.Wizard_Admin_Link_3}</p>
+      			</apex:outputPanel>
+      		</apex:pageBlockSection>
+        </apex:pageBlock>
+	</apex:form>
+
+</apex:page>

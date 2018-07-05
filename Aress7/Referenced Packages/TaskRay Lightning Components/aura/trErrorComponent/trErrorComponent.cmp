@@ -1,0 +1,9 @@
+<aura:component controller="TASKRAY_LTNG.trComponentCtrl">
+  <aura:attribute name="errorTitle" type="String" default="" />
+  <aura:attribute name="closeable" type="Boolean" default=""/>
+  <aura:attribute name="fadeOutAfter" type="Integer" default="5" />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<ui:message title="{!v.errorTitle}" severity="error">
+   {!v.body} 
+  </ui:message>
+</aura:component>

@@ -1,0 +1,18 @@
+Hi {!Account.FirstName},
+
+Hope you're well. Just wanted to give you some more information about our homechargers:
+
+The 7kW charger is available for £359.00 inc VAT and standard installation, this charger would give you up to 30 miles of range per hour of charge on a vehicle with an on board charging capacity of 6.6kW (full electric cars).
+
+The 3.6kW charger is available at £279.00 inc VAT and standard installation and provides up to 15 miles of range per hour of charge.
+
+With any of the chargers you can have the tethered or the universal unit, there is no difference in cost but for the universal you do need a separate charging cable as it is not supplied with one.  
+
+Pricing assumes you are eligible for the OLEV grant.
+
+If you’re happy to continue the process yourself please click the link below:
+
+{!Case.Ordering_Tool_Customer_URL__c}
+{!Opportunity.Ordering_Tool_Customer_URL__c}
+
+Alternatively, let me know if you have any questions.

@@ -1,0 +1,77 @@
+.THIS.slds .slack-theme--alert {
+  background-color: #eb4d5c;
+  color: white;
+}
+.THIS.slds .slack-theme--alert.slds-badge {
+  position: relative;
+  top: -3px;
+}
+.THIS.slds .slack-button__icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: .5rem;
+}
+.THIS.slds .slack-favorite--on .slds-icon {
+  fill: #ffcc05;
+}
+.THIS.slds .slack-favorite--off .slds-icon {
+  fill: #e4e6e8;
+}
+.THIS.slds .slack-header--bold {
+  font-weight: 400;
+}
+.THIS.slds .slack-header--link:hover {
+  color: #005fb2;
+  text-decoration: underline;
+}
+.THIS.slds .slack-message-textarea {
+  height: 100px;
+  resize: none;
+}
+.THIS.slds .slack-spinner {
+  height: 250px;
+}
+.THIS.slds .slack-pointer {
+  cursor: pointer;
+}
+.THIS .slack-dropdown-position-control {
+  transform: none;
+  right: 0;
+  top: auto;
+  left: initial;
+}
+.THIS.slds .slack-spinner-control {
+    position: relative;
+}
+.THIS.slds .slack-spinner-control .slds-spinner_container {
+    z-index: 0;
+}
+.THIS .slack-unlink-button {
+  width: 2rem;
+  height: 2rem;
+}
+.THIS .slack-unlink-button .slds-icon {
+  position: relative;
+    left: -1px;
+    top: -0.5px;
+}
+.THIS .slack-dropdown-position-control.uiMenuList--default .uiMenuItem > a {
+  height: auto;
+  border-radius: 0;
+}
+.THIS .slack-dropdown-position-control.uiMenuList--default .uiMenuItem > a:hover {
+  border-radius: 0;
+}
+.THIS .slack-dropdown-position-control.uiPopupTarget.popupTargetContainer {
+  box-shadow: 0px 2px 3px 0px rgba(0,0,0,.16);
+  border: 1px solid #d8dde6;
+  padding: .25rem 0;
+  margin-top: .125rem
+}
+.THIS .slack-svg-pointer .slds-icon,
+.THIS .slack-svg-pointer .slds-button__icon {
+    pointer-events: none;
+}
+.THIS input::ms-clear {
+    display: none;
+}

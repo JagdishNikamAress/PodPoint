@@ -1,0 +1,166 @@
+<aura:component controller="slack.SlackController" implements="flexipage:availableForAllPageTypes,force:appHostable,force:hasRecordId" access="global">
+    <aura:attribute name="userIsOauthed" type="Boolean" default="false"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="slackChannelInfo" type="Map"/>
+    <aura:attribute name="errorMessage" type="String"/>
+    <aura:attribute name="channelsList" type="Map[]"/>
+    <aura:attribute name="channelSelection" type="String"/>
+    <aura:attribute name="recordName" type="String"/>
+    <aura:attribute name="createModalPlaceholder" type="String"/>
+    <aura:attribute name="isLoading" type="Boolean" default="true"/>
+    <aura:attribute name="slackTeamInfo" type="Map"/>
+    <aura:attribute name="channelNameTaken" type="Boolean" default="false"/>
+    <aura:attribute name="isInCreateMode" type="Boolean" default="true"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+	<div class="slds">
+        <article class="slack-spinner-control slds-card">
+            <aura:if isTrue="{!v.isLoading == true}">
+                <div style="height: 93px;" aura:id="spinner">
+                    <div class="slds-spinner_container">
+                        <div class="slds-spinner slds-spinner--small" aria-hidden="false" role="alert">
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </div>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!and(v.userIsOauthed == false, v.isLoading == false)}">
+                <header class="slds-card__header slds-grid">
+                    <div class="slds-col slds-no-flex slds-align-top">
+                        <img class="slds-icon--small" src="/resource/slack__images/slack-icon.svg" alt="Slack logo" />
+                    </div>
+                    <div class="slds-col slds-col--padded slds-align-top">
+                        <div class="slds-media__body">
+                            <div class="slds-text-heading--small slds-p-bottom--x-small">Collaborate with your team using Slack</div>
+                            <div class="slds-text-body--regular">Sign in to post directly to Slack, receive activity notifications, and share Salesforce records.</div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-no-flex slds-align-top" onclick="{!c.initializeOauth}">
+                        <button class="slds-button slds-button--neutral">
+                          Sign in to Slack
+                        </button>
+                    </div>
+                </header>
+
+            </aura:if>
+            <aura:if isTrue="{!v.isLoading == false}">
+                <span>
+                    <aura:if isTrue="{!and(v.slackChannelInfo == null, v.userIsOauthed==true)}">
+                        <header class="slds-card__header slds-grid">
+                            <div class="slds-col slds-no-flex slds-align-top">
+                                <img class="slds-icon--small" src="/resource/slack__images/slack-icon.svg" alt="Slack logo" />
+                            </div>
+                            <div class="slds-col slds-col--padded slds-align-top">
+                                <div class="slds-text-heading--small slds-p-bottom--x-small">Link to a Slack channel</div>
+                                <div class="slds-text-body-regular">When posting in Chatter, you can also send your post to a linked Slack channel. <a href="javascript:void(0);" onclick="{!c.clickLearnMore}">Learn more</a></div>
+                            </div>
+                            <div class="slds-col slds-no-flex slds-align-top">
+                                <button class="slds-button slds-button--neutral" onclick="{!c.clickOpenChannelsModal}">Select Channel</button>
+                            </div>
+                        </header>
+                    </aura:if>
+                </span>
+            </aura:if>
+            <aura:if isTrue="{!v.isLoading == false}">
+                <span>
+                    <aura:if isTrue="{!and(v.userIsOauthed, v.slackChannelInfo)}">
+
+                        <header class="slds-card__header slds-grid">
+                            <div class="slds-col slds-grid">
+                                <div class="slds-media slds-media--center slds-no-flex">
+                                    <div class="slds-col slds-no-flex slds-align-top">
+                                        <img class="slds-icon--small" src="/resource/slack__images/slack-icon.svg" alt="Slack logo" />
+                                    </div>
+                                </div>
+                                <div class="slds-col slds-col--padded slds-align-top">
+                                    <div class="slds-text-heading--small slds-p-bottom--x-small">Linked to <a href="javascript:void(0);" onclick="{!c.clickGoToSlack}">#{!v.slackChannelInfo.name}</a>
+                                      <span class="slack-pointer slds-icon-utility-favorite slds-p-left--x-small slack-svg-pointer" title="Favorite" onclick="{!c.clickGoToSlack}">
+                                          <lightning:icon iconName="utility:favorite" class="{!v.slackChannelInfo.is_starred ? 'slack-favorite--on' : 'slack-favorite--off'}" size="x-small" />
+                                          <span class="slds-assistive-text">Favorite</span>
+                                      </span>
+                                      <aura:if isTrue="{!v.slackChannelInfo.unread_count > 0}">
+                                          <span class="slack-theme--alert slack-pointer slds-badge slds-m-top--xxx-small slds-m-left--xxx-small slds-show--inline-block" onclick="{!c.clickGoToSlack}">{!v.slackChannelInfo.unread_count}</span>
+                                      </aura:if>
+                                  </div>
+                                      <div class="slds-text-body--regular">When posting in Chatter, you can also send your post to Slack by adding&nbsp;<strong>&#47;slack</strong>&nbsp;to the beginning of the message. <a href="javascript:void(0);" onclick="{!c.clickLearnMore}">Learn more</a></div>
+                                  </div>
+                              </div>
+                            <div class="slds-col slds-no-flex slds-align-top">
+                                <ui:menu >
+                                    <ui:menuTriggerLink aura:id="listViewDropDown">
+                                        <lightning:buttonIcon iconName="utility:settings" size="medium" variant="border-filled" class="slack-svg-pointer"/>
+                                    </ui:menuTriggerLink>
+                                    <ui:menuList aura:id="menuList" class="slack-dropdown-position-control">
+                                         <ui:actionMenuItem class="slds-dropdown__item" label="Unlink Channel" click="{!c.clickUnlinkChannel}" hideMenuAfterSelected="true" />
+                                    </ui:menuList>
+                                </ui:menu>
+                            </div>
+                        </header>
+                    </aura:if>
+                </span>
+            </aura:if>
+        </article>
+    </div>
+
+   
+    <!-- Create Modal start -->
+    <div class="slds-modal slds-hide" aria-hidden="false" role="dialog" aura:id="channelModal">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <lightning:buttonIcon iconName="utility:close" size="large" variant="bare" alternativeText="Close" class="slack-svg-pointer slds-button--icon-inverse slds-modal__close" onclick="{!c.closeCreateModal}"/>
+                <aura:if isTrue="{!v.isInCreateMode == true}">
+                    <h2 class="slds-text-heading--medium">Create Channel</h2>
+                </aura:if>
+                <aura:if isTrue="{!v.isInCreateMode == false}">
+                    <h2 class="slds-text-heading--medium">Select Channel</h2>
+                </aura:if>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium">
+                <lightning:select aura:id="inputSelectCreateMode" name="inputSelectCreateMode" label="Channel" onchange="{!c.selectInput}" value="none">
+                    <option value="none" disabled="true">--None--</option>
+                    <aura:iteration items="{!v.channelsList}" var="channel">
+                        <option value="{!channel.id}">{!channel.name}</option>
+                    </aura:iteration>
+                    <option value="createNew">Create new channel...</option>
+                </lightning:select>
+                <div aura:id="channelInput" class="slds-form-element slds-m-bottom--xx-small slds-m-top--x-small slds-hide">
+                    <label class="slds-form-element__label" for="createModalInput"><abbr class="slds-required" title="required">*</abbr> Channel Name</label>
+                    <div class="{!v.channelNameTaken == false ? 'slds-form-element__control' : 'slds-form-element__control slds-has-error'}">
+                        <input id="createModalInput" aura:id="createModalInput" class="slds-input" type="text" maxlength="21" onkeyup="{!c.checkIfEmpty}"/>
+                        <aura:if isTrue="{!v.channelNameTaken}">
+                            <div class="slds-form-element__help">Sorry, that name is taken.</div>
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button--neutral" onclick="{!c.closeCreateModal}">Cancel</button>
+                <button aura:id="saveButton" class="slds-button slds-button--neutral slds-button--brand" onclick="{!c.clickSave}" disabled="true">Save</button>
+                <button aura:id="createButton" class="slds-button slds-button--neutral slds-button--brand slds-hide" onclick="{!c.clickCreate}">Create</button>
+            </div>
+        </div>
+    </div>
+    <!-- Create Modal End -->
+    <div aura:id="channelBackdrop" class="slds-backdrop slds-hide"></div>
+
+    <!-- Unlink Modal -->
+    <div aura:id="unlinkModal" class="slds-modal slds-hide" aria-hidden="false" role="dialog">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <lightning:buttonIcon iconName="utility:close" size="large" variant="bare" alternativeText="Close" class="slack-svg-pointer slds-button--icon-inverse slds-modal__close" onclick="{!c.clickCancelOrCloseUnlinkModal}"/>
+                <h2 class="slds-text-heading--medium">Unlink Confirmation</h2>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium">
+                <p>Are you sure you want to unlink this channel?</p>
+            </div>
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button--neutral" onclick="{!c.clickCancelOrCloseUnlinkModal}">Cancel</button>
+                <button class="slds-button slds-button--destructive" onclick="{!c.clickConfirmUnlinkChannel}">Unlink</button>
+            </div>
+        </div>
+    </div>
+    <div aura:id="unlinkBackdrop" class="slds-backdrop slds-hide"></div>
+    <!-- Unlink Modal End -->
+</aura:component>

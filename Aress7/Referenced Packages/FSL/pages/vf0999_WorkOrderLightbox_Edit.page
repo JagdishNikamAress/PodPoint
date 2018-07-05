@@ -1,0 +1,50 @@
+<apex:page showHeader="false" sidebar="false" standardController="WorkOrder" extensions="FSL.ctrl0999_WorkOrderLightbox">
+
+    <apex:includeScript value="{!$Resource.FSL__jQuery}" />
+
+    <style>
+        body {
+            margin-top: -8px !important;
+        }
+    
+        body .bPageBlock {
+            background: #fff !important;
+            border: 0 !important;
+        }
+        
+        input[type=submit] {
+            margin-left: 130px !important;
+            padding: 6px 10px !important;
+        }
+        
+        .message {
+            margin-top: 8px !important;
+        }
+    </style>
+
+
+    <div id="CKSW_AccountDetailsForm">
+
+        <apex:form >
+
+            <apex:pageMessages ></apex:pageMessages>
+
+            <apex:pageBlock mode="edit">
+
+                <apex:pageBlockButtons >
+                    <apex:commandButton action="{!save}" value="{!$Label.fsl__savechanges}" />
+                </apex:pageBlockButtons>
+
+                <apex:pageBlockSection columns="2">
+                    <apex:repeat value="{!$ObjectType.WorkOrder.FieldSets.FSL__Gantt_Lightbox}" var="d">
+                        <apex:inputField value="{!WorkOrder[d]}" required="{!d.Required}"/>
+                    </apex:repeat>
+                </apex:pageBlockSection>
+
+            </apex:pageBlock>
+
+        </apex:form>
+
+    </div>
+
+</apex:page>

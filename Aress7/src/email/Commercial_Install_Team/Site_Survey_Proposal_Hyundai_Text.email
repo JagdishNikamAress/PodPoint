@@ -1,0 +1,21 @@
+Hi {!Contact.FirstName}
+
+I am contacting you on behalf of Matthew Banks, Dealer Standards Manager at Hyundai Motors UK.
+
+Hyundai are looking to install POD Point electric vehicle charging units prior to the launch of the IONIQ Plug-In Hybrid and for future planned plug-in models. You can find more details of the scheme in the attached document.
+
+In order to prepare for an installation we will need to conduct a site visit at {!Case.Opportunity_Name__c}. 
+
+Our local installer will need access to the relevant distribution board and plant room, any areas affected by the installation of the charge-point supply cable, and the desired charge-point location. The installer will be {!Case.Installer__c}. He will aim to arrive as close as possible to the proposed time but please allow for up to an hour of fluctuation before/after the arrival time. 
+
+To proceed could you please let me know who the site contact will be and confirm if the following site visit time is suitable: 
+
+{!Case.Scheduled_On__c} 
+
+After the site visit results have been reviewed, Matthew Banks will be in touch with further details on your installation. 
+
+If you have any questions please email or call me on the number below. 
+
+Many thanks
+
+Amy

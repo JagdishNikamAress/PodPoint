@@ -1,0 +1,3 @@
+<apex:page controller="RunFieldAwareBatch" action="{!RunAttachmentBatch}" sidebar="false" showHeader="false" >
+<apex:pageMessages id="showmsg"></apex:pageMessages>
+</apex:page>

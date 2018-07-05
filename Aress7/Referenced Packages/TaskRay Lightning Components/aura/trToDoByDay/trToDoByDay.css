@@ -1,0 +1,108 @@
+.THIS .todo-by-day-header-counter{
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #44a2b8;
+  text-align: center;
+  color: white;
+  padding-top: 4px;
+  margin-left: auto;
+}
+
+.THIS .VerticalAlignContainer {
+  display: flex;
+}
+
+.THIS .VerticalAlignContainer-item--bottom {
+  align-self: flex-end;
+}
+
+.THIS .VerticalAlignContainer-item--top {
+  align-self: flex-start;
+}
+
+.THIS .VerticalAlignContainer-item--right {
+  margin-left:auto;
+}
+
+.THIS hr {
+  margin: 6px !important;
+}
+
+.THIS .todo-by-day-header-container .slds-badge {
+  margin-left: auto;
+  background-color: #e54b3b;
+  color: white;
+}
+
+.THIS .todo-by-day-header-container{
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.THIS .todo-by-day-item{
+  margin-bottom: 8px;
+  margin-left:4px;
+}
+
+.THIS .todo-by-day-item>.todo-by-day-checklist-item-icon{
+  margin-top:4px;
+}
+
+.THIS .todo-by-day-checklist-item-icon{
+  background-color: #44a2b8 !important;
+  padding: 2px !important;
+}
+
+.THIS .todo-by-day-task-item-icon{
+  background-color: #44a2b8 !important;
+  padding: 2px !important;
+}
+
+.THIS .todo-by-day-task-complete-checkbox{
+  margin-left:8px;
+  margin-top:4px;
+}
+
+.THIS .todo-by-day-name-container{
+  width: calc(100% - 80px);
+}
+
+.THIS .todo-by-day-name-container.todo-by-day-name-container-no-checkbox{
+  margin-left:32px;
+  width: calc(100% - 36px);
+}
+
+.THIS .todo-by-day-name-container-project-name{
+  color: #0070d2;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.THIS .todo-by-day-item-checklist-name-checkbox-indent, .THIS .todo-by-day-item-checklist-name{
+  margin-top: 4px;
+}
+.THIS .todo-by-day-item-checklist-name-checkbox-indent{
+  margin-left: 36px;
+}
+
+.THIS .todo-by-day-item-checklist-name{
+  margin-left: 52px;
+}
+
+.THIS .todo-by-day-checklistitem-container{
+  margin-left: 36px;
+}
+
+.THIS .todo-by-day-header-taskray-check{
+  background-color: #44a2b8 !important;
+  padding: 2px !important;
+}
+
+.THIS .delete-pending{
+  text-decoration: line-through;
+}
+
+.THIS .overdue-label{
+  color: #c23934;
+}

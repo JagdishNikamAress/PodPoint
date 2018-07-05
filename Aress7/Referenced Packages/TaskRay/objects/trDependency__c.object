@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>This is a TaskRay &quot;behind the scenes&quot; object that stores the information for predecessor and successor task relationships.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>trDependencyType__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dependency Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Finish-To-Start</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Start-To-Start</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Finish-To-Finish</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Start-To-Finish</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>trLag__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Lag</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>trPredecessorTask__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Predecessor Task</label>
+        <referenceTo>Project_Task__c</referenceTo>
+        <relationshipLabel>TaskRay Successor Dependencies</relationshipLabel>
+        <relationshipName>Successor_Dependencies</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>trScheduleConflict__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( NOT(trSuccessorTask__r.trLockDates__c), false,
+  IF(trSuccessorTask__r.trLockDates__c &amp;&amp;  trSuccessorTask__r.trIsMilestone__c &amp;&amp; trPredecessorTask__r.Deadline__c &gt; trSuccessorTask__r.Deadline__c, true,
+  IF(ISPICKVAL(trDependencyType__c , &apos;Finish-To-Start&apos;), trPredecessorTask__r.Deadline__c &gt; trSuccessorTask__r.trStartDate__c,
+  IF(ISPICKVAL(trDependencyType__c , &apos;Finish-To-Finish&apos;), trPredecessorTask__r.Deadline__c &gt; trSuccessorTask__r.Deadline__c,
+  IF(ISPICKVAL(trDependencyType__c , &apos;Start-To-Start&apos;), trPredecessorTask__r.trStartDate__c &gt; trSuccessorTask__r.trStartDate__c,
+  IF(ISPICKVAL(trDependencyType__c , &apos;Start-To-Finish&apos;), trPredecessorTask__r.trStartDate__c &gt; trSuccessorTask__r.Deadline__c, false))))))</formula>
+        <label>In Schedule Conflict</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>trSuccessorTask__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Successor Task</label>
+        <referenceTo>Project_Task__c</referenceTo>
+        <relationshipLabel>TaskRay Dependencies</relationshipLabel>
+        <relationshipName>Predecessor_Dependencies</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>trTemplateSource__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Template Source</label>
+        <referenceTo>trDependency__c</referenceTo>
+        <relationshipLabel>Cloned Dependencies</relationshipLabel>
+        <relationshipName>Template_Source</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>TaskRay Dependency</label>
+    <nameField>
+        <displayFormat>DEPENDENCY-{0}</displayFormat>
+        <label>TaskRay Dependency Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>TaskRay Dependencies</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

@@ -1,0 +1,71 @@
+<apex:page showHeader="false" sidebar="false">
+	<apex:includeScript value="{!URLFOR($Resource.TASKRAY__trplugins, 'jquery/jquery-1.10.2.min.js')}" />
+  <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trFullCalendar, 'fullcalendar/lib/moment.min.js')}" />
+  <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trFullCalendar, 'fullcalendar/fullcalendar.min.js')}" />
+  <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trFullCalendar, 'fullcalendar/locale-all.js')}" />
+  <link href="{!URLFOR($Resource.trFullCalendar, 'fullcalendar/fullcalendar.min.css')}" rel="stylesheet" type="text/css" />
+  <link href="{!URLFOR($Resource.trFullCalendar, 'fullcalendar/fullcalendar.print.css')}" rel="stylesheet" type="text/css" />
+  <link href="{!URLFOR($Resource.trFullCalendar, 'fullcalendar/fullcalendar.overrides.css')}" rel="stylesheet" type="text/css" />
+  <div id="full-calendar-target" />
+  <script>
+    $(document).ready(function(){
+      var currentView = window.localStorage.getItem('TASKRAY__trCalendarView_currentView');
+      var events = JSON.parse(window.localStorage.getItem('TASKRAY__trCalendarView_events'));
+      var startDate = moment.utc(moment.unix(window.localStorage.getItem('TASKRAY__trCalendarView_startDate')));
+      $('#full-calendar-target').fullCalendar({
+        defaultView: currentView,
+        defaultDate: startDate,
+        events: events,
+        eventRender:function(event, element, view) { 
+          element.find('.fc-list-item-time.fc-widget-content').remove();
+          element.attr("id",'calendar-view-task-'+event.id);
+          element.attr('event-id',event.id);
+          element.addClass('calendar-view-task');
+          if(event.isCompleted){
+            element.addClass('calendar-view-completed-task');
+          }
+          
+          var eventTextColor = '#000';
+
+          if(event.isMilestone === true){
+            var milestoneImage = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="11" viewBox="0, 0, 13, 13"><path d="M5.86,0.276 L0.656,5.915 C0.352,6.24 0.352,6.76 0.656,7.085 L5.86,12.724 C6.207,13.092 6.793,13.092 7.14,12.724 L12.344,7.085 C12.648,6.76 12.648,6.24 12.344,5.915 L7.14,0.276 C6.793,-0.092 6.207,-0.092 5.86,0.276 z" fill="'+eventTextColor+'"/></svg>';
+            if(view.type==='listWeek'){
+              element.find('.fc-list-item-title a').prepend(milestoneImage);
+            } else{
+              element.find('.fc-content').prepend(milestoneImage);
+            }
+          }
+          var checkboxElem = `
+          <div class="slds-form-element">
+            <div class="slds-form-element__control">
+              <span class="slds-checkbox">
+                <input type="checkbox" ${event.isCompleted ? 'checked=""' : ''} />
+                <span class="slds-checkbox--faux"></span>
+              </span>
+            </div>
+          </div>
+          `;
+          var completedIcon = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="12" viewBox="0, 0, 52, 52"><path d="m19.1 42.5l-16.5-16.6c-0.6-0.6-0.6-1.6 0-2.2l2.2-2.2c0.6-0.6 1.6-0.6 2.2 0l12.4 12.5c0.4 0.4 1.1 0.4 1.5 0l24.3-24.5c0.6-0.6 1.6-0.6 2.2 0l2.2 2.2c0.6 0.6 0.6 1.6 0 2.2l-28.3 28.6c-0.6 0.7-1.6 0.7-2.2 0z" fill="'+eventTextColor+'"></path></svg>';
+          if(view.type==='listWeek'){
+            element.find('.fc-list-item-title a').prepend((event.isCompleted) ? completedIcon : checkboxElem);
+          } else{
+            element.find('.fc-content').prepend((event.isCompleted) ? completedIcon : checkboxElem);
+          } 
+
+          if(event.projectName){
+            var projectElement = "<div class='eventProjectName' style='margin-left: 15px; display: inline-block; width: 30%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap'>" + event.projectName + "</div>";
+            var taskGroupElement = "<div class='eventTaskGroupName' style='margin-left: 15px; display: inline-block; width: 30%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap'>" + event.taskGroupName + '</div>';
+            
+            element.find('.fc-list-item-title').append(projectElement).append(taskGroupElement);
+          }
+        }
+      });
+      //Cleanup the local storage
+      window.localStorage.removeItem('TASKRAY__trCalendarView_currentView');
+      window.localStorage.removeItem('TASKRAY__trCalendarView_events');
+      window.localStorage.removeItem('TASKRAY__trCalendarView_startDate');
+      window.print();
+    });
+  </script>
+  
+</apex:page>

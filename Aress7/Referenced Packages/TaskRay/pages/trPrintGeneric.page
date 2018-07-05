@@ -1,0 +1,59 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false">
+  <html>
+  	<body>
+      <div id="print-container" class="slds">
+        <h4 id="print-header"></h4>
+        <div id="print-content-container"></div>
+      </div>
+    </body>
+    <link href="{!URLFOR($Resource.trplugins, 'sds/salesforce-lightning-design-system-vf.css')}" rel="stylesheet" type="text/css" />
+    <link href="{!URLFOR($Resource.trplugins, 'css/trtaskboard.css')}" rel="stylesheet" type="text/css" />
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trplugins, 'plugins/plotly-basic.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trplugins, 'plugins/FileSaver.js')}" />
+    <style>
+      @media print {
+        body {
+          -webkit-print-color-adjust: exact;
+        }
+        .no-print, .no-print *{
+          display: none !important;
+        }
+      }
+    </style>
+    <style id="dynamicStyleSheet">
+
+    </style>
+    <script>
+      window.addEventListener("message", receiveMessage, false);
+
+      function receiveMessage(event)
+      {
+        if(event.origin === window.location.origin && event.data && (event.data.blob || event.data.filename || event.data.printContainer || event.data.printHeader || event.data.printStyles) ){
+          if(event.data.blob && event.data.filename){
+            var blob = event.data.blob;
+            var filename = event.data.filename;
+            window.saveAs(blob, filename);
+            window.setTimeout(function(){window.close();},250);
+          } else{
+            if(event.data.printContainer){
+              document.getElementById('print-content-container').innerHTML = event.data.printContainer;
+            }
+            if(event.data.printHeader){
+              document.getElementById('print-header').innerHTML = event.data.printHeader;
+            }
+            if(event.data.printStyles){
+              document.getElementById('dynamicStyleSheet').innerHTML = event.data.printStyles;
+            }
+            var selects = document.getElementsByTagName("SELECT");
+            for (var i = 0; i < selects.length; i++) {
+              selects[i].disabled = true;
+            }
+            window.setTimeout(function(){ window.print();}, 1500);
+          }
+        }
+        return;
+      }
+      window.opener.postMessage('TASKRAY_PRINT_GENERIC_PAGE_READY',window.location.origin)
+    </script>
+  </html>
+</apex:page>

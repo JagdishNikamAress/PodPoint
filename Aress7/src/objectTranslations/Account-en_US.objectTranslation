@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Account Classification</value>
+        </caseValues>
+        <name>type_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <help><!-- Choose which marketing this account should receive. --></help>
+        <label><!-- Account Marketing Focus --></label>
+        <name>Account_Marketing_Focus__c</name>
+        <picklistValues>
+            <masterLabel>Destination Leisure</masterLabel>
+            <translation><!-- Destination Leisure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Destination Public</masterLabel>
+            <translation><!-- Destination Public --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Destination Retail</masterLabel>
+            <translation><!-- Destination Retail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Strategic</masterLabel>
+            <translation><!-- Home Strategic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workplace</masterLabel>
+            <translation><!-- Workplace --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workplace Strategic</masterLabel>
+            <translation><!-- Workplace Strategic --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Choose the type of account this is. --></help>
+        <label><!-- Account Type --></label>
+        <name>Account_Type__c</name>
+        <picklistValues>
+            <masterLabel>Agents / Developers</masterLabel>
+            <translation><!-- Agents / Developers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agents/Developers</masterLabel>
+            <translation><!-- Agents/Developers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Airport</masterLabel>
+            <translation><!-- Airport --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Architect</masterLabel>
+            <translation><!-- Architect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Attraction</masterLabel>
+            <translation><!-- Attraction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BE Influencer</masterLabel>
+            <translation><!-- BE Influencer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Park</masterLabel>
+            <translation><!-- Business Park --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Car Club</masterLabel>
+            <translation><!-- Car Club --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Carpark Operator</masterLabel>
+            <translation><!-- Carpark Operator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consultants</masterLabel>
+            <translation><!-- Consultants --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contractor</masterLabel>
+            <translation><!-- Contractor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Fleet</masterLabel>
+            <translation><!-- Corporate Fleet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate/SME Motor Finance</masterLabel>
+            <translation><!-- Corporate/SME Motor Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Crematoria</masterLabel>
+            <translation><!-- Crematoria --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer</masterLabel>
+            <translation><!-- Dealer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Depot</masterLabel>
+            <translation><!-- Depot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Design Engineer</masterLabel>
+            <translation><!-- Design Engineer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Distributor</masterLabel>
+            <translation><!-- Distributor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Energy Aggregators</masterLabel>
+            <translation><!-- Energy Aggregators --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Energy Companies</masterLabel>
+            <translation><!-- Energy Companies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Events</masterLabel>
+            <translation><!-- Events --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Facilities Management</masterLabel>
+            <translation><!-- Facilities Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ferry</masterLabel>
+            <translation><!-- Ferry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance Company</masterLabel>
+            <translation><!-- Finance Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fleet Management</masterLabel>
+            <translation><!-- Fleet Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Food/Beverage</masterLabel>
+            <translation><!-- Food/Beverage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fuel Companies</masterLabel>
+            <translation><!-- Fuel Companies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Governmental</masterLabel>
+            <translation><!-- Governmental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grid Operators</masterLabel>
+            <translation><!-- Grid Operators --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grocer</masterLabel>
+            <translation><!-- Grocer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health/Wellbeing</masterLabel>
+            <translation><!-- Health/Wellbeing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Holiday Venue</masterLabel>
+            <translation><!-- Holiday Venue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital</masterLabel>
+            <translation><!-- Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hotel &amp; Attractions</masterLabel>
+            <translation><!-- Hotel &amp; Attractions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Housing Associations</masterLabel>
+            <translation><!-- Housing Associations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Industry Body</masterLabel>
+            <translation><!-- Industry Body --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Install Tool (old)</masterLabel>
+            <translation><!-- Install Tool (old) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leasing Company</masterLabel>
+            <translation><!-- Leasing Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal Building</masterLabel>
+            <translation><!-- Legal Building --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Motor Group</masterLabel>
+            <translation><!-- Motor Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OEM</masterLabel>
+            <translation><!-- OEM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office</masterLabel>
+            <translation><!-- Office --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open Charge App</masterLabel>
+            <translation><!-- Open Charge App --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ordering Tool</masterLabel>
+            <translation><!-- Ordering Tool --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Tech</masterLabel>
+            <translation><!-- Other Tech --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Private Equity</masterLabel>
+            <translation><!-- Private Equity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Property Management</masterLabel>
+            <translation><!-- Property Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public Sector</masterLabel>
+            <translation><!-- Public Sector --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rail</masterLabel>
+            <translation><!-- Rail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rental</masterLabel>
+            <translation><!-- Rental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retail</masterLabel>
+            <translation><!-- Retail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>School</masterLabel>
+            <translation><!-- School --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Smart Cities</masterLabel>
+            <translation><!-- Smart Cities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Solar</masterLabel>
+            <translation><!-- Solar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sport Venue</masterLabel>
+            <translation><!-- Sport Venue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sports Venue</masterLabel>
+            <translation><!-- Sports Venue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subcontractors</masterLabel>
+            <translation><!-- Subcontractors --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Taxi</masterLabel>
+            <translation><!-- Taxi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transport</masterLabel>
+            <translation><!-- Transport --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>University</masterLabel>
+            <translation><!-- University --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wholesaler</masterLabel>
+            <translation><!-- Wholesaler --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wildlife</masterLabel>
+            <translation><!-- Wildlife --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workplace</masterLabel>
+            <translation><!-- Workplace --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Are there any Won Oportunites --></label>
+        <name>Are_there_any_Won_Oportunites__c</name>
+    </fields>
+    <fields>
+        <label><!-- CPD Conducted --></label>
+        <name>CPD_Conducted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign --></label>
+        <name>Campaign__c</name>
+    </fields>
+    <fields>
+        <label><!-- Capsule Import ID --></label>
+        <name>Capsule_Import_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Capsule Import Zen_Created --></label>
+        <name>Capsule_Import_Zen_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- Capsule Import Zen_ID --></label>
+        <name>Capsule_Import_Zen_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Landing Page URL If Applicable (SPPSUBE) --></label>
+        <name>ConsentLandingPageURL_SPPSUBE__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Preference Was Made (HAHBE) --></label>
+        <name>ConsentObtainedDate_HAHBE__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Preference Was Made (HAHBP) --></label>
+        <name>ConsentObtainedDate_HAHBP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Preference Was Made (SPPSUBE) --></label>
+        <name>ConsentObtainedDate_SPPSUBE__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consent Mechanism Type (HAHBE) --></label>
+        <name>ConsentType_HAHBE__c</name>
+        <picklistValues>
+            <masterLabel>Express Consent</masterLabel>
+            <translation><!-- Express Consent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Soft Opt-In</masterLabel>
+            <translation><!-- Soft Opt-In --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Consent Mechanism Type (HAHBP) --></label>
+        <name>ConsentType_HAHBP__c</name>
+        <picklistValues>
+            <masterLabel>Express Consent</masterLabel>
+            <translation><!-- Express Consent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Soft Opt-In</masterLabel>
+            <translation><!-- Soft Opt-In --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Consent Mechanism Type (SPPSUBE) --></label>
+        <name>ConsentType_SPPSUBE__c</name>
+        <picklistValues>
+            <masterLabel>Express Consent</masterLabel>
+            <translation><!-- Express Consent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manual Action</masterLabel>
+            <translation><!-- Manual Action --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Soft Opt-In</masterLabel>
+            <translation><!-- Soft Opt-In --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Content --></label>
+        <name>Content__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conversion Type --></label>
+        <name>Conversion_Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- If the organisation type is Dealer, choose the brand associated with that dealer --></help>
+        <label><!-- Dealer Brand --></label>
+        <name>Dealer_Brand__c</name>
+        <picklistValues>
+            <masterLabel>Aston Martin</masterLabel>
+            <translation><!-- Aston Martin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Audi</masterLabel>
+            <translation><!-- Audi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BMW</masterLabel>
+            <translation><!-- BMW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bentley</masterLabel>
+            <translation><!-- Bentley --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chevrolet</masterLabel>
+            <translation><!-- Chevrolet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Citroen</masterLabel>
+            <translation><!-- Citroen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dacia</masterLabel>
+            <translation><!-- Dacia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fiat</masterLabel>
+            <translation><!-- Fiat --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ford</masterLabel>
+            <translation><!-- Ford --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Honda</masterLabel>
+            <translation><!-- Honda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hyundai</masterLabel>
+            <translation><!-- Hyundai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jaguar</masterLabel>
+            <translation><!-- Jaguar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kia</masterLabel>
+            <translation><!-- Kia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Land Rover</masterLabel>
+            <translation><!-- Land Rover --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lexus</masterLabel>
+            <translation><!-- Lexus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lotus</masterLabel>
+            <translation><!-- Lotus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mazda</masterLabel>
+            <translation><!-- Mazda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>McLaren</masterLabel>
+            <translation><!-- McLaren --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mini</masterLabel>
+            <translation><!-- Mini --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mitsubishi</masterLabel>
+            <translation><!-- Mitsubishi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multiple Brands</masterLabel>
+            <translation><!-- Multiple Brands --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nissan</masterLabel>
+            <translation><!-- Nissan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Peugeot</masterLabel>
+            <translation><!-- Peugeot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Porsche</masterLabel>
+            <translation><!-- Porsche --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proton</masterLabel>
+            <translation><!-- Proton --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renault</masterLabel>
+            <translation><!-- Renault --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Seat</masterLabel>
+            <translation><!-- Seat --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Skoda</masterLabel>
+            <translation><!-- Skoda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Smart</masterLabel>
+            <translation><!-- Smart --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subaru</masterLabel>
+            <translation><!-- Subaru --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tesla</masterLabel>
+            <translation><!-- Tesla --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toyota</masterLabel>
+            <translation><!-- Toyota --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used</masterLabel>
+            <translation><!-- Used --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VW</masterLabel>
+            <translation><!-- VW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vauxhall</masterLabel>
+            <translation><!-- Vauxhall --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Volvo</masterLabel>
+            <translation><!-- Volvo --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Earliest Win Date v2 --></label>
+        <name>Earliest_Win_Date_v2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consent Environment (HAHBE) --></label>
+        <name>EnvironmentConsentWasObtainedIn_HAHBE__c</name>
+        <picklistValues>
+            <masterLabel>Dealership Portal</masterLabel>
+            <translation><!-- Dealership Portal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Landing Page</masterLabel>
+            <translation><!-- Landing Page --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OC Mobile App</masterLabel>
+            <translation><!-- OC Mobile App --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OC Web App</masterLabel>
+            <translation><!-- OC Web App --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Checkout</masterLabel>
+            <translation><!-- Web Checkout --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Consent Environment (HAHBP) --></label>
+        <name>EnvironmentConsentWasObtainedIn_HAHBP__c</name>
+        <picklistValues>
+            <masterLabel>Dealership Portal</masterLabel>
+            <translation><!-- Dealership Portal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Landing Page</masterLabel>
+            <translation><!-- Landing Page --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OC Mobile App</masterLabel>
+            <translation><!-- OC Mobile App --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OC Web App</masterLabel>
+            <translation><!-- OC Web App --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Checkout</masterLabel>
+            <translation><!-- Web Checkout --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Consent Environment (SPPSUBE) --></label>
+        <name>EnvironmentConsentWasObtainedIn_SPPSUBE__c</name>
+        <picklistValues>
+            <masterLabel>Dealership Portal</masterLabel>
+            <translation><!-- Dealership Portal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inbound Email</masterLabel>
+            <translation><!-- Inbound Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Landing Page</masterLabel>
+            <translation><!-- Landing Page --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mailchimp Re-consent Email</masterLabel>
+            <translation><!-- Mailchimp Re-consent Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OC Mobile App</masterLabel>
+            <translation><!-- OC Mobile App --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OC Web App</masterLabel>
+            <translation><!-- OC Web App --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phonecall</masterLabel>
+            <translation><!-- Phonecall --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Checkout</masterLabel>
+            <translation><!-- Web Checkout --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- FieldAware ID --></label>
+        <name>FieldAware_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- FieldAware URL --></label>
+        <name>FieldAware_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Help Arrange HC By Email (HAHBE) --></label>
+        <name>HasOptedIn_HAHBE__c</name>
+    </fields>
+    <fields>
+        <label><!-- Help Arrange HC By Phone (HAHBP) --></label>
+        <name>HasOptedIn_HAHBP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Send PP P&amp;S Updates By Email (SPPSUBE) --></label>
+        <name>HasOptedIn_SPPSUBE__c</name>
+    </fields>
+    <fields>
+        <label><!-- Has Pod Point Installed --></label>
+        <name>Has_Pod_Point_Installed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Key Strategic Account --></label>
+        <name>Key_Strategic_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Industry (Other) --></label>
+        <name>Lead_Industry_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Industry --></label>
+        <name>Lead_Industry__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Type --></label>
+        <name>Lead_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Active --></label>
+        <name>LiveText__Active__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Location ID --></label>
+        <name>Location_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Market --></label>
+        <name>Market__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medium --></label>
+        <name>Medium__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Parking Spaces --></label>
+        <name>Number_of_Parking_Spaces__c</name>
+    </fields>
+    <fields>
+        <label><!-- Passed App Consent Step --></label>
+        <name>Passed_App_Consent_Step__c</name>
+    </fields>
+    <fields>
+        <label><!-- Passed Homecharge Consent Step --></label>
+        <name>Passed_Homecharge_Consent_Step__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Route to Market --></label>
+        <name>Primary_Route_to_Market__c</name>
+    </fields>
+    <fields>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
+        <picklistValues>
+            <masterLabel>Amber</masterLabel>
+            <translation><!-- Amber --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Green</masterLabel>
+            <translation><!-- Green --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Red</masterLabel>
+            <translation><!-- Red --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Problem Trying to Solve (Other) --></label>
+        <name>Problem_Trying_to_Solve_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Problem Trying to Solve --></label>
+        <name>Problem_Trying_to_Solve__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please choose a route to market --></help>
+        <label><!-- Account Route to Market --></label>
+        <name>Route_to_Market__c</name>
+        <picklistValues>
+            <masterLabel>Automotive</masterLabel>
+            <translation><!-- Automotive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Built Environment</masterLabel>
+            <translation><!-- Built Environment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Destination</masterLabel>
+            <translation><!-- Destination --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insights</masterLabel>
+            <translation><!-- Insights --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workplace</masterLabel>
+            <translation><!-- Workplace --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Secondary Route to Market --></label>
+        <name>Secondary_Route_to_Market__c</name>
+    </fields>
+    <fields>
+        <label><!-- Signed up to OC App --></label>
+        <name>Signed_up_to_OC_App__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source --></label>
+        <name>Source__c</name>
+    </fields>
+    <fields>
+        <label><!-- Strategic Account Stage Last Updated --></label>
+        <name>Strategic_Account_Stage_Last_Updated__c</name>
+    </fields>
+    <fields>
+        <help><!-- If the account is strategic, what stage are we currently at? --></help>
+        <label><!-- Strategic Account Stage --></label>
+        <name>Strategic_Account_Stage__c</name>
+        <picklistValues>
+            <masterLabel>1. Initial installs</masterLabel>
+            <translation><!-- 1. Initial installs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2. Informal Trial</masterLabel>
+            <translation><!-- 2. Informal Trial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3. Formal Trial</masterLabel>
+            <translation><!-- 3. Formal Trial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4. Regional Supply</masterLabel>
+            <translation><!-- 4. Regional Supply --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5. Non Contractual Rollout</masterLabel>
+            <translation><!-- 5. Non Contractual Rollout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6. Long Term Supply Contract</masterLabel>
+            <translation><!-- 6. Long Term Supply Contract --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Tick this box if you think the account is likely to need more than 500 units in the next 5 years --></help>
+        <label><!-- Strategic Account? --></label>
+        <name>Strategic_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Strategic Account Tier --></label>
+        <name>Strategic_Account_picklist__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Term --></label>
+        <name>Term__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Condition --></label>
+        <name>Vehicle_Condition__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Delivery Date --></label>
+        <name>Vehicle_Delivery_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle End Year --></label>
+        <name>Vehicle_End_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle_Make --></label>
+        <name>Vehicle_Make__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle_Model --></label>
+        <name>Vehicle_Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Purchase Option --></label>
+        <name>Vehicle_Purchase_Option__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Start Year --></label>
+        <name>Vehicle_Start_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consent Wording (HAHBE) --></label>
+        <name>WhatIndividualWasTold_HAHBE__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consent Wording (HAHBP) --></label>
+        <name>WhatIndividualWasTold_HAHBP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consent Wording (SPPSUBE) --></label>
+        <name>WhatIndividualWasTold_SPPSUBE__c</name>
+    </fields>
+    <fields>
+        <label><!-- With Competitor? --></label>
+        <name>With_Competitor__c</name>
+    </fields>
+    <quickActions>
+        <label><!-- Case --></label>
+        <name>Case</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Child Account --></label>
+        <name>Child_Account</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Contact --></label>
+        <name>Contact</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Log a Call --></label>
+        <name>Log_a_Call</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Log A Note --></label>
+        <name>Note</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Task --></label>
+        <name>Task</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Business Account --></label>
+        <name>Business_Account</name>
+    </recordTypes>
+    <webLinks>
+        <label><!-- Create_Event_v2 --></label>
+        <name>Create_Event_v2</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- EasyUpload --></label>
+        <name>EasyUpload</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleNews --></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Opt_in_for_Text_Messages_list --></label>
+        <name>LiveText__Opt_in_for_Text_Messages_list</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Opt_out_for_Text_Messages_list --></label>
+        <name>LiveText__Opt_out_for_Text_Messages_list</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_Bulk_SMS --></label>
+        <name>LiveText__Send_Bulk_SMS</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Log_Security_Check --></label>
+        <name>Log_Security_Check</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOP --></label>
+        <name>Loop__LOOP</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOP_Merge --></label>
+        <name>Loop__LOOP_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOPlus --></label>
+        <name>Loop__LOOPlus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOP_Merge --></label>
+        <name>Loop__Mass_LOOP_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOPlus --></label>
+        <name>Loop__Mass_LOOPlus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- MailChimp_Subscriptions --></label>
+        <name>MC4SF__MailChimp_Subscriptions</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Case --></label>
+        <name>New_Case</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Create_Tasks_Accounts --></label>
+        <name>activities__Create_Tasks_Accounts</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Download_Attachments --></label>
+        <name>attachmentzip__Download_Attachments</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Blackthorn_Terminal --></label>
+        <name>bt_stripe__Blackthorn_Terminal</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Virtual_Terminal --></label>
+        <name>bt_stripe__Virtual_Terminal</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_to_EchoSign --></label>
+        <name>echosign_dev1__Send_to_EchoSign</name>
+    </webLinks>
+</CustomObjectTranslation>

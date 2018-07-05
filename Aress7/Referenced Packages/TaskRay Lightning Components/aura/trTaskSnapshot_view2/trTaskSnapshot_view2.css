@@ -1,0 +1,210 @@
+.THIS.overview-container {
+  padding:8px;
+  background-color:#F1F3F7;
+  border-radius: 4px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.THIS .info-container--row{
+  display: flex;
+}
+
+.THIS .info-container--time{
+  display: flex;
+  width: 100%;
+  align-content: space-between;
+  justify-content: space-between;
+  margin: 6px 12px;
+  padding-top: 6px;
+  border-top: 1px solid #d8dde6;
+}
+
+.THIS .slds-icon-warning-estimated-time{
+  fill: #9faab5;
+  margin-top: -4px;
+  margin-right: 8px;
+}
+
+.THIS .slds-icon-warning-actual-time{
+  fill: #35495e;
+  margin-top: -4px;
+  margin-right: 8px;
+}
+
+.THIS .info-container-complete--icon{
+  fill: #5bb265;
+  margin-top: -4px;
+  margin-right: 8px;
+}
+
+.THIS .slds-icon-schedule-conflict{
+  fill: #c23934;
+  margin-top: -4px;
+  margin-right: 8px;
+}
+
+.THIS .slds-icon-warning-task-snapshot{
+  fill: orange;
+  margin-top: -4px;
+  margin-right: 8px;
+}
+
+.THIS .slds-icon-clock-task-snapshot{
+  fill: red;
+  margin-top: -4px;
+  margin-right: 8px;
+}
+
+.THIS {
+  padding:8px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.THIS .status-square--container{
+  width:12px;
+  height:12px;
+  border-radius: 3px;
+}
+
+.THIS .snapshot-top-container {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.THIS .snapshot-circle-container {
+  float: left; 
+  width: 80px;
+}
+
+.THIS .task-snapshot--graph {
+  margin-top:4px;
+}
+
+.THIS .snapshot-stat-list {
+  float: left;
+  margin-left: 10px;
+  margin-top: 3px;
+
+}
+
+.THIS .snapshot-stat-list-container {
+  float: left;
+  margin-left: 6px;
+  width: calc(100% - 86px);
+}
+
+.THIS .snapshot-stat-list-item-container{
+  position: relative;
+  padding-left: 14px;
+}
+
+.THIS .status-square--container{
+  width:12px;
+  height:12px;
+  position: absolute;
+  left: 0;
+  top: calc(50% - 6px);
+}
+
+.THIS .snapshot-stat-list-item {
+  float: left;
+  margin-left: 3px;
+}
+
+.THIS .taskSnapshotBucketCount {
+  float: left;
+  margin-left: 5px;
+}
+
+.THIS .taskSnapshotBucketName {
+  float: left;
+  margin-left: 2px;
+}
+
+.THIS .slds-task-snapshot-bottom-row-text {
+  float: left; 
+  margin-top: 3px; 
+  margin-left: 2px;
+}
+
+.THIS .slds-task-snapshot-bottom-row-icon {
+  float: left;
+}
+
+.THIS .slds-task-snapshot-right-stat-list {
+  float: left; 
+  margin-top: 18px; 
+  margin-left: 2%; 
+  height: 100%;
+}
+
+.THIS .snapshot-bottom-middle {
+  width: 100px;
+  margin: 0 auto;
+}
+
+.THIS .snapshot-bottom-center-text {
+  float: left; 
+  margin-left: 3px; 
+  margin-top: 2px;
+}
+
+.THIS .taskSnapshotColorSquare {
+  float: left; 
+  margin-top: 4px;
+}
+
+.THIS .slds-clear-float {
+  clear: both;
+}
+
+.THIS .slds-task-snapshot-right-bottom-stat-container {
+  float:left; 
+  margin-left: 30px;
+}
+
+.THIS .slds-task-snapshot-left-bottom-stat-container {
+  float:left; 
+  margin-left: 5px;
+}
+
+.THIS .snapshot-bottom-left-text {
+  float: left; 
+  margin-left: 3px; 
+  margin-top: 2px;
+}
+
+
+.THIS .snapshot-bottom-right {
+  float: left; 
+  width: 50%;
+}
+
+.THIS .snapshot-bottom-left {
+  float: left; 
+  width: 50%;
+}
+
+.THIS .snapshot-bottom-left-stat {
+  float: left; 
+}
+
+.THIS .snapshot-bottom-right-stat {
+  float: left; 
+  margin-left: 5px; 
+  width: 100%;
+}
+
+.THIS .snapshot-bottom-right-text {
+  float: left; 
+  margin-left: 3px; 
+  margin-top: 2px;
+}
+
+.THIS .info-container{
+  margin-left: 8px;
+  padding-left: 8px;
+}

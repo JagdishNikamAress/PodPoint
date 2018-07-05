@@ -1,0 +1,22 @@
+Hi {!Contact.FirstName}
+
+CPD Confirmation – {!Account.Name}
+{!Case.Install_Date__c}
+
+CPD Agenda:
+What is the Electric Vehicle Industry
+Where do Electric Vehicle drivers charge
+Future Projections
+Electric Vehicle drivers
+Planning Guidance
+Anatomy of an Electric Vehicle
+Anatomy of Charging Points
+Connector Types
+Charging Point Use Cases
+How to allocate Bays
+Procurement
+Billing & Money
+Regulations
+Typical Installations
+Future Gazing
+Useful sources of Info

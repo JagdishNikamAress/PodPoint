@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <description>Email to send when you can&apos;t reach a customer.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Contact Attempted 1 old</name>
+    <style>none</style>
+    <subject>POD Point - Your Home Charging Unit</subject>
+    <textOnly>We tried to contact you
+
+Sorry we couldn’t reach you
+
+Hi {!Account.Name},
+
+Thanks for getting in touch with us through the POD Point website. I just gave you a ring to find out if you had any questions about charging electric cars at home, but I couldn’t get through.
+
+If you’d like to have a chat, please let us know when would be a convenient time for us to call back. Ready to get charging at home? Simply click below to find the perfect charging point for you.
+
+{!Opportunity.Ordering_Tool_Customer_URL__c}
+
+Kind Regards,
+
+{!Opportunity.OwnerFullName}
+020 7247 4114</textOnly>
+    <type>custom</type>
+</EmailTemplate>

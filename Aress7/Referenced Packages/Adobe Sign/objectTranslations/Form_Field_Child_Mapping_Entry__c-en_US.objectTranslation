@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Form Field Child Mapping Entry</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Form Field Child Mapping Entries</value>
+    </caseValues>
+    <fields>
+        <label><!-- Field --></label>
+        <name>Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Field Child Mapping --></label>
+        <name>Form_Field_Child_Mapping__c</name>
+        <relationshipLabel><!-- Form Field Child Mapping Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Target Document Field --></label>
+        <name>Form_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Index --></label>
+        <name>Index__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

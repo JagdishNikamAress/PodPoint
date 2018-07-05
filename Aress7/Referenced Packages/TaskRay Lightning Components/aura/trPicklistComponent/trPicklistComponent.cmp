@@ -1,0 +1,70 @@
+<aura:component>
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<aura:attribute name="SelectedId" type="String" />
+    <aura:attribute name="SelectedName" type="String" />
+    <aura:attribute name="DropdownArray" type="Object" />
+    <aura:attribute name="DropdownLabel" type="String" />    
+    <aura:attribute name="DropdownHeaderLabel" type="String" />
+    <aura:attribute name="LimitDropdownHeight" type="Boolean" />
+    <aura:attribute name="menuOpen" type="Boolean" default="false" />
+	<aura:registerEvent name="genericEvent" type="TASKRAY_LTNG:trGenericEvent"/>    
+    
+    <div class="slds-form-element">
+		<div class="slds-form-element__control">
+			<div class="slds-combobox_container slds-size_small">
+			  <label class="slds-form-element__label">{!v.DropdownLabel}</label>
+			  <div class="{!v.menuOpen ? 'slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open' : 'slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click'}" aria-expanded="true" aria-haspopup="listbox" role="combobox" onclick="{!c.toggleMenuOpen}">
+			    <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right">
+		            <input type="text" class="slds-input slds-combobox__input" id="combobox-unique-id" aria-controls="listbox-unique-id" autocomplete="off" role="textbox" value="{!v.SelectedName}"/>
+		            <span class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right">
+		                <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#down" category="utility" name="list" class="slds-button__icon slds-button__icon--x-small down-icon" fillOverride="#54698d" isButton="true" />
+		            </span>
+			    </div>
+			    <div role="listbox">
+			      <ul aura:id="addClassHereForDropdownHeight" class="slds-listbox slds-listbox_vertical slds-dropdown slds-dropdown_fluid" role="presentation">
+			        <li class="slds-dropdown__header slds-truncate" role="separator">
+			            <span class="slds-text-title_caps">{!v.DropdownHeaderLabel}</span>
+			        </li>
+			        <aura:iteration items="{!v.DropdownArray}" var="arrayItem" indexVar="index">
+			            <li role="presentation" class="slds-listbox__item" >
+			                <aura:if isTrue="{!arrayItem.Id != ''}">
+			                    <!-- if task group is selected add class slds-is-selected to outer span -->
+			                    <aura:if isTrue="{!v.SelectedId == arrayItem.Id}">                         
+			                        <span class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-media_center slds-is-selected" role="option" onclick="{!c.changeTaskGroup}" data-clickedId="{!arrayItem.Id}">
+			                            <span class="slds-media__figure" data-clickedId="{!arrayItem.Id}">
+			                                <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#check" category="utility" name="check" size="x-small" class="slds-icon slds-icon_x-small slds-listbox__icon-selected" fillOverride="#54698d" />
+			                            </span>
+			                            <span class="slds-media__body" data-clickedId="{!arrayItem.Id}">
+			                                <span class="slds-truncate" data-clickedId="{!arrayItem.Id}">
+			                                    <aura:if isTrue="{!arrayItem.Name != ''}" >
+			                                        {!arrayItem.Name}
+			                                    </aura:if>
+			                                </span>
+			                            </span>
+			                        </span>
+			                    </aura:if>
+			                    <!-- if task group is not selected -->
+			                    <aura:if isTrue="{!v.SelectedId != arrayItem.Id}">
+			                        <span class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-media_center" role="option" onclick="{!c.changeTaskGroup}" data-clickedId="{!arrayItem.Id}">
+			                            <span class="slds-media__figure" data-clickedId="{!arrayItem.Id}">
+			                                <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#check" category="utility" name="check" size="x-small" class="slds-icon slds-icon_x-small slds-listbox__icon-selected" fillOverride="#54698d" />
+			                            </span>
+			                            <span class="slds-media__body" data-clickedId="{!arrayItem.Id}">
+			                                <span class="slds-truncate" data-clickedId="{!arrayItem.Id}">
+			                                    <aura:if isTrue="{!arrayItem.Name != ''}">
+			                                        {!arrayItem.Name}
+			                                    </aura:if>
+			                                </span>
+			                            </span>
+			                        </span>
+			                    </aura:if>
+			                </aura:if>
+			            </li>
+			        </aura:iteration>
+			      </ul>
+			    </div>
+			  </div>
+			</div>
+		</div>
+	</div>
+</aura:component>

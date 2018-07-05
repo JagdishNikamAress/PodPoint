@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Arrival Window End Time --></label>
+        <name>Arrival_Window_End_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Arrival Window Start Time --></label>
+        <name>Arrival_Window_Start_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Owner --></label>
+        <name>Case_Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Type --></label>
+        <name>Case_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Completed in Office --></label>
+        <name>Completed_in_Office__c</name>
+    </fields>
+    <fields>
+        <label><!-- System Confirmation Email Sent --></label>
+        <name>Confirmation_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Email --></label>
+        <name>Contact_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Number --></label>
+        <name>Contact_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Confirmation --></label>
+        <name>Customer_Confirmation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Door A/B --></label>
+        <name>Door_A_B__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Fill In Candidate --></label>
+        <name>FSL__IsFillInCandidate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prevent Geocoding For Chatter Actions --></label>
+        <name>FSL__Prevent_Geocoding_For_Chatter_Actions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scheduling Priority --></label>
+        <name>FSL__Scheduling_Priority__c</name>
+    </fields>
+    <fields>
+        <label><!-- Visiting Hours --></label>
+        <name>FSL__VisitingHours__c</name>
+        <relationshipLabel><!-- Work Orders --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Followed up --></label>
+        <name>Followed_up__c</name>
+    </fields>
+    <fields>
+        <label><!-- Google Drive Folder Link --></label>
+        <name>Google_Drive_Folder_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Groundworks (Commercial) Photos List --></label>
+        <name>Groundworks_Commercial_Photos_List__c</name>
+    </fields>
+    <fields>
+        <label><!-- Groundworks (Domestic) Photos List --></label>
+        <name>Groundworks_Domestic_Photos_List__c</name>
+    </fields>
+    <fields>
+        <label><!-- Incomplete Reason (Other) --></label>
+        <name>Incomplete_Reason_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Incomplete Reason --></label>
+        <name>Incomplete_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Additional Works Required</masterLabel>
+            <translation><!-- Additional Works Required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Adverse Weather</masterLabel>
+            <translation><!-- Adverse Weather --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Could Not Access Supply</masterLabel>
+            <translation><!-- Could Not Access Supply --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Could Not Diagnose</masterLabel>
+            <translation><!-- Could Not Diagnose --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Could Not Locate Unit</masterLabel>
+            <translation><!-- Could Not Locate Unit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Not Present</masterLabel>
+            <translation><!-- Customer Not Present --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insufficient Materials</masterLabel>
+            <translation><!-- Insufficient Materials --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insufficient Parts</masterLabel>
+            <translation><!-- Insufficient Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insufficient Supply</masterLabel>
+            <translation><!-- Insufficient Supply --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insufficient Tools</masterLabel>
+            <translation><!-- Insufficient Tools --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Enough Time</masterLabel>
+            <translation><!-- Not Enough Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outlander Issue</masterLabel>
+            <translation><!-- Outlander Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sickness</masterLabel>
+            <translation><!-- Sickness --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unsafe Working Environment</masterLabel>
+            <translation><!-- Unsafe Working Environment --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Install (Commercial) Photos List --></label>
+        <name>Install_Commercial_Photos_List__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Description --></label>
+        <name>Install_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install (Domestic) Photos List --></label>
+        <name>Install_Domestic_Photos_List__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsCreatedByQuickAction --></label>
+        <name>IsCreatedByQuickAction__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsSFUser --></label>
+        <name>IsSFUser__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsSiteUser --></label>
+        <name>IsSiteUser__c</name>
+    </fields>
+    <fields>
+        <label><!-- Maintenance Action Taken --></label>
+        <name>Maintenance_Action_Taken__c</name>
+        <picklistValues>
+            <masterLabel>Arch 1 - 2 Swapout</masterLabel>
+            <translation><!-- Arch 1 - 2 Swapout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cable Swap</masterLabel>
+            <translation><!-- Cable Swap --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Changing a Key Lock</masterLabel>
+            <translation><!-- Changing a Key Lock --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Decal Change</masterLabel>
+            <translation><!-- Decal Change --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LED Swap</masterLabel>
+            <translation><!-- LED Swap --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PCB Swap</masterLabel>
+            <translation><!-- PCB Swap --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post-Install Survey</masterLabel>
+            <translation><!-- Post-Install Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Powercycle</masterLabel>
+            <translation><!-- Powercycle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RCBO Reset</masterLabel>
+            <translation><!-- RCBO Reset --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RCBO Swap</masterLabel>
+            <translation><!-- RCBO Swap --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Router Reset</masterLabel>
+            <translation><!-- Router Reset --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Router Swap</masterLabel>
+            <translation><!-- Router Swap --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unit Swap</masterLabel>
+            <translation><!-- Unit Swap --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Up-Rating Unit(s)</masterLabel>
+            <translation><!-- Up-Rating Unit(s) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Maintenance Description --></label>
+        <name>Maintenance_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Maintenance Proposed Solution --></label>
+        <name>Maintenance_Proposed_Solution__c</name>
+    </fields>
+    <fields>
+        <label><!-- Maintenance Return Visit Required? --></label>
+        <name>Maintenance_Return_Visit_Required__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Was the proposed solution correct? --></help>
+        <label><!-- Maintenance Solution Correct? --></label>
+        <name>Maintenance_Solution_Correct__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Was the expected maintenance symptom correct on arrival? --></help>
+        <label><!-- Maintenance Symptom Correct? --></label>
+        <name>Maintenance_Symptom_Correct__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Maintenance Symptom --></label>
+        <name>Maintenance_Symptom__c</name>
+    </fields>
+    <fields>
+        <label><!-- Missing Comment --></label>
+        <name>Missing_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Network Assurance Followed Up --></label>
+        <name>Network_Assurance_Followed_Up__c</name>
+    </fields>
+    <fields>
+        <label><!-- OLEV --></label>
+        <name>OLEV__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Id --></label>
+        <name>Opportunity_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unit PSL/PG Number --></label>
+        <name>PSL_PG_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Planned Duration --></label>
+        <name>Planned_Duration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Postcode --></label>
+        <name>Postcode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Manager --></label>
+        <name>Project_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- RM Review Notes --></label>
+        <name>RM_Review_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- RM Reviewed --></label>
+        <name>RM_Reviewed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reference Id --></label>
+        <name>Reference_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rejected Reason --></label>
+        <name>Rejected_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Additional Works Quote Rejected</masterLabel>
+            <translation><!-- Additional Works Quote Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Car Order Cancelled</masterLabel>
+            <translation><!-- Car Order Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Cancelled</masterLabel>
+            <translation><!-- Customer Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost to Competitor</masterLabel>
+            <translation><!-- Lost to Competitor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Enough Supply</masterLabel>
+            <translation><!-- Not Enough Supply --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Scheduled Start Date &amp; Time --></label>
+        <name>Scheduled_Start_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scheduled Start Date --></label>
+        <name>Scheduled_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- System Scheduling Email Sent --></label>
+        <name>Scheduling_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Standard Install Question Details --></label>
+        <name>Standard_Install_Question_Details__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey - Bonding Issue --></label>
+        <name>Survey_Bonding_Issue__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Survey (Commercial) Photos List --></label>
+        <name>Survey_Commercial_Photos_List__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey Description --></label>
+        <name>Survey_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey (Domestic) Photos List --></label>
+        <name>Survey_Domestic_Photos_List__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey - Earthing Arrangements --></label>
+        <name>Survey_Earthing_Arrangements__c</name>
+        <picklistValues>
+            <masterLabel>Not sufficient</masterLabel>
+            <translation><!-- Not sufficient --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TNCS</masterLabel>
+            <translation><!-- TNCS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TNS</masterLabel>
+            <translation><!-- TNS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TT</masterLabel>
+            <translation><!-- TT --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Survey - House Type --></label>
+        <name>Survey_House_Type__c</name>
+        <picklistValues>
+            <masterLabel>Bungalow</masterLabel>
+            <translation><!-- Bungalow --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Detached</masterLabel>
+            <translation><!-- Detached --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flats</masterLabel>
+            <translation><!-- Flats --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Semi-Detached</masterLabel>
+            <translation><!-- Semi-Detached --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terraced</masterLabel>
+            <translation><!-- Terraced --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Survey - Main Fuse (Amps) --></label>
+        <name>Survey_Main_Fuse_Amps__c</name>
+        <picklistValues>
+            <masterLabel>100A</masterLabel>
+            <translation><!-- 100A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 Phase</masterLabel>
+            <translation><!-- 3 Phase --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60A</masterLabel>
+            <translation><!-- 60A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80A</masterLabel>
+            <translation><!-- 80A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Don&apos;t know</masterLabel>
+            <translation><!-- Don&apos;t know --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Survey - Max Demand (Amps) --></label>
+        <name>Survey_Max_Demand_Amps__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey - Max Demand Issue --></label>
+        <name>Survey_Max_Demand_Issue__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No with load management</masterLabel>
+            <translation><!-- No with load management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Survey - Meter Location --></label>
+        <name>Survey_Meter_Location__c</name>
+        <picklistValues>
+            <masterLabel>Cellar</masterLabel>
+            <translation><!-- Cellar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Front porch/ hallway</masterLabel>
+            <translation><!-- Front porch/ hallway --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Garage</masterLabel>
+            <translation><!-- Garage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outside house</masterLabel>
+            <translation><!-- Outside house --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Under stairs</masterLabel>
+            <translation><!-- Under stairs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upstairs</masterLabel>
+            <translation><!-- Upstairs --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Survey - Non-standard Install --></label>
+        <name>Survey_Non_standard_Install__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Survey - OLEV Qualifies --></label>
+        <name>Survey_OLEV_Qualifies__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Survey - Supply Setup --></label>
+        <name>Survey_Supply_Setup__c</name>
+        <picklistValues>
+            <masterLabel>Issue - Garage consumer unit</masterLabel>
+            <translation><!-- Issue - Garage consumer unit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Issue - Main consumer unit</masterLabel>
+            <translation><!-- Issue - Main consumer unit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Issue - Meter</masterLabel>
+            <translation><!-- Issue - Meter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Issues - Garage consumer unit</masterLabel>
+            <translation><!-- No Issues - Garage consumer unit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Issues - Main consumer unit</masterLabel>
+            <translation><!-- No Issues - Main consumer unit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Issues - Meter</masterLabel>
+            <translation><!-- No Issues - Meter --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Technician Email --></label>
+        <name>Technician_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Technician Notes --></label>
+        <name>Technician_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Technician --></label>
+        <name>Technician__c</name>
+    </fields>
+    <fields>
+        <label><!-- Timesheet Duration --></label>
+        <name>Timesheet_Duration__c</name>
+    </fields>
+    <fields>
+        <label><!-- UUID --></label>
+        <name>UUID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unit Architecture --></label>
+        <name>Unit_Architecture__c</name>
+    </fields>
+    <fields>
+        <label><!-- WorkOrder CompletedOrIncomplete --></label>
+        <name>WorkOrder_CompletedOrIncomplete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Work Order Description --></label>
+        <name>Work_Order_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Work Type --></label>
+        <name>Work_Type_Text__c</name>
+    </fields>
+    <quickActions>
+        <label><!-- Change Status --></label>
+        <name>Change_Status</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Edit Technician Notes --></label>
+        <name>Edit_Technician_Notes</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Quick SA --></label>
+        <name>Quick_SA</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- SendEmail --></label>
+        <name>SendEmail</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Test --></label>
+        <name>Test</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Service Appointment --></label>
+        <name>Update_Service_Appointment</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Upload Photo --></label>
+        <name>Upload_Photo</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- CPD --></label>
+        <name>CPD</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Commercial Install --></label>
+        <name>Commercial_Install</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Groundworks --></label>
+        <name>Groundworks</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Homecharge Install --></label>
+        <name>Homecharge_Install</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Installer Admin --></label>
+        <name>Installer_Admin</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Maintenance --></label>
+        <name>Maintenance</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Survey --></label>
+        <name>Survey</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Only &apos;Install (Commercial)&apos; or &apos;Groundworks (Commercial)&apos; or &apos;Install (Commercial) Hardware Upgrades&apos; WorkTypes are allowed for &apos;Commercial Install record type&apos;. --></errorMessage>
+        <name>Check_for_Commercial_Install_Record_type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only &apos;Groundworks (Commercial)&apos; or &apos;Groundworks (Domestic)&apos; Work Types are allowed for &apos;Groundworks record type&apos;. --></errorMessage>
+        <name>Check_for_Groundworks_Record_type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only &apos;Install (Domestic)&apos; or &apos;Install (Domestic) &amp; Additional Works&apos; Work Types are allowed for &apos;Homecharge Install&apos; record type. --></errorMessage>
+        <name>Check_for_Homecharge_Install_Record_type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only &apos;Stock Check, Management &amp; Expenses&apos;, &apos;RM Duties&apos;, &apos;Training&apos; &amp; &apos;Vehicle Maintenance&apos; Work Types are allowed for &apos;Installer Admin&apos; record type. --></errorMessage>
+        <name>Check_for_Installer_Admin_Record_type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only &apos;Maintenance (Domestic)&apos; or &apos;Maintenance (Commercial)&apos; Work Types are allowed for &apos;Maintenance record type&apos;. --></errorMessage>
+        <name>Check_for_Maintenance_Record_type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please select supprted Work Type for this Work Order --></errorMessage>
+        <name>Check_for_Recordtype_and_related_WorkTyp</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only &apos;Survey (Domestic)&apos; or &apos;Survey (Commercial)&apos; or &apos;Survey (Commercial - Strategic Account)&apos;  Work Types are allowed for &apos;Survey record type&apos;. --></errorMessage>
+        <name>Check_for_Survey_Record_type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This WorkType can not be selected for Commercial Case --></errorMessage>
+        <name>Commercial_case_record_type_check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please make sure the Work order is not scheduled. --></errorMessage>
+        <name>Customer_confirm_only_when_WO_is_schedul</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Incomplete Reason (Other)&quot; is required. --></errorMessage>
+        <name>Incomplete_Reason_Other_Selected</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Incomplete Reason&quot; is required. --></errorMessage>
+        <name>Incomplete_Status_Selected</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only Maintenance commercial or domestic work type can be selected under maintenance case --></errorMessage>
+        <name>Maintenance_record_type_check_for_case</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Ready to Schedule&quot; must be ticked to create an Install or Groundworks Work Order --></errorMessage>
+        <name>Ready_to_Schedule_on_HC_must_be_true</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Rejected Reason&quot; is required. --></errorMessage>
+        <name>Rejected_Status_Selected</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Completed can &apos;t be changed. --></errorMessage>
+        <name>Restrict_Completed_to_changes</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Confirmed can only be updated to the following statuses: Rejected, Incomplete, Scheduled, Unassigned ,Active. --></errorMessage>
+        <name>Restrict_Confirmed_to_changes</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incompleted can &apos;t be changed. --></errorMessage>
+        <name>Restrict_Incompleted_to_changes</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- On Hold can only be changed into the Unassigned, Scheduled, Rejected.ed. --></errorMessage>
+        <name>Restrict_OnHold_to_changes</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Unassigned can only be updated to the following statuses: Rejected, Scheduled, On Hold. --></errorMessage>
+        <name>Restrict_Unassigned_to_changes</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Scheduled can only be updated to the following statuses: Rejected, Scheduled, On Hold. --></errorMessage>
+        <name>Restrict_scheduled_to_changes</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Clone_new --></label>
+        <name>Clone_new</name>
+    </webLinks>
+</CustomObjectTranslation>

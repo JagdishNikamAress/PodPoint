@@ -1,0 +1,4 @@
+<design:component label="TaskRay Snapshot">
+    <!-- TODO: Remove before Winter '16 -->
+    <design:attribute name="recordId" label="Record ID" />
+</design:component>

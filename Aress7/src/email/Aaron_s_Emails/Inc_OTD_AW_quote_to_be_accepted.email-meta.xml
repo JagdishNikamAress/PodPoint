@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Incomplete OTD - AW quote to be accepted</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Z - fuse and Cable Date</name>
+    <style>none</style>
+    <subject>Just Checking In (Pod Point Homecharge)</subject>
+    <type>text</type>
+</EmailTemplate>

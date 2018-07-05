@@ -1,0 +1,35 @@
+<apex:page standardController="Lead" extensions="LeadConversionPageController" title="Convert Lead" id="pgConvertLead">
+
+<apex:form id="frmConvert">
+
+	<apex:actionFunction name="afOpportunity" action="{!doNothing}" rerender="pbsConvert" immediate="true" />
+<apex:sectionHeader title="Convert Lead" subtitle="{!ldSource.name}"/>
+	<apex:pageBlock mode="edit">
+	
+		<apex:pageBlockButtons >
+			<apex:commandButton id="cmdConvert" action="{!convertLead}" value="Convert" />
+			<apex:commandButton id="cmdCancel" action="{!cancel}" value="Cancel" />
+		</apex:pageBlockButtons>
+		
+		<apex:messages style="color:red"/>
+		
+		<apex:pageBlockSection id="pbsConvert"  columns="1">
+				
+		
+			<apex:inputField id="ifOwnerId" value="{!ldSource.OwnerId}" />
+			<apex:selectList id="soAccount" value="{!strAccountId}" label="Account Name" size="1">
+				<apex:selectOptions value="{!lstCompanyInfo}" />
+			</apex:selectList>
+			<apex:inputCheckBox id="icCreateOpp" value="{!bolCreateOpp}" label="Do not create a new opportunity upon conversion" onclick="afOpportunity()" />
+            <apex:inputText id="oppid" label="Opportunity Name" value="{!OppName}" />
+            <apex:selectList id="Leadstatusid" value="{!strLeadid}" label="Lead Status" size="1">
+				<apex:selectOptions value="{!ConvertedStatus}" />
+			</apex:selectList>
+			
+		</apex:pageBlockSection>
+	
+	</apex:pageBlock>
+
+</apex:form>
+
+</apex:page>

@@ -1,0 +1,13 @@
+<aura:component>
+  <aura:attribute name="recordId" type="String" />
+  <aura:attribute name="objectType" type="String" />
+  <aura:attribute name="flowName" type="String" />
+  <aura:attribute name="flowLabel" type="String" />
+  <aura:attribute name="pendingInterviewId" type="String" />
+  <aura:handler name="init" value="{!this}" action="{!c.init}" />
+  <aura:registerEvent name="genericEvent" type="TASKRAY_LTNG:trGenericEvent"/>
+  
+  <lightning:card>
+    <lightning:flow aura:id="flowCmp" onstatuschange="{!c.handleStatusChange}" />
+  </lightning:card>
+</aura:component>

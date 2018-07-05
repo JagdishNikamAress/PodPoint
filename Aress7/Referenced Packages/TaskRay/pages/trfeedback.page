@@ -1,0 +1,13 @@
+<apex:page sidebar="false" showheader="false">
+    <apex:includeScript value="{!URLFOR($Resource.TASKRAY__trplugins, 'jquery/jquery-1.6.2.min.js')}" />
+    <style type="text/css">
+        #uvw-dialog-close{
+            display: none;
+        }
+        #uvTab{
+            display: none !important;
+        }
+        
+    </style>
+    
+</apex:page>

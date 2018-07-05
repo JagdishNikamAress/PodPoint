@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ACCOUNT_NAME</field>
+    </columns>
+    <columns>
+        <field>Q.CONTACT.NAME</field>
+    </columns>
+    <columns>
+        <field>CON.EMAIL</field>
+    </columns>
+    <columns>
+        <field>QLI.QUANTITY</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>AMOUNT</field>
+    </columns>
+    <columns>
+        <field>Q.STATUS</field>
+    </columns>
+    <columns>
+        <field>QLI.PRODUCT.NAME</field>
+    </columns>
+    <columns>
+        <field>QUOTE_LINEITEM_NAME</field>
+    </columns>
+    <columns>
+        <field>QLI.UNIT_PRICE</field>
+    </columns>
+    <columns>
+        <field>QLI.LIST_PRICE</field>
+    </columns>
+    <columns>
+        <field>QLI.SUBTOTAL</field>
+    </columns>
+    <columns>
+        <field>QLI.TOTAL_PRICE</field>
+    </columns>
+    <description>@Work orders for James Stevens and George Nicholls that do not contain MIS in the quote line items</description>
+    <filter>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <criteriaItems>
+            <column>QLI.PRODUCT.NAME</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notContain</operator>
+            <value>MIS</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CREATED</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>James Stevens</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CREATED</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>George Nicholls</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>@Work Orders without MIS</name>
+    <params>
+        <name>open</name>
+        <value>closedwon</value>
+    </params>
+    <params>
+        <name>probability</name>
+        <value>&gt;0</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>QuoteProduct</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>AMOUNT</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CLOSE_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Lease Length</name>
+    <style>none</style>
+    <subject>We need a Copy Of Your Lease Agreement (POD Point)</subject>
+    <type>text</type>
+</EmailTemplate>

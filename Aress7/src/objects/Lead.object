@@ -1,0 +1,2541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>AddToCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CallHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ChangeStatus</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Convert</actionName>
+        <content>LeadConversionPage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EmailHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>FindDup</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ListClean</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SmsHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <fieldSets>
+        <fullName>MC4SF__Lead_Filter_Fields</fullName>
+        <description>used in the MailChimp query builder</description>
+        <displayedFields>
+            <field>AnnualRevenue</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>City</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Company</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Country</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CreatedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>DoNotCall</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>NumberOfEmployees</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>HasOptedOutOfFax</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>FirstName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Industry</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastActivityDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastModifiedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LeadSource</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>MobilePhone</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Phone</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Rating</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Salutation</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>State</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Status</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Street</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Title</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Website</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PostalCode</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Lead Filter Fields</label>
+    </fieldSets>
+    <fields>
+        <fullName>Account_Classification__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Classification</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>UK</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Norway</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Account_Route_to_Market__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Route to Market</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Automotive</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workplace</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Destination</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Built Environment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Insights</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Account_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>OEM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Motor Group</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Leasing Company</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dealer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workplace</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Distributor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contractor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Facilities Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BE Influencer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Agents / Developers</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>School</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Business Park</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Depot</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Office</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Public Sector</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Airport</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Carpark Operator</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rail</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Retail</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Attraction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Holiday Venue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Car Club</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>University</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hospital</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Grocer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Taxi</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sport Venue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Food/Beverage</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wildlife</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Health/Wellbeing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Events</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Agents/Developers</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wholesaler</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Design Engineer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Housing Associations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Crematoria</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Property Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rental</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fleet Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Legal Building</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sports Venue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ordering Tool</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ferry</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Architect</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Subcontractors</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Governmental</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fuel Companies</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Energy Companies</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Grid Operators</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Solar</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Energy Aggregators</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Tech</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Industry Body</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Private Equity</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Consultants</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Smart Cities</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Transport</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Finance Company</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate Fleet</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Corporate/SME Motor Finance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hotel &amp; Attractions</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Address</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Amount_Paid__c</fullName>
+        <externalId>false</externalId>
+        <label>Amount Paid</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>AnnualRevenue</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Assign_by_Route_to_Market__c</fullName>
+        <description>For our web forms -- so whenever someone fills out a form on our website, it will create a lead in Salesforce and assign it to the relevant route to market.</description>
+        <externalId>false</externalId>
+        <label>Assign by Route to Market</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Call_Back_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Call Back Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CampaignId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Campaign__c</fullName>
+        <externalId>false</externalId>
+        <label>Campaign</label>
+        <length>240</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>100000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Company</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Contact_Attempts__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact Attempts</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Content__c</fullName>
+        <externalId>false</externalId>
+        <label>Content</label>
+        <length>240</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Conversion__c</fullName>
+        <externalId>false</externalId>
+        <label>Conversion Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CurrencyIsoCode</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>DB_Created_Date_without_Time__c</fullName>
+        <description>This is a field that is installed by and used with the Adoption Dashboard AppExchange package.  If your org already has a similar field, you can change the reports that are part of the Adoption Dashboard package to use your custom field and then delete this field.</description>
+        <externalId>false</externalId>
+        <formula>CreatedDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>DB Created Date without Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DB_Lead_Age__c</fullName>
+        <description>This is a field that is installed by and used with the Adoption Dashboard AppExchange package. If your org already has a similar field, you can change the reports that are part of the Adoption Dashboard package to use your custom field and then delete this field.</description>
+        <externalId>false</externalId>
+        <formula>NOW() - LastModifiedDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>DB Lead Age</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Disqualified_Reason_Other__c</fullName>
+        <externalId>false</externalId>
+        <label>Disqualified Reason (Other)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Disqualified_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Disqualified Reason</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Budget</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Not Decision Maker</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No Purchase Intent</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DoNotCall</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Email</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Expected_RTM__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose which route to market you expect this Lead to be. This is important, as we use this to decide which marketing is directed at this customer.</inlineHelpText>
+        <label>Expected RTM</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Home</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Home Strategic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workplace</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workplace Strategic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Destination</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Destination Strategic</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Fax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>HasOptedOutOfEmail</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>HasOptedOutOfFax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>IndividualId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Industry</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Introduction_made_by__c</fullName>
+        <externalId>false</externalId>
+        <label>Introduction made by:</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Jigsaw</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Job_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Job Title</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LastTransferDate</fullName>
+    </fields>
+    <fields>
+        <fullName>Last_Activity_Since__c</fullName>
+        <externalId>false</externalId>
+        <formula>Today() - LastActivityDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Last Activity Since</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LeadSource</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Industry_Other__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Industry (Other)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_Industry__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Industry</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Type</label>
+        <length>240</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MC4SF__MC_Subscriber__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>MC Subscriber</label>
+        <referenceTo>MC4SF__MC_Subscriber__c</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Market__c</fullName>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Medium__c</fullName>
+        <externalId>false</externalId>
+        <label>Medium</label>
+        <length>240</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MobilePhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>NumberOfEmployees</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Number_of_Parking_Spaces__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Parking Spaces</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_chargepoints__c</fullName>
+        <description>How many chargepoints the prospect is considering having installed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>How many chargepoints the prospect is considering in having installed.</inlineHelpText>
+        <label>No, of points they are considering</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nurture_Reason_Other__c</fullName>
+        <externalId>false</externalId>
+        <label>Nurture Reason (Other)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nurture_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Nurture Reason</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Can&apos;t make contact</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Doing high level research with no time frame</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No chargepoint requirement for 6 months</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No chargepoint requirement for 12 months</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No chargepoint requirement for 18 months</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No chargepoint requirement for 24 months</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PartnerAccountId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Primary_Route_to_Market__c</fullName>
+        <externalId>false</externalId>
+        <label>Primary Route to Market</label>
+        <length>240</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Problem_Trying_to_Solve_Other__c</fullName>
+        <externalId>false</externalId>
+        <label>Problem Trying to Solve (Other)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Problem_Trying_to_Solve__c</fullName>
+        <externalId>false</externalId>
+        <label>Problem Trying to Solve</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Name_BE__c</fullName>
+        <description>Field to capture the development / project of Built Environment prospects.</description>
+        <externalId>false</externalId>
+        <label>Project Name (BE only)</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Rating</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Secondary_Route_to_Market__c</fullName>
+        <externalId>false</externalId>
+        <label>Secondary Route to Market</label>
+        <length>240</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Source__c</fullName>
+        <externalId>false</externalId>
+        <label>Source</label>
+        <length>240</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>SubmitterIP__c</fullName>
+        <externalId>false</externalId>
+        <label>Submitter IP</label>
+        <length>250</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Term__c</fullName>
+        <externalId>false</externalId>
+        <label>Term</label>
+        <length>240</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Title</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>UnbouncePageID__c</fullName>
+        <externalId>false</externalId>
+        <label>Unbounce Page ID</label>
+        <length>250</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UnbouncePageVariant__c</fullName>
+        <externalId>false</externalId>
+        <label>Unbounce Page Variant</label>
+        <length>250</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UnbounceSubmissionDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Unbounce Submission Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>UnbounceSubmissionTime__c</fullName>
+        <externalId>false</externalId>
+        <label>Unbounce Submission Time</label>
+        <length>250</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Website</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Which_Route_to_Market__c</fullName>
+        <externalId>false</externalId>
+        <label>Which Route to Market?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Home</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Home Strategic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workplace</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Workplace Strategic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Destination</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Destination Strategic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Norway</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>X2018_MQL_Blitz__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Flag to mark leads taken on temporarily from another sales person.</description>
+        <externalId>false</externalId>
+        <label>Lead Owned Temporarily</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>Lead_Type__c</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <columns>Assign_by_Route_to_Market__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_MQLs</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE_CODE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Lead_Type__c</field>
+            <operation>equals</operation>
+            <value>MQL</value>
+        </filters>
+        <label>Me: All My MQLs</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_but_Olly</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <columns>Lead_Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <operation>notEqual</operation>
+            <value>Oli</value>
+        </filters>
+        <label>All_but_olly</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Automotive_Open_MQLs</fullName>
+        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE_CODE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Lead_Type__c</field>
+            <operation>equals</operation>
+            <value>MQL</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>JHors</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>trishan</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>claire</value>
+        </filters>
+        <label>Automotive Team - Open MQLs</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Automotive_Team_All_MQLs</fullName>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE_CODE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Lead_Type__c</field>
+            <operation>equals</operation>
+            <value>MQL</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>JHors</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>claire</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>trishan</value>
+        </filters>
+        <label>Automotive Team - All MQLs</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Automotive_Team_Open_MQLs</fullName>
+        <booleanFilter>1 AND (2 OR 3 OR 4) AND (5 OR 6 OR 7 OR 8)</booleanFilter>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE_CODE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Lead_Type__c</field>
+            <operation>equals</operation>
+            <value>MQL</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Contact Attempted</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Qualified</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Qualifying</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>kim</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>claire</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>trishan</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>JHors</value>
+        </filters>
+        <label>Automotive Team - MQLs to Follow Up</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Built_Environment_Open_MQLs</fullName>
+        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6 OR 7)</booleanFilter>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE_CODE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Lead_Type__c</field>
+            <operation>equals</operation>
+            <value>MQL</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>JStev</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>izzy</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>mwatk</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>rhugh</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>sdept</value>
+        </filters>
+        <label>Built Env. Team - Open MQLs</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Built_Environment_Team_All_MQLs</fullName>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5 OR 6)</booleanFilter>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE_CODE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Lead_Type__c</field>
+            <operation>equals</operation>
+            <value>MQL</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>JStev</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>izzy</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>mwatk</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>rhugh</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>sdept</value>
+        </filters>
+        <label>Built Env. Team - All MQLs</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Built_Environment_Team_Open_MQLs</fullName>
+        <booleanFilter>1 AND (2 OR 3 OR 4) AND (5 OR 6 OR 7 OR 8 OR 9)</booleanFilter>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE_CODE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <columns>Contact_Attempts__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Lead_Type__c</field>
+            <operation>equals</operation>
+            <value>MQL</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Contact Attempted</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Qualified</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Qualifying</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>izzy</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>mwatk</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>rhugh</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>sdept</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>JStev</value>
+        </filters>
+        <label>Built Env. Team - MQLs to Follow Up</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Destination</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE_CODE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <columns>LEAD.LEAD_SOURCE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>LEAD.LEAD_SOURCE</field>
+            <operation>contains</operation>
+            <value>destination</value>
+        </filters>
+        <label>Destination</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Executive_Staff</role>
+            <role>Head_of_Destination</role>
+            <role>Retail_Account_Manager</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Destination_Open_MQLs</fullName>
+        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6 OR 7 OR 8)</booleanFilter>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE_CODE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Lead_Type__c</field>
+            <operation>equals</operation>
+            <value>MQL</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>crobe</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>liam</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>rdunc</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>zed</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>Jarred</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>apott</value>
+        </filters>
+        <label>Destination Team - Open MQLs</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Destination_Team_All_MQLs</fullName>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5 OR 6 OR 7)</booleanFilter>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE_CODE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Lead_Type__c</field>
+            <operation>equals</operation>
+            <value>MQL</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>apott</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>crobe</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>liam</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>rdunc</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>zed</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>Jarred</value>
+        </filters>
+        <label>Destination Team - All MQLs</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Destination_Team_Open_MQLs</fullName>
+        <booleanFilter>1 AND (2 OR 3 OR 4) AND (5 OR 6 OR 7 OR 8 OR 9 OR 10)</booleanFilter>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE_CODE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Lead_Type__c</field>
+            <operation>equals</operation>
+            <value>MQL</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Contact Attempted</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Qualifying</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Qualified</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>rdunc</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>zed</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>Jarred</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>apott</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>crobe</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>liam</value>
+        </filters>
+        <label>Destination Team - MQLs to Follow Up</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Installs_2_Leads</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE_CODE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>LEAD.FIRST_NAME</field>
+            <operation>equals</operation>
+            <value>ian</value>
+        </filters>
+        <label>Installs 2 Leads</label>
+    </listViews>
+    <listViews>
+        <fullName>MQLs_to_follow_up</fullName>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Contact_Attempts__c</columns>
+        <columns>Call_Back_Date__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>Lead_Type__c</columns>
+        <columns>LEAD.UNREAD</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>Comments__c</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <columns>Last_Activity_Since__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Lead_Type__c</field>
+            <operation>equals</operation>
+            <value>MQL</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Disqualified</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Nurture</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Open</value>
+        </filters>
+        <filters>
+            <field>LEAD.COUNTRY_CODE</field>
+            <operation>equals</operation>
+        </filters>
+        <label>Me: My MQLs to Follow Up</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>MyUnreadLeads</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.UNREAD</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>gnich</value>
+        </filters>
+        <filters>
+            <field>LEAD.UNREAD</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>My Unread Leads</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Workplace_Open_MQLs</fullName>
+        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6 OR 7 OR 8 OR 9)</booleanFilter>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE_CODE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Lead_Type__c</field>
+            <operation>equals</operation>
+            <value>MQL</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>ghowa</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>DEyer</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>MJack</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>Ododd</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>phill</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>sfree</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>cheet</value>
+        </filters>
+        <label>Workplace Team - Open MQLs</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Workplace_Team_All_MQLs</fullName>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5 OR 6 OR 7 OR 8)</booleanFilter>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE_CODE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Lead_Type__c</field>
+            <operation>equals</operation>
+            <value>MQL</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>ghowa</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>DEyer</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>MJack</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>Ododd</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>phill</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>sfree</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>cheet</value>
+        </filters>
+        <label>Workplace Team - All MQLs</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Workplace_Team_Open_MQLs</fullName>
+        <booleanFilter>1 AND (2 OR 3 OR 4) AND (5 OR 6 OR 7 OR 8 OR 9 OR 10)</booleanFilter>
+        <columns>Contact_Attempts__c</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE_CODE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Lead_Type__c</field>
+            <operation>equals</operation>
+            <value>MQL</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Contact Attempted</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Qualifying</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Qualified</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>DEyer</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>MJack</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>Ododd</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>phill</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>sfree</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>equals</operation>
+            <value>cheet</value>
+        </filters>
+        <label>Workplace Team - MQLs to Follow Up</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>new_MQLs</fullName>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>Lead_Type__c</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>Comments__c</columns>
+        <columns>LEAD.LAST_UPDATE</columns>
+        <columns>Last_Activity_Since__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Lead_Type__c</field>
+            <operation>equals</operation>
+            <value>MQL</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Disqualified</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Nurture</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Contact Attempted</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Qualified</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Duplicate</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Qualifying</value>
+        </filters>
+        <label>Me: My New MQLs</label>
+        <language>en_US</language>
+    </listViews>
+    <searchLayouts>
+        <customTabListAdditionalFields>FULL_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LEAD.COMPANY</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LEAD.ZIP</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LEAD.STATUS</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LEAD.LEAD_SOURCE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LEAD.RATING</customTabListAdditionalFields>
+        <listViewButtons>activities__Create_Tasks_Lead</listViewButtons>
+        <lookupDialogsAdditionalFields>FULL_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>LEAD.COMPANY</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>FULL_NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>LEAD.COMPANY</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>LEAD.PHONE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>LEAD.MOBILE_PHONE</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>FULL_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LEAD.TITLE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LEAD.COMPANY</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LEAD.PHONE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LEAD.MOBILE_PHONE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LEAD.EMAIL</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LEAD.STATUS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWriteTransfer</sharingModel>
+    <validationRules>
+        <fullName>Disqua_Reason_Other_if_Disqualified_Stat</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISPICKVAL(Status, &apos;Disqualified&apos;)), (NOT(ISBLANK(Disqualified_Reason_Other__c ))))</errorConditionFormula>
+        <errorMessage>You can only select a &quot;Disqualified Reason (Other)&quot; if the Lead Status is &quot;Disqualified&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Disqual_Reason_Other_if_Disqual_Reason</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISPICKVAL(Disqualified_Reason__c, &apos;Other&apos;)), NOT(ISBLANK( Disqualified_Reason_Other__c )))</errorConditionFormula>
+        <errorMessage>You can only select a &quot;Disqualified Reason (Other)&quot; if the Disqualified Reason is &quot;Other&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Disqualified_Lead_Status_Selected</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(Status, &apos;Disqualified&apos;), ISBLANK(TEXT( Disqualified_Reason__c )))</errorConditionFormula>
+        <errorMessage>&quot;Disqualified Reason&quot; is required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Disqualified_Reason_Other_Selected</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(Disqualified_Reason__c, &apos;Other&apos;), ISBLANK( Disqualified_Reason_Other__c ))</errorConditionFormula>
+        <errorMessage>&quot;Disqualified Reason (Other)&quot; is required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Disqualified_Reason_if_Disqualified_Stat</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISPICKVAL(Status, &apos;Disqualified&apos;)), (NOT(ISBLANK(TEXT( Disqualified_Reason__c )))))</errorConditionFormula>
+        <errorMessage>You can only select a &quot;Disqualified Reason&quot; if the Lead Status is &quot;Disqualified&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lead_Status_Qualified_Before_Convert</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+NOT(IsConverted), 
+TEXT(Status) = &apos;Qualified&apos; 
+
+)</errorConditionFormula>
+        <errorMessage>To change this Lead to &apos;Qualified&apos; please click &quot;Convert&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Nurture_Lead_Status_Selected</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(Status, &apos;Nurture&apos;), ISBLANK(TEXT( Nurture_Reason__c )))</errorConditionFormula>
+        <errorMessage>&quot;Nurture Reason&quot; is required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Nurture_Reason_Other_Selected</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(Nurture_Reason__c, &apos;Other&apos;), ISBLANK( Nurture_Reason_Other__c ))</errorConditionFormula>
+        <errorMessage>&quot;Nurture Reason (Other)&quot; is required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Nurture_Reason_Other_if_Nurture_Reason</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISPICKVAL(Nurture_Reason__c, &apos;Other&apos;)), NOT(ISBLANK( Nurture_Reason_Other__c )))</errorConditionFormula>
+        <errorMessage>You can only select a &quot;Nurture Reason (Other)&quot; if the Nurture Reason is &quot;Other&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Nurture_Reason_Other_if_Nurture_Stat</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISPICKVAL(Status, &apos;Nurture&apos;)), (NOT(ISBLANK(Nurture_Reason_Other__c ))))</errorConditionFormula>
+        <errorMessage>You can only select a &quot;Nurture Reason (Other)&quot; if the Lead Status is &quot;Nurture&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Nurture_Reason_if_Nurture_Stat</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISPICKVAL(Status, &apos;Nurture&apos;)), (NOT(ISBLANK(TEXT( Nurture_Reason__c )))))</errorConditionFormula>
+        <errorMessage>You can only select a &quot;Nurture Reason&quot; if the Lead Status is &quot;Nurture&quot;</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>EasyUpload</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>EasyUpload</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/EasyUploadAttachment?parentId={!Lead.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleMaps</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Maps</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://maps.google.com/maps?f=q&amp;hl=en&amp;q={!Lead_Street}+{!Lead_City}+{!Lead_State}&amp;om=1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleNews</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google News</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.google.com/news?&amp;q={!Lead_Company}&amp;btnG=Search+News</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleSearch</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Search</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.google.com/search?q={!Lead_Company}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LiveText__Opt_in_for_Text_Messages_list</fullName>
+        <availability>online</availability>
+        <description>This button is for List View</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Opt-in for Text Messages</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)} 
+			{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/apex.js&quot;)} 
+			{!REQUIRESCRIPT(&apos;/support/console/31.0/integration.js&apos;)}; 
+
+			var records = {!GETRECORDIDS($ObjectType.Account)};
+            var hasShortCodeNumber = sforce.apex.execute(&quot;LiveText.RetrievePreferredPhoneNumber&quot;,&quot;agentHasShortcodeNumberAssigned&quot;,{});
+            if (records[0] == null){ 
+                alert(&quot;Please select at least one lead&quot;) 
+            }else if((records.length &gt; 25) &amp;&amp; hasShortCodeNumber==&apos;false&apos;){
+                alert(&apos;A maximum of 25 text messages may be sent at once. Please select fewer recipients and try again.&apos;);
+            }else{
+				var packagePrefix = &quot;LiveText__&quot;; 
+				var recordType = &quot;lead&quot;; 
+				var recordIds = &quot;&quot;; 
+				var optOutField = &apos;&apos;; 
+				var optOutDefaultValue = &apos;yes&apos;; 
+				var smsType = &apos;&apos;; 
+				var userId = &apos;{!$User.Id}&apos;; 
+				var elementIdVar = &apos;&apos;; 
+				var showUserDropDown = false; 
+				var dialogTitle = &apos;&apos;; 
+				var queryString = &apos;&apos;; 
+
+				for (var n in records) { 
+					if(n == &apos;remove&apos; || n == &apos;indexOf&apos;) continue; 
+					recordIds = recordIds + records[n]; 
+				
+					if (n != records.length-1) { 
+						recordIds = recordIds + &quot;,&quot;; 
+					} 
+				} 
+
+				var e = document.getElementsByName(&quot;fcf&quot;)[0]; 
+				var selectedView = e.options[e.selectedIndex].value; 
+				
+				var returnURL = &apos;/00Q?fcf=&apos;+ selectedView + &apos;&amp;rolodexIndex=-1&amp;page=1&apos;; 
+
+				var urlStart =  &apos;https://&apos;+window.location.hostname+&apos;/apex/LiveText__LiveTextOptinStatusPage?recordType=&apos;+recordType +
+								&apos;&amp;records=&apos;+recordIds+&apos;&amp;retURL=&apos;+returnURL;
+
+				if(sforce.console.isInConsole()) { 
+					sforce.console.openPrimaryTab(null, urlStart + &apos;&amp;inConsole=yes&amp;optType=1&apos;, true, &apos;Opt-in for Text Messages&apos;); 
+				}else{ 
+					window.top.location.href = urlStart + &apos;&amp;inConsole=no&amp;optType=1&apos;; 
+				} 
+			}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LiveText__Opt_out_for_Text_Messages_list</fullName>
+        <availability>online</availability>
+        <description>This button is for List View</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Opt-out for Text Messages</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)} 
+			{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/apex.js&quot;)} 
+			{!REQUIRESCRIPT(&apos;/support/console/31.0/integration.js&apos;)}; 
+
+			var records = {!GETRECORDIDS($ObjectType.Lead)}; 
+			if (records[0] == null) 
+			{ 
+				alert(&quot;Please select at least one lead&quot;) 
+			} 
+			else{ 
+				var packagePrefix = &quot;LiveText__&quot;; 
+				var recordType = &quot;lead&quot;; 
+				var recordIds = &quot;&quot;; 
+				var optOutField = &apos;&apos;; 
+				var optOutDefaultValue = &apos;yes&apos;; 
+				var smsType = &apos;&apos;; 
+				var userId = &apos;{!$User.Id}&apos;; 
+				var elementIdVar = &apos;&apos;; 
+				var showUserDropDown = false; 
+				var dialogTitle = &apos;&apos;; 
+				var queryString = &apos;&apos;; 
+
+				for (var n in records) { 
+					if(n == &apos;remove&apos; || n == &apos;indexOf&apos;) continue; 
+					recordIds = recordIds + records[n]; 
+				
+					if (n != records.length-1) { 
+						recordIds = recordIds + &quot;,&quot;; 
+					} 
+				} 
+
+				var e = document.getElementsByName(&quot;fcf&quot;)[0]; 
+				var selectedView = e.options[e.selectedIndex].value; 
+				
+				var returnURL = &apos;/00Q?fcf=&apos;+ selectedView + &apos;&amp;rolodexIndex=-1&amp;page=1&apos;; 
+
+				var urlStart =  &apos;https://&apos;+window.location.hostname+&apos;/apex/LiveText__LiveTextOptinStatusPage?recordType=&apos;+recordType + 
+&apos;&amp;records=&apos;+recordIds+&apos;&amp;retURL=&apos;+returnURL;
+
+				if(sforce.console.isInConsole()) { 
+					sforce.console.openPrimaryTab(null, urlStart + &apos;&amp;inConsole=yes&amp;optType=0&apos;, true, &apos;Opt-out for Text Messages&apos;); 
+				}else{ 
+					window.top.location.href = urlStart + &apos;&amp;inConsole=no&amp;optType=0&apos;; 
+				} 
+			}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LiveText__Send_Bulk_SMS</fullName>
+        <availability>online</availability>
+        <description>Sends text message to selected records</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send Text to List</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)} 
+            {!REQUIRESCRIPT(&quot;/soap/ajax/14.0/apex.js&quot;)} 
+            {!REQUIRESCRIPT(&apos;/support/console/31.0/integration.js&apos;)}; 
+
+            var records = {!GETRECORDIDS($ObjectType.Lead)}; 
+            var hasShortCodeNumber = sforce.apex.execute(&quot;LiveText.RetrievePreferredPhoneNumber&quot;,&quot;agentHasShortcodeNumberAssigned&quot;,{});
+            if (records[0] == null){ 
+                alert(&quot;Please select at least one lead&quot;);
+            }else if((records.length &gt; 25) &amp;&amp; hasShortCodeNumber==&quot;false&quot;){ 
+                alert(&quot;A maximum of 25 text messages may be sent at once. Please select fewer recipients and try again.&quot;); 
+            } 
+            else{ 
+                var packagePrefix = &quot;LiveText__&quot;; 
+                var recordType = &quot;lead&quot;; 
+                var recordIds = &quot;&quot;;
+
+                for (var n in records) { 
+                    if(n == &apos;remove&apos; || n == &apos;indexOf&apos;) continue; 
+                    recordIds = recordIds + records[n]; 
+                    
+                    if (n != records.length-1) { 
+                        recordIds = recordIds + &quot;,&quot;; 
+                    } 
+                }
+
+                var storageId = sforce.apex.execute(&quot;LiveText.RetrievePreferredPhoneNumber&quot;,&quot;saveToStorage&quot;,{stringToSave:recordIds});
+                var urlStart = &apos;https://&apos;+window.location.hostname+&apos;/apex/LiveText__LiveTextBulkSms?recordType=&apos;+recordType+&apos;&amp;storageId=&apos;+storageId; 
+                
+                if(sforce.console.isInConsole()) { 
+                    sforce.console.openPrimaryTab(null, urlStart, true);
+                } else { 
+                    window.top.location.href = urlStart; 
+                } 
+            }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__LOOP</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>800</height>
+        <linkType>url</linkType>
+        <masterLabel>Create PDF</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__loop?eid={!Lead.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__LOOP_Merge</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>1000</height>
+        <linkType>url</linkType>
+        <masterLabel>Deprecated LM</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__loopmerge?eid={!Lead.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__LOOPlus</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>1200</height>
+        <linkType>url</linkType>
+        <masterLabel>Generate Documents</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__looplus?eid={!Lead.Id}&amp;sessionId={!$Api.Session_ID}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__Mass_LOOP_Merge</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Deprecated Mass LM</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/loop__loopmerge?eid={!Lead.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Loop__Mass_LOOPlus</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Generate Documents</masterLabel>
+        <openType>sidebar</openType>
+        <page>Loop__massLeadDdp</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>MC4SF__MailChimp_Subscriptions_detail</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>MailChimp Subscriptions</masterLabel>
+        <openType>noSidebar</openType>
+        <page>MC4SF__SubscriptionsLead</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>MC4SF__MailChimp_Subscriptions_list</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>MailChimp Subscriptions</masterLabel>
+        <openType>noSidebar</openType>
+        <page>MC4SF__SubscriptionsLeadList</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>activities__Create_Tasks_Lead</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Create Tasks</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/38.0/connection.js&quot;)}
+var records = {!GETRECORDIDS( $ObjectType.Lead)};
+var returnURL = window.location.href;
+if(records != null &amp;&amp; records != &apos;&apos;){
+mywin = window.open(&apos;/apex/activities__createTasks?Ids=&apos;+records+&apos;&amp;retURL=&apos;+returnURL+&apos;&amp;type=whoid&apos; , &apos;_top&apos;,
+&apos;height=400,width=600,status=yes,toolbar=no,menubar=no,location=no,center=yes,resizable=no&apos;);
+mywin.focus();
+}else{
+alert(&apos;Please select atleast one record.&apos;);
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>attachmentzip__Download_Attachments</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Download Attachments</masterLabel>
+        <openType>sidebar</openType>
+        <page>attachmentzip__LeadAttachmentList</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>echosign_dev1__Send_to_EchoSign</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Send for Signature</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/echosign_dev1__AgreementTemplateProcess?masterId={!Lead.Id}</url>
+    </webLinks>
+</CustomObject>

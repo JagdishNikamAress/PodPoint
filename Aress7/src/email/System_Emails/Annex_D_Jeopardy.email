@@ -1,0 +1,11 @@
+Hi Curtis,
+
+It's been 5 weeks since this Case first uploaded the Annex D and the install has still not been marked as 'complete':
+
+Case Owner: {!Case.OwnerFullName}
+Account Name: {!Case.Account}
+Case Number: {!Case.CaseNumber}
+Opportunity Stage: {!Case.Opportunity_Stage_new__c}
+
+Thanks, 
+SF Team

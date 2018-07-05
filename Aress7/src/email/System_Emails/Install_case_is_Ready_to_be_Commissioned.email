@@ -1,0 +1,12 @@
+Hey {!Account.OwnerFullName}, 
+
+The Opportunity below has been installed.
+
+Account name: {!Account.Name} 
+Opportunity name: {!Case.Opportunity_Name__c}
+Case Link : {!Case.Link}
+Case Number : {!Case.CaseNumber} 
+FieldAware Job ID : {!Case.Job_ID__c} 
+
+Thanks, 
+POD Point Install Team

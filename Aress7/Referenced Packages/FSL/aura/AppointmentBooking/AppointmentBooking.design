@@ -1,0 +1,6 @@
+<design:component label="Appointment Booking Communities">
+
+    <design:attribute name="height" label="Height" description="The height of the component in pixels" />
+    <design:attribute name="isCommunitiesVF" label="Used By End Customers" description="If checked, component will use the visual force page that does not enforce sharing rules" />
+
+</design:component>

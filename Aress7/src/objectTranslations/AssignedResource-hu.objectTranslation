@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Approximate Travel Distance From --></label>
+        <name>FSL__EstimatedTravelDistanceFrom__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approximate Travel Distance To --></label>
+        <name>FSL__EstimatedTravelDistanceTo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approximate Travel Time From (Minutes) --></label>
+        <name>FSL__EstimatedTravelTimeFrom__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Updated Epoch --></label>
+        <name>FSL__Last_Updated_Epoch__c</name>
+    </fields>
+    <fields>
+        <label><!-- UpdatedByOptimization --></label>
+        <name>FSL__UpdatedByOptimization__c</name>
+    </fields>
+    <fields>
+        <label><!-- calculated duration (Minutes) --></label>
+        <name>FSL__calculated_duration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Role --></label>
+        <name>role__c</name>
+    </fields>
+</CustomObjectTranslation>

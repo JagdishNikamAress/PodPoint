@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Add Form Field Template</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Add Form Field Templates</value>
+    </caseValues>
+    <fields>
+        <label><!-- Agreement Template --></label>
+        <name>Agreement_Template__c</name>
+        <relationshipLabel><!-- Add Form Field Templates --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Document Keys --></label>
+        <name>Document_Keys__c</name>
+    </fields>
+    <fields>
+        <label><!-- Layer Document Names --></label>
+        <name>Document_Names__c</name>
+    </fields>
+    <fields>
+        <label><!-- Index --></label>
+        <name>Index__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

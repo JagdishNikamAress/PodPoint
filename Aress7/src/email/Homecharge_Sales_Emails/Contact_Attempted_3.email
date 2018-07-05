@@ -1,0 +1,15 @@
+Hi {!Account.FirstName},
+
+I tried to give you a ring today to see how you’re getting on with your home charge enquiry. 
+
+I was wondering if you were still interested and if there was anything I could do to help the process along?
+
+Let me know either way as I’m happy to schedule a call in with you.
+
+Happy to continue from where you left off? Click the link below:
+
+{!Case.Ordering_Tool_Customer_URL__c} 
+{!Opportunity.Ordering_Tool_Customer_URL__c}
+
+Please see our Terms & Conditions below: 
+https://pod-point.com/standard-install-and-olev-terms-conditions

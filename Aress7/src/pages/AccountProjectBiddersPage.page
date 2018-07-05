@@ -1,0 +1,25 @@
+<apex:page standardController="Account" extensions="AccountController">
+    <apex:form >  
+        <apex:pageblock >
+            <apex:pageblocksection title="Bidder Details" columns="1" rendered="{!(routeToMarket == 'Built Environment')}">
+                <apex:pageBlockTable var="o" value="{!listBids}" id="Bids">
+                    <apex:column headerValue="Bidder Name" value="{!o.account.name}" />
+                    <apex:column headerValue="Bid Name" value="{!o.name}" />
+                    <apex:column headerValue="Project Name" value="{!o.phase__r.project__r.name}" />
+                    <apex:column headerValue="Project Link">
+                        <apex:outputLink value="/{!o.phase__r.project__r.id}"  target="_blank">Project Link</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Stage" value="{!o.stagename}" />
+                    <apex:column headerValue="Amount" value="{!o.amount}" />
+                    <apex:column headerValue="Record Type" value="{!o.recordtype.name}" />
+                    <apex:column headerValue="Record Link">
+                        <apex:outputLink value="/{!o.Id}"  target="_blank">Click here</apex:outputLink>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageblocksection>
+            <apex:pageblocksection rendered="{!(routeToMarket != 'Built Environment')}">
+                This section is visible only when Route to Market is Built Environment.
+            </apex:pageblocksection>
+        </apex:pageblock>
+    </apex:form>  
+</apex:page>

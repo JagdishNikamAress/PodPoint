@@ -1,0 +1,227 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,force:hasRecordId" controller="TASKRAY_LTNG.trComponentCtrl" access="global">
+	<aura:dependency type="COMPONENT" resource="markup://TASKRAY_LTNG:trInputLookup" />
+	<aura:dependency type="EVENT" resource="markup://TASKRAY_LTNG:trGenericAppEvent" />
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<aura:handler event="TASKRAY_LTNG:trGenericAppEvent" action="{!c.handleAppEvent}" />
+	<aura:attribute name="records" default="" type="Object" description="sunday for the week in view" />
+	<aura:attribute name="startDateOfWeek" default="" type="Object" description="monday for the week in view" />
+	<aura:attribute name="startDateFormatted" default="" type="String" description="monday for the week in view formatted for header" />
+	<aura:attribute name="selectedDay" default="" type="String" description="Selected day in view" />
+	<aura:attribute name="visibleEntries" default="" type="Object[]" description="Visible time entries for selected day" />
+	<aura:attribute name="sums" default="" type="String[]" description="Visible time entries for selected day" />
+	<aura:attribute name="mondayEntries" default="" type="Object[]" description="monday time items - hours and items" />
+	<aura:attribute name="tuesdayEntries" default="" type="Object[]" description="tuesday time items - hours and items" />
+	<aura:attribute name="wednesdayEntries" default="" type="Object[]" description="wednesday time items - hours and items" />
+	<aura:attribute name="thursdayEntries" default="" type="Object[]" description="thursday time items - hours and items" />
+	<aura:attribute name="fridayEntries" default="" type="Object[]" description="friday time items - hours and items" />
+	<aura:attribute name="saturdayEntries" default="" type="Object[]" description="saturday time items - hours and items" />
+	<aura:attribute name="sundayEntries" default="" type="Object[]" description="sunday time items - hours and items" />
+	<aura:attribute name="addLabelShowing" default="" type="Boolean" description="is the add button showing?  toggle with inputs." />
+	<aura:attribute name="pendingTaskId" type="String" description="Time Add Pending Task ID" access="private" />
+	<aura:attribute name="typeaheadElement" type="Object" description="The typeahead element we init" />
+	<aura:attribute name="errorMessage" type="Object" />
+	<aura:registerEvent name="navigateToTaskRay" type="TASKRAY_LTNG:trNavigateToTaskRayEvent"/>
+	<aura:handler name="change" value="{!v.recordId}" action="{!c.doInit}"/>
+
+	<TASKRAY_LTNG:trComponentContainer headerText="{!$Label.taskray_ltng.trTimeWeek_Title}">
+	        	<div class="datePicker">
+	        		<span class="arrowIcon" onclick="{!c.goBackAWeek}">
+	        			<TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#left" category="utility" size="x-small" name="left" class="slds-icon-text-default"/>
+	        		</span>
+		        	<div class="weekOfLabel">Week of {!v.startDateFormatted}</div>
+		        	<span class="arrowIcon" onclick="{!c.goForwardAWeek}">
+			            <TASKRAY_LTNG:svgIcon svgPath="/utility-sprite/svg/symbols.svg#right" category="utility" size="x-small" name="right" class="slds-icon-text-default"/>
+			        </span>
+
+	        </div>
+
+	    	<div class="timeBar slds-grid top">
+	    		<span class="slds-col slds-size--1-of-7">
+	    			<span aura:id="mondayLetter" id="1" onclick="{!c.clickedADay}" class="{!v.selectedDay == 1 ? 'selected mondayLetter' : 'mondayLetter'}">{!$Label.taskray_ltng.trTimeWeek_M}</span>
+	    		</span>
+	    		<span class="slds-col slds-size--1-of-7">
+	    			<span aura:id="tuesdayLetter" id="2" onclick="{!c.clickedADay}" class="{!v.selectedDay == 2 ? 'selected tuesdayLetter' : 'tuesdayLetter'}">{!$Label.taskray_ltng.trTimeWeek_T}</span>
+	    		</span>
+	    		<span class="slds-col slds-size--1-of-7">
+	    			<span aura:id="wednesdayLetter" id="3" onclick="{!c.clickedADay}" class="{!v.selectedDay == 3 ? 'selected wednesdayLetter' : 'wednesdayLetter'}">{!$Label.taskray_ltng.trTimeWeek_W}</span>
+	    		</span>
+	    		<span class="slds-col slds-size--1-of-7">
+	    			<span aura:id="thursdayLetter" id="4" onclick="{!c.clickedADay}" class="{!v.selectedDay == 4 ? 'selected thursdayLetter' : 'thursdayLetter'}">{!$Label.taskray_ltng.trTimeWeek_T}</span>
+	    		</span>
+	    		<span class="slds-col slds-size--1-of-7">
+	    			<span aura:id="fridayLetter" id="5" onclick="{!c.clickedADay}" class="{!v.selectedDay == 5 ? 'selected fridayLetter' : 'fridayLetter'}">{!$Label.taskray_ltng.trTimeWeek_F}</span>
+	    		</span>
+	    		<span class="slds-col slds-size--1-of-7">
+	    			<span aura:id="saturdayLetter" id="6" onclick="{!c.clickedADay}" class="{!v.selectedDay == 6 ? 'selected saturdayLetter' : 'saturdayLetter'}">{!$Label.taskray_ltng.trTimeWeek_S}</span>
+	    		</span>
+	    		<span class="slds-col slds-size--1-of-7">
+	    			<span aura:id="sundayLetter" id="0" onclick="{!c.clickedADay}" class="{!v.selectedDay == 0 ? 'selected sundayLetter' : 'sundayLetter'}">{!$Label.taskray_ltng.trTimeWeek_S}</span>
+	    		</span>
+	    	</div>
+	    	<div class="timeBar slds-grid bottom">
+		    	<aura:iteration items="{!v.sums}" var="sumItem" indexVar="index" >
+		    		<span class="slds-col slds-size--1-of-7 sums">
+		    			{!sumItem}
+		    		</span>
+		        </aura:iteration>
+	        </div>
+
+			<div>
+				<aura:renderIf isTrue="{!v.selectedDay == 1}">
+					<span>
+						<aura:iteration items="{!v.mondayEntries}" var="timeItem" indexVar="index" >
+							<div class="oneTimeItem">
+								<div class="taskProjectForTime">
+						            <a id="{!timeItem.TASKRAY__Task__r.Id}" onclick="{!c.goToTask}">    
+						            	{!timeItem.TASKRAY__Task__r.Name}	   
+						            </a>
+						            <br/>
+									<span>{!timeItem.TASKRAY__Task__r.TASKRAY__Project__r.Name}</span>
+								</div>
+								<div class="hoursForTime">
+									{!timeItem.TASKRAY__Hours__c}
+								</div>
+							</div>
+						</aura:iteration>
+					</span>
+				</aura:renderIf>
+				<aura:renderIf isTrue="{!v.selectedDay == 2}">
+					<span>
+						<aura:iteration items="{!v.tuesdayEntries}" var="timeItem" indexVar="index" >
+							<div class="oneTimeItem">
+								<div class="taskProjectForTime">
+						            <a id="{!timeItem.TASKRAY__Task__r.Id}" onclick="{!c.goToTask}">    
+						            	{!timeItem.TASKRAY__Task__r.Name}	   
+						            </a>
+						            <br/>
+									<span>{!timeItem.TASKRAY__Task__r.TASKRAY__Project__r.Name}</span>
+								</div>
+								<div class="hoursForTime">
+									{!timeItem.TASKRAY__Hours__c}
+								</div>
+							</div>
+						</aura:iteration>
+					</span>
+				</aura:renderIf>
+				<aura:renderIf isTrue="{!v.selectedDay == 3}">
+					<span>
+						<aura:iteration items="{!v.wednesdayEntries}" var="timeItem" indexVar="index" >
+							<div class="oneTimeItem">
+								<div class="taskProjectForTime">
+						            <a id="{!timeItem.TASKRAY__Task__r.Id}" onclick="{!c.goToTask}">    
+						            	{!timeItem.TASKRAY__Task__r.Name}	   
+						            </a>
+						            <br/>
+									<span>{!timeItem.TASKRAY__Task__r.TASKRAY__Project__r.Name}</span>
+								</div>
+								<div class="hoursForTime">
+									{!timeItem.TASKRAY__Hours__c}
+								</div>
+							</div>
+						</aura:iteration>
+					</span>
+				</aura:renderIf>
+				<aura:renderIf isTrue="{!v.selectedDay == 4}">
+					<span>
+						<aura:iteration items="{!v.thursdayEntries}" var="timeItem" indexVar="index" >
+							<div class="oneTimeItem">
+								<div class="taskProjectForTime">
+						            <a id="{!timeItem.TASKRAY__Task__r.Id}" onclick="{!c.goToTask}">    
+						            	{!timeItem.TASKRAY__Task__r.Name}	   
+						            </a>
+						            <br/>
+									<span>{!timeItem.TASKRAY__Task__r.TASKRAY__Project__r.Name}</span>
+								</div>
+								<div class="hoursForTime">
+									{!timeItem.TASKRAY__Hours__c}
+								</div>
+							</div>
+						</aura:iteration>
+					</span>
+				</aura:renderIf>
+				<aura:renderIf isTrue="{!v.selectedDay == 5}">
+					<span>
+						<aura:iteration items="{!v.fridayEntries}" var="timeItem" indexVar="index" >
+							<div class="oneTimeItem">
+								<div class="taskProjectForTime">
+						            <a id="{!timeItem.TASKRAY__Task__r.Id}" onclick="{!c.goToTask}">    
+						            	{!timeItem.TASKRAY__Task__r.Name}	   
+						            </a>
+						            <br/>
+									<span>{!timeItem.TASKRAY__Task__r.TASKRAY__Project__r.Name}</span>
+								</div>
+								<div class="hoursForTime">
+									{!timeItem.TASKRAY__Hours__c}
+								</div>
+							</div>
+						</aura:iteration>
+					</span>
+				</aura:renderIf>
+				<aura:renderIf isTrue="{!v.selectedDay == 6}">
+					<span>
+						<aura:iteration items="{!v.saturdayEntries}" var="timeItem" indexVar="index" >
+							<div class="oneTimeItem">
+								<div class="taskProjectForTime">
+						            <a id="{!timeItem.TASKRAY__Task__r.Id}" onclick="{!c.goToTask}">    
+						            	{!timeItem.TASKRAY__Task__r.Name}	   
+						            </a>
+						            <br/>
+									<span>{!timeItem.TASKRAY__Task__r.TASKRAY__Project__r.Name}</span>
+								</div>
+								<div class="hoursForTime">
+									{!timeItem.TASKRAY__Hours__c}
+								</div>
+							</div>
+						</aura:iteration>
+					</span>
+				</aura:renderIf>
+				<aura:renderIf isTrue="{!v.selectedDay == 0}">
+					<span>
+						<aura:iteration items="{!v.sundayEntries}" var="timeItem" indexVar="index" >
+							<div class="oneTimeItem">
+								<div class="taskProjectForTime">
+						            <a id="{!timeItem.TASKRAY__Task__r.Id}" onclick="{!c.goToTask}">    
+						            	{!timeItem.TASKRAY__Task__r.Name}	   
+						            </a>
+						            <br/>
+									<span>{!timeItem.TASKRAY__Task__r.TASKRAY__Project__r.Name}</span>
+								</div>
+								<div class="hoursForTime">
+									{!timeItem.TASKRAY__Hours__c}
+								</div>
+							</div>
+						</aura:iteration>
+					</span>
+				</aura:renderIf>
+
+			<aura:renderIf isTrue="{!v.addLabelShowing == true}">
+			    <div class="addTime">
+			    	<a onclick="{!c.addTimeItem}">{!$Label.taskray_ltng.trTimeWeek_Add}</a>
+			    </div>
+			</aura:renderIf>
+		 	<aura:renderIf isTrue="{!v.addLabelShowing == false}">
+				<div class="inputContainer slds-form-element">
+					<div class="inputElements">
+						{!v.typeaheadElement}
+						<div class="hoursInputDiv slds-form-element__control">
+							<input aura:id="hoursInput" class="inputHours slds-input" type="text" placeholder="Hours" />
+						</div>
+						<div class="billableCheckboxDiv">
+							{!$Label.taskray_ltng.trTimeWeek_Billable}
+							<input aura:id="billableCheckbox" class="billableCheckbox" type="checkbox" />
+						</div>
+					</div>					
+					<div class="buttonsSaveCancel">
+						<button class="slds-button slds-button--brand" onclick="{!c.saveClicked}">{!$Label.taskray_ltng.trTimeWeek_Save}</button>
+						<button class="slds-button slds-button-neutral" onclick="{!c.cancelClicked}">{!$Label.taskray_ltng.trTimeWeek_Cancel}</button>
+					</div>
+				</div>
+			</aura:renderIf>
+        <div class="goToTimeSheet">
+        	<a onclick="{!c.goToTimesheet}">{!$Label.taskray_ltng.trProjectCloneComponent_GoToTimesheet}</a>
+        </div> 
+	    </div>
+    </TASKRAY_LTNG:trComponentContainer>
+    {!v.errorMessage}
+
+</aura:component>

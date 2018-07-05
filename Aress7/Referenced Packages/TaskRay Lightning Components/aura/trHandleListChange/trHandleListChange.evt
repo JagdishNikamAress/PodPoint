@@ -1,0 +1,7 @@
+<aura:event type="APPLICATION" description="Fired when a list change action is performed from DnD" >
+    <aura:attribute name="TaskID" type="String" />
+    <aura:attribute name="ProjectName" type="String" />
+    <aura:attribute name="NewListName" type="String" /> 
+    <aura:attribute name="RecordId" type="String" />
+    <aura:attribute name="NewSortOrder" type="Integer" />
+</aura:event>

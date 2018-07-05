@@ -1,0 +1,36 @@
+<apex:page docType="html-5.0" standardStylesheets="false" controller="TASKRAY.trCirrusExt" showHeader="false" sidebar="false">
+<html>
+        <head>
+            <link href="{!URLFOR($Resource.trplugins, 'bootstrap3/css/bootstrap.css')}" rel="stylesheet" type="text/css" />
+            <link href="{!URLFOR($Resource.trplugins, 'sds/salesforce-lightning-design-system-vf.css')}" rel="stylesheet" type="text/css" />
+            <link href="{!URLFOR($Resource.trplugins, 'css/trtaskboard.css')}" rel="stylesheet" type="text/css" />
+            <script src="https://s3.amazonaws.com/cirrus-insight-apps-api/latest/cirrusinsight.min.js"></script>
+
+            <script>
+                window.userId = '{!JSENCODE($User.Id)}';
+                var labels = JSON.parse("{!JSENCODE(customLabelJSON)}");
+                var sdsIconActionSprite = '{!URLFOR($Resource.trplugins, 'sds/icons/action-sprite.svg')}';
+                var sdsIconCustomSprite = '{!URLFOR($Resource.trplugins, 'sds/icons/custom-sprite.svg')}';
+                var sdsDoctypeCustomSprite = '{!URLFOR($Resource.trplugins, 'sds/icons/doctype-sprite.svg')}';
+                var sdsIconStandardSprite = '{!URLFOR($Resource.trplugins, 'sds/icons/standard-sprite.svg')}';
+                var sdsIconUtilitySprite = '{!URLFOR($Resource.trplugins, 'sds/icons/utility-sprite.svg')}';
+
+                var session = '{!$Api.Session_ID}';
+                var currentUserLocale='{!JSENCODE(userLocale)}';
+                currentUserLocale=currentUserLocale.replace('_','-');
+                var currentUserDateFormat;
+
+                var trTaskBoardURL = '{!URLFOR($Page.trtaskboard)}';
+                var accountIdForContact = '{!JSENCODE(accountIdForContact)}';
+            </script>
+
+
+        </head>
+        
+        <body>
+            <div id='cirrus-app-container' />
+        </body>
+        
+    </html>
+    <script src="{!URLFOR($Resource.trplugins, 'customjs/cirrusApp-bundle.js')}" />
+</apex:page>

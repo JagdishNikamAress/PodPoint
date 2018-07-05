@@ -1,0 +1,44 @@
+<aura:component >
+  <aura:attribute name="projectId" type="String" />
+  <aura:attribute name="projectStartDate" type="String" />
+  <aura:attribute name="projectEndDate" type="String" />
+  <aura:attribute name="projectStartDateUnformatted" type="Double" />
+  <aura:attribute name="projectEndDateUnformatted" type="Double" />
+  <aura:attribute name="mountedInRow" type="String" />
+  <aura:attribute name="projectCompletionPercentage" type="String" />
+  <aura:attribute name="listColorMap" type="Object" />
+  <aura:attribute name="taskGroups" type="Array" />
+  <aura:dependency type="COMPONENT" resource="markup://TASKRAY_LTNG:trProjectOverview_view_milestoneRow" />
+
+  <div class="overview-container">
+    <aura:if isTrue="{!v.mountedInRow == 'true'}">
+      <div class="slds-text-heading--label project-overview-header">{!$Label.taskray_ltng.trMyProjectsComponent_ProjectOverview}</div>
+    </aura:if>
+    <div>
+      <div class="slds-float--left slds-text-heading--label project-start--date">
+        {!v.projectStartDate}
+      </div>
+      <div class="progress-bar--container slds-float--left">
+        <div class="{!(v.projectCompletionPercentage == 0) ? 'progress-bar--bar progress-bar--zerowidthbar' : 'progress-bar--bar'}" style="{!'width: '+v.projectCompletionPercentage+'%'}">
+          <span class="progress-bar--pct-complete-label">{!v.projectCompletionPercentage+'%'}</span>
+        </div>
+      </div>
+      <div class="slds-float--right slds-text-heading--label project-end--date">
+        {!v.projectEndDate}
+      </div>
+      <div class="slds-clearfix" />
+    </div>
+    <div>
+      <aura:iteration items="{!v.taskGroups}" var="taskGroup">
+        <TASKRAY_LTNG:trProjectOverview_view_taskGroupRow 
+          projectId="{!v.projectId}"
+          projectStartDateUnformatted="{!v.projectStartDateUnformatted}"
+          projectEndDateUnformatted="{!v.projectEndDateUnformatted}"
+          taskGroupObj="{!taskGroup.taskGroupInfo}"
+          milestoneTasks="{!taskGroup.milestoneTasks}"
+          taskGroupCount="{!v.taskGroups.length}"
+        />
+      </aura:iteration>
+    </div>
+  </div>
+</aura:component>

@@ -1,0 +1,116 @@
+<apex:page standardController="Opportunity">
+    <script type="text/javascript">
+        function addressCopy(checked) {
+            if(checked){
+                document.getElementById('{!$Component.mainfrm.thepb.thesec.s0}').value = '{!Opportunity.Billing_Street__c}';
+                document.getElementById('{!$Component.mainfrm.thepb.thesec.s1}').value = document.getElementById('{!$Component.mainfrm.thepb.thesec.b1}').value;
+                document.getElementById('{!$Component.mainfrm.thepb.thesec.s2}').value = document.getElementById('{!$Component.mainfrm.thepb.thesec.b2}').value;
+                document.getElementById('{!$Component.mainfrm.thepb.thesec.s3}').value = document.getElementById('{!$Component.mainfrm.thepb.thesec.b3}').value;
+            } else {
+                document.getElementById('{!$Component.mainfrm.thepb.thesec.s0}').value = '';
+                document.getElementById('{!$Component.mainfrm.thepb.thesec.s1}').value = '';
+                document.getElementById('{!$Component.mainfrm.thepb.thesec.s2}').value = '';
+                document.getElementById('{!$Component.mainfrm.thepb.thesec.s3}').value = '';
+            }
+            return false;
+        }
+    </script>
+    
+    <apex:sectionHeader title="Opportunity" subtitle="{!Opportunity.Name}"/>
+    <apex:form id="mainfrm">
+        <apex:pageblock title="Opportunity Detail" id="thepb">
+            <apex:pageblockButtons >
+                <apex:commandButton action="{!save}" id="saveButton" value="Save"/>
+                <apex:commandButton action="{!Cancel}" id="cancelButton" value="Cancel"/>
+            </apex:pageblockButtons>
+            <apex:pageblockSection collapsible="false">
+                <apex:inputField value="{!Opportunity.Name}"></apex:inputField>
+                <apex:inputField value="{!Opportunity.ownerid}"/>
+                <apex:inputField value="{!Opportunity.Accountid}"></apex:inputField>
+                <apex:inputField value="{!Opportunity.closedate}">
+                </apex:inputField>
+                <apex:inputField value="{!Opportunity.Sockets__c}" rendered="{!IF(OR(Opportunity.Recordtype.Name == 'Commercial',Opportunity.Recordtype.Name == 'Bid'),true,false)}">
+                </apex:inputField>
+               <!-- <apex:inputField value="{!Opportunity.ChargentSFA__Total__c}" rendered="{!IF((Opportunity.recordtypeid == 'Commercial'),true,false)}" >
+                </apex:inputField> -->
+                <apex:pageBlockSectionItem />
+                <apex:inputField value="{!Opportunity.Workplace_Grant__c}" rendered="{!IF(OR(Opportunity.Recordtype.Name == 'Commercial',Opportunity.Recordtype.Name == 'Bid'),true,false)}">
+                </apex:inputField>
+                <apex:inputField value="{!Opportunity.Phase__c}" rendered="{!IF(Opportunity.Recordtype.Name == 'Bid',True,False)}"/>
+
+                <apex:pageBlockSectionItem />
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection id="thesec" title="Address Details" rendered="{!IF(OR(Opportunity.Recordtype.Name == 'Commercial',Opportunity.Recordtype.Name == 'Bid'),true,false)}">
+                <apex:inputField value="{!Opportunity.Billing_Street__c}" id="b0"/>
+                <apex:inputField value="{!Opportunity.Shipping_Street__c}" id="s0"/>
+                <apex:inputField value="{!Opportunity.Billing_City__c}" id="b1"/>
+                <apex:inputField value="{!Opportunity.Shipping_City__c}" id="s1"/>
+                <apex:inputField value="{!Opportunity.Billing_Country_Picklist__c}" id="b2"/>
+                <apex:inputField value="{!Opportunity.Shipping_Country_Picklist__c}" id="s2"/>
+                <apex:inputField value="{!Opportunity.Billing_Postal_Code__c}" id="b3"/>
+                <apex:inputField value="{!Opportunity.Shipping_Postal_Code__c}" id="s3"/>
+                <apex:inputCheckbox onclick="addressCopy(this.checked)" label="Copy To Shipping Address"/>
+            </apex:pageblockSection>
+            
+            <!--<apex:pageBlockSection title="Survey Section" rendered="{!IF((Opportunity.Recordtype.Name == 'Commercial'),true,false)}">
+                <apex:inputField value="{!Opportunity.Case_Link__c}"/>
+                <apex:inputField value="{!Opportunity.Created_Date__c}"/>
+                <apex:inputField value="{!Opportunity.Case_Number__c}"/>
+                <apex:inputField value="{!Opportunity.Installer_Name__c}"/>
+                <apex:inputField value="{!Opportunity.Status_Survey__c}"/>
+                <apex:inputField value="{!Opportunity.Street__c}"/>
+                <apex:inputField value="{!Opportunity.Project_Manager__c}"/>
+                <apex:inputField value="{!Opportunity.City__c}"/>
+                <apex:inputField value="{!Opportunity.FA_URL__c}"/>
+                <apex:inputField value="{!Opportunity.PostCode__c}"/>
+                <apex:inputField value="{!Opportunity.Install_Hours__c}"/>
+                <apex:inputField value="{!Opportunity.Install_Hours_2__c}"/>
+                <apex:inputField value="{!Opportunity.Scope_of_Work__c}"/>
+                <apex:inputField value="{!Opportunity.Install_Cost_Quote_2__c}"/>
+                <apex:inputField value="{!Opportunity.Install_Cost_Quote__c}"/>
+                <apex:inputField value="{!Opportunity.Scope_of_Work_2__c}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageblockSection title="Install Section" rendered="{!IF((Opportunity.Recordtype.Name == 'Commercial'),true,false)}">
+                <apex:inputField value="{!Opportunity.Case_Link_Install__c}"/>
+                <apex:inputField value="{!Opportunity.Created_Date_Install__c}"/>
+                <apex:inputField value="{!Opportunity.Case_Number_Install__c}"/>
+                <apex:inputField value="{!Opportunity.Installer_Name_Install__c}"/>
+                <apex:inputField value="{!Opportunity.City_Install__c}"/>
+                <apex:inputField value="{!Opportunity.Install_Hours_Install__c}"/>
+                <apex:inputField value="{!Opportunity.FA_URL_Install__c}"/>
+                <apex:inputField value="{!Opportunity.Job_ID_Install__c}"/>
+                <apex:inputField value="{!Opportunity.PostCode_Install__c}"/>
+                <apex:inputField value="{!Opportunity.Project_Manager_Install__c}"/>
+                <apex:inputField value="{!Opportunity.Status_Install__c}"/>
+                <apex:inputField value="{!Opportunity.Street_Install__c}"/>
+                <apex:inputField value="{!Opportunity.Scope_of_Work_Install__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Order Details" rendered="{!IF((Opportunity.Recordtype.Name == 'Commercial'),true,false)}">
+                <apex:inputField value="{!Opportunity.Order_Number__c}"/>
+                <apex:inputField value="{!Opportunity.Order_Type__c}"/>
+                <apex:inputField value="{!Opportunity.Order_Status__c}"/>
+                <apex:inputField value="{!Opportunity.Confirm_Date_Dispatch_Address__c}"/>
+            </apex:pageblockSection>
+            -->
+            
+            <apex:pageblockSection title="Additional Information" rendered="{!IF(OR(Opportunity.Recordtype.Name == 'Commercial',Opportunity.Recordtype.Name == 'Bid'),true,false)}">
+                 <apex:outputField value="{!Opportunity.Account_Classification__c}"/>
+                <apex:inputField value="{!Opportunity.Opportunity_Classification__c}"/>
+                <apex:outputField value="{!Opportunity.Route_to_Market__c}"/>
+                <apex:inputField value="{!Opportunity.Opportunity_Route_to_Market__c}"/>
+                 <apex:outputField value="{!Opportunity.Account_Type__c}"/>
+                <apex:inputField value="{!Opportunity.Opportunity_Type__c}"/>
+                <apex:inputField value="{!Opportunity.Description}"/>
+            </apex:pageblockSection>
+        </apex:pageblock>
+    </apex:form>
+    <apex:relatedList list="OpportunityContactRoles" />
+    <apex:relatedList list="OpportunityLineItems" />
+    <apex:relatedList list="Quotes"/>
+    <apex:relatedList list="Orders" />  
+    <apex:relatedList subject="{!Opportunity}" list="ActivityHistories" />
+    <apex:relatedList list="OpenActivities"/>
+</apex:page>

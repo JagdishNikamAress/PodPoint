@@ -1,0 +1,24 @@
+.THIS.card {
+    margin-bottom: 2px;
+    height: 65px;
+    width: 200px;
+    padding-left: 7px;
+    padding-top: 2px;
+    padding-right: 3px;
+    font-size: 13px;
+    background-color: #FCFCFC;
+    border: 1px solid #D8DDE6;
+}
+
+.THIS.blocked {
+    background-color: #FFDDE1;
+    border: 1px solid #FFDDE1;
+}
+
+.THIS.TASKRAY_LTNGTrQuickTaskCard.card {
+    overflow: hidden;
+}
+
+.THIS h5 {
+    cursor: default;
+}

@@ -1,0 +1,85 @@
+<apex:page standardController="Order" extensions="orderController">
+    <apex:form >
+        <apex:pageBlock rendered="{!(ordItems.size != 0)}">
+           <apex:pageMessages />
+           <apex:pageBlockButtons >
+              <apex:commandButton value="Save" action="{!save}"/>
+              <apex:commandButton value="Export to Excel" action="{!exporttoexcel}"/>
+           </apex:pageBlockButtons>
+           <apex:pageBlockTable value="{!ordItems}" var="a" rendered="{!(!addressConfirmed)}">
+              <apex:column headerValue="OrderItem Number" >
+                 <apex:outputField value="{!a.OrderItemNumber}"/>
+              </apex:column>
+               <apex:column headerValue="Product Name">
+                 <apex:outputField value="{!a.PricebookEntry.name}"/>
+              </apex:column>
+               <apex:column headerValue="SKU">
+                 <apex:outputField value="{!a.PricebookEntry.product2.SKU__c}"/>
+              </apex:column>
+              <apex:column headerValue="Quantity">
+                 <apex:outputField value="{!a.Quantity}"/>
+              </apex:column>
+               
+              <apex:column headerValue="Dispatch Status">
+                 <apex:outputField value="{!a.Dispatch_Status__c}"/>
+              </apex:column>
+             
+                <apex:column headerValue="Tracking Number">
+                 <apex:outputField value="{!a.Tracking_number__c}"/>
+              </apex:column>
+                <apex:column headerValue="Tick to include in CSV">
+                 <apex:inputcheckbox value="{!a.Include_in_CSV__c}"/>
+              </apex:column>               
+               <apex:column headerValue="Dispatch Date">
+                 <apex:inputField value="{!a.Dispatch_Date__c}"/>
+              </apex:column>
+                 <apex:column headerValue="Date to Site">
+                 <apex:inputField value="{!a.Date_to_Site__c}"/>
+              </apex:column>
+               <apex:column headerValue="Dispatch Address 1">
+                  <apex:selectList size="1" value="{!a.Dispatch_Address__c}" >
+                            <apex:selectOptions value="{!SelectOptionsAddress}" />
+                  </apex:selectList>
+               </apex:column>              
+           </apex:pageBlockTable>
+            <apex:pageBlockTable value="{!ordItems}" var="a" rendered="{!(addressConfirmed)}">
+              <apex:column headerValue="OrderItem Number" >
+                 <apex:outputField value="{!a.OrderItemNumber}"/>
+              </apex:column>
+               <apex:column headerValue="Product Name">
+                 <apex:outputField value="{!a.PricebookEntry.name}"/>
+              </apex:column>
+               <apex:column headerValue="SKU">
+                 <apex:outputField value="{!a.PricebookEntry.product2.SKU__c}"/>
+              </apex:column>
+              <apex:column headerValue="Quantity">
+                 <apex:outputField value="{!a.Quantity}"/>
+              </apex:column>
+               
+              <apex:column headerValue="Dispatch Status">
+                 <apex:outputField value="{!a.Dispatch_Status__c}"/>
+              </apex:column>
+                <apex:column headerValue="Tracking Number">
+                 <apex:outputField value="{!a.Tracking_number__c}"/>
+              </apex:column>
+                <apex:column headerValue="Tick to include in CSV">
+                 <apex:inputcheckbox value="{!a.Include_in_CSV__c}"/>
+              </apex:column>               
+               <apex:column headerValue="Dispatch Date">
+                 <apex:inputField value="{!a.Dispatch_Date__c}"/>
+              </apex:column>
+                <apex:column headerValue="Date to Site">
+                 <apex:outputField value="{!a.Date_to_Site__c}"/>
+              </apex:column>
+               <apex:column headerValue="Dispatch Address">                   
+                   <apex:outputField value="{!a.Dispatch_Address__c}" />                      
+               </apex:column>
+               
+           </apex:pageBlockTable>
+           </apex:pageBlock>
+        <apex:pageBlock rendered="{!(ordItems.size == 0)}">
+           There are no hardware products in this Order, this looks like an Order with Installation only. Click into the Opportunity :<apex:outputLink target="_top" value="/{!opportunityID}" >{!opportunityName}</apex:outputLink>
+ for more details.
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoResponseRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <autoResponseRule>
+        <fullName>Website - Work %28Whitepaper Download%29</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Website - Work (whitepaper download)</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.OwnerId</field>
+                <operation>equals</operation>
+                <value>Mike Jackson</value>
+            </criteriaItems>
+            <senderEmail>mike.jackson@pod-point.com</senderEmail>
+            <senderName>Mike Jackson</senderName>
+            <template>unfiled$public/Work_whitepaper_lead_Mike_Jackson</template>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Website - Work (whitepaper download)</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.OwnerId</field>
+                <operation>equals</operation>
+                <value>Joanne Phillips</value>
+            </criteriaItems>
+            <senderEmail>joanne.phillips@pod-point.com</senderEmail>
+            <senderName>Joanne Phillips</senderName>
+            <template>unfiled$public/Work_whitepaper_lead_Jo_Phillips</template>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Lead.Assign_by_Route_to_Market__c</field>
+                <operation>equals</operation>
+                <value>Website - Work (whitepaper download)</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.OwnerId</field>
+                <operation>equals</operation>
+                <value>Daniel Eyers</value>
+            </criteriaItems>
+            <senderEmail>daniel.eyers@pod-point.com</senderEmail>
+            <senderName>Daniel Eyers</senderName>
+            <template>unfiled$public/Work_whitepaper_lead_Daniel_Eyers</template>
+        </ruleEntry>
+    </autoResponseRule>
+</AutoResponseRules>

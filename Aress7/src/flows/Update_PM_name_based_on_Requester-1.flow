@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <name>Set_PM</name>
+        <label>Set PM</label>
+        <locationX>399</locationX>
+        <locationY>23</locationY>
+        <assignmentItems>
+            <assignToReference>strPMName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Rich</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_PM</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_PM_0</name>
+        <label>Set PM</label>
+        <locationX>398</locationX>
+        <locationY>126</locationY>
+        <assignmentItems>
+            <assignToReference>strPMName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Amy</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_PM</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_PM_0_0</name>
+        <label>Set PM</label>
+        <locationX>402</locationX>
+        <locationY>235</locationY>
+        <assignmentItems>
+            <assignToReference>strPMName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Brad</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_PM</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_PM_0_0_0</name>
+        <label>Set PM</label>
+        <locationX>400</locationX>
+        <locationY>337</locationY>
+        <assignmentItems>
+            <assignToReference>strPMName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Arne</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_PM</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_PM_0_0_0_0</name>
+        <label>Set PM</label>
+        <locationX>411</locationX>
+        <locationY>452</locationY>
+        <assignmentItems>
+            <assignToReference>strPMName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Martin</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_PM</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Created_By_User</name>
+        <label>Created By User</label>
+        <locationX>90</locationX>
+        <locationY>222</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Mike_Jackson</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>strCreatedByName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Mike Jackson</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_PM</targetReference>
+            </connector>
+            <label>Mike Jackson</label>
+        </rules>
+        <rules>
+            <name>Philip_Hill</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>strCreatedByName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Philip Hill</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_PM</targetReference>
+            </connector>
+            <label>Philip Hill</label>
+        </rules>
+        <rules>
+            <name>Daniel_Eyers</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>strCreatedByName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Daniel Eyers</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_PM</targetReference>
+            </connector>
+            <label>Daniel Eyers</label>
+        </rules>
+        <rules>
+            <name>ChrisCheetham</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>strCreatedByName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Chris Cheetham</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_PM_0</targetReference>
+            </connector>
+            <label>Chris Cheetham</label>
+        </rules>
+        <rules>
+            <name>JonathanHorsfield</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>strCreatedByName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Jonathan Horsfield</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_PM_0</targetReference>
+            </connector>
+            <label>Jonathan Horsfield</label>
+        </rules>
+        <rules>
+            <name>Jarred_Rayns</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>strCreatedByName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Jarred Rayns</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_PM_0_0</targetReference>
+            </connector>
+            <label>Jarred Rayns</label>
+        </rules>
+        <rules>
+            <name>Lloyd_Musto</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>strCreatedByName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Lloyd Musto</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_PM_0_0</targetReference>
+            </connector>
+            <label>Lloyd Musto</label>
+        </rules>
+        <rules>
+            <name>Charlie_Roberts</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>strCreatedByName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Charlie Roberts</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_PM_0_0_0</targetReference>
+            </connector>
+            <label>Charlie Roberts</label>
+        </rules>
+        <rules>
+            <name>Rory_Duncan</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>strCreatedByName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rory Duncan</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_PM_0_0</targetReference>
+            </connector>
+            <label>Rory Duncan</label>
+        </rules>
+        <rules>
+            <name>Oliver_Dodd</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>strCreatedByName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Oliver Dodd</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_PM_0_0_0_0</targetReference>
+            </connector>
+            <label>Oliver Dodd</label>
+        </rules>
+        <rules>
+            <name>Sam_Deptford</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>strCreatedByName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sam Deptford</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_PM_0_0_0_0</targetReference>
+            </connector>
+            <label>Sam Deptford</label>
+        </rules>
+        <rules>
+            <name>James_Stevens</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>strCreatedByName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>James Stevens</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_PM_0_0_0_0</targetReference>
+            </connector>
+            <label>James Stevens</label>
+        </rules>
+        <rules>
+            <name>IsabelJames</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>strCreatedByName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Isabel James</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_PM_0_0_0_0</targetReference>
+            </connector>
+            <label>Isabel James</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Update PM name based on Requester {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update PM name based on Requester</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_PM</name>
+        <label>Update PM</label>
+        <locationX>703</locationX>
+        <locationY>236</locationY>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>strCaseID</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Project_Manager__c</field>
+            <value>
+                <elementReference>strPMName</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <startElementReference>Created_By_User</startElementReference>
+    <variables>
+        <name>strCaseID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>strCreatedByName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>strPMName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

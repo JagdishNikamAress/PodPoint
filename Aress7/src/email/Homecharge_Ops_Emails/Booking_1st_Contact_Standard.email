@@ -1,0 +1,7 @@
+Hi {!Case.Contact},
+
+Hope you are well
+
+I was hoping to to arrange an installation date for your POD Point. I have provisionally booked you in for the next available date which is {!Case.Scheduled_On__c} in the _______. Our engineer will arrive between ____ and ____. An installation typically takes around 2 hours.
+
+If you could confirm if you'll be available on this date that would be wonderful. If not, I will happily arrange a later date.

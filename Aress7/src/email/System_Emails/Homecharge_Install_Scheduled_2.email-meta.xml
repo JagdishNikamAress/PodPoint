@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When Homecharge Install SA becomes &quot;Confirmed&quot;</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Homecharge Install Scheduled 2</name>
+    <style>none</style>
+    <subject>Your Pod Point Installation Date is Confirmed {!WorkOrder.Reference_Id__c}</subject>
+    <textOnly>Your POD Point Install is Scheduled!  Thanks,  POD Point</textOnly>
+    <type>custom</type>
+</EmailTemplate>

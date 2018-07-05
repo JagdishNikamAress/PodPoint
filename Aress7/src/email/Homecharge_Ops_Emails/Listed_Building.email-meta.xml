@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Listed Building</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Listed Building</name>
+    <style>none</style>
+    <subject>Home Charge - Listed Building</subject>
+    <type>text</type>
+</EmailTemplate>

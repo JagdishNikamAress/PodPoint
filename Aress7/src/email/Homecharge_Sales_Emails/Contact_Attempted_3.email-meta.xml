@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email to send when you can&apos;t reach a customer (3rd time)</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Contact Attempted 3</name>
+    <style>none</style>
+    <subject>Electric car charging - what’s all the fuss about?</subject>
+    <type>text</type>
+</EmailTemplate>

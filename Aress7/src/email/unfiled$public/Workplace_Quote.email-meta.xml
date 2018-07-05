@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Workplace Quote with Whitepaper attachments and 2015 Outlook</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>PP_Standard_Letterhead</letterhead>
+    <name>Workplace Quote</name>
+    <style>freeForm</style>
+    <subject>POD Point: Your Solutions</subject>
+    <textOnly>Hi {!Contact.FirstName},
+
+Following on from our discussion, please find attached your quote.
+
+The installation costs are estimates based on limited site information.
+
+All POD Points come with our industry leading complimentary 3 year extended warranty.
+
+Please also find attached some documents explaining workplace charging and an outlook of the EV market in general.
+
+The following links explain our online management platform that is charged at £60/yr per charging point socket:
+
+
+POD Point MIS - Introduction - https://vimeo.com/139698814
+POD Point MIS - How It Works - https://vimeo.com/139201753
+POD Point App - How To Use - https://vimeo.com/141418147
+
+
+
+If you have any queries, please don&apos;t hesitate to contact me.
+
+Best,
+
+George Nicholls
+Corporate Solutions
+POD Point
+07908479306</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Absence Offset --></label>
+        <name>Absence_Offset__c</name>
+    </fields>
+    <fields>
+        <label><!-- Duration --></label>
+        <name>Duration__c</name>
+        <picklistValues>
+            <masterLabel>Longer</masterLabel>
+            <translation><!-- Longer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>One Day</masterLabel>
+            <translation><!-- One Day --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partial Day</masterLabel>
+            <translation><!-- Partial Day --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Approved --></label>
+        <name>FSL__Approved__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Travel Time From --></label>
+        <name>FSL__EstTravelTimeFrom__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Travel Time --></label>
+        <name>FSL__EstTravelTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Travel Distance From --></label>
+        <name>FSL__EstimatedTravelDistanceFrom__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Travel Distance To --></label>
+        <name>FSL__EstimatedTravelDistanceTo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gantt Label --></label>
+        <name>FSL__GanttLabel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gantt Color --></label>
+        <name>FSL__Gantt_Color__c</name>
+    </fields>
+    <fields>
+        <label><!-- Internal SLR Geolocation --></label>
+        <name>FSL__InternalSLRGeolocation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Slot Options --></label>
+        <name>Slot_Options__c</name>
+        <picklistValues>
+            <masterLabel>Afternoon (12pm - 8pm)</masterLabel>
+            <translation><!-- Afternoon (12pm - 8pm) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evening (3pm - 8pm)</masterLabel>
+            <translation><!-- Evening (3pm - 8pm) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evening (5pm - 8pm)</masterLabel>
+            <translation><!-- Evening (5pm - 8pm) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Full Day (7am - 8pm)</masterLabel>
+            <translation><!-- Full Day (7am - 8pm) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Morning (7am -12pm)</masterLabel>
+            <translation><!-- Morning (7am -12pm) --></translation>
+        </picklistValues>
+    </fields>
+    <recordTypes>
+        <label><!-- Break --></label>
+        <name>Break</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Non Availability --></label>
+        <name>Non_Availability</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Gantt color must be in hexadecimal format: (for example: #ffffff) --></errorMessage>
+        <name>FSL__Absence_Color_HEX_Format</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot add address to resource absence with record type &apos;Break&apos; --></errorMessage>
+        <name>FSL__NoAddressOnBreaks</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Start Time must be earlier than the End Time. --></errorMessage>
+        <name>FSL__startShouldPrecedeEnd</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Overtime can be booked into the4.pm. to 8p.m. --></errorMessage>
+        <name>New_Validation_for_overtime_Resource_Abs</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Overtime can only be booked After 4 pm.&quot; --></errorMessage>
+        <name>Overtime_Resource_Absence_validation1</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- End time should not be exceeded than 8p.m. --></errorMessage>
+        <name>Overtime_Resource_Absence_validation2</name>
+    </validationRules>
+</CustomObjectTranslation>

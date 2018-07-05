@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email to send when a customer has rejected an order</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Rejected</name>
+    <style>none</style>
+    <subject>Don’t you forget about me...</subject>
+    <textOnly>Sorry to see you go
+
+Hi {!Account.Name},
+
+We did our best, but you’ve decided not to get a POD Point installed. It’s cool - we’re not the sorts to take these things personally. We only cried a little bit. Honest.
+
+Let’s not make this a goodbye, then, but more of a see you later. We really appreciate the time and consideration you’ve given to all of us here at POD Point, so we’d love to keep in touch with the latest electric car news. Watch out for our monthly updates!
+
+Also, did you know that you can use our Open Charge app to charge for  free at over 1,500 locations across the UK? Download the app to get charging.
+
+Thanks again, and talk soon!
+
+The POD Point Team</textOnly>
+    <type>custom</type>
+</EmailTemplate>

@@ -1,0 +1,60 @@
+<aura:component>
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:attribute name="projectId" type="String" />
+  <aura:attribute name="projectStartDateUnformatted" type="String" />
+  <aura:attribute name="projectEndDateUnformatted" type="String" />
+  <aura:attribute name="taskGroupLeftOffset" type="Double" access="private" default="0"/>
+  <aura:attribute name="taskGroupWidth" type="Double" access="private" default="100"/>
+  <aura:attribute name="taskGroupCount" type="Integer" />
+  <aura:attribute name="taskGroupObj" type="Object" />
+  <aura:attribute name="milestoneTasks" type="Array" />
+  <aura:attribute name="parsedTaskGroupCompletionPercentage" type="Decimal" default="0" />
+  <aura:attribute name="parsedTaskGroupStart" type="String" />
+  <aura:attribute name="parsedTaskGroupEnd" type="String" />
+
+  <div class="task-group--container">
+    <aura:if isTrue="{!v.taskGroupObj == null &amp;&amp; v.taskGroupCount > 1}">
+      <div class="slds-text-heading--label task-group--header">
+        {!$Label.taskray_ltng.trProjectOverview_Task_Group_Unassigned}
+      </div>
+    </aura:if>
+    <aura:if isTrue="{!v.taskGroupObj != null}">
+      <div class="slds-text-heading--label task-group--header">
+        {!v.taskGroupObj.Name}
+      </div>
+      <div>
+        <div class="slds-text-heading--label task-group-start--date slds-float--left">
+          {!v.parsedTaskGroupStart}
+          <!--<lightning:formattedDateTime timeZone="UTC" value="{!v.taskGroupObj.TASKRAY__trStartDate__c}" />-->
+        </div>
+        <div class="slds-float--left tg-progress-bar--container">
+          <div class="slds-float--left tg-progress-bar--subcontainer" style="{!'width: '+v.taskGroupWidth+'%; margin-left:'+v.taskGroupLeftOffset+'%;'}">
+            <div class="{!(!v.taskGroupObj.TASKRAY__trCompletionPercentage__c) ? 'tg-progress-bar--bar tg-progress-bar--zerowidthbar' : 'tg-progress-bar--bar'}" style="{!' '+v.taskGroupObj.TASKRAY__trCompletionPercentage__c ? 'width:'+v.taskGroupObj.TASKRAY__trCompletionPercentage__c+'%;' : 'width:0%;'}">
+              <div class="tg-progress-bar--pct-complete-label">
+                {!v.parsedTaskGroupCompletionPercentage+'%'}</div>
+            </div>
+          </div>
+        </div>
+        <div class="slds-text-heading--label task-group-end--date slds-float--right">
+          {!v.parsedTaskGroupEnd}
+          <!--<lightning:formattedDateTime value="{!v.taskGroupObj.TASKRAY__trEndDate__c}" />-->
+        </div>
+        <div class="slds-clearfix" />
+      </div>
+    </aura:if>
+
+    <div class="milestones--container">
+      <aura:iteration items="{!v.milestoneTasks}" var="milestoneTask">
+        <TASKRAY_LTNG:trProjectOverview_view_milestoneRow 
+          milestoneId="{!milestoneTask.task.Id}"
+          isComplete="{!milestoneTask.task.TASKRAY__trCompleted__c}"
+          isOverdue="{!milestoneTask.isOverdue}"
+          name="{!milestoneTask.task.Name}"
+          formattedEndDate="{!milestoneTask.formattedEndDate}"
+          listColor="{!milestoneTask.listColor}"
+          projectId="{!v.projectId}"
+        />
+      </aura:iteration>
+    </div>
+  </div>
+</aura:component>

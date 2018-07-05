@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPageWebLinks>
+        <label><!-- Sync FieldAware Attachments --></label>
+        <name>Sync_FieldAware_Attachments</name>
+    </customPageWebLinks>
+    <customPageWebLinks>
+        <label><!-- Sync FieldAware Records --></label>
+        <name>Sync_FieldAware_Records</name>
+    </customPageWebLinks>
+    <customTabs>
+        <label><!-- Getting Started --></label>
+        <name>Getting_Started_reg</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Mass reassign opportunities --></label>
+        <name>Mass_reassign_opportunities</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- PKB 2 Settings --></label>
+        <name>PKB_2_Settings</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- PP CommissTEST --></label>
+        <name>PP_CommissTEST</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Sales Coach Start --></label>
+        <name>SalesCoachStart</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Sales Coach Setup --></label>
+        <name>Sales_Coach_Setup</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Tasks --></label>
+        <name>Task</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Tasks --></label>
+        <name>Tasks</name>
+    </customTabs>
+    <reportTypes>
+        <description><!-- Accounts &amp; Opp &amp; Case &amp; WO --></description>
+        <label><!-- Accounts &amp; Opp &amp; Case &amp; WO --></label>
+        <name>Accounts_Opp_Case_WO</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Opportunities --></label>
+            <name>Opportunities</name>
+        </sections>
+        <sections>
+            <label><!-- Work Orders --></label>
+            <name>Work Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts &amp; Opps --></description>
+        <label><!-- Accounts &amp; Opps --></label>
+        <name>Accounts_Opps</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Opportunities --></label>
+            <name>Opportunities</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Activities Report --></description>
+        <label><!-- Activities Report --></label>
+        <name>Activities_Report</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Cases &amp; Cost Tracking Items --></description>
+        <label><!-- Cases &amp; Cost Tracking Items --></label>
+        <name>Cases_Cost_Tracking_Items</name>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Cost Tracking Items --></label>
+            <name>Cost Tracking Items</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Cases &amp; WO &amp; SA &amp; Assigned Resource --></description>
+        <label><!-- Cases &amp; WO &amp; SA &amp; Assigned Resource --></label>
+        <name>Cases_WO_SA</name>
+        <sections>
+            <label><!-- Assigned Resources --></label>
+            <name>Assigned Resources</name>
+        </sections>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Service Appointments --></label>
+            <name>Service Appointments</name>
+        </sections>
+        <sections>
+            <label><!-- Work Orders --></label>
+            <name>Work Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Cases &amp; WOs --></description>
+        <label><!-- Cases &amp; WOs --></label>
+        <name>Cases_WOs</name>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Work Orders --></label>
+            <name>Work Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Cases &amp; WOs &amp; SAs --></description>
+        <label><!-- Cases &amp; WOs &amp; SAs --></label>
+        <name>Cases_WOs_SAs</name>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Service Appointments --></label>
+            <name>Service Appointments</name>
+        </sections>
+        <sections>
+            <label><!-- Work Orders --></label>
+            <name>Work Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Cases, WOs, WOTs --></description>
+        <label><!-- Cases, WOs, WOTs --></label>
+        <name>Cases_WOs_WOTs</name>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Work Order Tasks --></label>
+            <name>Work Order Tasks</name>
+        </sections>
+        <sections>
+            <label><!-- Work Orders --></label>
+            <name>Work Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Opp, Case, WO --></description>
+        <label><!-- Opp, Case, WO --></label>
+        <name>Opp_Case_WO</name>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Opportunities --></label>
+            <name>Opportunities</name>
+        </sections>
+        <sections>
+            <label><!-- Work Orders --></label>
+            <name>Work Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Opportunities &amp; Cases &amp; WOs &amp; SAs --></description>
+        <label><!-- Opportunities &amp; Cases &amp; WOs &amp; SAs --></label>
+        <name>Opportunities_Cases_WOs_SAs</name>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Opportunities --></label>
+            <name>Opportunities</name>
+        </sections>
+        <sections>
+            <label><!-- Service Appointments --></label>
+            <name>Service Appointments</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Opportunities and Tasks --></description>
+        <label><!-- Opportunities and Tasks --></label>
+        <name>Opportunities_and_Tasks</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Opportunities --></label>
+            <name>Opportunities</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Opportunities with Cases --></description>
+        <label><!-- Opportunities with Cases --></label>
+        <name>Opportunities_with_Cases</name>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Opportunities --></label>
+            <name>Opportunities</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Opportunities with Cases &amp; Orders --></description>
+        <label><!-- Opportunities with Cases &amp; Orders --></label>
+        <name>Opportunities_with_Cases_Orders</name>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Opportunities --></label>
+            <name>Opportunities</name>
+        </sections>
+        <sections>
+            <label><!-- Orders --></label>
+            <name>Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Opportunities with Orders --></description>
+        <label><!-- Opportunities with Orders --></label>
+        <name>Opportunities_with_Orders</name>
+        <sections>
+            <label><!-- Opportunities --></label>
+            <name>Opportunities</name>
+        </sections>
+        <sections>
+            <label><!-- Orders --></label>
+            <name>Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Opportunities With/Without Cases --></description>
+        <label><!-- Opportunities With/Without Cases --></label>
+        <name>Opps_Cases</name>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Opportunities --></label>
+            <name>Opportunities</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Opps and Quotes --></description>
+        <label><!-- Opps and Quotes --></label>
+        <name>Opps_and_Quotes</name>
+        <sections>
+            <label><!-- Opportunities --></label>
+            <name>Opportunities</name>
+        </sections>
+        <sections>
+            <label><!-- Quotes --></label>
+            <name>Quotes</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Opps and Quotes 2 --></description>
+        <label><!-- Opps and Quotes 2 --></label>
+        <name>Opps_and_Quotes_2</name>
+        <sections>
+            <label><!-- Opportunities --></label>
+            <name>Opportunities</name>
+        </sections>
+        <sections>
+            <label><!-- Quotes --></label>
+            <name>Quotes</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Orders with Managed Install --></description>
+        <label><!-- Orders with Managed Install --></label>
+        <name>Orders_with_Managed_Install</name>
+        <sections>
+            <label><!-- Orders --></label>
+            <name>Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Orders (with Order Record Type) --></description>
+        <label><!-- Orders (with Order Record Type) --></label>
+        <name>Orders_with_Order_Record_Type</name>
+        <sections>
+            <label><!-- Order Products --></label>
+            <name>Order Products</name>
+        </sections>
+        <sections>
+            <label><!-- Orders --></label>
+            <name>Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Products (to get Product ID) --></description>
+        <label><!-- Products (to get Product ID) --></label>
+        <name>Products_to_get_Product_ID</name>
+        <sections>
+            <label><!-- Products --></label>
+            <name>Products</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- SA &amp; Assigned Resource --></description>
+        <label><!-- SA &amp; Assigned Resource --></label>
+        <name>SA_Assigned_Resource</name>
+        <sections>
+            <label><!-- Assigned Resources --></label>
+            <name>Assigned Resources</name>
+        </sections>
+        <sections>
+            <label><!-- Service Appointments --></label>
+            <name>Service Appointments</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Sales vs Targets --></description>
+        <label><!-- Sales vs Targets --></label>
+        <name>Sales_vs_Targets</name>
+        <sections>
+            <columns>
+                <label><!-- Closed opportunities --></label>
+                <name>Closed opportunities</name>
+            </columns>
+            <label><!-- Sales --></label>
+            <name>Sales</name>
+        </sections>
+        <sections>
+            <label><!-- Target --></label>
+            <name>Target</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- SA --></description>
+        <label><!-- SA --></label>
+        <name>Service_Appointments</name>
+        <sections>
+            <label><!-- Service Appointments --></label>
+            <name>Service Appointments</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Service Resource &amp; Resource Absense --></description>
+        <label><!-- Service Resource &amp; Resource Absense --></label>
+        <name>Service_Resource_Resource_Absense</name>
+        <sections>
+            <label><!-- Service Resources --></label>
+            <name>Service Resources</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Service Resource &amp; Skills --></description>
+        <label><!-- Service Resource &amp; Skills --></label>
+        <name>Service_Resource_Skills</name>
+        <sections>
+            <label><!-- Service Resource Skills --></label>
+            <name>Service Resource Skills</name>
+        </sections>
+        <sections>
+            <label><!-- Service Resources --></label>
+            <name>Service Resources</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Service Territory Members --></description>
+        <label><!-- Service Territory Members --></label>
+        <name>Service_Territory_Members</name>
+        <sections>
+            <label><!-- Service Territories --></label>
+            <name>Service Territories</name>
+        </sections>
+        <sections>
+            <label><!-- Service Territory Members --></label>
+            <name>Service Territory Members</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Social Posts --></description>
+        <label><!-- Social Posts --></label>
+        <name>Social_Posts</name>
+        <sections>
+            <label><!-- Social Personas --></label>
+            <name>Social Personas</name>
+        </sections>
+        <sections>
+            <label><!-- Social Posts --></label>
+            <name>Social Posts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Tasks (TEST) --></description>
+        <label><!-- Tasks (TEST) --></label>
+        <name>Tasks_WO</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- WO &amp; SA &amp; Assigned Resource --></description>
+        <label><!-- WO &amp; SA &amp; Assigned Resource --></label>
+        <name>WO_SA_AR</name>
+        <sections>
+            <label><!-- Assigned Resources --></label>
+            <name>Assigned Resources</name>
+        </sections>
+        <sections>
+            <label><!-- Service Appointments --></label>
+            <name>Service Appointments</name>
+        </sections>
+        <sections>
+            <label><!-- Work Orders --></label>
+            <name>Work Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- WO &amp; WO Tasks --></description>
+        <label><!-- WO &amp; WO Tasks --></label>
+        <name>WO_WO_Tasks</name>
+        <sections>
+            <label><!-- Work Order Tasks --></label>
+            <name>Work Order Tasks</name>
+        </sections>
+        <sections>
+            <label><!-- Work Orders --></label>
+            <name>Work Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- WOs --></description>
+        <label><!-- WOs --></label>
+        <name>WOs</name>
+        <sections>
+            <label><!-- Work Orders --></label>
+            <name>Work Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- WOs &amp; SAs --></description>
+        <label><!-- WOs &amp; SAs --></label>
+        <name>WOs_SAs</name>
+        <sections>
+            <label><!-- Service Appointments --></label>
+            <name>Service Appointments</name>
+        </sections>
+        <sections>
+            <label><!-- Work Orders --></label>
+            <name>Work Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- WOs &amp; Skills Required --></description>
+        <label><!-- WOs &amp; Skills Required --></label>
+        <name>WOs_Skills_Required</name>
+        <sections>
+            <label><!-- Skill Requirements --></label>
+            <name>Skill Requirements</name>
+        </sections>
+        <sections>
+            <label><!-- Work Orders --></label>
+            <name>Work Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- WOs &amp; Products Required --></description>
+        <label><!-- WOs &amp; Products Required --></label>
+        <name>Work_Orders_Products_Required</name>
+        <sections>
+            <label><!-- Products Required --></label>
+            <name>Products Required</name>
+        </sections>
+        <sections>
+            <label><!-- Work Orders --></label>
+            <name>Work Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- utie --></description>
+        <label><!-- utie --></label>
+        <name>utie</name>
+        <sections>
+            <label><!-- Comments --></label>
+            <name>Comments</name>
+        </sections>
+        <sections>
+            <label><!-- Service Crew Member Feed --></label>
+            <name>Service Crew Member Feed</name>
+        </sections>
+        <sections>
+            <label><!-- Service Crew Members --></label>
+            <name>Service Crew Members</name>
+        </sections>
+        <sections>
+            <label><!-- Service Crews --></label>
+            <name>Service Crews</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- uties --></description>
+        <label><!-- uties --></label>
+        <name>uties</name>
+        <sections>
+            <label><!-- Duplicate Record Items --></label>
+            <name>Duplicate Record Items</name>
+        </sections>
+        <sections>
+            <label><!-- Service Territories --></label>
+            <name>Service Territories</name>
+        </sections>
+        <sections>
+            <label><!-- User Territories --></label>
+            <name>User Territories</name>
+        </sections>
+    </reportTypes>
+</Translations>

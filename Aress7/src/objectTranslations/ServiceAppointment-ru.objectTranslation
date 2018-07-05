@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Actual Duration (Hours) --></label>
+        <name>Actual_Duration_Hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual End (c) --></label>
+        <name>Actual_End__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Start (c) --></label>
+        <name>Actual_Start__c</name>
+    </fields>
+    <fields>
+        <label><!-- Arrival Window End (Time) --></label>
+        <name>Arrival_Window_End_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Arrival Window Start (Time) --></label>
+        <name>Arrival_Window_Start_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Owner --></label>
+        <name>Case_Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Service Appointments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Completed in Office --></label>
+        <name>Completed_in_Office__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact, WO, Phone --></label>
+        <name>Contact_WO_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Confirmation --></label>
+        <name>Customer_Confirmation__c</name>
+    </fields>
+    <fields>
+        <label><!-- SA Became Scheduled Date --></label>
+        <name>DateWhenSABecomeSchedule__c</name>
+    </fields>
+    <fields>
+        <label><!-- Appointment Grade --></label>
+        <name>FSL__Appointment_Grade__c</name>
+    </fields>
+    <fields>
+        <label><!-- Auto Schedule --></label>
+        <name>FSL__Auto_Schedule__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emergency --></label>
+        <name>FSL__Emergency__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gantt Color --></label>
+        <name>FSL__GanttColor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gantt Label --></label>
+        <name>FSL__GanttLabel__c</name>
+    </fields>
+    <fields>
+        <label><!-- In Jeopardy Reason --></label>
+        <name>FSL__InJeopardyReason__c</name>
+        <picklistValues>
+            <masterLabel>Delayed Finish</masterLabel>
+            <translation>Отложенное окончание</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delayed Start</masterLabel>
+            <translation>Отложенное начало</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Due Date Approaching</masterLabel>
+            <translation>Приближение крайнего срока</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Response</masterLabel>
+            <translation>Нет ответа</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- In Jeopardy --></label>
+        <name>FSL__InJeopardy__c</name>
+    </fields>
+    <fields>
+        <label><!-- Internal SLR Geolocation --></label>
+        <name>FSL__InternalSLRGeolocation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Fill In Candidate --></label>
+        <name>FSL__IsFillInCandidate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is MultiDay --></label>
+        <name>FSL__IsMultiDay__c</name>
+    </fields>
+    <fields>
+        <label><!-- Multiday Work Calculated length --></label>
+        <name>FSL__MDS_Calculated_length__c</name>
+    </fields>
+    <fields>
+        <label><!-- Multiday Work Operational Time --></label>
+        <name>FSL__MDT_Operational_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pinned --></label>
+        <name>FSL__Pinned__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prevent Geocoding For Chatter Actions --></label>
+        <name>FSL__Prevent_Geocoding_For_Chatter_Actions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Service --></label>
+        <name>FSL__Related_Service__c</name>
+        <relationshipLabel><!-- Service Appointments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Same Day --></label>
+        <name>FSL__Same_Day__c</name>
+    </fields>
+    <fields>
+        <label><!-- Same Resource --></label>
+        <name>FSL__Same_Resource__c</name>
+    </fields>
+    <fields>
+        <label><!-- Schedule Mode --></label>
+        <name>FSL__Schedule_Mode__c</name>
+        <picklistValues>
+            <masterLabel>Automatic</masterLabel>
+            <translation>Автоматически</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manual</masterLabel>
+            <translation>Вручную</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation>Нет</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Optimization</masterLabel>
+            <translation>Оптимизация</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Schedule Over Lower Priority Appointment --></label>
+        <name>FSL__Schedule_over_lower_priority_appointment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scheduling Policy Used --></label>
+        <name>FSL__Scheduling_Policy_Used__c</name>
+        <relationshipLabel><!-- Service Appointments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Time Dependency --></label>
+        <name>FSL__Time_Dependency__c</name>
+        <picklistValues>
+            <masterLabel>Finish Before Start</masterLabel>
+            <translation>Окончание перед началом</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Same Start</masterLabel>
+            <translation>То же начало</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Start After Finish</masterLabel>
+            <translation>Начало после окончания</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- UpdatedByOptimization --></label>
+        <name>FSL__UpdatedByOptimization__c</name>
+    </fields>
+    <fields>
+        <label><!-- Virtual Service For Chatter Action (SLR) --></label>
+        <name>FSL__Virtual_Service_For_Chatter_Action__c</name>
+    </fields>
+    <fields>
+        <label><!-- Incomplete Reason (Other) --></label>
+        <name>Incomplete_Reason_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Incomplete Reason --></label>
+        <name>Incomplete_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Additional Works Required</masterLabel>
+            <translation><!-- Additional Works Required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Could Not Locate Unit</masterLabel>
+            <translation><!-- Could Not Locate Unit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Not Present</masterLabel>
+            <translation><!-- Customer Not Present --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insufficient Parts/Tools</masterLabel>
+            <translation><!-- Insufficient Parts/Tools --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Enough Time</masterLabel>
+            <translation><!-- Not Enough Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unable to Attend Site (Office Only)</masterLabel>
+            <translation><!-- Unable to Attend Site (Office Only) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Installer Id --></label>
+        <name>Installer_Id_c__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsNotReviewed --></label>
+        <name>IsNotReviewed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Jeopardy - Still Confirmed or Active --></label>
+        <name>Jeopardy_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Main SA True --></label>
+        <name>Main_SA_True__c</name>
+    </fields>
+    <fields>
+        <label><!-- Main SA --></label>
+        <name>Main_SA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Missing SLR --></label>
+        <name>Missing_SLR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mulitday --></label>
+        <name>Mulitday__c</name>
+    </fields>
+    <fields>
+        <label><!-- NumberOfAssingedCrewMembers --></label>
+        <name>NumberOfAssingedCrewMembers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Record Type Name --></label>
+        <name>Parent_Record_Type_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone --></label>
+        <name>Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Postcode --></label>
+        <name>Postcode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Products Summary --></label>
+        <name>Products_Summary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Manager --></label>
+        <name>Project_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rejected Reason --></label>
+        <name>Rejected_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Additional Works Quote Rejected</masterLabel>
+            <translation><!-- Additional Works Quote Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Car Order Cancelled</masterLabel>
+            <translation><!-- Car Order Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Cancelled</masterLabel>
+            <translation><!-- Customer Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost to Competitor</masterLabel>
+            <translation><!-- Lost to Competitor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Enough Supply</masterLabel>
+            <translation><!-- Not Enough Supply --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test</masterLabel>
+            <translation><!-- Test --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Review Timesheet --></label>
+        <name>Review_Timesheet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Role --></label>
+        <name>Role__c</name>
+    </fields>
+    <fields>
+        <label><!-- SA Comment: Completed Survey --></label>
+        <name>SA_Comment_Completed_Survey__c</name>
+    </fields>
+    <fields>
+        <label><!-- SA Comment: Maintenance Return Visit --></label>
+        <name>SA_Comment_Maintenance_Return_Visit__c</name>
+    </fields>
+    <fields>
+        <label><!-- SA Number &amp; Incomplete Reason --></label>
+        <name>SA_Number_Incomplete_Reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scheduled Date Long --></label>
+        <name>Scheduled_Date_Long__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scheduled End(Time Minute) --></label>
+        <name>Scheduled_End_Time_Minute__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scheduled End(Time) --></label>
+        <name>Scheduled_End_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scheduled Start(DateTime) --></label>
+        <name>Scheduled_Start_DateTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scheduled Start (Date) --></label>
+        <name>Scheduled_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scheduled Start(Time Minute) --></label>
+        <name>Scheduled_Start_Time_Minute__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scheduled Start(Time) --></label>
+        <name>Scheduled_Start_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Report Check --></label>
+        <name>Service_Report_Check__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Report Created Date --></label>
+        <name>Service_Report_Created_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey Description --></label>
+        <name>Survey_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Technician Email --></label>
+        <name>Technician_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Technician --></label>
+        <name>Technician__c</name>
+    </fields>
+    <fields>
+        <label><!-- Timesheet Hours --></label>
+        <name>Timesheet_Hours_New__c</name>
+    </fields>
+    <fields>
+        <label><!-- Timesheet Hours Old --></label>
+        <name>Timesheet_Hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Timesheet Reviewed --></label>
+        <name>Timesheet_Reviewed__c</name>
+    </fields>
+    <fields>
+        <label><!-- UncheckByUser --></label>
+        <name>UncheckByUser__c</name>
+    </fields>
+    <fields>
+        <label><!-- WorkTypeStartOffsetTime --></label>
+        <name>WorkTypeStartOffsetTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Work Type --></label>
+        <name>Work_Type__c</name>
+    </fields>
+    <quickActions>
+        <label><!-- Update Job Status --></label>
+        <name>Change_Appointment_Status</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- SendEmail --></label>
+        <name>SendEmail</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Correct End Time --></label>
+        <name>Update_End_Time</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Incomplete Reason --></label>
+        <name>Update_Incomplete_Reason</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Rejected Reason --></label>
+        <name>Update_Rejected_Reason</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Correct Start Time --></label>
+        <name>Update_Start_Time</name>
+    </quickActions>
+    <validationRules>
+        <errorMessage><!-- If SA Status is &apos;Active&apos;, &apos;Completed&apos; or &apos;Incomplete&apos;, then you can&apos;t change the Arrival Window --></errorMessage>
+        <name>Arrival_window_start_end_cant_changed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please add &quot;Scheduled Start&quot; and &quot;Scheduled End&quot; before changing the SA Status to &apos;Scheduled&apos; --></errorMessage>
+        <name>Check_Before_SA_becomes_Scheduled</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can&apos;t change &quot;Scheduled Start&quot; or &quot;Scheduled End&quot; if SA Status is &apos;Active&apos;, &apos;Completed&apos; or &apos;Incomplete&apos; --></errorMessage>
+        <name>Check_When_SA_ScheduleStartEnd_is_Change</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please confirm your Service Appointment is not scheduled. --></errorMessage>
+        <name>Customer_confirm_only_when_SA_is_schedul</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- New service appointment cannot be created in scheduled or  dispatched statuses. --></errorMessage>
+        <name>FSL__Dont_allow_scheduled_or_dispatched</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please select Time Dependency or Same Day or Same Reosurce . --></errorMessage>
+        <name>FSL__Related_Service_with_time_dependency</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Resource dependency is invalid. Time Dependency can&apos;t be Same Start when same resource is required. --></errorMessage>
+        <name>FSL__Same_Resource_Same_Start</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Both scheduled start and end are required --></errorMessage>
+        <name>FSL__Schedule_End_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Both scheduled start and end are required --></errorMessage>
+        <name>FSL__Schedule_Start_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Gantt color must be in hexadecimal format: (for example: #ffffff) --></errorMessage>
+        <name>FSL__Service_Color_HEX_Format</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please select Related Service. --></errorMessage>
+        <name>FSL__Time_dependency_with_related_service</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- DueDate field is required --></errorMessage>
+        <name>FSL__isDueDateExist</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Duration field is required --></errorMessage>
+        <name>FSL__isDurationExist</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- EarliestStartTime field is required --></errorMessage>
+        <name>FSL__isEarliestStartTimeExist</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Scheduled Start must be earlier than the Scheduled End. --></errorMessage>
+        <name>FSL__startTimeShouldPrecedeEndTime</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Incomplete Reason (Other)&quot; is required. --></errorMessage>
+        <name>Incomplete_Reason_Other_Selected</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Incomplete Reason&quot; is required. --></errorMessage>
+        <name>Incomplete_Status_Selected</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Rejected Reason&quot; is required. --></errorMessage>
+        <name>Rejected_Status_Selected</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- you can only tick &quot;Customer Confirmation&quot; to True if the SA is in &apos;Scheduled&apos; status --></errorMessage>
+        <name>Scheduled_Customer_Confirmation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can&apos;t unpin this Service Appointment. --></errorMessage>
+        <name>User_cant_unpin_the_service_appointment</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- New_Clone --></label>
+        <name>New_Clone</name>
+    </webLinks>
+</CustomObjectTranslation>

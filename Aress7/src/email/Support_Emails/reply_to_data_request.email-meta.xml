@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>basic reply to usage data request</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>reply to data request</name>
+    <style>none</style>
+    <subject>Usage Data Request</subject>
+    <type>text</type>
+</EmailTemplate>

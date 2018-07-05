@@ -1,0 +1,1 @@
+<aura:event access="global" type="APPLICATION" description="Event fired when a component fires something another component should be aware of" />

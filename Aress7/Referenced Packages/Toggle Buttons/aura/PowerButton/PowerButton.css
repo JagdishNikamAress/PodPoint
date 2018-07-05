@@ -1,0 +1,95 @@
+.THIS #power {
+  display : none;
+}
+
+.THIS .power2 {
+  display : none;
+}
+
+.THIS label {
+  display : block;
+  width   : 50px;
+  height  : 50px;
+  border-radius : 50%;
+  position   : relative;
+  background : -webkit-radial-gradient(center , ellipse cover, #ddd 0% , #EEE 80% , #efefef 100%);
+  background : radial-gradient(center , ellipse cover, #ddd 0% , #EEE 80% , #efefef 100%);
+  background : radial-gradient(center , ellipse cover, #ddd 0% , #EEE 80% , #efefef 100%);
+  box-shadow : inset 0 -5px 10px 0 #aaa , inset 0 5px 10px 0 #aaa , 0 0 0 1px #333;
+  cursor     : pointer;
+  text-align  : center;
+  font-size   : 40px;
+  color       : #0f0;
+  line-height : 100px;
+  text-shadow : -1px -1px 0px #FFF , 1px 1px 0px #FFF;
+  transition : all .1s ease-in-out;
+}
+
+.THIS .icon-off {
+  position : absolute;
+  top      : 0;
+  left     : 0;
+  right    : 0;
+  bottom   : 0;
+  margin   : auto;
+  width    : 30px;
+  height   : 30px;
+  border-radius : 50%;
+  background : #eee;
+  box-shadow : inset 0 0 4px 0 #999;
+  transition : all .1s ease-in-out;
+}
+
+.THIS .icon-off:after {
+  display  : block;
+  content  : '';
+  position : absolute;
+  top      : 0; bottom : 0;
+  left     : 0; right  : 0;
+  margin   : auto;
+  width    : 20px;
+  height   : 20px;
+  border-radius : 50%;
+  background    : #eee;
+  box-shadow : 0 0 3px 0 #999;
+  z-index    : 2;
+}
+
+.THIS .icon-off:before {
+  display  : block;
+  content  : '';
+  position : absolute;
+  top      : -5px;
+  left     : 0; right  : 0;
+  margin   : auto;
+  width    : 5px;
+  height   : 20px;
+  background : #EEE;
+  box-shadow : inherit;
+  border-radius : 10px;
+  border-style  : solid;
+  border-width  : 0 3px 0;
+  border-color  : #EEE;
+  z-index    : 3;
+  transition : all .1s ease-in-out;
+}
+
+.THIS #power:checked + label {
+  
+  background : -webkit-radial-gradient(center , ellipse cover, #efefef 0% , #EEE 80% , #FFF 100%);
+  background :    -moz-radial-gradient(center , ellipse cover, #efefef 0% , #EEE 80% , #FFF 100%);
+  background :      radial-gradient(center , ellipse cover, #fefefe 0% , #EEE 80% , #FFF 100%);
+  box-shadow : inset 0 -5px 10px 0 #d0d5eb , inset 0 5px 10px 0 #FFF , 0 0 0 1px #333;
+  transition : all .1s linear;
+  
+}
+
+.THIS #power:checked + label .icon-off {
+  background : #d6f804;
+  box-shadow : inset 0 0 5px 0 #777;
+  transition : all .1s linear;
+} 
+
+.THIS #power:checked + label .icon-off:after {
+  box-shadow : 0 0 5px 0 #777;
+}

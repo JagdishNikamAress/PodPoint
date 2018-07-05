@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>Overdue Tasks Container for Inbox Component</aura:description>
+	<aura:example name="internalUse" ref="exampleComponentName" label="Label">
+		
+	</aura:example>
+</aura:documentation>

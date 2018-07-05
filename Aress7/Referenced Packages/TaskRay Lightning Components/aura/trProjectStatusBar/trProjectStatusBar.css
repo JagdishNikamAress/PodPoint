@@ -1,0 +1,179 @@
+.THIS .header p {
+    font-family: tr-SalesforceSans-Light;
+    display: inline-block;
+    font-size: 18px;
+    vertical-align: bottom;
+}
+
+.THIS .taskray-project-icon{
+  background-color: #44a2b8 !important;
+  margin-right: 10px;
+  margin-bottom: 2px;
+  padding: 4px !important;
+  padding-top: 0px !important;
+  padding-bottom: 5px !important;
+}
+
+.THIS .projectName {
+    font-size: 14px;
+    color: #0070D2;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.THIS button.project-name {
+    max-width: calc(100% - 70px);
+}
+
+.THIS .toggleButtons {
+    float: right;
+    margin-top: 5px;
+}
+
+.THIS .inactive {
+   opacity: 0.25;
+}
+
+.THIS .projectBar {
+    width: 100%;
+}
+
+.THIS p {
+    margin: 0px;
+    font-size: 13px;
+}
+
+.THIS .arrows {
+    display: inline;
+    vertical-align: top;
+    margin-top: -5px;
+}
+
+.THIS .checkmark {
+    margin: 0px;
+}
+
+.THIS .arrows {
+    position: relative;
+    bottom: 3px;
+}
+
+.THIS .uiBlock {
+    border: none !important;
+    padding: 0px !important;
+    color: #006eb3 !important;
+    font-size: 18px !important;
+    text-align: left;
+    background-color: transparent !important;
+}
+
+.THIS button.uiBlock.uiButton.default {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    position: relative;
+    max-width: calc(100% - 83px);
+}
+
+.THIS .projectImage {
+    margin: 0%;
+}
+
+.THIS .percentValue {
+    font-size: 20px;
+    margin-right: 2%;
+}
+
+.THIS .true {
+    color: white;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    order: 1;
+    display: inline-block;
+    height: 100%;
+    line-height: 250%;
+    background-color: #4BCA81;
+    text-align: center;
+}
+
+.THIS .false {
+    color: transparent;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    order: 2;
+    display: inline-block;
+    height: 100%;
+    line-height: 250%;
+    background-color: #b0b0b0;
+    text-align: center;
+}
+
+.THIS .faces {
+    order: 4;
+    margin-left: 1%;
+}
+
+.THIS .faces img {
+    height: 40px;
+}
+
+.THIS img {
+    margin: 2%;
+}
+
+.THIS .start, .THIS .end {
+    font-size: 13px;
+}
+
+.THIS .end {
+    float: right;
+    border-right: 40px solid transparent;
+    margin-right: 1%;
+}
+
+.THIS .addTask {
+    color: #006eb3;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.THIS .noResults {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+.THIS .nothingToRender, .THIS .noProjects, .THIS .noRecordId {
+    text-align: center;
+    color: #54698D;
+    padding: 10px 0px;
+}
+
+.THIS .false .zero {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    margin-top: 3px;
+}
+
+.THIS .percent {
+    position: absolute;
+    margin-top: 3px;
+}
+
+.THIS .percentage {
+    position: absolute;
+    margin-top: 3px;
+}
+
+.THIS.disappear {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    transition: 2s ease-in-out;
+    -moz-transition: 2s ease-in-out;
+    -webkit-transition: 2s ease-in-out;
+}

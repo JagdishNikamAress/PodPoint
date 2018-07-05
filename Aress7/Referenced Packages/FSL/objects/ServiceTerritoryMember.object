@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Internal_SLR_HomeAddress_Geolocation__c</fullName>
+        <deprecated>false</deprecated>
+        <displayLocationInDecimal>true</displayLocationInDecimal>
+        <externalId>false</externalId>
+        <label>Internal SLR HomeAddress Geolocation</label>
+        <required>false</required>
+        <scale>6</scale>
+        <trackHistory>false</trackHistory>
+        <type>Location</type>
+    </fields>
+    <validationRules>
+        <fullName>Secondary_STM</fullName>
+        <active>true</active>
+        <errorConditionFormula>(ISPICKVAL(TerritoryType, &quot;Secondary&quot;) &amp;&amp; 
+    ( ( ( ISCHANGED(Longitude) || ISCHANGED(Latitude) ) &amp;&amp; ( (NOT(ISBLANK(Longitude))) || (NOT(ISBLANK(Latitude))) )) || 
+      (NOT(ISBLANK(Internal_SLR_HomeAddress_Geolocation__Latitude__s))) || 
+      (NOT(ISBLANK(Internal_SLR_HomeAddress_Geolocation__Longitude__s))) || 
+      (NOT(ISBLANK( Street ))) || 
+      (NOT(ISBLANK( City ))) ||
+      (NOT(ISBLANK( Country ))) ||
+      (NOT(ISBLANK( State ))) || 
+      (NOT(ISBLANK(  PostalCode  )))
+    )
+ )</errorConditionFormula>
+        <errorMessage>Cannot save Service Territory Member of type secondary with Operating Hours or Address</errorMessage>
+    </validationRules>
+</CustomObject>

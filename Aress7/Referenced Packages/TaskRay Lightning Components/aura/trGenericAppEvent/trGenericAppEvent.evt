@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Generic Application Event">
+  <aura:attribute name="actionType" type="String"/>
+  <aura:attribute name="payload" type="Object"/>
+</aura:event>

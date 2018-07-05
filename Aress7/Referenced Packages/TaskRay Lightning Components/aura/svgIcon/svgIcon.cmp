@@ -1,0 +1,15 @@
+<aura:component access="global">
+  <aura:attribute name="svgPath"        default="" type="String" access="global" description="the path for the icon in the static resource, this will be use in a SVG use tag" />
+  <aura:attribute name="iconRoot"       default="{!$Resource.TASKRAY_LTNG__slds100+'/assets/icons'}" type="String"  access="global" description="the path for the root directory for sprites" />
+  <aura:attribute name="name"           default="" type="String" access="global" description="Symbol name of icon" />
+  <aura:attribute name="class"          default="" type="String" access="global" description="the class of this SVG tag, can be use for CSS purpose" />
+  <aura:attribute name="containerClass" default="" type="String" access="global" description="Container class name for span container of icon" />
+  <aura:attribute name="category"       default="" type="String" access="global" description="Category of icon- action, standard, utility etc." />
+  <aura:attribute name="size"           default="" type="String" access="global" description="Size of icon-- small, medium, large" />
+  <aura:attribute name="assistiveText"  default="" type="String" access="global" description="Description name of icon" />
+  <aura:attribute name="isButton"  default="false" type="Boolean" access="global" description="Is this a button, swaps out slds classes" />
+  <aura:attribute name="fillOverride"  default="" type="String" access="global" description="Overrides the fill color on the svg element, useful for dynamic icons " />
+  <span aura:id="container" class="{!v.containerClass}">
+    <span aura:id="assistiveText" class="slds-assistive-text">{!v.assistiveText}</span>
+  </span>
+</aura:component>

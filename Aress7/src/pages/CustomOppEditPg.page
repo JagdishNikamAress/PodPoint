@@ -1,0 +1,138 @@
+<apex:page standardController="Opportunity" extensions="CustomOppEditCtrl" tabStyle="Opportunity">
+     <script type="text/javascript">
+        function addressCopy(checked) {
+            if(checked){
+                document.getElementById('{!$Component.mainfrm.thepb.add.s0}').value = document.getElementById('{!$Component.mainfrm.thepb.add.b0}').value;
+                document.getElementById('{!$Component.mainfrm.thepb.add.s1}').value = document.getElementById('{!$Component.mainfrm.thepb.add.b1}').value;
+                document.getElementById('{!$Component.mainfrm.thepb.add.s2}').value = document.getElementById('{!$Component.mainfrm.thepb.add.b2}').value;
+                document.getElementById('{!$Component.mainfrm.thepb.add.s3}').value = document.getElementById('{!$Component.mainfrm.thepb.add.b3}').value;
+            } else {
+                document.getElementById('{!$Component.mainfrm.thepb.add.s0}').value = '';
+                document.getElementById('{!$Component.mainfrm.thepb.add.s1}').value = '';
+                document.getElementById('{!$Component.mainfrm.thepb.add.s2}').value = '';
+                document.getElementById('{!$Component.mainfrm.thepb.add.s3}').value = '';
+            }
+            return false;
+        }
+    </script>
+    <apex:sectionHeader title="Opportunity Edit" subtitle="New Opportunity"/>
+    <apex:form id="mainfrm">
+        <apex:pageblock title="Opportunity Edit" id="thepb">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save & Add Product " action="{!doSave}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageblockSection title="Opportunity Information" collapsible="false" rendered="{!IF(OR(recType == 'Home Charge',recType == 'Home Charge Norway'),true,false)}">
+                <apex:inputField value="{!opp.Name}"/>
+                <apex:outputText value="{!$User.FirstName} {!$User.LastName}" label="Opportunity Owner"/>
+                <apex:inputField value="{!opp.AccountId}" required="true"/>
+                <apex:inputField value="{!opp.closedate}"/>
+                <apex:inputField value="{!opp.Ordering_Tool_URL__c}"/>
+                <apex:inputHidden value="{!opp.StageName}"/>
+                <apex:inputField value="{!opp.Dealership__c}"/>
+                <apex:inputField value="{!opp.Probability}" required="false"/>
+                <apex:inputField value="{!opp.LeadSource}"/>
+                <apex:inputField value="{!opp.Amount}"/>
+                <apex:inputField value="{!opp.Ordering_Tool_Customer_URL__c}"/>
+                <apex:outputField value="{!opp.recordtypeid}"/>
+                <apex:inputField value="{!opp.Current_Step__c}"/>
+                <apex:inputField value="{!opp.Sockets__c}"/>
+                <apex:inputField value="{!opp.Reason_for_Closing__c}"/>
+                <apex:inputField value="{!opp.Workplace_Grant__c}"/>
+                <apex:pageblockSectionItem ></apex:pageblockSectionItem>
+                <apex:inputField value="{!opp.Install_Hours__c}"/>
+            </apex:pageblockSection>
+            
+            <!-- FOR Online Payment -->
+            <apex:pageblockSection title="Opportunity Information" collapsible="false" rendered="{!IF(recType == 'Online Payment',true,false)}">
+                <apex:inputField value="{!opp.Name}" id="nme"/>
+                <apex:pageblocksectionItem >
+                    <apex:outputLabel value="Account Name"/>
+                    <apex:outputPanel >
+                        <apex:actionRegion >
+                            <apex:inputField value="{!opp.AccountId}" required="true">
+                                <apex:actionSupport event="onchange" action="{!populateAddress}" rerender="billingadd,conts,nme" />
+                            </apex:inputField>
+                        </apex:actionRegion>
+                    </apex:outputPanel>
+                </apex:pageblocksectionItem>
+                <apex:outputText value="{!$User.FirstName} {!$User.LastName}" label="Opportunity Owner"/>           
+                <apex:inputField value="{!opp.closedate}"/>
+                <apex:inputField value="{!opp.Phase__c}" rendered="{!IF(opp.Recordtype.Name == 'Bid',True,False)}"/>
+            </apex:pageblockSection>
+            
+           
+            
+            <!-- FOR Commercial/ -->
+            <apex:pageblockSection title="Opportunity Information" collapsible="false" rendered="{!IF(recType == 'Commercial',true,false)}">
+                <apex:inputField value="{!opp.Name}"/>
+                <apex:outputText value="{!$User.FirstName} {!$User.LastName}" label="Opportunity Owner"/>
+                <apex:pageblocksectionItem >
+                    <apex:outputLabel value="Account Name"/>
+                    <apex:outputPanel >
+                        <apex:actionRegion >
+                            <apex:inputField value="{!opp.AccountId}" required="true">
+                                <apex:actionSupport event="onchange" action="{!populateAddress}" rerender="add,conts" />
+                            </apex:inputField>
+                        </apex:actionRegion>
+                    </apex:outputPanel>
+                </apex:pageblocksectionItem>
+                <apex:inputField value="{!opp.closedate}"/>
+                <apex:outputField value="{!opp.recordtypeid}"/>
+                <apex:inputField value="{!opp.Workplace_Grant__c}"/>
+            </apex:pageblockSection>
+            
+            <!-- FOR Bid/ -->
+            <apex:pageblockSection title="Opportunity Information" collapsible="false" rendered="{!IF(recType == 'Bid',true,false)}">
+                <apex:inputField value="{!opp.Name}"/>
+                <apex:outputText value="{!$User.FirstName} {!$User.LastName}" label="Opportunity Owner"/>
+                <apex:pageblocksectionItem >
+                    <apex:outputLabel value="Account Name"/>
+                    <apex:outputPanel >
+                        <apex:actionRegion >
+                            <apex:inputField value="{!opp.AccountId}" required="true">
+                                <apex:actionSupport event="onchange" action="{!populateAddress}" rerender="add,conts" />
+                            </apex:inputField>
+                        </apex:actionRegion>
+                    </apex:outputPanel>
+                </apex:pageblocksectionItem>
+                <apex:inputField value="{!opp.closedate}"/>
+                <apex:outputField value="{!opp.recordtypeid}"/>
+                 <apex:inputField value="{!opp.Phase__c}"/> 
+                <apex:inputField value="{!opp.Workplace_Grant__c}"/>
+            </apex:pageblockSection>
+            
+            
+            <apex:pageblockSection title="Additional Information" collapsible="false" rendered="{!IF(OR(recType == 'Commercial',recType == 'Bid',recType == 'Project'),true,false)}">
+                <apex:outputField value="{!opp.Account_Classification__c}"/>
+                <apex:inputField value="{!opp.Opportunity_Classification__c}"/>
+                <apex:outputField value="{!opp.Route_to_Market__c}"/>
+                <apex:inputField value="{!opp.Opportunity_Route_to_Market__c}"/>
+                 <apex:outputField value="{!opp.Account_Type__c}"/>
+                <apex:inputField value="{!opp.Opportunity_Type__c}"/>
+                <apex:inputField value="{!opp.Description}"/>
+                
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Adddress Information" collapsible="false" rendered="{!IF(OR(recType == 'Commercial',recType == 'Bid'),true,false)}" id="add">
+                <apex:inputField value="{!opp.Billing_Street__c}" required="true" id="b0"/>
+                <apex:inputField value="{!opp.Shipping_Street__c}" required="true" id="s0"/>
+                <apex:inputField value="{!opp.Billing_City__c}" required="true" id="b1"/>
+                <apex:inputField value="{!opp.Shipping_City__c}" required="true" id="s1"/>
+                <apex:inputField value="{!opp.Billing_Country_Picklist__c}" required="true" id="b2"/>
+                <apex:inputField value="{!opp.Shipping_Country_Picklist__c}" required="true" id="s2"/>
+                <apex:inputField value="{!opp.Billing_Postal_Code__c}" required="true" id="b3"/>
+                <apex:inputField value="{!opp.Shipping_Postal_Code__c}" required="true" id="s3"/>
+                <apex:inputCheckbox onclick="addressCopy(this.checked)" label="Copy To Shipping Address"/>
+            </apex:pageblockSection>
+           
+            <apex:outputPanel id="conts">
+                <apex:pageblockSection title="Primary Contact" collapsible="false" rendered="{!IF(AND(OR(recType == 'Commercial',recType == 'Bid',recType == 'Online Payment'),b),true,false)}">
+                    <apex:inputField value="{!ocr.contactid}"/>
+                    <apex:inputField value="{!ocr.Role}" required="true"/>
+                </apex:pageblockSection>
+            </apex:outputPanel>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

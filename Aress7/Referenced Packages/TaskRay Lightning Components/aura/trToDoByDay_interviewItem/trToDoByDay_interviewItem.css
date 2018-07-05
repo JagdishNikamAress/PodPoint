@@ -1,0 +1,62 @@
+.THIS .todo-by-day-interview_header{
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.THIS .todo-by-day-interview-item-top_name{
+  /*(line-height: 1.5;*/
+}
+
+.THIS .todo-by-day-interview_name{
+  text-align: left;
+  width: calc(100% - 54px);
+  line-height: 1.5;
+  font-size: 13px;
+  float: left;
+  margin-top: 4px;
+  margin-left: 0.25rem;
+}
+
+.THIS .todo-by-day-interview_name button{
+  line-height: 1;
+}
+
+.THIS .expandable-chevron{
+  float: left;
+  margin-left: 0.5rem;
+}
+
+.THIS .expandable-chevron svg{
+  fill: #9faab5;
+}
+
+.THIS .projectName{
+  line-height: 1;
+}
+
+.THIS .taskGroupName {
+  color: #54698D;
+  font-size: 12px;
+}
+
+.THIS .projectGroupNameDivider {
+  color: #9faab5;
+}
+
+.THIS .detailedInfo{
+  margin-left: 16px;
+}
+
+.THIS .owner-name--button{
+  line-height: 1;
+  font-size: 13px;
+}
+
+.THIS .due_date{
+  font-size: 12px;
+}
+
+.THIS .overdue_text{
+  color: #c23934;
+}

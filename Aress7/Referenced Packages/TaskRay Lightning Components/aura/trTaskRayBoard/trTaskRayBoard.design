@@ -1,0 +1,4 @@
+<design:component label="TaskRay Board">
+  <design:attribute name="customURL" label="Custom URL" />
+  <design:attribute name="customMinHeight" label="Custom Min Height" default="400px" />
+</design:component>
