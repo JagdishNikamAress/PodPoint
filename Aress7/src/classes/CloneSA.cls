@@ -66,6 +66,5 @@ global class CloneSA {
         //System.debug('m1Id -> '+m1Id);
         //return String.valueOf( new PageReference('/'+m1.Id).getUrl());
         return m1.Id;
-        //this is just Eclipse test
     }
 }
