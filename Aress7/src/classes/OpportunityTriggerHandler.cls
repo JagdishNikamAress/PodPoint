@@ -319,7 +319,7 @@ public class OpportunityTriggerHandler {
                 }
                 
                 
-                if((opp.recordtype.name == 'Commercial' || opp.recordtype.name == 'Online Payment' || opp.recordtype.name == 'Bid'))
+                if((opp.recordtype.name == 'Commercial' || opp.recordtype.name == 'Online Payment' || opp.recordtype.name == 'Bid') && (opp.account.type == 'Customer' || (opp.account.type != 'Customer' && opp.quotes.size()>0)))
                 {
                     if(hasManagedInstallProduct){
                         //mapCaseToCreate.put(i,createInstallCase(opp.AccountId,opp.id,opp.Name,oppCaseMap.get(opp.id),opp.quotes));

@@ -165,7 +165,8 @@ trigger OpportunityTrigger on Opportunity (after update,after insert,before upda
             //The OR condition is added to handle the copndition when stage becomes 'Qualified' for 'Home charge' record type on Opportunity.
             if((o.StageName == 'Won' && Trigger.oldMap.get(o.Id).stagename != o.StageName) ||
                 (o.StageName == 'Qualified' && Trigger.oldMap.get(o.Id).stagename != o.StageName && o.RecordTypeId ==hcRecordTypeId) ||
-                (o.StageName == 'Install Requested' && Trigger.oldMap.get(o.Id).stagename != o.StageName && o.RecordTypeId ==hcRecordTypeId)){
+                (o.StageName == 'Install Requested' && Trigger.oldMap.get(o.Id).stagename != o.StageName && o.RecordTypeId ==hcRecordTypeId)||
+              (o.StageName == 'Install Requested' && Trigger.oldMap.get(o.Id).stagename != o.StageName && o.RecordTypeId ==commRecordTypeId )){
                     System.debug('Inside If=>WON');
                     opptyids.add(o.id);
             }
