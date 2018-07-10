@@ -70,6 +70,9 @@ public class SeriveAppointmentTriggerTest {
         sa.ArrivalWindowEndTime=System.today()+1;
         insert sa;
         test.startTest();
+         sa.SchedStartTime=System.now().addminutes(100);
+        sa.SchedEndTime=System.now().addminutes(200);
+        update sa;
         // sa.Customer_Confirmation__c=true;
         //   update sa;
         delete sa;
@@ -133,7 +136,7 @@ public class SeriveAppointmentTriggerTest {
         wo1.Status='Unassigned';
         insert wo1;
          WorkOrder wo2= new WorkOrder();
-        wo2.WorkTypeId=wt2.Id;
+        wo2.WorkTypeId=wt1.Id;
         wo2.AccountId=acc.Id;
         wo2.CaseId=cs.Id;
         wo2.Status='Unassigned';
@@ -152,8 +155,8 @@ public class SeriveAppointmentTriggerTest {
         sa.SchedStartTime=System.today();
         sa.SchedEndTime=System.today()+1;
         sa.ParentRecordId=wo1.id;
-        sa.ArrivalWindowStartTime=System.today();
-        sa.ArrivalWindowEndTime=System.today()+1;
+   //     sa.ArrivalWindowStartTime=System.today();
+   //     sa.ArrivalWindowEndTime=System.today()+1;
         
         insert sa;
         
@@ -230,7 +233,7 @@ public class SeriveAppointmentTriggerTest {
         insert wt1;
 
         WorkOrder wo1= new WorkOrder();
-        wo1.WorkTypeId=wt1.Id;
+        wo1.WorkTypeId=wt4.Id;
         wo1.AccountId=acc.Id;
         wo1.CaseId=cs.Id;
         wo1.Status='Unassigned';

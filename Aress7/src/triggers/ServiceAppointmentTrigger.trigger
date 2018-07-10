@@ -463,10 +463,11 @@ sa.addError('Scheduled Start time can not be in 14 to 14:59');
                 }
             }
             if(!parents1.isEmpty()){
-                woMap1 = new Map<Id,WorkOrder>([SELECT Id,Scheduled_Start_Date_Time__c,(Select SchedStartTime,Scheduled_Start_Date__c,Arrival_Window_End_Time__c,Arrival_Window_Start_Time__c from serviceappointments order by SchedStartTime limit 1), Arrival_Window_End_Time__c, Arrival_Window_Start_Time__c, Scheduled_Start_Date__c FROM WorkOrder where Id in : parents1]);
+                woMap1 = new Map<Id,WorkOrder>([SELECT Id,Scheduled_Start_Date_Time__c,(Select SchedStartTime,Scheduled_Start_Date__c,Arrival_Window_End_Time__c,Arrival_Window_Start_Time__c from serviceappointments where SchedStartTime != null AND (status = 'Scheduled' OR status = 'Confirmed')  order by SchedStartTime  limit 1), Arrival_Window_End_Time__c, Arrival_Window_Start_Time__c, Scheduled_Start_Date__c FROM WorkOrder where Id in : parents1]);
                 if(!woMap1.isEmpty()){
                     for(ServiceAppointment sa: trigger.new){
                         for(WorkOrder wo: woMap1.values()){
+                            If(!wo.ServiceAppointments.isEmpty()){                            
                             if(wo.ServiceAppointments[0].id==sa.Id){
                                 List<String> scheduleStartdatelist;
                                 if(sa.ParentRecordId==wo.id){
@@ -477,6 +478,7 @@ sa.addError('Scheduled Start time can not be in 14 to 14:59');
                                     woList2.add(wo);
                                 }
                             }
+                        }
                         }
                     }
                     //  if(!woList1.isEmpty()){
@@ -494,21 +496,16 @@ sa.addError('Scheduled Start time can not be in 14 to 14:59');
                 }
             }
             if(!parents1.isEmpty()){
-                woMap1 = new Map<Id,WorkOrder>([SELECT Id,Scheduled_Start_Date_Time__c,(Select SchedStartTime,Scheduled_Start_Date__c,Arrival_Window_End_Time__c,Arrival_Window_Start_Time__c from serviceappointments order by SchedStartTime limit 1), Arrival_Window_End_Time__c, Arrival_Window_Start_Time__c, Scheduled_Start_Date__c FROM WorkOrder where Id in : parents1]);
+                woMap1 = new Map<Id,WorkOrder>([SELECT Id,Scheduled_Start_Date_Time__c,(Select SchedStartTime,Scheduled_Start_Date__c,Arrival_Window_End_Time__c,Arrival_Window_Start_Time__c from serviceappointments where SchedStartTime != null AND (status = 'Scheduled' OR status = 'Confirmed')  order by SchedStartTime  limit 1), Arrival_Window_End_Time__c, Arrival_Window_Start_Time__c, Scheduled_Start_Date__c FROM WorkOrder where Id in : parents1]);
                 if(!woMap1.isEmpty()){
-                    for(ServiceAppointment sa: trigger.new){
-                        for(WorkOrder wo: woMap1.values()){
-                            if(wo.ServiceAppointments[0].id==sa.Id){
-                                List<String> scheduleStartdatelist;
-                                if(sa.ParentRecordId==wo.id){
-                                    wo.Arrival_Window_End_Time__c=String.valueOf(sa.Arrival_Window_End_Time__c);
-                                    wo.Arrival_Window_Start_Time__c=String.valueOf(sa.Arrival_Window_Start_Time__c);
-                                    wo.Scheduled_Start_Date_Time__c=sa.SchedStartTime;
-                                    wo.Scheduled_Start_Date__c =sa.Scheduled_Start_Date__c;
-                                    woList3.add(wo);
-                                }
-                            }
-                        }
+                    for(WorkOrder wo: woMap1.values()){
+                        if(wo.serviceappointments.size()>0){
+                            wo.Arrival_Window_End_Time__c=String.valueOf(wo.ServiceAppointments[0].Arrival_Window_End_Time__c);
+                            wo.Arrival_Window_Start_Time__c=String.valueOf(wo.ServiceAppointments[0].Arrival_Window_Start_Time__c);
+                            wo.Scheduled_Start_Date_Time__c=wo.ServiceAppointments[0].SchedStartTime;
+                            wo.Scheduled_Start_Date__c =wo.ServiceAppointments[0].Scheduled_Start_Date__c;
+                            woList3.add(wo);
+                        } 
                     }
                     if(!woList3.isEmpty()){
                         update woList3;}
